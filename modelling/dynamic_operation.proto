@@ -1,0 +1,70 @@
+syntax = "proto3";
+//Information model for the long_term and mid_term operation of local energy management system.
+
+message local_sources {
+    int32 area = 1; // The area information
+    int32 time_stamp = 2; //The model generated time
+
+    //The defination of diesel generators
+    message DgType {
+        int32 ID = 1;
+        repeated bool GEN_STATUS = 2;
+        repeated int32 PG = 3;
+        repeated int32 RG = 4;
+        repeated bool COMMAND_STATUS = 5;
+    }
+
+    //The defination of energy storage systems
+    message EssType {
+        int32 ID = 1;
+        repeated bool ESS_STATUS = 2;
+        repeated float SOC = 3;
+        repeated int32 PG = 4;
+        repeated int32 RG = 5;
+    }
+
+    //The defination of pv
+    message PvType {
+        repeated int32 NPV = 1;
+        repeated float PG = 2;
+        repeated int32 COMMAND_CURT = 3;
+    }
+    //The defination of wind turbine
+    message WpType {
+        repeated int32 NWP = 1;
+        repeated float PG = 2;
+        repeated int32 COMMAND_CURT = 3;
+    }
+    //The defination of ac load
+    message Load_AC_Type {
+        int32 ID = 1;
+        repeated bool STATUS = 2;
+        repeated int32 PD = 3;
+        repeated float COMMAND_SHED = 4;
+    }
+
+    //The defination of dc load
+    message Load_DC_Type {
+        int32 ID = 1;
+        repeated bool STATUS = 2;
+        repeated int32 PD = 3;
+        repeated float COMMAND_SHED = 4;
+    }
+
+    //The defination of convertor
+    message Convertor_Type {
+        int32 ID = 1;
+        repeated bool STATUS = 2;
+        repeated float PAC2DC = 3;
+        repeated float PDC2AC = 4;
+    }
+
+    repeated DgType dg = 3;
+    repeated EssType ess = 4;
+    repeated PvType pv = 5;
+    repeated WpType wp = 6;
+    repeated Load_AC_Type load_ac = 7;
+    repeated Load_DC_Type load_dc = 8;
+    repeated Convertor_Type bic = 9;
+    int32 TIME_STAMP_COMMAND = 10;
+}

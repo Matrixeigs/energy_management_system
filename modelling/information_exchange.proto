@@ -1,0 +1,70 @@
+syntax = "proto3";
+// A nested information structure is developed for this
+message informaiton_exchange {
+    int32 AREA = 1;
+    int32 TIME_STAMP = 2;
+
+    //The defination of diesel generators
+    message DgType {
+        int32 DG_ID = 1;
+        bool GEN_STATUS = 2;
+        int32 PG = 3;
+        int32 QG = 4;
+        int32 RG = 5;
+    }
+
+    //The defination of energy storage systems
+    message EssType {
+        int32 ESS_ID = 1;
+        bool ESS_STATUS = 2;
+        float SOC = 3;
+        int32 PG = 4;
+        int32 RG = 5;
+    }
+
+    //The defination of pv
+    message PvType {
+        int32 NPV = 1;
+        float PG = 2;
+        int32 COMMAND_CURT = 3;
+    }
+
+    //The defination of wind turbine
+    message WpType {
+        int32 NWP = 1;
+        float PG = 2;
+        int32 COMMAND_CURT = 3;
+    }
+
+    //The defination of ac critical load
+    message Load_AC_Type {
+        float PD = 1;
+        float QD = 2;
+        float COMMAND_SHED = 3;
+    }
+
+    //The defination of dc load
+    message Load_DC_Type {
+        float PD = 1;
+        float COMMAND_SHED = 2;
+    }
+
+    //The defination of convertor
+    message Convertor_Type {
+        bool STATUS = 1;
+        float PAC2DC = 2;
+        float PDC2AC = 3;
+    }
+
+    repeated DgType dg = 3;
+    repeated EssType ess = 4;
+    repeated PvType pv = 5;
+    repeated WpType wp = 6;
+    repeated Load_AC_Type load_ac = 7;
+    repeated Load_DC_Type load_dc = 8;
+    repeated Convertor_Type bic = 9;
+
+    int32 PMG = 10;
+    float V_DC = 11;
+    int32 TIME_STAMP_COMMAND = 12;
+}

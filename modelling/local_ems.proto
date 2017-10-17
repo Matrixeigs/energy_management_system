@@ -1,0 +1,109 @@
+syntax = "proto3";
+//Information model to represent the local sources within each microgrid
+//The static information of each equipment (technical and economic information)
+
+message local_sources_model {
+    int32 area = 1; // The area information
+    int32 time_stamp = 2; //The model generated time
+
+    //The defination of diesel generators
+    message DgType {
+        int32 dg_id = 1;
+        bool GEN_STATUS = 2;
+        int32 PMIN = 3;
+        int32 PMAX = 4;
+        int32 QMIN = 5;
+        int32 QMAX = 6;
+        int32 SMAX = 7;
+        int32 RAMP_AGC = 8;
+        int32 RAMP_10 = 9;
+        int32 COST_START_UP = 10;
+        int32 COST_SHUT_DOWN = 11;
+        int32 COST_MODEL = 12;
+        int32 NCOST = 13;
+        repeated float COST = 14;
+    }
+
+    //The defination of energy storage systems
+    message EssType {
+        int32 ess_id = 1;
+        bool ESS_STATUS = 2;
+        int32 CAP = 3;
+        int32 PMAX_DIS = 4;
+        int32 PMAX_CH = 5;
+        float EFF_DIS = 6;
+        float EFF_CH = 7;
+        float SOC_MAX = 8;
+        float SOC_MIN = 9;
+        int32 COST_MODEL = 10;
+        int32 NCOST_DIS = 11;
+        repeated float COST_DIS = 12;
+        int32 NCOST_CH = 13;
+        repeated float COST_CH = 14;
+    }
+
+    //The defination of pv
+    message PvType {
+        int32 NPV = 1;
+        float TYPE = 2;
+        int32 GEN_STATUS = 3;
+        int32 PMAX = 4;
+        int32 PMIN = 5;
+        int32 QMAX = 6;
+        int32 QMIN = 7;
+        int32 SMAX = 8;
+        int32 COST = 9;
+    }
+    //The defination of wind turbine
+    message WpType {
+        int32 NWP = 1;
+        float TYPE = 2;
+        int32 GEN_STATUS = 3;
+        int32 PMAX = 4;
+        int32 PMIN = 5;
+        int32 QMAX = 6;
+        int32 QMIN = 7;
+        int32 SMAX = 8;
+        int32 COST = 9;
+    }
+    //The defination of ac load
+    message Load_AC_Type {
+        bool STATUS = 1;
+        int32 PDMAX = 2;
+        int32 PDMIN = 3;
+        bool FLEX = 4;
+        int32 MODEL = 5;
+        int32 COST_MODEL = 6;
+        int32 NCOST = 7;
+        repeated float COST = 8;
+    }
+
+    //The defination of dc load
+    message Load_DC_Type {
+        bool STATUS = 1;
+        int32 PDMAX = 2;
+        int32 PDMIN = 3;
+        bool FLEX = 4;
+        int32 MODEL = 5;
+        int32 COST_MODEL = 6;
+        int32 NCOST = 7;
+        repeated float COST = 8;
+    }
+
+    //The defination of convertor
+    message Convertor_Type {
+        bool STATUS = 1;
+        float CAP = 2;
+        float EFF_AC2DC = 3;
+        float EFF_DC2AC = 4;
+
+    }
+
+    repeated DgType dg = 3;
+    repeated EssType ess = 4;
+    repeated PvType pv = 5;
+    repeated WpType wp = 6;
+    repeated Load_AC_Type load_ac = 7;
+    repeated Load_DC_Type load_dc = 8;
+    repeated Convertor_Type bic = 9;
+}
