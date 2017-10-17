@@ -8,7 +8,7 @@
 # 3) Zeromq
 # 4) APScheduler
 # 5) Gurobi*(commercial use only)
-# 6)
+# 6) Mosek*(Commercial use only)
 
 from apscheduler.schedulers.blocking import BlockingScheduler  # Time scheduler
 import configuration.configuration_database as db_configuration  # The settings of databases
