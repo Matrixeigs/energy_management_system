@@ -13,7 +13,9 @@ from data_management.information_management import information_receive_send
 from start_up import static_information
 from optimal_power_flow.main import short_term_operation
 from utils import Logger
+
 logger = Logger("Local_ems")
+
 
 def run():
     # Define the local models

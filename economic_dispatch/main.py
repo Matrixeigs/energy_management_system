@@ -18,7 +18,6 @@ from utils import Logger
 logger_uems = Logger("Middle_term_dispatch_UEMS")
 logger_lems = Logger("Middle_term_dispatch_UEMS")
 
-
 class middle_term_operation():
     ##short term operation for ems
     # Two modes are proposed for the local ems and
@@ -216,7 +215,7 @@ def update(*args):
 
 
 def int_list(*args):
-    # The round operation for list types
+    # The round operation for list types, due to the application adjustable types
     x = args[0]
     nx = len(x)
     y = []

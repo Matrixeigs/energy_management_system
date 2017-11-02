@@ -4,7 +4,6 @@
 from numpy import Inf, ones
 from gurobipy import *
 
-
 def milp_gurobi(c, Aeq=None, beq=None, A=None, b=None, xmin=None, xmax=None, vtypes=None, opt=None):
     """Branch and bound method for mix_integer linear programming (MILP).
         Minimize a linear objective function, subject to optional linear constraints and variable bounds::
