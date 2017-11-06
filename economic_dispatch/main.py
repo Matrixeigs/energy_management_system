@@ -96,7 +96,7 @@ class middle_term_operation():
         information_send_thread.join()
         database_operation__uems.join()
 
-    def short_term_operation_lems(*args):
+    def middle_term_operation_lems(*args):
         from data_management.database_management import database_operation
         # Short term operation for local ems
         # The following operation sequence

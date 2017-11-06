@@ -36,6 +36,7 @@ def run():
     ## Import information model
     import modelling.information_exchange_pb2 as info_exchange
     import optimal_power_flow.main
+    import economic_dispatch.main
     logger = Logger('Universal_ems_main')
     db_str = db_configuration.universal_database["db_str"]
     engine = create_engine(db_str, echo=False)
@@ -62,14 +63,19 @@ def run():
     info = info_exchange.informaiton_exchange()
 
     # Generate different processes
-    logger.info("The optimal power flow process in UEMS starts!")
-    sched_short_term = BlockingScheduler()  # The schedulor for the optimal power flow
-    sched_short_term.add_job(optimal_power_flow.main.short_term_operation.short_term_operation_uems, 'cron',
+    # logger.info("The optimal power flow process in UEMS starts!")
+    # sched_short_term = BlockingScheduler()  # The schedulor for the optimal power flow
+    # sched_short_term.add_job(optimal_power_flow.main.short_term_operation.short_term_operation_uems, 'cron',
+    #                          args=(universal_models, local_models, socket_upload, socket_download, info,
+    #                                session_short_term_operation), minute='0-59',
+    #                          second='1')  # The operation is triggered minutely
+    # sched_short_term.start()
+    sched_middle_term = BlockingScheduler()  # The schedulor for the optimal power flow
+    sched_middle_term.add_job(economic_dispatch.main.middle_term_operation.middle_term_operation_uems, 'cron',
                              args=(universal_models, local_models, socket_upload, socket_download, info,
                                    session_short_term_operation), minute='0-59',
                              second='1')  # The operation is triggered minutely
-    sched_short_term.start()
-
+    sched_middle_term.start()
 
 if __name__ == "__main__":
     ## universal ems database

@@ -12,6 +12,7 @@ from modelling import generators, loads, energy_storage_systems, convertors
 from data_management.information_management import information_receive_send
 from start_up import static_information
 from optimal_power_flow.main import short_term_operation
+from economic_dispatch.main import middle_term_operation
 from utils import Logger
 
 logger = Logger("Local_ems")
@@ -73,10 +74,18 @@ def run():
     info = dynamic_model.informaiton_exchange()
 
     # By short-term operation process
-    logger.info("The optimal power flow process in local ems starts!")
+    # logger.info("The optimal power flow process in local ems starts!")
+    # sched = BlockingScheduler()  # The schedulor for the optimal power flow
+    # sched.add_job(
+    #     lambda: short_term_operation.short_term_operation_lems(local_models, socket_upload, socket_download, info,
+    #                                                            session_short_term_operation),
+    #     'cron', minute='0-59', second='1')  # The operation is triggered minutely
+    # sched.start()
+
+    logger.info("The economic dispatch process in local ems starts!")
     sched = BlockingScheduler()  # The schedulor for the optimal power flow
     sched.add_job(
-        lambda: short_term_operation.short_term_operation_lems(local_models, socket_upload, socket_download, info,
+        lambda: middle_term_operation.middle_term_operation_lems(local_models, socket_upload, socket_download, info,
                                                                session_short_term_operation),
         'cron', minute='0-59', second='1')  # The operation is triggered minutely
     sched.start()
