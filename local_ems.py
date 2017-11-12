@@ -7,7 +7,8 @@ import configuration.configuration_database as db_configuration  # The settings 
 from sqlalchemy import create_engine  # Import database
 from sqlalchemy.orm import sessionmaker
 import zmq  # The package for information and communication
-import modelling.information_exchange_pb2 as dynamic_model  # The information model
+import modelling.information_exchange_pb2 as opf_model  # The information model of optimal power flow
+import modelling.dynamic_operation_pb2 as economic_dispatch_info  # The information model of economic dispatch
 from modelling import generators, loads, energy_storage_systems, convertors
 from data_management.information_management import information_receive_send
 from start_up import static_information
@@ -71,7 +72,7 @@ def run():
 
     information_receive_send.information_send(socket, static_info, 2)
 
-    info = dynamic_model.informaiton_exchange()
+    info_ed = economic_dispatch_info.local_sources()
 
     # By short-term operation process
     # logger.info("The optimal power flow process in local ems starts!")
@@ -89,7 +90,7 @@ def run():
     #                                                            session_short_term_operation),
     #     'cron', minute='0-59', second='1')  # The operation is triggered minutely
     # sched.start()
-    middle_term_operation.middle_term_operation_lems(local_models, socket_upload, socket_download, info,
+    middle_term_operation.middle_term_operation_lems(local_models, socket_upload, socket_download, info_ed,
                                                      session_short_term_operation)
 
 

@@ -15,8 +15,8 @@ import configuration.configuration_database as db_configuration  # The settings 
 from sqlalchemy import create_engine  # Import the database toolbox
 from sqlalchemy.orm import sessionmaker
 from utils import Logger
-
-
+import modelling.information_exchange_pb2 as opf_model
+import modelling.dynamic_operation_pb2 as economic_dispatch_info # The information model of economic dispatch
 
 class Main():
     ## The main process of UEMS
@@ -34,8 +34,7 @@ def run():
     ## Import package for information and communication
     import zmq
     ## Import information model
-    import modelling.information_exchange_pb2 as info_exchange
-    import optimal_power_flow.main
+    # import optimal_power_flow.main
     import economic_dispatch.main
     logger = Logger('Universal_ems_main')
     db_str = db_configuration.universal_database["db_str"]
@@ -60,7 +59,7 @@ def run():
     local_models = initialize.local_models
 
     # Start the input information
-    info = info_exchange.informaiton_exchange()
+    info_ed = economic_dispatch_info.local_sources()
 
     # Generate different processes
     # logger.info("The optimal power flow process in UEMS starts!")
@@ -76,7 +75,7 @@ def run():
     #                                session_short_term_operation), minute='0-59',
     #                           second='1')  # The operation is triggered minutely
     # sched_middle_term.start()
-    economic_dispatch.main.middle_term_operation.middle_term_operation_uems(universal_models, local_models, socket_upload, socket_download, info,
+    economic_dispatch.main.middle_term_operation.middle_term_operation_uems(universal_models, local_models, socket_upload, socket_download, info_ed,
                                    session_short_term_operation)
 
 if __name__ == "__main__":
