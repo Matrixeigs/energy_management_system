@@ -155,7 +155,7 @@ class information_formulation_extraction_dynamic():
     def info_formulation(*args):
         import modelling.dynamic_operation_pb2 as dynamic_model  # The information model
         from configuration.configuration_time_line import default_look_ahead_time_step
-        from numpy import zeros, ones
+        from numpy import ones
         model = args[0]
         Target_time = args[1]
         Type = args[2]
@@ -182,7 +182,7 @@ class information_formulation_extraction_dynamic():
         dynamic_info.AREA = model["UG"]["AREA"]
         dynamic_info.TIME_STAMP = Target_time
         # Update utility grid information
-        ug_info.DG_ID = 0
+        ug_info.ID = 0
         if type(model["UG"]["GEN_STATUS"]) is list:
             if len(model["UG"]["GEN_STATUS"]) != T:
                 ug_info.GEN_STATUS.extend(model["UG"]["GEN_STATUS"] * T)
@@ -207,18 +207,18 @@ class information_formulation_extraction_dynamic():
             ug_info.COMMAND_STATUS.extend([model["UG"]["COMMAND_START_UP"]])
 
         # Update dg part information
-        dg_info.DG_ID = 1
+        dg_info.ID = 1
         if type(model["DG"]["GEN_STATUS"]) is list:
             dg_info.GEN_STATUS.extend([model["DG"]["GEN_STATUS"] * T])
         elif type(model["DG"]["GEN_STATUS"]) is int:
-            dg_info.GEN_STATUS.extend([[model["DG"]["GEN_STATUS"]] * T])
+            dg_info.GEN_STATUS.extend([model["DG"]["GEN_STATUS"]] * T)
 
         if type(model["DG"]["COMMAND_PG"]) is list:
             dg_info.PG.extend(model["DG"]["COMMAND_PG"])
         else:
             dg_info.PG.extend([model["DG"]["COMMAND_PG"]])
 
-        if type(model["DG"]["RG"]) is list:
+        if type(model["DG"]["COMMAND_RG"]) is list:
             dg_info.RG.extend(model["DG"]["COMMAND_RG"])
         else:
             dg_info.RG.extend([model["DG"]["COMMAND_RG"]])
@@ -230,8 +230,8 @@ class information_formulation_extraction_dynamic():
 
         dynamic_info.dg.extend([ug_info, dg_info])
         # Update ess part information
-        ess_info.ESS_ID = 1
-        ess_info.ESS_STATUS.extend(ones(T))
+        ess_info.ID = 1
+        ess_info.ESS_STATUS.extend([1]*T)
         ess_info.SOC.extend([model["ESS"]["SOC"]])
         if type(model["ESS"]["COMMAND_PG"]) is list:
             ess_info.PG.extend(model["ESS"]["COMMAND_PG"])
@@ -246,7 +246,6 @@ class information_formulation_extraction_dynamic():
         dynamic_info.ess.extend([ess_info])
 
         # Update pv part information
-        pv_info.NPV.extend([model["PV"]["PMAX"]] * T)
         pv_info.PG.extend(model["PV"]["PG"])
         if type(model["PV"]["COMMAND_CURT"]) is list:
             pv_info.COMMAND_CURT.extend(model["PV"]["COMMAND_CURT"])
@@ -255,7 +254,6 @@ class information_formulation_extraction_dynamic():
         dynamic_info.pv.extend([pv_info])
 
         # Update wp part information
-        wp_info.NPV.extend([model["WP"]["PMAX"]] * T)
         wp_info.PG.extend(model["WP"]["PG"])
         if type(model["WP"]["COMMAND_CURT"]) is list:
             wp_info.COMMAND_CURT.extend(model["WP"]["COMMAND_CURT"])
@@ -292,7 +290,7 @@ class information_formulation_extraction_dynamic():
 
         dynamic_info.load_dc.extend([load_dc_info, load_udc_info])
         # Update convertor part information
-        bic_info.STATUS.extend(ones(T))
+        bic_info.STATUS.extend([1]*T)
         if type(model["BIC"]["COMMAND_AC2DC"]) is list:
             bic_info.PAC2DC.extend(model["BIC"]["COMMAND_AC2DC"])
         else:

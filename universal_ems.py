@@ -70,12 +70,14 @@ def run():
     #                                session_short_term_operation), minute='0-59',
     #                          second='1')  # The operation is triggered minutely
     # sched_short_term.start()
-    sched_middle_term = BlockingScheduler()  # The schedulor for the optimal power flow
-    sched_middle_term.add_job(economic_dispatch.main.middle_term_operation.middle_term_operation_uems, 'cron',
-                             args=(universal_models, local_models, socket_upload, socket_download, info,
-                                   session_short_term_operation), minute='0-59',
-                             second='／10')  # The operation is triggered minutely
-    sched_middle_term.start()
+    # sched_middle_term = BlockingScheduler()  # The schedulor for the optimal power flow
+    # sched_middle_term.add_job(economic_dispatch.main.middle_term_operation.middle_term_operation_uems, 'cron',
+    #                          args=(universal_models, local_models, socket_upload, socket_download, info,
+    #                                session_short_term_operation), minute='0-59',
+    #                           second='1')  # The operation is triggered minutely
+    # sched_middle_term.start()
+    economic_dispatch.main.middle_term_operation.middle_term_operation_uems(universal_models, local_models, socket_upload, socket_download, info,
+                                   session_short_term_operation)
 
 if __name__ == "__main__":
     ## universal ems database

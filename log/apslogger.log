@@ -22,3 +22,251 @@ Traceback (most recent call last):
   File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 161, in info_formulation
     Type = args[2]
 IndexError: tuple index out of range
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 16:56:00 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 89, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/economic_dispatch/main.py", line 124, in middle_term_operation_lems
+    dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 161, in info_formulation
+    Type = args[2]
+IndexError: tuple index out of range
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:02:30 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:02:30 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:02:40 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:02:40 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:02:50 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:02:50 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:03:00 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:03:00 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:03:10 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:03:10 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:03:20 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:03:20 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:03:30 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:03:30 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:03:40 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:03:40 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:03:50 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:03:50 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:04:00 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:04:00 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:04:10 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:04:10 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:04:20 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:04:20 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:04:30 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:04:30 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:04:40 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:04:40 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:04:50 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:04:50 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:05:00 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:05:00 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:06:30 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:06:30 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:06:40 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:06:40 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:06:50 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:06:50 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:07:00 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 17:07:00 +08)" skipped: maximum number of running instances reached (1)
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 18:11:10 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 89, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/economic_dispatch/main.py", line 124, in middle_term_operation_lems
+    dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 161, in info_formulation
+    Type = args[2]
+IndexError: tuple index out of range
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 18:11:10 +08)" skipped: maximum number of running instances reached (1)
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 18:11:20 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 89, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/economic_dispatch/main.py", line 124, in middle_term_operation_lems
+    dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 161, in info_formulation
+    Type = args[2]
+IndexError: tuple index out of range
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 18:11:20 +08)" skipped: maximum number of running instances reached (1)
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 18:11:30 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 89, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/economic_dispatch/main.py", line 124, in middle_term_operation_lems
+    dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 161, in info_formulation
+    Type = args[2]
+IndexError: tuple index out of range
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 18:18:50 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 89, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/economic_dispatch/main.py", line 124, in middle_term_operation_lems
+    dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 161, in info_formulation
+    Type = args[2]
+IndexError: tuple index out of range
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 18:19:00 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 89, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/economic_dispatch/main.py", line 124, in middle_term_operation_lems
+    dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 161, in info_formulation
+    Type = args[2]
+IndexError: tuple index out of range
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 18:19:10 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 89, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/economic_dispatch/main.py", line 124, in middle_term_operation_lems
+    dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 161, in info_formulation
+    Type = args[2]
+IndexError: tuple index out of range
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 18:19:30 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 89, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/economic_dispatch/main.py", line 124, in middle_term_operation_lems
+    dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 161, in info_formulation
+    Type = args[2]
+IndexError: tuple index out of range
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 18:19:30 +08)" skipped: maximum number of running instances reached (1)
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 18:19:40 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 89, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/economic_dispatch/main.py", line 124, in middle_term_operation_lems
+    dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 161, in info_formulation
+    Type = args[2]
+IndexError: tuple index out of range
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 18:19:40 +08)" skipped: maximum number of running instances reached (1)
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 18:19:50 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 89, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/economic_dispatch/main.py", line 124, in middle_term_operation_lems
+    dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 161, in info_formulation
+    Type = args[2]
+IndexError: tuple index out of range
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 18:19:50 +08)" skipped: maximum number of running instances reached (1)
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 18:20:00 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 89, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/economic_dispatch/main.py", line 124, in middle_term_operation_lems
+    dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 161, in info_formulation
+    Type = args[2]
+IndexError: tuple index out of range
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 18:20:00 +08)" skipped: maximum number of running instances reached (1)
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 18:20:10 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 89, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/economic_dispatch/main.py", line 124, in middle_term_operation_lems
+    dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 161, in info_formulation
+    Type = args[2]
+IndexError: tuple index out of range
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 18:51:50 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 89, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/economic_dispatch/main.py", line 124, in middle_term_operation_lems
+    dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 161, in info_formulation
+    Type = args[2]
+IndexError: tuple index out of range
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 18:51:50 +08)" skipped: maximum number of running instances reached (1)
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='*/10'], next run at: 2017-11-12 18:52:00 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 89, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/economic_dispatch/main.py", line 124, in middle_term_operation_lems
+    dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 161, in info_formulation
+    Type = args[2]
+IndexError: tuple index out of range
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='1'], next run at: 2017-11-12 19:33:01 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 89, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/economic_dispatch/main.py", line 124, in middle_term_operation_lems
+    dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 161, in info_formulation
+    Type = args[2]
+IndexError: tuple index out of range
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='1'], next run at: 2017-11-12 19:35:01 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='1'], next run at: 2017-11-12 19:35:01 +08)" skipped: maximum number of running instances reached (1)
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='1'], next run at: 2017-11-12 19:36:01 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 89, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/economic_dispatch/main.py", line 124, in middle_term_operation_lems
+    dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 161, in info_formulation
+    Type = args[2]
+IndexError: tuple index out of range
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='1'], next run at: 2017-11-12 19:40:01 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 89, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/economic_dispatch/main.py", line 124, in middle_term_operation_lems
+    dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 161, in info_formulation
+    Type = args[2]
+IndexError: tuple index out of range
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='1'], next run at: 2017-11-12 19:40:01 +08)" skipped: maximum number of running instances reached (1)
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='1'], next run at: 2017-11-12 19:41:01 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 89, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/economic_dispatch/main.py", line 124, in middle_term_operation_lems
+    dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 161, in info_formulation
+    Type = args[2]
+IndexError: tuple index out of range

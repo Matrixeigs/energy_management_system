@@ -31,10 +31,10 @@ Generator_AC = \
         "TIME_APPLIED": default_parameters.default_AC_generator_parameters["TIME_APPLIED"],
         "TIME_COMMANDED": default_parameters.default_AC_generator_parameters["TIME_COMMANDED"],
         "COMMAND_START_UP": default_parameters.default_AC_generator_parameters["COMMAND_START_UP"],
-        "COMMAND_SET_POINT_VG": default_parameters.default_AC_generator_parameters["COMMAND_SET_POINT_VG"],
-        "COMMAND_SET_POINT_PG": default_parameters.default_AC_generator_parameters["COMMAND_SET_POINT_PG"],
-        "COMMAND_SET_POINT_QG": default_parameters.default_AC_generator_parameters["COMMAND_SET_POINT_QG"],
-        "COMMAND_RESERVE": default_parameters.default_AC_generator_parameters["COMMAND_RESERVE"]
+        "COMMAND_VG": default_parameters.default_AC_generator_parameters["COMMAND_SET_POINT_VG"],
+        "COMMAND_PG": default_parameters.default_AC_generator_parameters["COMMAND_SET_POINT_PG"],
+        "COMMAND_QG": default_parameters.default_AC_generator_parameters["COMMAND_SET_POINT_QG"],
+        "COMMAND_RG": default_parameters.default_AC_generator_parameters["COMMAND_RESERVE"]
     }
 
 ###################### 2) Generators DC set ##########################
@@ -59,9 +59,9 @@ Generator_DC = \
         "TIME_APPLIED": default_parameters.default_DC_generator_parameters["TIME_APPLIED"],
         "TIME_COMMANDED": default_parameters.default_DC_generator_parameters["TIME_COMMANDED"],
         "COMMAND_START_UP": default_parameters.default_DC_generator_parameters["COMMAND_START_UP"],
-        "COMMAND_SET_POINT_VG": default_parameters.default_DC_generator_parameters["COMMAND_SET_POINT_VG"],
-        "COMMAND_SET_POINT_PG": default_parameters.default_DC_generator_parameters["COMMAND_SET_POINT_PG"],
-        "COMMAND_RESERVE": default_parameters.default_DC_generator_parameters["COMMAND_RESERVE"]
+        "COMMAND_VG": default_parameters.default_DC_generator_parameters["COMMAND_SET_POINT_VG"],
+        "COMMAND_PG": default_parameters.default_DC_generator_parameters["COMMAND_SET_POINT_PG"],
+        "COMMAND_RG": default_parameters.default_DC_generator_parameters["COMMAND_RESERVE"]
     }
 
 ###################### 3) Generators Renewable set ##########################
@@ -83,5 +83,5 @@ Generator_RES = \
         "TIME_APPLIED": default_parameters.default_RES_generator_parameters["TIME_APPLIED"],
         "TIME_COMMANDED": default_parameters.default_RES_generator_parameters["TIME_COMMANDED"],
         "COMMAND_CURT": default_parameters.default_RES_generator_parameters["COMMAND_CURT"],
-        "COMMAND_SET_POINT_PG": default_parameters.default_RES_generator_parameters["COMMAND_SET_POINT_PG"],
+        "COMMAND_PG": default_parameters.default_RES_generator_parameters["COMMAND_SET_POINT_PG"],
     }

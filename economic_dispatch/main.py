@@ -121,7 +121,7 @@ class middle_term_operation():
 
         local_models = thread_forecasting.models
         # Update the dynamic model
-        dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+        dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time,"ED")
         # Information send
         logger_lems.info("Sending request from {}".format(dynamic_model.AREA) + " to the serve")
         logger_lems.info("The local time is {}".format(dynamic_model.TIME_STAMP))

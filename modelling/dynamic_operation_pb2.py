@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='dynamic_operation.proto',
   package='',
   syntax='proto3',
-  serialized_pb=_b('\n\x17\x64ynamic_operation.proto\"\xe9\x06\n\rlocal_sources\x12\x0c\n\x04\x61rea\x18\x01 \x01(\x05\x12\x12\n\ntime_stamp\x18\x02 \x01(\x05\x12!\n\x02\x64g\x18\x03 \x03(\x0b\x32\x15.local_sources.DgType\x12#\n\x03\x65ss\x18\x04 \x03(\x0b\x32\x16.local_sources.EssType\x12!\n\x02pv\x18\x05 \x03(\x0b\x32\x15.local_sources.PvType\x12!\n\x02wp\x18\x06 \x03(\x0b\x32\x15.local_sources.WpType\x12,\n\x07load_ac\x18\x07 \x03(\x0b\x32\x1b.local_sources.Load_AC_Type\x12,\n\x07load_dc\x18\x08 \x03(\x0b\x32\x1b.local_sources.Load_DC_Type\x12*\n\x03\x62ic\x18\t \x03(\x0b\x32\x1d.local_sources.Convertor_Type\x12\x1a\n\x12TIME_STAMP_COMMAND\x18\n \x01(\x05\x1aX\n\x06\x44gType\x12\n\n\x02ID\x18\x01 \x01(\x05\x12\x12\n\nGEN_STATUS\x18\x02 \x03(\x08\x12\n\n\x02PG\x18\x03 \x03(\x05\x12\n\n\x02RG\x18\x04 \x03(\x05\x12\x16\n\x0e\x43OMMAND_STATUS\x18\x05 \x03(\x08\x1aN\n\x07\x45ssType\x12\n\n\x02ID\x18\x01 \x01(\x05\x12\x12\n\nESS_STATUS\x18\x02 \x03(\x08\x12\x0b\n\x03SOC\x18\x03 \x03(\x02\x12\n\n\x02PG\x18\x04 \x03(\x05\x12\n\n\x02RG\x18\x05 \x03(\x05\x1a\x37\n\x06PvType\x12\x0b\n\x03NPV\x18\x01 \x03(\x05\x12\n\n\x02PG\x18\x02 \x03(\x02\x12\x14\n\x0c\x43OMMAND_CURT\x18\x03 \x03(\x05\x1a\x37\n\x06WpType\x12\x0b\n\x03NWP\x18\x01 \x03(\x05\x12\n\n\x02PG\x18\x02 \x03(\x02\x12\x14\n\x0c\x43OMMAND_CURT\x18\x03 \x03(\x05\x1aL\n\x0cLoad_AC_Type\x12\n\n\x02ID\x18\x01 \x01(\x05\x12\x0e\n\x06STATUS\x18\x02 \x03(\x08\x12\n\n\x02PD\x18\x03 \x03(\x05\x12\x14\n\x0c\x43OMMAND_SHED\x18\x04 \x03(\x02\x1aL\n\x0cLoad_DC_Type\x12\n\n\x02ID\x18\x01 \x01(\x05\x12\x0e\n\x06STATUS\x18\x02 \x03(\x08\x12\n\n\x02PD\x18\x03 \x03(\x05\x12\x14\n\x0c\x43OMMAND_SHED\x18\x04 \x03(\x02\x1aL\n\x0e\x43onvertor_Type\x12\n\n\x02ID\x18\x01 \x01(\x05\x12\x0e\n\x06STATUS\x18\x02 \x03(\x08\x12\x0e\n\x06PAC2DC\x18\x03 \x03(\x02\x12\x0e\n\x06PDC2AC\x18\x04 \x03(\x02\x62\x06proto3')
+  serialized_pb=_b('\n\x17\x64ynamic_operation.proto\"\xf6\x06\n\rlocal_sources\x12\x0c\n\x04\x41REA\x18\x01 \x01(\x05\x12\x12\n\nTIME_STAMP\x18\x02 \x01(\x05\x12!\n\x02\x64g\x18\x03 \x03(\x0b\x32\x15.local_sources.DgType\x12#\n\x03\x65ss\x18\x04 \x03(\x0b\x32\x16.local_sources.EssType\x12!\n\x02pv\x18\x05 \x03(\x0b\x32\x15.local_sources.PvType\x12!\n\x02wp\x18\x06 \x03(\x0b\x32\x15.local_sources.WpType\x12,\n\x07load_ac\x18\x07 \x03(\x0b\x32\x1b.local_sources.Load_AC_Type\x12,\n\x07load_dc\x18\x08 \x03(\x0b\x32\x1b.local_sources.Load_DC_Type\x12*\n\x03\x62ic\x18\t \x03(\x0b\x32\x1d.local_sources.Convertor_Type\x12\x0b\n\x03PMG\x18\n \x03(\x02\x12\x1a\n\x12TIME_STAMP_COMMAND\x18\x0b \x01(\x05\x1aX\n\x06\x44gType\x12\n\n\x02ID\x18\x01 \x01(\x05\x12\x12\n\nGEN_STATUS\x18\x02 \x03(\x05\x12\n\n\x02PG\x18\x03 \x03(\x05\x12\n\n\x02RG\x18\x04 \x03(\x05\x12\x16\n\x0e\x43OMMAND_STATUS\x18\x05 \x03(\x05\x1aN\n\x07\x45ssType\x12\n\n\x02ID\x18\x01 \x01(\x05\x12\x12\n\nESS_STATUS\x18\x02 \x03(\x05\x12\x0b\n\x03SOC\x18\x03 \x03(\x02\x12\n\n\x02PG\x18\x04 \x03(\x05\x12\n\n\x02RG\x18\x05 \x03(\x05\x1a\x37\n\x06PvType\x12\x0b\n\x03NPV\x18\x01 \x03(\x05\x12\n\n\x02PG\x18\x02 \x03(\x02\x12\x14\n\x0c\x43OMMAND_CURT\x18\x03 \x03(\x05\x1a\x37\n\x06WpType\x12\x0b\n\x03NWP\x18\x01 \x03(\x05\x12\n\n\x02PG\x18\x02 \x03(\x02\x12\x14\n\x0c\x43OMMAND_CURT\x18\x03 \x03(\x05\x1aL\n\x0cLoad_AC_Type\x12\n\n\x02ID\x18\x01 \x01(\x05\x12\x0e\n\x06STATUS\x18\x02 \x03(\x05\x12\n\n\x02PD\x18\x03 \x03(\x05\x12\x14\n\x0c\x43OMMAND_SHED\x18\x04 \x03(\x02\x1aL\n\x0cLoad_DC_Type\x12\n\n\x02ID\x18\x01 \x01(\x05\x12\x0e\n\x06STATUS\x18\x02 \x03(\x05\x12\n\n\x02PD\x18\x03 \x03(\x05\x12\x14\n\x0c\x43OMMAND_SHED\x18\x04 \x03(\x02\x1aL\n\x0e\x43onvertor_Type\x12\n\n\x02ID\x18\x01 \x01(\x05\x12\x0e\n\x06STATUS\x18\x02 \x03(\x05\x12\x0e\n\x06PAC2DC\x18\x03 \x03(\x02\x12\x0e\n\x06PDC2AC\x18\x04 \x03(\x02\x62\x06proto3')
 )
 
 
@@ -41,7 +41,7 @@ _LOCAL_SOURCES_DGTYPE = _descriptor.Descriptor(
       options=None),
     _descriptor.FieldDescriptor(
       name='GEN_STATUS', full_name='local_sources.DgType.GEN_STATUS', index=1,
-      number=2, type=8, cpp_type=7, label=3,
+      number=2, type=5, cpp_type=1, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -62,7 +62,7 @@ _LOCAL_SOURCES_DGTYPE = _descriptor.Descriptor(
       options=None),
     _descriptor.FieldDescriptor(
       name='COMMAND_STATUS', full_name='local_sources.DgType.COMMAND_STATUS', index=4,
-      number=5, type=8, cpp_type=7, label=3,
+      number=5, type=5, cpp_type=1, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -79,8 +79,8 @@ _LOCAL_SOURCES_DGTYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=385,
-  serialized_end=473,
+  serialized_start=398,
+  serialized_end=486,
 )
 
 _LOCAL_SOURCES_ESSTYPE = _descriptor.Descriptor(
@@ -99,7 +99,7 @@ _LOCAL_SOURCES_ESSTYPE = _descriptor.Descriptor(
       options=None),
     _descriptor.FieldDescriptor(
       name='ESS_STATUS', full_name='local_sources.EssType.ESS_STATUS', index=1,
-      number=2, type=8, cpp_type=7, label=3,
+      number=2, type=5, cpp_type=1, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -137,8 +137,8 @@ _LOCAL_SOURCES_ESSTYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=475,
-  serialized_end=553,
+  serialized_start=488,
+  serialized_end=566,
 )
 
 _LOCAL_SOURCES_PVTYPE = _descriptor.Descriptor(
@@ -181,8 +181,8 @@ _LOCAL_SOURCES_PVTYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=555,
-  serialized_end=610,
+  serialized_start=568,
+  serialized_end=623,
 )
 
 _LOCAL_SOURCES_WPTYPE = _descriptor.Descriptor(
@@ -225,8 +225,8 @@ _LOCAL_SOURCES_WPTYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=612,
-  serialized_end=667,
+  serialized_start=625,
+  serialized_end=680,
 )
 
 _LOCAL_SOURCES_LOAD_AC_TYPE = _descriptor.Descriptor(
@@ -245,7 +245,7 @@ _LOCAL_SOURCES_LOAD_AC_TYPE = _descriptor.Descriptor(
       options=None),
     _descriptor.FieldDescriptor(
       name='STATUS', full_name='local_sources.Load_AC_Type.STATUS', index=1,
-      number=2, type=8, cpp_type=7, label=3,
+      number=2, type=5, cpp_type=1, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -276,8 +276,8 @@ _LOCAL_SOURCES_LOAD_AC_TYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=669,
-  serialized_end=745,
+  serialized_start=682,
+  serialized_end=758,
 )
 
 _LOCAL_SOURCES_LOAD_DC_TYPE = _descriptor.Descriptor(
@@ -296,7 +296,7 @@ _LOCAL_SOURCES_LOAD_DC_TYPE = _descriptor.Descriptor(
       options=None),
     _descriptor.FieldDescriptor(
       name='STATUS', full_name='local_sources.Load_DC_Type.STATUS', index=1,
-      number=2, type=8, cpp_type=7, label=3,
+      number=2, type=5, cpp_type=1, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -327,8 +327,8 @@ _LOCAL_SOURCES_LOAD_DC_TYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=747,
-  serialized_end=823,
+  serialized_start=760,
+  serialized_end=836,
 )
 
 _LOCAL_SOURCES_CONVERTOR_TYPE = _descriptor.Descriptor(
@@ -347,7 +347,7 @@ _LOCAL_SOURCES_CONVERTOR_TYPE = _descriptor.Descriptor(
       options=None),
     _descriptor.FieldDescriptor(
       name='STATUS', full_name='local_sources.Convertor_Type.STATUS', index=1,
-      number=2, type=8, cpp_type=7, label=3,
+      number=2, type=5, cpp_type=1, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -378,8 +378,8 @@ _LOCAL_SOURCES_CONVERTOR_TYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=825,
-  serialized_end=901,
+  serialized_start=838,
+  serialized_end=914,
 )
 
 _LOCAL_SOURCES = _descriptor.Descriptor(
@@ -390,14 +390,14 @@ _LOCAL_SOURCES = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='area', full_name='local_sources.area', index=0,
+      name='AREA', full_name='local_sources.AREA', index=0,
       number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='time_stamp', full_name='local_sources.time_stamp', index=1,
+      name='TIME_STAMP', full_name='local_sources.TIME_STAMP', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -453,8 +453,15 @@ _LOCAL_SOURCES = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='TIME_STAMP_COMMAND', full_name='local_sources.TIME_STAMP_COMMAND', index=9,
-      number=10, type=5, cpp_type=1, label=1,
+      name='PMG', full_name='local_sources.PMG', index=9,
+      number=10, type=2, cpp_type=6, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='TIME_STAMP_COMMAND', full_name='local_sources.TIME_STAMP_COMMAND', index=10,
+      number=11, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -472,7 +479,7 @@ _LOCAL_SOURCES = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=28,
-  serialized_end=901,
+  serialized_end=914,
 )
 
 _LOCAL_SOURCES_DGTYPE.containing_type = _LOCAL_SOURCES
