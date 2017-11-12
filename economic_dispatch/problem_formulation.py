@@ -68,7 +68,8 @@ class problem_formulation():
             Aeq[i][i * NX + PUG] = 1
             Aeq[i][i * NX + PBIC_AC2DC] = -1
             Aeq[i][i * NX + PBIC_DC2AC] = model["BIC"]["EFF_DC2AC"]
-        beq.append(model["Load_ac"]["PD"] + model["Load_uac"]["PD"])
+        for i in range(T):
+            beq.append(model["Load_ac"]["PD"][i] + model["Load_uac"]["PD"][i])
         # 2) DC power balance equation
         Aeq_temp = zeros((T, nx))
         for i in range(T):
@@ -78,7 +79,8 @@ class problem_formulation():
             Aeq_temp[i][i * NX + PESS_DC] = 1
             Aeq_temp[i][i * NX + PMG] = -1
         Aeq = vstack([Aeq, Aeq_temp])
-        beq.append(model["Load_dc"]["PD"] + model["Load_udc"]["PD"] - model["PV"]["PG"] - model["WP"]["PG"])
+        for i in range(T):
+            beq.append(model["Load_dc"]["PD"][i] + model["Load_udc"]["PD"][i] - model["PV"]["PG"][i] - model["WP"]["PG"][i])
 
         Aeq = vstack([Aeq, Aeq_temp])
         beq.append(model["Load_ac"]["QD"] + model["Load_uac"]["QD"])
@@ -91,7 +93,11 @@ class problem_formulation():
                     "Time_step_ed"] / 3600
                 Aeq_temp[i][i * NX + PESS_DC] = 1 / model["ESS"]["EFF_DIS"] * configuration_time_line.default_time[
                     "Time_step_ed"] / 3600
-                beq.append(model["ESS"]["SOC"] * model["ESS"]["CAP"])
+                try:
+                    beq.append(model["ESS"]["SOC"][0] * model["ESS"]["CAP"])
+                except:
+                    beq.append(model["ESS"]["SOC"] * model["ESS"]["CAP"])
+
             else:
                 Aeq_temp[i][(i - 1) * NX + EESS] = -1
                 Aeq_temp[i][i * NX + EESS] = 1
