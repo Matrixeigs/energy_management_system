@@ -35,10 +35,17 @@ def middle_term_forecasting_pv(*args):
 
     PV_PG = []
     for i in range(default_look_ahead_time_step["Look_ahead_time_ed_time_step"]):
-        PV_PG.append(random.random())
-        row = session.query(db_mid_term_forecasting).filter_by(
-            TIME_STAMP=Target_Time + i * default_time["Time_step_ed"]).first()
-        row.PV_PG = PV_PG[i]
+        PV_PG.append(random.random()) # Replace by other data sources
+        try:
+            row = session.query(db_mid_term_forecasting).filter_by(TIME_STAMP = Target_Time + i * default_time["Time_step_ed"]).first()
+            row.PV_PG = PV_PG[i]
+        except:
+            blank_row = blank_forecasting_result(Target_Time + i * default_time["Time_step_ed"])
+            session.add(blank_row)
+
+            row = session.query(db_mid_term_forecasting).filter_by(
+                TIME_STAMP=Target_Time + i * default_time["Time_step_ed"]).first()
+            row.PV_PG = PV_PG[i]
         session.commit()
 
     return PV_PG
@@ -60,9 +67,16 @@ def middle_term_forecasting_wp(*args):
     WP_PG = []
     for i in range(default_look_ahead_time_step["Look_ahead_time_ed_time_step"]):
         WP_PG.append(random.random())
-        row = session.query(db_mid_term_forecasting).filter_by(
+        try:
+            row = session.query(db_mid_term_forecasting).filter_by(
             TIME_STAMP=Target_Time + i * default_time["Time_step_ed"]).first()
-        row.PV_PG = WP_PG[i]
+            row.PV_PG = WP_PG[i]
+        except:
+            blank_row = blank_forecasting_result(Target_Time + i * default_time["Time_step_ed"])
+            session.add(blank_row)
+
+            row = session.query(db_mid_term_forecasting).filter_by(TIME_STAMP=Target_Time + i * default_time["Time_step_ed"]).first()
+            row.PV_PG = WP_PG[i]
         session.commit()
 
     return WP_PG
