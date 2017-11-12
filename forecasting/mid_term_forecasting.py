@@ -39,13 +39,16 @@ def middle_term_forecasting_pv(*args):
         try:
             row = session.query(db_mid_term_forecasting).filter_by(TIME_STAMP = Target_Time + i * default_time["Time_step_ed"]).first()
             row.PV_PG = PV_PG[i]
+
         except:
             blank_row = blank_forecasting_result(Target_Time + i * default_time["Time_step_ed"])
             session.add(blank_row)
+            session.commit()
 
             row = session.query(db_mid_term_forecasting).filter_by(
                 TIME_STAMP=Target_Time + i * default_time["Time_step_ed"]).first()
             row.PV_PG = PV_PG[i]
+
         session.commit()
 
     return PV_PG
@@ -70,13 +73,15 @@ def middle_term_forecasting_wp(*args):
         try:
             row = session.query(db_mid_term_forecasting).filter_by(
             TIME_STAMP=Target_Time + i * default_time["Time_step_ed"]).first()
-            row.PV_PG = WP_PG[i]
+            row.WP_PG = WP_PG[i]
         except:
             blank_row = blank_forecasting_result(Target_Time + i * default_time["Time_step_ed"])
             session.add(blank_row)
+            session.commit()
 
             row = session.query(db_mid_term_forecasting).filter_by(TIME_STAMP=Target_Time + i * default_time["Time_step_ed"]).first()
-            row.PV_PG = WP_PG[i]
+            row.WP_PG = WP_PG[i]
+
         session.commit()
 
     return WP_PG
@@ -98,9 +103,19 @@ def middle_term_forecasting_load_ac(*args):
     AC_PD = []
     for i in range(default_look_ahead_time_step["Look_ahead_time_ed_time_step"]):
         AC_PD.append(random.random())
-        row = session.query(db_mid_term_forecasting).filter_by(
-            TIME_STAMP=Target_Time + i * default_time["Time_step_ed"]).first()
-        row.PV_PG = AC_PD[i]
+        try:
+            row = session.query(db_mid_term_forecasting).filter_by(TIME_STAMP=Target_Time + i * default_time["Time_step_ed"]).first()
+            row.AC_PD = AC_PD[i]
+
+        except:
+            blank_row = blank_forecasting_result(Target_Time + i * default_time["Time_step_ed"])
+            session.add(blank_row)
+            session.commit()
+
+            row = session.query(db_mid_term_forecasting).filter_by(
+                TIME_STAMP=Target_Time + i * default_time["Time_step_ed"]).first()
+            row.AC_PD = AC_PD[i]
+
         session.commit()
     return AC_PD
 
@@ -118,12 +133,24 @@ def middle_term_forecasting_load_uac(*args):
             session.add(blank_row)
             session.commit()
 
+
     UAC_PD = []
     for i in range(default_look_ahead_time_step["Look_ahead_time_ed_time_step"]):
         UAC_PD.append(random.random())
-        row = session.query(db_mid_term_forecasting).filter_by(
-            TIME_STAMP=Target_Time + i * default_time["Time_step_ed"]).first()
-        row.PV_PG = UAC_PD[i]
+        try:
+            row = session.query(db_mid_term_forecasting).filter_by(
+                TIME_STAMP=Target_Time + i * default_time["Time_step_ed"]).first()
+            row.UAC_PD = UAC_PD[i]
+
+        except:
+            blank_row = blank_forecasting_result(Target_Time + i * default_time["Time_step_ed"])
+            session.add(blank_row)
+            session.commit()
+
+            row = session.query(db_mid_term_forecasting).filter_by(
+                TIME_STAMP=Target_Time + i * default_time["Time_step_ed"]).first()
+            row.UAC_PD = UAC_PD[i]
+
         session.commit()
 
     return UAC_PD
@@ -145,9 +172,20 @@ def middle_term_forecasting_load_dc(*args):
     DC_PD = []
     for i in range(default_look_ahead_time_step["Look_ahead_time_ed_time_step"]):
         DC_PD.append(random.random())
-        row = session.query(db_mid_term_forecasting).filter_by(
-            TIME_STAMP=Target_Time + i * default_time["Time_step_ed"]).first()
-        row.PV_PG = DC_PD[i]
+        try:
+            row = session.query(db_mid_term_forecasting).filter_by(
+                TIME_STAMP=Target_Time + i * default_time["Time_step_ed"]).first()
+            row.DC_PD = DC_PD[i]
+
+        except:
+            blank_row = blank_forecasting_result(Target_Time + i * default_time["Time_step_ed"])
+            session.add(blank_row)
+            session.commit()
+
+            row = session.query(db_mid_term_forecasting).filter_by(
+                TIME_STAMP=Target_Time + i * default_time["Time_step_ed"]).first()
+            row.DC_PD = DC_PD[i]
+
         session.commit()
 
 
@@ -170,9 +208,18 @@ def middle_term_forecasting_load_udc(*args):
     UDC_PD = []
     for i in range(default_look_ahead_time_step["Look_ahead_time_ed_time_step"]):
         UDC_PD.append(random.random())
-        row = session.query(db_mid_term_forecasting).filter_by(
-            TIME_STAMP=Target_Time + i * default_time["Time_step_ed"]).first()
-        row.PV_PG = UDC_PD[i]
+        try:
+            row = session.query(db_mid_term_forecasting).filter_by(
+                TIME_STAMP=Target_Time + i * default_time["Time_step_ed"]).first()
+            row.UDC_PD = UDC_PD[i]
+        except:
+            blank_row = blank_forecasting_result(Target_Time + i * default_time["Time_step_ed"])
+            session.add(blank_row)
+            session.commit()
+
+            row = session.query(db_mid_term_forecasting).filter_by(
+                TIME_STAMP=Target_Time + i * default_time["Time_step_ed"]).first()
+            row.UDC_PD = UDC_PD[i]
         session.commit()
 
     return UDC_PD
