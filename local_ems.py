@@ -87,7 +87,7 @@ def run():
     sched.add_job(
         lambda: middle_term_operation.middle_term_operation_lems(local_models, socket_upload, socket_download, info,
                                                                session_short_term_operation),
-        'cron', minute='0-59', second='1')  # The operation is triggered minutely
+        'cron', minute='0-59', second='／10')  # The operation is triggered minutely
     sched.start()
 
 

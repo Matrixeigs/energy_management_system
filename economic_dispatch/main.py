@@ -16,7 +16,7 @@ from economic_dispatch.mid_term_forecasting import ForecastingThread
 from utils import Logger
 
 logger_uems = Logger("Middle_term_dispatch_UEMS")
-logger_lems = Logger("Middle_term_dispatch_UEMS")
+logger_lems = Logger("Middle_term_dispatch_LEMS")
 
 class middle_term_operation():
     ##short term operation for ems

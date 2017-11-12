@@ -1,1 +1,24 @@
 Execution of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='1'], next run at: 2017-11-03 14:04:01 +08)" skipped: maximum number of running instances reached (1)
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='1'], next run at: 2017-11-12 16:41:01 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 89, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/economic_dispatch/main.py", line 124, in middle_term_operation_lems
+    dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 161, in info_formulation
+    Type = args[2]
+IndexError: tuple index out of range
+Execution of job "middle_term_operation.middle_term_operation_uems (trigger: cron[minute='0-59', second='1'], next run at: 2017-11-12 16:41:01 +08)" skipped: maximum number of running instances reached (1)
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='1'], next run at: 2017-11-12 16:42:01 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 89, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/economic_dispatch/main.py", line 124, in middle_term_operation_lems
+    dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 161, in info_formulation
+    Type = args[2]
+IndexError: tuple index out of range
