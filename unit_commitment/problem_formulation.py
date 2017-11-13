@@ -6,6 +6,7 @@ from numpy import array, vstack, zeros
 import numpy
 from utils import Logger
 from configuration import configuration_time_line
+
 logger = Logger("Problem formulation for UEMS")
 
 
@@ -19,11 +20,13 @@ class problem_formulation():
         T = configuration_time_line.default_look_ahead_time_step["Look_ahead_time_uc_time_step"]
         nx = NX * T
 
-        lb = [0] * T
-        ub = [0] * T
+        lb = [0] * NX
+        ub = [0] * NX
         vtypes = ["c"] * NX
-        vtypes[IG] = ["b"]
-        vtypes[IUG] = ["b"]
+        vtypes[IG] = "b"
+        vtypes[IUG] = "b"
+        vtypes = vtypes * T
+
         ## Update lower boundary
         lb[IG] = 0
         lb[PG] = model["DG"]["PMIN"]
@@ -198,7 +201,7 @@ class problem_formulation():
                               "b": bineq,
                               "lb": LB,
                               "ub": UB,
-                              "vtypes":vtypes}
+                              "vtypes": vtypes}
 
         return mathematical_model
 
@@ -208,11 +211,11 @@ class problem_formulation():
             PESS_C, PESS_DC, RESS, EESS, PMG, IPV, IWP, IL_AC, IL_UAC, IL_DC, IL_UDC, NX
         model = args[0]  # If multiple models are inputed, more local ems models will be formulated
         ## The infeasible optimal problem formulation
-        T = configuration_time_line.default_look_ahead_time_step["Look_ahead_time_ed_time_step"]
+        T = configuration_time_line.default_look_ahead_time_step["Look_ahead_time_uc_time_step"]
         nx = T * NX
-        lb = [0]*nx
-        ub = [0]*nx
-        vtypes = ["c"]*nx
+        lb = [0] * nx
+        ub = [0] * nx
+        vtypes = ["c"] * nx
         for i in range(T):
             ## Update lower boundary
             lb[i * NX + IG] = 0
@@ -229,7 +232,8 @@ class problem_formulation():
             lb[i * NX + PESS_DC] = 0
             lb[i * NX + RESS] = 0
             lb[i * NX + EESS] = model["ESS"]["SOC_MIN"] * model["ESS"]["CAP"]
-            lb[i * NX + PMG] = 0  # The line flow limitation, the predefined status is, the transmission line is off-line
+            lb[
+                i * NX + PMG] = 0  # The line flow limitation, the predefined status is, the transmission line is off-line
             lb[i * NX + IPV] = 0
             lb[i * NX + IWP] = 0
             lb[i * NX + IL_AC] = 0
@@ -249,7 +253,8 @@ class problem_formulation():
             ub[i * NX + PESS_DC] = model["ESS"]["PMAX_DIS"]
             ub[i * NX + RESS] = model["ESS"]["PMAX_DIS"] + model["ESS"]["PMAX_CH"]
             ub[i * NX + EESS] = model["ESS"]["SOC_MAX"] * model["ESS"]["CAP"]
-            ub[i * NX + PMG] = 0  # The line flow limitation, the predefined status is, the transmission line is off-line
+            ub[
+                i * NX + PMG] = 0  # The line flow limitation, the predefined status is, the transmission line is off-line
             ub[i * NX + IPV] = model["PV"]["PG"][i]
             ub[i * NX + IWP] = model["WP"]["PG"][i]
             ub[i * NX + IL_AC] = model["Load_ac"]["PD"][i]
@@ -260,7 +265,7 @@ class problem_formulation():
         ## Constraints set
         # 1) Power balance equation
         Aeq = zeros((T, nx))
-        beq = [ ]
+        beq = []
         for i in range(T):
             Aeq[i][i * NX + PG] = 1
             Aeq[i][i * NX + PUG] = 1
@@ -335,7 +340,7 @@ class problem_formulation():
         for i in range(T):
             Aineq_temp[i][i * NX + PUG] = -1
             Aineq_temp[i][i * NX + RUG] = 1
-            Aineq_temp[i][i * NX + IUG] = model["UG"]["PMMIN"]
+            Aineq_temp[i][i * NX + IUG] = model["UG"]["PMIN"]
             bineq.append(0)
         Aineq = vstack([Aineq, Aineq_temp])
         # 5) PESS_DC - PESS_C + RESS <= PESS_DC_MAX
@@ -371,7 +376,7 @@ class problem_formulation():
         # 9) RG + RUG + RESS >= sum(Load)*beta + sum(PV)*beta_pv + sum(WP)*beta_wp
 
         # No reserve requirement
-        c = [0]* NX
+        c = [0] * NX
         if model["DG"]["COST_MODEL"] == 2:
             c[PG] = model["DG"]["COST"][1]
         else:
@@ -401,7 +406,7 @@ class problem_formulation():
                               "b": bineq,
                               "lb": lb,
                               "ub": ub,
-                              "vtypes":vtypes}
+                              "vtypes": vtypes}
 
         return mathematical_model
 
@@ -414,20 +419,18 @@ class problem_formulation():
 
         ## Formulating the universal energy models
         if type == "Feasible":
-            from modelling.power_flow.idx_ed_foramt import PMG, NX
+            from modelling.power_flow.idx_uc_format import PMG, NX
             local_model_mathematical = problem_formulation.problem_formulation_local(local_model)
             universal_model_mathematical = problem_formulation.problem_formulation_local(universal_model)
         else:
-            from modelling.power_flow.idx_ed_recovery_format import PMG, NX
+            from modelling.power_flow.idx_uc_recovery_format import PMG, NX
             local_model_mathematical = problem_formulation.problem_formulation_local_recovery(local_model)
             universal_model_mathematical = problem_formulation.problem_formulation_local_recovery(universal_model)
         # Modify the boundary information
 
         for i in range(T):
-            local_model_mathematical["lb"][i * NX + PMG] = -universal_model["LINE"]["STATUS"] * universal_model["LINE"][
-                "RATE_A"]
-            local_model_mathematical["ub"][i * NX + PMG] = universal_model["LINE"]["STATUS"] * universal_model["LINE"][
-                "RATE_A"]
+            local_model_mathematical["lb"][i * NX + PMG] = -universal_model["LINE"]["STATUS"] * universal_model["LINE"]["RATE_A"]
+            local_model_mathematical["ub"][i * NX + PMG] = universal_model["LINE"]["STATUS"] * universal_model["LINE"]["RATE_A"]
             universal_model_mathematical["lb"][i * NX + PMG] = -universal_model["LINE"]["STATUS"] * \
                                                                universal_model["LINE"]["RATE_A"]
             universal_model_mathematical["ub"][i * NX + PMG] = universal_model["LINE"]["STATUS"] * \
@@ -458,7 +461,7 @@ class problem_formulation():
 
         lb = numpy.append(local_model_mathematical["lb"], universal_model_mathematical["lb"])
         ub = numpy.append(local_model_mathematical["ub"], universal_model_mathematical["ub"])
-        vtypes = numpy.append(local_model_mathematical["vtypes"],universal_model_mathematical["vtypes"])
+        vtypes = numpy.append(local_model_mathematical["vtypes"], universal_model_mathematical["vtypes"])
 
         Aeq_compact_temp = zeros((T, 2 * nx))
         for i in range(T):
@@ -479,5 +482,5 @@ class problem_formulation():
                  "b": bineq_compact,
                  "lb": lb,
                  "ub": ub,
-                 "vtypes":vtypes}
+                 "vtypes": vtypes}
         return model
