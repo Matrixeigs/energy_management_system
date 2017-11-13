@@ -203,8 +203,8 @@ class problem_formulation():
         ## The infeasible optimal problem formulation
         T = configuration_time_line.default_look_ahead_time_step["Look_ahead_time_ed_time_step"]
         nx = T * NX
-        lb = [0] * T
-        ub = [0] * T
+        lb = [0] * NX
+        ub = [0] * NX
 
         for i in range(T):
             ## Update lower boundary
@@ -236,8 +236,7 @@ class problem_formulation():
             ub[i * NX + PESS_DC] = model["ESS"]["PMAX_DIS"]
             ub[i * NX + RESS] = model["ESS"]["PMAX_DIS"] + model["ESS"]["PMAX_CH"]
             ub[i * NX + EESS] = model["ESS"]["SOC_MAX"] * model["ESS"]["CAP"]
-            ub[
-                i * NX + PMG] = 0  # The line flow limitation, the predefined status is, the transmission line is off-line
+            ub[i * NX + PMG] = 0  # The line flow limitation, the predefined status is, the transmission line is off-line
             ub[i * NX + PPV] = model["PV"]["PG"][i]
             ub[i * NX + PWP] = model["WP"]["PG"][i]
             ub[i * NX + PL_AC] = model["Load_ac"]["PD"][i]
@@ -282,7 +281,10 @@ class problem_formulation():
                     "Time_step_ed"] / 3600
                 Aeq_temp[i][i * NX + PESS_DC] = 1 / model["ESS"]["EFF_DIS"] * configuration_time_line.default_time[
                     "Time_step_ed"] / 3600
-                beq.append(model["ESS"]["SOC"] * model["ESS"]["CAP"])
+                try:
+                    beq.append(model["ESS"]["SOC"][0] * model["ESS"]["CAP"]) # When the type is repeated
+                except:
+                    beq.append(model["ESS"]["SOC"] * model["ESS"]["CAP"])
             else:
                 Aeq_temp[i][(i - 1) * NX + EESS] = -1
                 Aeq_temp[i][i * NX + EESS] = 1
@@ -356,7 +358,7 @@ class problem_formulation():
         # 9) RG + RUG + RESS >= sum(Load)*beta + sum(PV)*beta_pv + sum(WP)*beta_wp
 
         # No reserve requirement
-        c = zeros(NX)
+        c = [0]*NX
         if model["DG"]["COST_MODEL"] == 2:
             c[PG] = model["DG"]["COST"][1]
         else:
