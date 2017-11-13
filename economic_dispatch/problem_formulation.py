@@ -20,8 +20,8 @@ class problem_formulation():
         T = configuration_time_line.default_look_ahead_time_step["Look_ahead_time_ed_time_step"]
         nx = NX * T
 
-        lb = zeros(NX)
-        ub = zeros(NX)
+        lb = [0]*NX
+        ub = [0]*NX
         ## Update lower boundary
         lb[PG] = model["DG"]["PMIN"]
         lb[RG] = model["DG"]["PMIN"]
@@ -168,7 +168,7 @@ class problem_formulation():
         Aineq = vstack([Aineq, Aineq_temp])
         # 9) RG + RUG + RESS >= sum(Load)*beta + sum(PV)*beta_pv + sum(WP)*beta_wp
         # No reserve requirement
-        c = zeros(NX)
+        c = [0]*T
         if model["DG"]["COST_MODEL"] == 2:
             c[PG] = model["DG"]["COST"][1]
         else:
@@ -203,8 +203,8 @@ class problem_formulation():
         ## The infeasible optimal problem formulation
         T = configuration_time_line.default_look_ahead_time_step["Look_ahead_time_ed_time_step"]
         nx = T * NX
-        lb = zeros(nx)
-        ub = zeros(nx)
+        lb = [0] * T
+        ub = [0] * T
 
         for i in range(T):
             ## Update lower boundary
@@ -218,8 +218,7 @@ class problem_formulation():
             lb[i * NX + PESS_DC] = 0
             lb[i * NX + RESS] = 0
             lb[i * NX + EESS] = model["ESS"]["SOC_MIN"] * model["ESS"]["CAP"]
-            lb[
-                i * NX + PMG] = 0  # The line flow limitation, the predefined status is, the transmission line is off-line
+            lb[i * NX + PMG] = 0  # The line flow limitation, the predefined status is, the transmission line is off-line
             lb[i * NX + PPV] = 0
             lb[i * NX + PWP] = 0
             lb[i * NX + PL_AC] = 0
