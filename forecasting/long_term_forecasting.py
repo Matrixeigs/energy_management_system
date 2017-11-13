@@ -38,9 +38,19 @@ def long_term_forecasting_pv(*args):
     PV_PG = []
     for i in range(default_look_ahead_time_step["Look_ahead_time_uc_time_step"]):
         PV_PG.append(random.random())
-        row = session.query(db_long_term_forecasting).filter_by(
-            TIME_STAMP=Target_Time + i * default_time["Time_step_uc"]).first()
-        row.PV_PG = PV_PG[i]
+        try:
+            row = session.query(db_long_term_forecasting).filter_by(
+                TIME_STAMP=Target_Time + i * default_time["Time_step_uc"]).first()
+            row.PV_PG = PV_PG[i]
+        except:
+            blank_row = blank_forecasting_result(Target_Time + i * default_time["Time_step_uc"])
+            session.add(blank_row)
+            session.commit()
+
+            row = session.query(db_long_term_forecasting).filter_by(
+                TIME_STAMP=Target_Time + i * default_time["Time_step_uc"]).first()
+            row.PV_PG = PV_PG[i]
+
         session.commit()
 
     return PV_PG
@@ -62,9 +72,17 @@ def long_term_forecasting_wp(*args):
     WP_PG = []
     for i in range(default_look_ahead_time_step["Look_ahead_time_uc_time_step"]):
         WP_PG.append(random.random())
-        row = session.query(db_long_term_forecasting).filter_by(
-            TIME_STAMP=Target_Time + i * default_time["Time_step_uc"]).first()
-        row.PV_PG = WP_PG[i]
+        try:
+            row = session.query(db_long_term_forecasting).filter_by(
+                TIME_STAMP=Target_Time + i * default_time["Time_step_uc"]).first()
+            row.WP_PG = WP_PG[i]
+        except:
+            blank_row = blank_forecasting_result(Target_Time + i * default_time["Time_step_uc"])
+            session.add(blank_row)
+            session.commit()
+            row = session.query(db_long_term_forecasting).filter_by(
+                TIME_STAMP=Target_Time + i * default_time["Time_step_uc"]).first()
+            row.WP_PG = WP_PG[i]
         session.commit()
 
     return WP_PG
@@ -86,9 +104,19 @@ def long_term_forecasting_load_ac(*args):
     AC_PD = []
     for i in range(default_look_ahead_time_step["Look_ahead_time_uc_time_step"]):
         AC_PD.append(random.random())
-        row = session.query(db_long_term_forecasting).filter_by(
-            TIME_STAMP=Target_Time + i * default_time["Time_step_uc"]).first()
-        row.PV_PG = AC_PD[i]
+        try:
+            row = session.query(db_long_term_forecasting).filter_by(
+                TIME_STAMP=Target_Time + i * default_time["Time_step_uc"]).first()
+            row.AC_PD = AC_PD[i]
+        except:
+            blank_row = blank_forecasting_result(Target_Time + i * default_time["Time_step_ed"])
+            session.add(blank_row)
+            session.commit()
+
+            row = session.query(db_long_term_forecasting).filter_by(
+                TIME_STAMP=Target_Time + i * default_time["Time_step_uc"]).first()
+            row.AC_PD = AC_PD[i]
+
         session.commit()
     return AC_PD
 
@@ -109,9 +137,19 @@ def long_term_forecasting_load_uac(*args):
     UAC_PD = []
     for i in range(default_look_ahead_time_step["Look_ahead_time_uc_time_step"]):
         UAC_PD.append(random.random())
-        row = session.query(db_long_term_forecasting).filter_by(
-            TIME_STAMP=Target_Time + i * default_time["Time_step_uc"]).first()
-        row.PV_PG = UAC_PD[i]
+        try:
+            row = session.query(db_long_term_forecasting).filter_by(
+                TIME_STAMP=Target_Time + i * default_time["Time_step_uc"]).first()
+            row.UAC_PD = UAC_PD[i]
+        except:
+            blank_row = blank_forecasting_result(Target_Time + i * default_time["Time_step_uc"])
+            session.add(blank_row)
+            session.commit()
+
+            row = session.query(db_long_term_forecasting).filter_by(
+                TIME_STAMP=Target_Time + i * default_time["Time_step_uc"]).first()
+            row.UAC_PD = UAC_PD[i]
+
         session.commit()
 
     return UAC_PD
@@ -133,9 +171,19 @@ def long_term_forecasting_load_dc(*args):
     DC_PD = []
     for i in range(default_look_ahead_time_step["Look_ahead_time_uc_time_step"]):
         DC_PD.append(random.random())
-        row = session.query(db_long_term_forecasting).filter_by(
-            TIME_STAMP=Target_Time + i * default_time["Time_step_uc"]).first()
-        row.PV_PG = DC_PD[i]
+        try:
+            row = session.query(db_long_term_forecasting).filter_by(
+                TIME_STAMP=Target_Time + i * default_time["Time_step_uc"]).first()
+            row.DC_PD = DC_PD[i]
+        except:
+            blank_row = blank_forecasting_result(Target_Time + i * default_time["Time_step_uc"])
+            session.add(blank_row)
+            session.commit()
+
+            row = session.query(db_long_term_forecasting).filter_by(
+                TIME_STAMP=Target_Time + i * default_time["Time_step_uc"]).first()
+            row.DC_PD = DC_PD[i]
+
         session.commit()
 
 
@@ -158,9 +206,18 @@ def long_term_forecasting_load_udc(*args):
     UDC_PD = []
     for i in range(default_look_ahead_time_step["Look_ahead_time_uc_time_step"]):
         UDC_PD.append(random.random())
-        row = session.query(db_long_term_forecasting).filter_by(
-            TIME_STAMP=Target_Time + i * default_time["Time_step_uc"]).first()
-        row.PV_PG = UDC_PD[i]
+        try:
+            row = session.query(db_long_term_forecasting).filter_by(
+                TIME_STAMP=Target_Time + i * default_time["Time_step_uc"]).first()
+            row.UDC_PD = UDC_PD[i]
+        except:
+            blank_row = blank_forecasting_result(Target_Time + i * default_time["Time_step_uc"])
+            session.add(blank_row)
+            session.commit()
+            row = session.query(db_long_term_forecasting).filter_by(
+                TIME_STAMP=Target_Time + i * default_time["Time_step_uc"]).first()
+            row.UDC_PD = UDC_PD[i]
+
         session.commit()
 
     return UDC_PD
