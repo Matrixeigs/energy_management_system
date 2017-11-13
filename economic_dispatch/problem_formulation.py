@@ -68,8 +68,8 @@ class problem_formulation():
             Aeq[i][i * NX + PUG] = 1
             Aeq[i][i * NX + PBIC_AC2DC] = -1
             Aeq[i][i * NX + PBIC_DC2AC] = model["BIC"]["EFF_DC2AC"]
-        for i in range(T):
             beq.append(model["Load_ac"]["PD"][i] + model["Load_uac"]["PD"][i])
+
         # 2) DC power balance equation
         Aeq_temp = zeros((T, nx))
         for i in range(T):
@@ -78,12 +78,10 @@ class problem_formulation():
             Aeq_temp[i][i * NX + PESS_C] = -1
             Aeq_temp[i][i * NX + PESS_DC] = 1
             Aeq_temp[i][i * NX + PMG] = -1
-        Aeq = vstack([Aeq, Aeq_temp])
-        for i in range(T):
             beq.append(model["Load_dc"]["PD"][i] + model["Load_udc"]["PD"][i] - model["PV"]["PG"][i] - model["WP"]["PG"][i])
 
         Aeq = vstack([Aeq, Aeq_temp])
-        beq.append(model["Load_ac"]["QD"] + model["Load_uac"]["QD"])
+
         # 3) Energy storage system
         Aeq_temp = zeros((T, nx))
         for i in range(T):
@@ -168,7 +166,7 @@ class problem_formulation():
         Aineq = vstack([Aineq, Aineq_temp])
         # 9) RG + RUG + RESS >= sum(Load)*beta + sum(PV)*beta_pv + sum(WP)*beta_wp
         # No reserve requirement
-        c = [0]*T
+        c = [0]* NX
         if model["DG"]["COST_MODEL"] == 2:
             c[PG] = model["DG"]["COST"][1]
         else:
@@ -203,8 +201,8 @@ class problem_formulation():
         ## The infeasible optimal problem formulation
         T = configuration_time_line.default_look_ahead_time_step["Look_ahead_time_ed_time_step"]
         nx = T * NX
-        lb = [0] * NX
-        ub = [0] * NX
+        lb = [0] * nx
+        ub = [0] * nx
 
         for i in range(T):
             ## Update lower boundary
@@ -358,7 +356,7 @@ class problem_formulation():
         # 9) RG + RUG + RESS >= sum(Load)*beta + sum(PV)*beta_pv + sum(WP)*beta_wp
 
         # No reserve requirement
-        c = [0]*NX
+        c = [0] * NX
         if model["DG"]["COST_MODEL"] == 2:
             c[PG] = model["DG"]["COST"][1]
         else:
@@ -428,7 +426,7 @@ class problem_formulation():
         Aineq_compact = zeros((2 * nineq, 2 * nx))
         bineq_compact = zeros(2 * nineq)
         c_compact = zeros(2 * nx)
-
+        # The combination of local ems and universal ems problems
         Aeq_compact[0:neq, 0:nx] = local_model_mathematical["Aeq"]
         Aeq_compact[neq:2 * neq, nx:2 * nx] = universal_model_mathematical["Aeq"]
         beq_compact[0:neq] = local_model_mathematical["beq"]
