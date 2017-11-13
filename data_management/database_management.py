@@ -191,12 +191,31 @@ class database_operation():
                     blank_row.BAT_PG = model["ESS"]["COMMAND_PG"][i]
                     blank_row.BAT_SOC = model["ESS"]["SOC"][i]
                     blank_row.PMG = model["PMG"][i]
-                    blank_row.PV_CURT = model["PV"]["COMMAND_CURT"][i]
-                    blank_row.WP_CURT = model["WP"]["COMMAND_CURT"][i]
-                    blank_row.AC_SHED = model["Load_ac"]["COMMAND_SHED"][i]
-                    blank_row.UAC_SHED = model["Load_uac"]["COMMAND_SHED"][i]
-                    blank_row.DC_SHED = model["Load_dc"]["COMMAND_SHED"][i]
-                    blank_row.UDC_SHED = model["Load_udc"]["COMMAND_SHED"][i]
+                    
+                    try:
+                        blank_row.PV_CURT = model["PV"]["COMMAND_CURT"][i]
+                    except:
+                        pass
+                    try:
+                        blank_row.WP_CURT = model["WP"]["COMMAND_CURT"][i]
+                    except:
+                        pass
+                    try:
+                        blank_row.AC_SHED = model["Load_ac"]["COMMAND_SHED"][i]
+                    except:
+                        pass
+                    try:
+                        blank_row.UAC_SHED = model["Load_uac"]["COMMAND_SHED"][i]
+                    except:
+                        pass
+                    try:
+                        blank_row.DC_SHED = model["Load_dc"]["COMMAND_SHED"][i]
+                    except:
+                        pass
+                    try:
+                        blank_row.UDC_SHED = model["Load_udc"]["COMMAND_SHED"][i]
+                    except:
+                        pass
 
                     session.add(blank_row)
                     session.commit()
@@ -229,10 +248,30 @@ class database_operation():
                     row.BAT_PG = model["ESS"]["COMMAND_PG"][i]
                     row.BAT_SOC = model["ESS"]["SOC"][i]
                     row.PMG = model["PMG"][i]
-                    row.PV_CURT = model["PV"]["COMMAND_CURT"][i]
-                    row.WP_CURT = model["WP"]["COMMAND_CURT"][i]
-                    row.AC_SHED = model["Load_ac"]["COMMAND_SHED"][i]
-                    row.UAC_SHED = model["Load_uac"]["COMMAND_SHED"][i]
-                    row.DC_SHED = model["Load_dc"]["COMMAND_SHED"][i]
-                    row.UDC_SHED = model["Load_udc"]["COMMAND_SHED"][i]
+                    try:
+                        blank_row.PV_CURT = model["PV"]["COMMAND_CURT"][i]
+                    except:
+                        pass
+                    try:
+                        blank_row.WP_CURT = model["WP"]["COMMAND_CURT"][i]
+                    except:
+                        pass
+                    try:
+                        blank_row.AC_SHED = model["Load_ac"]["COMMAND_SHED"][i]
+                    except:
+                        pass
+                    try:
+                        blank_row.UAC_SHED = model["Load_uac"]["COMMAND_SHED"][i]
+                    except:
+                        pass
+                    try:
+                        blank_row.DC_SHED = model["Load_dc"]["COMMAND_SHED"][i]
+                    except:
+                        pass
+                    try:
+                        blank_row.UDC_SHED = model["Load_udc"]["COMMAND_SHED"][i]
+                    except:
+                        pass
+
+                    
                     session.commit()

@@ -235,7 +235,11 @@ class information_formulation_extraction_dynamic():
         # Update ess part information
         ess_info.ID = 1
         ess_info.ESS_STATUS.extend([1]*T)
-        ess_info.SOC.extend([model["ESS"]["SOC"]])
+        if type(model["ESS"]["SOC"]) is list:
+            ess_info.SOC.extend(model["ESS"]["SOC"])
+        else:
+            ess_info.SOC.extend([model["ESS"]["SOC"]])
+
         if type(model["ESS"]["COMMAND_PG"]) is list:
             ess_info.PG.extend(model["ESS"]["COMMAND_PG"])
         else:
@@ -330,7 +334,7 @@ class information_formulation_extraction_dynamic():
 
         # Update ess part information
         model["ESS"]["COMMAND_PG"] = info.ess[0].PG
-
+        model["ESS"]["SOC"] = info.ess[0].SOC
         # Update BIC part
         model["BIC"]["COMMAND_AC2DC"] = info.bic[0].PAC2DC
         model["BIC"]["COMMAND_DC2AC"] = info.bic[0].PDC2AC
