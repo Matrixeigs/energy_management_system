@@ -117,15 +117,18 @@ def milp_gurobi(c, Aeq=None, beq=None, A=None, b=None, xmin=None, xmax=None, vty
             xx.append(v.x)
 
         obj = obj.getValue()
+        success = 1
         # print('Obj: %g' % obj.getValue())
 
     except GurobiError as e:
         print('Error code ' + str(e.errno) + ": " + str(e))
+        success = 0
 
     except AttributeError:
         print('Encountered an attribute error')
+        success = 0
 
-    return xx, obj
+    return xx, obj, success
 
 
 def milp_mosek(c, Aeq=None, beq=None, A=None, b=None, xmin=None, xmax=None, vtypes=None, opt=None):
