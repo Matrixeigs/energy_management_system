@@ -32,7 +32,8 @@ def long_term_forecasting(*args):
     session = args[0]
     Target_time = args[1]
     models = args[2]
-    T = default_look_ahead_time_step["Look_ahead_time_ed_time_step"]
+    T = default_look_ahead_time_step["Look_ahead_time_uc_time_step"] # The look ahead horizon of unit commitment
+
     if models["PV"]["GEN_STATUS"] > 0:
         pv_profile = long_term_forecasting_pv(session, Target_time)
         models["PV"]["PG"] = []
