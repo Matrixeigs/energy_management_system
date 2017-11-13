@@ -197,7 +197,7 @@ def update(*args):
 
             model["ESS"]["COMMAND_PG"][i] = int(x[i * NX + PESS_DC] - x[i * NX + PESS_C])
             model["ESS"]["COMMAND_RG"][i] = int(x[i * NX + RESS])
-            model["ESS"]["SOC"][i] = x[i*NX+EESS]
+            model["ESS"]["SOC"][i] = x[i*NX+EESS]/model["ESS"]["CAP"]
             model["PMG"][i] = int(x[i * NX + PMG])
     else:
         from modelling.power_flow.idx_ed_recovery_format import PG, RG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, PESS_C,EESS, \
@@ -234,7 +234,7 @@ def update(*args):
 
             model["ESS"]["COMMAND_PG"][i] = int(x[i * NX + PESS_DC] - x[i * NX + PESS_C])
             model["ESS"]["COMMAND_RG"][i] = int(x[i * NX + RESS])
-            model["ESS"]["SOC"][i] = x[i * NX + EESS]
+            model["ESS"]["SOC"][i] = x[i * NX + EESS]/model["ESS"]["CAP"]
 
             model["PMG"][i] = int(x[i * NX + PMG])
 
