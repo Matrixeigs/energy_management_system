@@ -209,9 +209,12 @@ class information_formulation_extraction_dynamic():
         # Update dg part information
         dg_info.ID = 1
         if type(model["DG"]["GEN_STATUS"]) is list:
-            dg_info.GEN_STATUS.extend([model["DG"]["GEN_STATUS"] * T])
-        elif type(model["DG"]["GEN_STATUS"]) is int:
-            dg_info.GEN_STATUS.extend([model["DG"]["GEN_STATUS"]] * T)
+            if len(model["DG"]["GEN_STATUS"]) != T:
+                dg_info.GEN_STATUS.extend(model["DG"]["GEN_STATUS"] * T)
+            else:
+                dg_info.GEN_STATUS.extend(model["DG"]["GEN_STATUS"])
+        elif type(model["UG"]["GEN_STATUS"]) is int:
+            dg_info.GEN_STATUS.extend([model["UG"]["GEN_STATUS"]] * T)
 
         if type(model["DG"]["COMMAND_PG"]) is list:
             dg_info.PG.extend(model["DG"]["COMMAND_PG"])
@@ -316,14 +319,14 @@ class information_formulation_extraction_dynamic():
         info = args[1]
         # The utility grid part
         model["UG"]["GEN_STATUS"] = info.dg[0].GEN_STATUS
-        model["UG"]["COMMAND_SET_POINT_PG"] = info.dg[0].PG
-        model["UG"]["COMMAND_SET_POINT_QG"] = info.dg[0].QG
-        model["UG"]["COMMAND_RESERVE"] = info.dg[0].RG
+        model["UG"]["COMMAND_PG"] = info.dg[0].PG
+        # model["UG"]["COMMAND_SET_POINT_QG"] = info.dg[0].QG
+        model["UG"]["COMMAND_RG"] = info.dg[0].RG
         # Update dg part information
         model["DG"]["GEN_STATUS"] = info.dg[1].GEN_STATUS
-        model["DG"]["COMMAND_SET_POINT_PG"] = info.dg[1].PG
-        model["DG"]["COMMAND_SET_POINT_QG"] = info.dg[1].QG
-        model["DG"]["COMMAND_RESERVE"] = info.dg[1].RG
+        model["DG"]["COMMAND_PG"] = info.dg[1].PG
+        # model["DG"]["COMMAND_SET_POINT_QG"] = info.dg[1].QG
+        model["DG"]["COMMAND_RG"] = info.dg[1].RG
 
         # Update ess part information
         model["ESS"]["COMMAND_PG"] = info.ess[0].PG
@@ -345,6 +348,6 @@ class information_formulation_extraction_dynamic():
         model["Load_udc"]["COMMAND_SHED"] = info.load_dc[1].COMMAND_SHED
 
         model["PMG"] = info.PMG
-        model["V_DC"] = info.V_DC
+        # model["V_DC"] = info.V_DC
 
         return model

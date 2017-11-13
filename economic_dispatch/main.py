@@ -8,7 +8,7 @@ Based on this method, the shadow price can also be calculated as well.
 
 import threading
 import time
-from configuration.configuration_time_line import default_time
+from configuration.configuration_time_line import default_time,default_look_ahead_time_step
 from data_management.information_collection import Information_Collection_Thread
 from data_management.information_management import information_formulation_extraction_dynamic
 from data_management.information_management import information_receive_send
@@ -47,7 +47,7 @@ class middle_term_operation():
         # Update the universal parameter by using the database engine
         # Two threads are created to obtain the information simultaneously.
         thread_forecasting = ForecastingThread(session, Target_time, universal_models)
-        thread_info_ex = Information_Collection_Thread(socket_upload, info, local_models)
+        thread_info_ex = Information_Collection_Thread(socket_upload, info, local_models, default_look_ahead_time_step["Look_ahead_time_ed_time_step"])
 
         thread_forecasting.start()
         thread_info_ex.start()
@@ -82,7 +82,7 @@ class middle_term_operation():
                                                              "Infeasible")
 
         # Return command to the local ems
-        dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+        dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time,"ED")
         dynamic_model.TIME_STAMP_COMMAND = round(time.time())
 
         information_send_thread = threading.Thread(target=information_receive_send.information_send,
@@ -143,7 +143,6 @@ class middle_term_operation():
 
 def result_update(*args):
     ## Result update for local ems and universal ems models
-    from configuration.configuration_time_line import default_look_ahead_time_step
     res = args[0]
     local_model = args[1]
     universal_model = args[2]
@@ -169,11 +168,11 @@ def update(*args):
     x = args[0]
     model = args[1]
     type = args[2]
-    from configuration.configuration_time_line import default_look_ahead_time_step
+
     T = default_look_ahead_time_step["Look_ahead_time_ed_time_step"]
 
     if type == "Feasible":
-        from modelling.power_flow.idx_ed_foramt import PG, RG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, PESS_C, PESS_DC, RESS, \
+        from modelling.power_flow.idx_ed_foramt import PG, RG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, PESS_C, PESS_DC, RESS,EESS,\
             PMG, NX
         model["DG"]["COMMAND_PG"] = [0] * T
         model["DG"]["COMMAND_RG"] = [0] * T
@@ -183,22 +182,25 @@ def update(*args):
         model["BIC"]["COMMAND_DC2AC"] = [0] * T
         model["ESS"]["COMMAND_PG"] = [0] * T
         model["ESS"]["COMMAND_RG"] = [0] * T
+        model["ESS"]["SOC"] = [0]*T
+        model["PMG"] = [0]*T
+
         for i in range(T):
-            model["DG"]["COMMAND_PG"][i] = x[i * NX + PG]
-            model["DG"]["COMMAND_RG"][i] = x[i * NX + RG]
+            model["DG"]["COMMAND_PG"][i] = int(x[i * NX + PG])
+            model["DG"]["COMMAND_RG"][i] = int(x[i * NX + RG])
 
-            model["UG"]["COMMAND_PG"][i] = x[i * NX + PUG]
-            model["UG"]["COMMAND_RG"][i] = x[i * NX + RUG]
+            model["UG"]["COMMAND_PG"][i] = int(x[i * NX + PUG])
+            model["UG"]["COMMAND_RG"][i] = int(x[i * NX + RUG])
 
-            model["BIC"]["COMMAND_AC2DC"][i] = x[i * NX + PBIC_AC2DC]
-            model["BIC"]["COMMAND_DC2AC"][i] = x[i * NX + PBIC_DC2AC]
+            model["BIC"]["COMMAND_AC2DC"][i] = int(x[i * NX + PBIC_AC2DC])
+            model["BIC"]["COMMAND_DC2AC"][i] = int(x[i * NX + PBIC_DC2AC])
 
-            model["ESS"]["COMMAND_PG"][i] = x[i * NX + PESS_DC] - x[i * NX + PESS_C]
-            model["ESS"]["COMMAND_RG"][i] = x[i * NX + RESS]
-
-            model["PMG"][i] = x[i * NX + PMG]
+            model["ESS"]["COMMAND_PG"][i] = int(x[i * NX + PESS_DC] - x[i * NX + PESS_C])
+            model["ESS"]["COMMAND_RG"][i] = int(x[i * NX + RESS])
+            model["ESS"]["SOC"][i] = x[i*NX+EESS]
+            model["PMG"][i] = int(x[i * NX + PMG])
     else:
-        from modelling.power_flow.idx_ed_recovery_format import PG, RG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, PESS_C, \
+        from modelling.power_flow.idx_ed_recovery_format import PG, RG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, PESS_C,EESS, \
             PESS_DC, RESS, PMG, PPV, PWP, PL_AC, PL_UAC, PL_DC, PL_UDC, NX
 
         model["DG"]["COMMAND_PG"] = [0] * T
@@ -209,34 +211,39 @@ def update(*args):
         model["BIC"]["COMMAND_DC2AC"] = [0] * T
         model["ESS"]["COMMAND_PG"] = [0] * T
         model["ESS"]["COMMAND_RG"] = [0] * T
+        model["ESS"]["SOC"] = [0] * T
+
         model["PV"]["COMMAND_CURT"] = [0] * T
         model["WP"]["COMMAND_CURT"] = [0] * T
+        model["PMG"] = [0] * T
 
         model["Load_ac"]["COMMAND_SHED"] = [0] * T
         model["Load_uac"]["COMMAND_SHED"] = [0] * T
         model["Load_dc"]["COMMAND_SHED"] = [0] * T
         model["Load_udc"]["COMMAND_SHED"] = [0] * T
+
         for i in range(T):
-            model["DG"]["COMMAND_PG"][i] = x[i * NX + PG]
-            model["DG"]["COMMAND_RG"][i] = x[i * NX + RG]
+            model["DG"]["COMMAND_PG"][i] = int(x[i * NX + PG])
+            model["DG"]["COMMAND_RG"][i] = int(x[i * NX + RG])
 
-            model["UG"]["COMMAND_PG"][i] = x[i * NX + PUG]
-            model["UG"]["COMMAND_RG"][i] = x[i * NX + RUG]
+            model["UG"]["COMMAND_PG"][i] = int(x[i * NX + PUG])
+            model["UG"]["COMMAND_RG"][i] = int(x[i * NX + RUG])
 
-            model["BIC"]["COMMAND_AC2DC"][i] = x[i * NX + PBIC_AC2DC]
-            model["BIC"]["COMMAND_DC2AC"][i] = x[i * NX + PBIC_DC2AC]
+            model["BIC"]["COMMAND_AC2DC"][i] = int(x[i * NX + PBIC_AC2DC])
+            model["BIC"]["COMMAND_DC2AC"][i] = int(x[i * NX + PBIC_DC2AC])
 
-            model["ESS"]["COMMAND_PG"][i] = x[i * NX + PESS_DC] - x[i * NX + PESS_C]
-            model["ESS"]["COMMAND_RG"][i] = x[i * NX + RESS]
+            model["ESS"]["COMMAND_PG"][i] = int(x[i * NX + PESS_DC] - x[i * NX + PESS_C])
+            model["ESS"]["COMMAND_RG"][i] = int(x[i * NX + RESS])
+            model["ESS"]["SOC"][i] = x[i * NX + EESS]
 
-            model["PMG"][i] = x[i * NX + PMG]
+            model["PMG"][i] = int(x[i * NX + PMG])
 
-            model["PV"]["COMMAND_CURT"][i] = min(model["PV"]["PG"], x[i * NX + PPV])
-            model["WP"]["COMMAND_CURT"] = min(model["WP"]["PG"], x[i * NX + PWP])
+            model["PV"]["COMMAND_CURT"][i] = int(min(model["PV"]["PG"], x[i * NX + PPV]))
+            model["WP"]["COMMAND_CURT"] = int(min(model["WP"]["PG"], x[i * NX + PWP]))
 
-            model["Load_ac"]["COMMAND_SHED"] = min(model["Load_ac"]["PD"], x[i * NX + PL_AC])
-            model["Load_uac"]["COMMAND_SHED"] = min(model["Load_uac"]["PD"], x[i * NX + PL_UAC])
-            model["Load_dc"]["COMMAND_SHED"] = min(model["Load_dc"]["PD"], x[i * NX + PL_DC])
-            model["Load_udc"]["COMMAND_SHED"] = min(model["Load_udc"]["PD"], x[i * NX + PL_UDC])
+            model["Load_ac"]["COMMAND_SHED"] = int(min(model["Load_ac"]["PD"], x[i * NX + PL_AC]))
+            model["Load_uac"]["COMMAND_SHED"] = int(min(model["Load_uac"]["PD"], x[i * NX + PL_UAC]))
+            model["Load_dc"]["COMMAND_SHED"] = int(min(model["Load_dc"]["PD"], x[i * NX + PL_DC]))
+            model["Load_udc"]["COMMAND_SHED"] = int(min(model["Load_udc"]["PD"], x[i * NX + PL_UDC]))
 
     return model

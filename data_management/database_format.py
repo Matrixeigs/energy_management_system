@@ -101,6 +101,7 @@ class db_unit_commitment(Base):
     # Renewable energy group.
     PV_PG = Column(INTEGER)
     WP_PG = Column(INTEGER)
+    PRICE = Column(FLOAT)
     # Schedulable sources group.
     # AC side
     # Generations
@@ -147,6 +148,7 @@ class db_economic_dispatch(Base):
     # Renewable energy group.
     PV_PG = Column(INTEGER)
     WP_PG = Column(INTEGER)
+    PRICE = Column(FLOAT)
     # Schedulable sources group.
     # AC side
     # Generations

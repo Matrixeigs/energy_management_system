@@ -7,7 +7,7 @@ class database_operation():
     # Database operation in universal energy management system
     def unit_commitment_default_data(*args):
         Target_time = args[0]
-        default_result = db_optimal_power_flow \
+        default_result = db_unit_commitment \
             (TIME_STAMP=Target_time,
              AC_PD=0,
              AC_QD=0,
@@ -72,7 +72,7 @@ class database_operation():
 
     def economic_dispatch_default_data(*args):
         Target_time = args[0]
-        default_result = db_optimal_power_flow \
+        default_result = db_economic_dispatch \
             (TIME_STAMP=Target_time,
              AC_PD=0,
              AC_QD=0,
@@ -177,10 +177,16 @@ class database_operation():
                     blank_row.UDC_PD = model["Load_udc"]["PD"][i]
                     blank_row.PV_PG = model["PV"]["PG"][i]
                     blank_row.WP_PG = model["WP"]["PG"][i]
-                    blank_row.DG_STATUS = model["DG"]["GEN_STATUS"][i]
-                    blank_row.DG_PG = model["DG"]["COMMAND_SET_POINT_PG"][i]
-                    blank_row.UG_STATUS = model["UG"]["GEN_STATUS"][i]
-                    blank_row.UG_PG = model["UG"]["COMMAND_SET_POINT_PG"][i]
+                    try:
+                        blank_row.DG_STATUS = model["DG"]["GEN_STATUS"][i]
+                    except:
+                        blank_row.DG_STATUS = model["DG"]["GEN_STATUS"]
+                    blank_row.DG_PG = model["DG"]["COMMAND_PG"][i]
+                    try:
+                        blank_row.UG_STATUS = model["UG"]["GEN_STATUS"][i]
+                    except:
+                        blank_row.UG_STATUS = model["UG"]["GEN_STATUS"]
+                    blank_row.UG_PG = model["UG"]["COMMAND_PG"][i]
                     blank_row.BIC_PG = model["BIC"]["COMMAND_AC2DC"][i] - model["BIC"]["COMMAND_DC2AC"][i]
                     blank_row.BAT_PG = model["ESS"]["COMMAND_PG"][i]
                     blank_row.BAT_SOC = model["ESS"]["SOC"][i]
@@ -204,10 +210,21 @@ class database_operation():
                     row.UDC_PD = model["Load_udc"]["PD"][i]
                     row.PV_PG = model["PV"]["PG"][i]
                     row.WP_PG = model["WP"]["PG"][i]
-                    row.DG_STATUS = model["DG"]["GEN_STATUS"][i]
-                    row.DG_PG = model["DG"]["COMMAND_SET_POINT_PG"][i]
-                    row.UG_STATUS = model["UG"]["GEN_STATUS"][i]
-                    row.UG_PG = model["UG"]["COMMAND_SET_POINT_PG"][i]
+
+                    try:
+                        blank_row.DG_STATUS = model["DG"]["GEN_STATUS"][i]
+                    except:
+                        blank_row.DG_STATUS = model["DG"]["GEN_STATUS"]
+
+                    blank_row.DG_PG = model["DG"]["COMMAND_PG"][i]
+
+                    try:
+                        blank_row.UG_STATUS = model["UG"]["GEN_STATUS"][i]
+                    except:
+                        blank_row.UG_STATUS = model["UG"]["GEN_STATUS"]
+
+                    row.UG_PG = model["UG"]["COMMAND_PG"][i]
+
                     row.BIC_PG = model["BIC"]["COMMAND_AC2DC"][i] - model["BIC"]["COMMAND_DC2AC"][i]
                     row.BAT_PG = model["ESS"]["COMMAND_PG"][i]
                     row.BAT_SOC = model["ESS"]["SOC"][i]
