@@ -57,12 +57,12 @@ def milp_gurobi(c, Aeq=None, beq=None, A=None, b=None, xmin=None, xmax=None, vty
                        - C{message} - exit message
         """
     nx = c.shape[0]  # number of decision variables
-    if A != None:
+    if A.shape[0]!= None:
         nineq = A.shape[0]  # number of equality constraints
     else:
         nineq = 0
 
-    if Aeq != None:
+    if Aeq.shape[0]!= None:
         neq = Aeq.shape[0]  # number of inequality constraints
     else:
         neq = 0
