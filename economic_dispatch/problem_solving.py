@@ -29,6 +29,10 @@ def solving_procedure(*args):
     # Formulate the variable types.
     vtypes = ["c"]*len(lb)
 
-    res = miqp_gurobi(c,Q,Aeq=Aeq, beq=beq,A=A, b=b, xmin=lb,xmax=ub,vtypes=vtypes)
+    (solution,obj,success) = miqp_gurobi(c,Q,Aeq=Aeq, beq=beq,A=A, b=b, xmin=lb,xmax=ub,vtypes=vtypes)
+    #The return value is the
+    res = {"x": solution,
+           "obj":obj,
+           "success":success>0}
 
     return res
