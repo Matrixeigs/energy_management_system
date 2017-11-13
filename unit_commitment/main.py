@@ -6,7 +6,7 @@ Jointed energy and reserves are optimized to reduce the operation cost and risk.
 
 import threading
 import time
-from configuration.configuration_time_line import default_time
+from configuration.configuration_time_line import default_time,default_look_ahead_time_step
 from data_management.information_collection import Information_Collection_Thread
 from data_management.information_management import information_formulation_extraction_dynamic
 from data_management.information_management import information_receive_send
@@ -14,17 +14,17 @@ from unit_commitment.long_tertm_forecasting import ForecastingThread
 from utils import Logger
 
 logger_uems = Logger("Long_term_dispatch_UEMS")
-logger_lems = Logger("Long_term_dispatch_UEMS")
+logger_lems = Logger("Long_term_dispatch_LEMS")
 
 
-class middle_term_operation():
+class long_term_operation():
     ##short term operation for ems
     # Two modes are proposed for the local ems and
     def long_term_operation_uems(*args):
         # Short term forecasting for the middle term operation in universal energy management system.
         from data_management.database_management import database_operation
-        from economic_dispatch.problem_formulation import problem_formulation
-        from economic_dispatch.problem_solving import Solving_Thread
+        from unit_commitment.problem_formulation import problem_formulation
+        from unit_commitment.problem_solving import Solving_Thread
         from configuration.configuration_time_line import default_dead_line_time
         # Short term operation
         # General procedure for middle-term operation
@@ -39,13 +39,12 @@ class middle_term_operation():
         session = args[5]
 
         Target_time = time.time()
-        Target_time = round((Target_time - Target_time % default_time["Time_step_uc"] + default_time[
-            "Time_step_uc"]))
+        Target_time = round((Target_time - Target_time % default_time["Time_step_uc"] + default_time["Time_step_uc"]))
 
         # Update the universal parameter by using the database engine
         # Two threads are created to obtain the information simultaneously.
         thread_forecasting = ForecastingThread(session, Target_time, universal_models)
-        thread_info_ex = Information_Collection_Thread(socket_upload, info, local_models)
+        thread_info_ex = Information_Collection_Thread(socket_upload, info, local_models,default_look_ahead_time_step["Look_ahead_time_uc_time_step"])
 
         thread_forecasting.start()
         thread_info_ex.start()

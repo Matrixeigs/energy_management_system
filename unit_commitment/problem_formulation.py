@@ -21,6 +21,9 @@ class problem_formulation():
 
         lb = [0] * T
         ub = [0] * T
+        vtypes = ["c"] * NX
+        vtypes[IG] = ["b"]
+        vtypes[IUG] = ["b"]
         ## Update lower boundary
         lb[IG] = 0
         lb[PG] = model["DG"]["PMIN"]
@@ -194,7 +197,8 @@ class problem_formulation():
                               "A": Aineq,
                               "b": bineq,
                               "lb": LB,
-                              "ub": UB}
+                              "ub": UB,
+                              "vtypes":vtypes}
 
         return mathematical_model
 
@@ -208,13 +212,15 @@ class problem_formulation():
         nx = T * NX
         lb = [0]*nx
         ub = [0]*nx
-
+        vtypes = ["c"]*nx
         for i in range(T):
             ## Update lower boundary
             lb[i * NX + IG] = 0
+            vtypes[i * NX + IG] = "b"
             lb[i * NX + PG] = model["DG"]["PMIN"]
             lb[i * NX + RG] = model["DG"]["PMIN"]
             lb[i * NX + IUG] = 0
+            vtypes[i * NX + IUG] = "b"
             lb[i * NX + PUG] = model["UG"]["PMIN"]
             lb[i * NX + RUG] = model["UG"]["PMIN"]
             lb[i * NX + PBIC_AC2DC] = 0
@@ -365,7 +371,7 @@ class problem_formulation():
         # 9) RG + RUG + RESS >= sum(Load)*beta + sum(PV)*beta_pv + sum(WP)*beta_wp
 
         # No reserve requirement
-        c = [0]*NX
+        c = [0]* NX
         if model["DG"]["COST_MODEL"] == 2:
             c[PG] = model["DG"]["COST"][1]
         else:
@@ -394,7 +400,8 @@ class problem_formulation():
                               "A": Aineq,
                               "b": bineq,
                               "lb": lb,
-                              "ub": ub}
+                              "ub": ub,
+                              "vtypes":vtypes}
 
         return mathematical_model
 
@@ -451,6 +458,7 @@ class problem_formulation():
 
         lb = numpy.append(local_model_mathematical["lb"], universal_model_mathematical["lb"])
         ub = numpy.append(local_model_mathematical["ub"], universal_model_mathematical["ub"])
+        vtypes = numpy.append(local_model_mathematical["vtypes"],universal_model_mathematical["vtypes"])
 
         Aeq_compact_temp = zeros((T, 2 * nx))
         for i in range(T):
@@ -470,5 +478,6 @@ class problem_formulation():
                  "A": Aineq_compact,
                  "b": bineq_compact,
                  "lb": lb,
-                 "ub": ub}
+                 "ub": ub,
+                 "vtypes":vtypes}
         return model
