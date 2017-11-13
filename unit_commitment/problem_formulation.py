@@ -5,14 +5,13 @@
 from numpy import array, vstack, zeros
 import numpy
 from utils import Logger
-
+from configuration import configuration_time_line
 logger = Logger("Problem formulation for UEMS")
 
 
 class problem_formulation():
     ## Reformulte the information model to system level
     def problem_formulation_local(*args):
-        from configuration import configuration_time_line
         from modelling.power_flow.idx_uc_format import IG, PG, RG, IUG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, PESS_C, \
             PESS_DC, RESS, EESS, PMG, NX
         model = args[0]  # If multiple models are inputed, more local ems models will be formulated
@@ -20,8 +19,8 @@ class problem_formulation():
         T = configuration_time_line.default_look_ahead_time_step["Look_ahead_time_uc_time_step"]
         nx = NX * T
 
-        lb = zeros(NX)
-        ub = zeros(NX)
+        lb = [0] * T
+        ub = [0] * T
         ## Update lower boundary
         lb[IG] = 0
         lb[PG] = model["DG"]["PMIN"]
@@ -72,7 +71,7 @@ class problem_formulation():
             Aeq[i][i * NX + PUG] = 1
             Aeq[i][i * NX + PBIC_AC2DC] = -1
             Aeq[i][i * NX + PBIC_DC2AC] = model["BIC"]["EFF_DC2AC"]
-        beq.append(model["Load_ac"]["PD"] + model["Load_uac"]["PD"])
+            beq.append(model["Load_ac"]["PD"][i] + model["Load_uac"]["PD"][i])
         # 2) DC power balance equation
         Aeq_temp = zeros((T, nx))
         for i in range(T):
@@ -81,21 +80,24 @@ class problem_formulation():
             Aeq_temp[i][i * NX + PESS_C] = -1
             Aeq_temp[i][i * NX + PESS_DC] = 1
             Aeq_temp[i][i * NX + PMG] = -1
-        Aeq = vstack([Aeq, Aeq_temp])
-        beq.append(model["Load_dc"]["PD"] + model["Load_udc"]["PD"] - model["PV"]["PG"] - model["WP"]["PG"])
+            beq.append(
+                model["Load_dc"]["PD"][i] + model["Load_udc"]["PD"][i] - model["PV"]["PG"][i] - model["WP"]["PG"][i])
 
         Aeq = vstack([Aeq, Aeq_temp])
-        beq.append(model["Load_ac"]["QD"] + model["Load_uac"]["QD"])
+
         # 3) Energy storage system
         Aeq_temp = zeros((T, nx))
         for i in range(T):
             if i == 0:
                 Aeq_temp[i][i * NX + EESS] = 1
                 Aeq_temp[i][i * NX + PESS_C] = -model["ESS"]["EFF_CH"] * configuration_time_line.default_time[
-                    "Time_step_ed"] / 3600
+                    "Time_step_uc"] / 3600
                 Aeq_temp[i][i * NX + PESS_DC] = 1 / model["ESS"]["EFF_DIS"] * configuration_time_line.default_time[
-                    "Time_step_ed"] / 3600
-                beq.append(model["ESS"]["SOC"] * model["ESS"]["CAP"])
+                    "Time_step_uc"] / 3600
+                try:
+                    beq.append(model["ESS"]["SOC"] * model["ESS"]["CAP"])
+                except:
+                    beq.append(model["ESS"]["SOC"][0] * model["ESS"]["CAP"])
             else:
                 Aeq_temp[i][(i - 1) * NX + EESS] = -1
                 Aeq_temp[i][i * NX + EESS] = 1
@@ -170,7 +172,7 @@ class problem_formulation():
         Aineq = vstack([Aineq, Aineq_temp])
         # 9) RG + RUG + RESS >= sum(Load)*beta + sum(PV)*beta_pv + sum(WP)*beta_wp
         # No reserve requirement
-        c = zeros(NX)
+        c = [0] * NX
         if model["DG"]["COST_MODEL"] == 2:
             c[PG] = model["DG"]["COST"][1]
         else:
@@ -200,13 +202,12 @@ class problem_formulation():
         from configuration import configuration_time_line
         from modelling.power_flow.idx_uc_recovery_format import IG, PG, RG, IUG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, \
             PESS_C, PESS_DC, RESS, EESS, PMG, IPV, IWP, IL_AC, IL_UAC, IL_DC, IL_UDC, NX
-
         model = args[0]  # If multiple models are inputed, more local ems models will be formulated
         ## The infeasible optimal problem formulation
         T = configuration_time_line.default_look_ahead_time_step["Look_ahead_time_ed_time_step"]
         nx = T * NX
-        lb = zeros(nx)
-        ub = zeros(nx)
+        lb = [0]*nx
+        ub = [0]*nx
 
         for i in range(T):
             ## Update lower boundary
@@ -230,10 +231,10 @@ class problem_formulation():
             lb[i * NX + IL_DC] = 0
             lb[i * NX + IL_UDC] = 0
             ## Update lower boundary
-            ub[i * NX + IG] = 0
+            ub[i * NX + IG] = 1
             ub[i * NX + PG] = model["DG"]["PMAX"]
             ub[i * NX + RG] = model["DG"]["PMAX"]
-            ub[i * NX + IUG] = 0
+            ub[i * NX + IUG] = 1
             ub[i * NX + PUG] = model["UG"]["PMAX"]
             ub[i * NX + RUG] = model["UG"]["PMAX"]
             ub[i * NX + PBIC_AC2DC] = model["BIC"]["CAP"]
@@ -253,7 +254,7 @@ class problem_formulation():
         ## Constraints set
         # 1) Power balance equation
         Aeq = zeros((T, nx))
-        beq = []
+        beq = [ ]
         for i in range(T):
             Aeq[i][i * NX + PG] = 1
             Aeq[i][i * NX + PUG] = 1
@@ -364,7 +365,7 @@ class problem_formulation():
         # 9) RG + RUG + RESS >= sum(Load)*beta + sum(PV)*beta_pv + sum(WP)*beta_wp
 
         # No reserve requirement
-        c = zeros(NX)
+        c = [0]*NX
         if model["DG"]["COST_MODEL"] == 2:
             c[PG] = model["DG"]["COST"][1]
         else:
@@ -402,8 +403,7 @@ class problem_formulation():
         local_model = args[0]
         universal_model = args[1]
         type = args[len(args) - 1]  # The last one is the type
-        from configuration import configuration_time_line
-        T = configuration_time_line.default_look_ahead_time_step["Look_ahead_time_ed_time_step"]
+        T = configuration_time_line.default_look_ahead_time_step["Look_ahead_time_uc_time_step"]
 
         ## Formulating the universal energy models
         if type == "Feasible":
