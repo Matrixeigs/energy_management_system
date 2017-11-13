@@ -93,7 +93,7 @@ def run():
     # middle_term_operation.middle_term_operation_lems(local_models, socket_upload, socket_download, info_ed,
     #                                                  session_short_term_operation)
 
-    long_term_operation.long_term_operation_lems(local_models, socket_upload, socket_download, info_ed,
+    long_term_operation.long_term_operation_lems(local_models, socket_upload, socket_download, info_uc,
                                                      session_short_term_operation)
 
 

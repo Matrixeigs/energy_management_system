@@ -20,8 +20,8 @@ class problem_formulation():
         T = configuration_time_line.default_look_ahead_time_step["Look_ahead_time_ed_time_step"]
         nx = NX * T
 
-        lb = [0]*NX
-        ub = [0]*NX
+        lb = [0]* NX
+        ub = [0]* NX
         ## Update lower boundary
         lb[PG] = model["DG"]["PMIN"]
         lb[RG] = model["DG"]["PMIN"]

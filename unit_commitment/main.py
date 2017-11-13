@@ -16,7 +16,6 @@ from utils import Logger
 logger_uems = Logger("Long_term_dispatch_UEMS")
 logger_lems = Logger("Long_term_dispatch_LEMS")
 
-
 class long_term_operation():
     ##short term operation for ems
     # Two modes are proposed for the local ems and
@@ -79,7 +78,7 @@ class long_term_operation():
                                                              "Infeasible")
 
         # Return command to the local ems
-        dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+        dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time,"UC")
         dynamic_model.TIME_STAMP_COMMAND = round(time.time())
 
         information_send_thread = threading.Thread(target=information_receive_send.information_send,
@@ -87,6 +86,7 @@ class long_term_operation():
 
         database_operation__uems = threading.Thread(target=database_operation.database_record,
                                                     args=(session, universal_models, Target_time, "UC"))
+
         logger_uems.info("The command for UEMS is {}".format(universal_models["PMG"]))
         information_send_thread.start()
         database_operation__uems.start()
@@ -119,7 +119,7 @@ class long_term_operation():
 
         local_models = thread_forecasting.models
         # Update the dynamic model
-        dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time)
+        dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time,"UC")
         # Information send
         logger_lems.info("Sending request from {}".format(dynamic_model.AREA) + " to the serve")
         logger_lems.info("The local time is {}".format(dynamic_model.TIME_STAMP))
@@ -140,21 +140,20 @@ class long_term_operation():
 
 def result_update(*args):
     ## Result update for local ems and universal ems models
-    from configuration.configuration_time_line import default_look_ahead_time_step
     res = args[0]
     local_model = args[1]
     universal_model = args[2]
     type = args[3]
-    T = default_look_ahead_time_step["Look_ahead_time_ed_time_step"]
+    T = default_look_ahead_time_step["Look_ahead_time_uc_time_step"]
 
     if type == "Feasible":
-        from modelling.power_flow.idx_ed_foramt import NX
+        from modelling.power_flow.idx_uc_format import NX
     else:
-        from modelling.power_flow.idx_ed_recovery_format import NX
+        from modelling.power_flow.idx_uc_recovery_format import NX
 
     nx = T * NX
     x_local = res["x"][0:nx]
-    x_universal = res["x"][nx:nx]
+    x_universal = res["x"][nx:2*nx]
 
     local_model = update(x_local, local_model, type)
     universal_model = update(x_universal, universal_model, type)
@@ -167,70 +166,97 @@ def update(*args):
     model = args[1]
     type = args[2]
 
+    T = default_look_ahead_time_step["Look_ahead_time_uc_time_step"]
+
     if type == "Feasible":
-        from modelling.power_flow.idx_ed_foramt import PG, RG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, PESS_C, PESS_DC, RESS, \
-            PMG
+        from modelling.power_flow.idx_uc_format import IG, PG, RG, IUG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, PESS_C, PESS_DC, RESS,EESS,\
+            PMG, NX
+        model["DG"]["COMMAND_START_UP"] = [0] * T
+        model["DG"]["COMMAND_PG"] = [0] * T
+        model["DG"]["COMMAND_RG"] = [0] * T
 
-        model["DG"]["COMMAND_SET_POINT_PG"] = int_list(x[PG])
-        model["DG"]["COMMAND_RESERVE"] = int_list(x[RG])
+        model["UG"]["COMMAND_START_UP"] = [0] * T
+        model["UG"]["COMMAND_PG"] = [0] * T
+        model["UG"]["COMMAND_RG"] = [0] * T
 
-        model["UG"]["COMMAND_SET_POINT_PG"] = int_list(x[PUG])
-        model["UG"]["COMMAND_RESERVE"] = int_list(x[RUG])
+        model["BIC"]["COMMAND_AC2DC"] = [0] * T
+        model["BIC"]["COMMAND_DC2AC"] = [0] * T
 
-        model["BIC"]["COMMAND_AC2DC"] = int_list(x[PBIC_AC2DC])
-        model["BIC"]["COMMAND_DC2AC"] = int_list(x[PBIC_DC2AC])
+        model["ESS"]["COMMAND_PG"] = [0] * T
+        model["ESS"]["COMMAND_RG"] = [0] * T
+        model["ESS"]["SOC"] = [0]*T
 
-        model["ESS"]["COMMAND_PG"] = minus_list(x[PESS_DC], x[PESS_C])
-        model["ESS"]["COMMAND_RG"] = int_list(x[RESS])
+        model["PMG"] = [0]*T
 
-        model["PMG"] = int_list(x[PMG])
+        for i in range(T):
+            model["DG"]["COMMAND_START_UP"][i] = int(x[i * NX + IG])
+            model["DG"]["COMMAND_PG"][i] = int(x[i * NX + PG])
+            model["DG"]["COMMAND_RG"][i] = int(x[i * NX + RG])
+
+            model["UG"]["COMMAND_START_UP"][i] = int(x[i * NX + IUG])
+            model["UG"]["COMMAND_PG"][i] = int(x[i * NX + PUG])
+            model["UG"]["COMMAND_RG"][i] = int(x[i * NX + RUG])
+
+            model["BIC"]["COMMAND_AC2DC"][i] = int(x[i * NX + PBIC_AC2DC])
+            model["BIC"]["COMMAND_DC2AC"][i] = int(x[i * NX + PBIC_DC2AC])
+
+            model["ESS"]["COMMAND_PG"][i] = int(x[i * NX + PESS_DC] - x[i * NX + PESS_C])
+            model["ESS"]["COMMAND_RG"][i] = int(x[i * NX + RESS])
+            model["ESS"]["SOC"][i] = x[i*NX+EESS]/model["ESS"]["CAP"]
+            model["PMG"][i] = int(x[i * NX + PMG])
     else:
-        from modelling.power_flow.idx_ed_recovery_format import PG, RG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, PESS_C, \
-            PESS_DC, RESS, PMG, PPV, PWP, PL_AC, PL_UAC, PL_DC, PL_UDC
-        model["DG"]["COMMAND_SET_POINT_PG"] = int_list(x[PG])
-        model["DG"]["COMMAND_RESERVE"] = int_list(x[RG])
+        from modelling.power_flow.idx_uc_recovery_format import IG, PG, RG, IUG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, PESS_C,EESS, \
+            PESS_DC, RESS, PMG, PPV, PWP, PL_AC, PL_UAC, PL_DC, PL_UDC, NX
 
-        model["UG"]["COMMAND_SET_POINT_PG"] = int_list(x[PUG])
-        model["UG"]["COMMAND_RESERVE"] = int_list(x[RUG])
+        model["DG"]["COMMAND_START_UP"] = [0] * T
+        model["DG"]["COMMAND_PG"] = [0] * T
+        model["DG"]["COMMAND_RG"] = [0] * T
 
-        model["BIC"]["COMMAND_AC2DC"] = int_list(x[PBIC_AC2DC])
-        model["BIC"]["COMMAND_DC2AC"] = int_list(x[PBIC_DC2AC])
+        model["UG"]["COMMAND_START_UP"] = [0] * T
+        model["UG"]["COMMAND_PG"] = [0] * T
+        model["UG"]["COMMAND_RG"] = [0] * T
 
-        model["ESS"]["COMMAND_PG"] = minus_list(x[PESS_DC], x[PESS_C])
-        model["ESS"]["COMMAND_RG"] = int_list(x[RESS])
+        model["BIC"]["COMMAND_AC2DC"] = [0] * T
+        model["BIC"]["COMMAND_DC2AC"] = [0] * T
 
-        model["PMG"] = int_list(x[PMG])
+        model["ESS"]["COMMAND_PG"] = [0] * T
+        model["ESS"]["COMMAND_RG"] = [0] * T
+        model["ESS"]["SOC"] = [0] * T
 
-        model["PV"]["COMMAND_CURT"] = minus_list(model["PV"]["PG"], x[PPV])
-        model["PV"]["COMMAND_CURT"] = minus_list(model["WP"]["PG"], x[PWP])
+        model["PV"]["COMMAND_CURT"] = [0] * T
+        model["WP"]["COMMAND_CURT"] = [0] * T
 
-        model["Load_ac"]["COMMAND_SHED"] = minus_list(model["Load_ac"]["PD"], x[PL_AC])
-        model["Load_uac"]["COMMAND_SHED"] = minus_list(model["Load_uac"]["PD"], x[PL_UAC])
-        model["Load_dc"]["COMMAND_SHED"] = minus_list(model["Load_dc"]["PD"], x[PL_DC])
-        model["Load_udc"]["COMMAND_SHED"] = minus_list(model["Load_udc"]["PD"], x[PL_UDC])
+        model["PMG"] = [0] * T
+
+        model["Load_ac"]["COMMAND_SHED"] = [0] * T
+        model["Load_uac"]["COMMAND_SHED"] = [0] * T
+        model["Load_dc"]["COMMAND_SHED"] = [0] * T
+        model["Load_udc"]["COMMAND_SHED"] = [0] * T
+
+        for i in range(T):
+            model["DG"]["COMMAND_START_UP"][i] = int(x[i * NX + IG])
+            model["DG"]["COMMAND_PG"][i] = int(x[i * NX + PG])
+            model["DG"]["COMMAND_RG"][i] = int(x[i * NX + RG])
+
+            model["UG"]["COMMAND_START_UP"][i] = int(x[i * NX + IUG])
+            model["UG"]["COMMAND_PG"][i] = int(x[i * NX + PUG])
+            model["UG"]["COMMAND_RG"][i] = int(x[i * NX + RUG])
+
+            model["BIC"]["COMMAND_AC2DC"][i] = int(x[i * NX + PBIC_AC2DC])
+            model["BIC"]["COMMAND_DC2AC"][i] = int(x[i * NX + PBIC_DC2AC])
+
+            model["ESS"]["COMMAND_PG"][i] = int(x[i * NX + PESS_DC] - x[i * NX + PESS_C])
+            model["ESS"]["COMMAND_RG"][i] = int(x[i * NX + RESS])
+            model["ESS"]["SOC"][i] = x[i * NX + EESS]/model["ESS"]["CAP"]
+
+            model["PMG"][i] = int(x[i * NX + PMG])
+
+            model["PV"]["COMMAND_CURT"][i] = int(x[i * NX + PPV])
+            model["WP"]["COMMAND_CURT"] = int(x[i * NX + PWP])
+
+            model["Load_ac"]["COMMAND_SHED"] = int(x[i * NX + PL_AC])
+            model["Load_uac"]["COMMAND_SHED"] = int(x[i * NX + PL_UAC])
+            model["Load_dc"]["COMMAND_SHED"] = int(x[i * NX + PL_DC])
+            model["Load_udc"]["COMMAND_SHED"] = int(x[i * NX + PL_UDC])
 
     return model
-
-
-def int_list(*args):
-    # The round operation for list types
-    x = args[0]
-    nx = len(x)
-    y = []
-    for i in range(nx):
-        y.append(int(x[i]))
-
-    return y
-
-
-def minus_list(*args):
-    x = args[0]
-    y = args[1]
-    x = int_list(x)
-    y = int_list(y)
-    z = []
-    nx = len(x)
-    for i in range(nx):
-        z.append(x[i] - y[i])
-
-    return z

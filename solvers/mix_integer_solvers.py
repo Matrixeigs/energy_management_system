@@ -135,12 +135,12 @@ def milp_mosek(c, Aeq=None, beq=None, A=None, b=None, xmin=None, xmax=None, vtyp
     import mosek
     from numpy import vstack, array
     nx = c.shape[0]  # number of decision variables
-    if A != None:
+    if A.shape[0] != None:
         nineq = A.shape[0]  # number of equality constraints
     else:
         nineq = 0
 
-    if Aeq != None:
+    if Aeq.shape[0] != None:
         neq = Aeq.shape[0]  # number of inequality constraints
     else:
         neq = 0
@@ -174,9 +174,9 @@ def milp_mosek(c, Aeq=None, beq=None, A=None, b=None, xmin=None, xmax=None, vtyp
                 bkx.append(mosek.boundkey.ra)
                 blx.append(xmin[i])
                 bux.append(xmax[i])
-            if Aeq != None and A != None:
-                A = vstack([Aeq, A], "csr")
-            elif Aeq != None and A == None:
+            if Aeq.shape[0]!= None and A.shape[0] != None:
+                A = vstack([Aeq, A])
+            elif Aeq.shape[0] != None and A.shape[0] == None:
                 A = Aeq
             # Generate the sparse matrix
             numcon = neq + nineq
@@ -235,7 +235,7 @@ def milp_mosek(c, Aeq=None, beq=None, A=None, b=None, xmin=None, xmax=None, vtyp
             # Output a solution
             xx = [0.] * nx
             task.getxx(mosek.soltype.itg, xx)
-
+            success = 1
             if solsta in [mosek.solsta.integer_optimal, mosek.solsta.near_integer_optimal]:
                 print("Optimal solution: %s" % xx)
             elif solsta == mosek.solsta.dual_infeas_cer:
@@ -255,9 +255,12 @@ def milp_mosek(c, Aeq=None, beq=None, A=None, b=None, xmin=None, xmax=None, vtyp
                     print("Problem status unkown.\n")
                 else:
                     print("Other problem status.\n")
+                success = 0
             else:
                 print("Other solution status")
-        return xx, solsta
+                success = 0
+
+        return xx, solsta, success
 
 
 ##Mixed integer quedratic programming solver

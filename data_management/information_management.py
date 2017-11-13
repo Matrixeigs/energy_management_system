@@ -322,12 +322,12 @@ class information_formulation_extraction_dynamic():
         model = args[0]
         info = args[1]
         # The utility grid part
-        model["UG"]["GEN_STATUS"] = info.dg[0].GEN_STATUS
+        model["UG"]["COMMAND_START_UP"] = info.dg[0].GEN_STATUS
         model["UG"]["COMMAND_PG"] = info.dg[0].PG
         # model["UG"]["COMMAND_SET_POINT_QG"] = info.dg[0].QG
         model["UG"]["COMMAND_RG"] = info.dg[0].RG
         # Update dg part information
-        model["DG"]["GEN_STATUS"] = info.dg[1].GEN_STATUS
+        model["DG"]["COMMAND_START_UP"] = info.dg[1].GEN_STATUS
         model["DG"]["COMMAND_PG"] = info.dg[1].PG
         # model["DG"]["COMMAND_SET_POINT_QG"] = info.dg[1].QG
         model["DG"]["COMMAND_RG"] = info.dg[1].RG
