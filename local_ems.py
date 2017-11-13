@@ -18,7 +18,6 @@ from utils import Logger
 
 logger = Logger("Local_ems")
 
-
 def run():
     # Define the local models
     local_models = {"DG": generators.Generator_AC.copy(),
