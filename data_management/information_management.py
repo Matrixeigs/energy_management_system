@@ -50,16 +50,26 @@ class information_formulation_extraction():
         dynamic_info.TIME_STAMP = Target_time
         # Update utility grid information
         ug_info.DG_ID = 0
-        ug_info.GEN_STATUS = model["UG"]["GEN_STATUS"]
-        ug_info.PG = model["UG"]["COMMAND_SET_POINT_PG"]
-        ug_info.QG = model["UG"]["COMMAND_SET_POINT_QG"]
-        ug_info.RG = model["UG"]["COMMAND_RESERVE"]
+        try:
+            ug_info.GEN_STATUS = model["UG"]["GEN_STATUS"]
+        except:
+            ug_info.GEN_STATUS = model["UG"]["GEN_STATUS"][0]
+        ug_info.PG = model["UG"]["COMMAND_PG"]
+        try:
+            ug_info.QG = model["UG"]["COMMANDD_QG"]
+        except:
+            ug_info.QG = 0
+        ug_info.RG = model["UG"]["COMMAND_RG"]
         # Update dg part information
         dg_info.DG_ID = 1
-        dg_info.GEN_STATUS = model["DG"]["GEN_STATUS"]
-        dg_info.PG = model["DG"]["COMMAND_SET_POINT_PG"]
-        dg_info.QG = model["DG"]["COMMAND_SET_POINT_QG"]
-        dg_info.RG = model["DG"]["COMMAND_RESERVE"]
+        try:
+            dg_info.GEN_STATUS = model["DG"]["GEN_STATUS"]
+        except:
+            dg_info.GEN_STATUS = model["DG"]["GEN_STATUS"][0]
+
+        dg_info.PG = model["DG"]["COMMAND_PG"]
+        dg_info.QG = model["DG"]["COMMAND_QG"]
+        dg_info.RG = model["DG"]["COMMAND_RG"]
 
         dynamic_info.dg.extend([ug_info, dg_info])
         # Update ess part information
@@ -72,30 +82,61 @@ class information_formulation_extraction():
 
         # Update pv part information
         pv_info.NPV = model["PV"]["PMAX"]
-        pv_info.PG = model["PV"]["PG"]
+        try:
+            pv_info.PG = model["PV"]["PG"]
+        except:
+            pv_info.PG = model["PV"]["PG"][0]
+
         pv_info.COMMAND_CURT = model["PV"]["COMMAND_CURT"]
         dynamic_info.pv.extend([pv_info])
 
         # Update wp part information
         wp_info.NWP = model["WP"]["PMAX"]
-        wp_info.PG = model["WP"]["PG"]
+        try:
+            wp_info.PG = model["WP"]["PG"]
+        except:
+            wp_info.PG = model["WP"]["PG"][0]
+
         wp_info.COMMAND_CURT = model["WP"]["COMMAND_CURT"]
         dynamic_info.wp.extend([wp_info])
         # Update load_ac part information
-        load_ac_info.PD = model["Load_ac"]["PD"]
-        load_ac_info.QD = model["Load_ac"]["QD"]
+        try:
+            load_ac_info.PD = model["Load_ac"]["PD"]
+        except:
+            load_ac_info.PD = model["Load_ac"]["PD"][0]
+
+        try:
+            load_ac_info.QD = model["Load_ac"]["QD"]
+        except:
+            load_ac_info.QD = model["Load_ac"]["QD"][0]
+
         load_ac_info.COMMAND_SHED = model["Load_ac"]["COMMAND_SHED"]
 
-        load_uac_info.PD = model["Load_uac"]["PD"]
-        load_uac_info.QD = model["Load_uac"]["QD"]
+        try:
+            load_uac_info.PD = model["Load_uac"]["PD"]
+        except:
+            load_uac_info.PD = model["Load_uac"]["PD"][0]
+
+        try:
+            load_uac_info.QD = model["Load_uac"]["QD"]
+        except:
+            load_uac_info.QD = model["Load_uac"]["QD"][0]
+
         load_uac_info.COMMAND_SHED = model["Load_uac"]["COMMAND_SHED"]
 
         dynamic_info.load_ac.extend([load_ac_info, load_uac_info])
         # Update load_dc part information
-        load_dc_info.PD = model["Load_dc"]["PD"]
-        load_dc_info.COMMAND_SHED = model["Load_dc"]["COMMAND_SHED"]
+        try:
+            load_dc_info.PD = model["Load_dc"]["PD"]
+        except:
+            load_dc_info.PD = model["Load_dc"]["PD"][0]
 
-        load_udc_info.PD = model["Load_udc"]["PD"]
+        load_dc_info.COMMAND_SHED = model["Load_dc"]["COMMAND_SHED"]
+        try:
+            load_udc_info.PD = model["Load_udc"]["PD"]
+        except:
+            load_udc_info.PD = model["Load_udc"]["PD"][0]
+
         load_udc_info.COMMAND_SHED = model["Load_udc"]["COMMAND_SHED"]
 
         dynamic_info.load_dc.extend([load_dc_info, load_udc_info])

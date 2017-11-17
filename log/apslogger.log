@@ -270,3 +270,47 @@ Traceback (most recent call last):
   File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 161, in info_formulation
     Type = args[2]
 IndexError: tuple index out of range
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='1'], next run at: 2017-11-17 09:16:01 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 84, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/optimal_power_flow/main.py", line 116, in short_term_operation_lems
+    dynamic_model = information_formulation_extraction.info_formulation(local_models, Target_time)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 54, in info_formulation
+    ug_info.PG = model["UG"]["COMMAND_SET_POINT_PG"]
+KeyError: 'COMMAND_SET_POINT_PG'
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='1'], next run at: 2017-11-17 09:17:01 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 84, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/optimal_power_flow/main.py", line 116, in short_term_operation_lems
+    dynamic_model = information_formulation_extraction.info_formulation(local_models, Target_time)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 54, in info_formulation
+    ug_info.PG = model["UG"]["COMMAND_SET_POINT_PG"]
+KeyError: 'COMMAND_SET_POINT_PG'
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='1'], next run at: 2017-11-17 09:18:01 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 84, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/optimal_power_flow/main.py", line 116, in short_term_operation_lems
+    # Update the dynamic model
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 54, in info_formulation
+    ug_info.PG = model["UG"]["COMMAND_SET_POINT_PG"]
+KeyError: 'COMMAND_SET_POINT_PG'
+Job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='1'], next run at: 2017-11-17 09:18:01 +08)" raised an exception
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/local_ems.py", line 84, in <lambda>
+    session_short_term_operation),
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/optimal_power_flow/main.py", line 117, in short_term_operation_lems
+    dynamic_model = information_formulation_extraction.info_formulation(local_models, Target_time)
+  File "/Users/tianyangzhao/PycharmProjects/universal_ems/data_management/information_management.py", line 54, in info_formulation
+    ug_info.PG = model["UG"]["COMMAND_SET_POINT_PG"]
+KeyError: 'COMMAND_SET_POINT_PG'

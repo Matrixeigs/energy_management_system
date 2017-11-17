@@ -7,3 +7,7 @@
 # 2) problem formulation
 # 3) problem solving
 # 4) result check
+
+# Update:
+#1) The infomation model has been updated with the information extraction within optimal_power_flow.main.
+#2) All information and communication functions are compartatibe with other processes.

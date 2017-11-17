@@ -18,7 +18,7 @@ from utils import Logger
 import modelling.information_exchange_pb2 as opf_model
 import modelling.dynamic_operation_pb2 as economic_dispatch_info # The information model of economic dispatch
 from unit_commitment.main import long_term_operation
-
+import optimal_power_flow.main
 class Main():
     ## The main process of UEMS
     # Further functions can be integrated into the functions
@@ -62,13 +62,18 @@ def run():
     # Start the input information
     # info_ed = economic_dispatch_info.local_sources()
     info_uc = economic_dispatch_info.local_sources()
+    info_opf = opf_model.informaiton_exchange() # The optimal power flow modelling
     # Generate different processes
-    # logger.info("The optimal power flow process in UEMS starts!")
+    logger.info("The optimal power flow process in UEMS starts!")
     # sched_short_term = BlockingScheduler()  # The schedulor for the optimal power flow
     # sched_short_term.add_job(optimal_power_flow.main.short_term_operation.short_term_operation_uems, 'cron',
-    #                          args=(universal_models, local_models, socket_upload, socket_download, info,
+    #                          args=(universal_models, local_models, socket_upload, socket_download, info_opf,
     #                                session_short_term_operation), minute='0-59',
     #                          second='1')  # The operation is triggered minutely
+
+    optimal_power_flow.main.short_term_operation.short_term_operation_uems(universal_models, local_models, socket_upload, socket_download, info_opf,
+            session_short_term_operation)
+
     # sched_short_term.start()
     # sched_middle_term = BlockingScheduler()  # The schedulor for the optimal power flow
     # sched_middle_term.add_job(economic_dispatch.main.middle_term_operation.middle_term_operation_uems, 'cron',
@@ -78,8 +83,8 @@ def run():
     # sched_middle_term.start()
     # economic_dispatch.main.middle_term_operation.middle_term_operation_uems(universal_models, local_models, socket_upload, socket_download, info_ed,
     #                                session_short_term_operation)
-    long_term_operation.long_term_operation_uems(universal_models, local_models,socket_upload, socket_download, info_uc,
-                                                                            session_short_term_operation)
+    # long_term_operation.long_term_operation_uems(universal_models, local_models,socket_upload, socket_download, info_uc,
+    #                                                                         session_short_term_operation)
 
 if __name__ == "__main__":
     ## universal ems database

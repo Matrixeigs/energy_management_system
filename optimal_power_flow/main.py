@@ -8,6 +8,7 @@ from data_management.information_management import information_receive_send
 from optimal_power_flow.short_term_forecasting import ForecastingThread
 from configuration.configuration_time_line import default_dead_line_time
 from utils import Logger
+from configuration.configuration_time_line import default_look_ahead_time_step
 logger_uems = Logger("Short_term_dispatch_UEMS")
 logger_lems = Logger("Short_term_dispatch_LEMS")
 
@@ -38,7 +39,7 @@ class short_term_operation():
         # Update the universal parameter by using the database engine
         # Two threads are created to obtain the information simultaneously.
         thread_forecasting = ForecastingThread(session, Target_time, universal_models)
-        thread_info_ex = Information_Collection_Thread(socket_upload, info, local_models)
+        thread_info_ex = Information_Collection_Thread(socket_upload, info, local_models,default_look_ahead_time_step["Look_ahead_time_opf_time_step"])
 
         thread_forecasting.start()
         thread_info_ex.start()
@@ -156,19 +157,19 @@ def result_update(*args):
 def update(*args):
     x = args[0]
     model = args[1]
-    type = args[2]
+    model_type = args[2]
 
-    if type == "Feasible":
+    if model_type == "Feasible":
         from modelling.power_flow.idx_format import PG, QG, RG, PUG, QUG, RUG, PBIC_AC2DC, PBIC_DC2AC, QBIC, PESS_C, \
             PESS_DC, RESS, PMG
 
-        model["DG"]["COMMAND_SET_POINT_PG"] = int(x[PG])
-        model["DG"]["COMMAND_SET_POINT_QG"] = int(x[QG])
-        model["DG"]["COMMAND_RESERVE"] = int(x[RG])
+        model["DG"]["COMMAND_PG"] = int(x[PG])
+        model["DG"]["COMMAND_QG"] = int(x[QG])
+        model["DG"]["COMMAND_RG"] = int(x[RG])
 
-        model["UG"]["COMMAND_SET_POINT_PG"] = int(x[PUG])
-        model["UG"]["COMMAND_SET_POINT_QG"] = int(x[QUG])
-        model["UG"]["COMMAND_RESERVE"] = int(x[RUG])
+        model["UG"]["COMMAND_PG"] = int(x[PUG])
+        model["UG"]["COMMAND_QG"] = int(x[QUG])
+        model["UG"]["COMMAND_RG"] = int(x[RUG])
 
         model["BIC"]["COMMAND_AC2DC"] = int(x[PBIC_AC2DC])
         model["BIC"]["COMMAND_DC2AC"] = int(x[PBIC_DC2AC])
@@ -182,13 +183,13 @@ def update(*args):
     else:
         from modelling.power_flow.idx_format_recovery import PG, QG, RG, PUG, QUG, RUG, PBIC_AC2DC, PBIC_DC2AC, QBIC, \
             PESS_C, PESS_DC, RESS, PMG, PPV, PWP, PL_AC, PL_UAC, PL_DC, PL_UDC
-        model["DG"]["COMMAND_SET_POINT_PG"] = int(x[PG])
-        model["DG"]["COMMAND_SET_POINT_QG"] = int(x[QG])
-        model["DG"]["COMMAND_RESERVE"] = int(x[RG])
+        model["DG"]["COMMAND_PG"] = int(x[PG])
+        model["DG"]["COMMAND_QG"] = int(x[QG])
+        model["DG"]["COMMAND_RG"] = int(x[RG])
 
-        model["UG"]["COMMAND_SET_POINT_PG"] = int(x[PUG])
-        model["UG"]["COMMAND_SET_POINT_QG"] = int(x[QUG])
-        model["UG"]["COMMAND_RESERVE"] = int(x[RUG])
+        model["UG"]["COMMAND_PG"] = int(x[PUG])
+        model["UG"]["COMMAND_QG"] = int(x[QUG])
+        model["UG"]["COMMAND_RG"] = int(x[RUG])
 
         model["BIC"]["COMMAND_AC2DC"] = int(x[PBIC_AC2DC])
         model["BIC"]["COMMAND_DC2AC"] = int(x[PBIC_DC2AC])
@@ -198,13 +199,35 @@ def update(*args):
         model["ESS"]["COMMAND_RG"] = int(x[RESS])
 
         model["PMG"] = int(x[PMG])
+        
+        if type(model["PV"]["PG"]) is list:
+            model["PV"]["COMMAND_CURT"] = int(model["PV"]["PG"][0]) - int(x[PPV])
+        else:
+            model["PV"]["COMMAND_CURT"] = int(model["PV"]["PG"]) - int(x[PPV])
 
-        model["PV"]["COMMAND_CURT"] = int(model["PV"]["PG"]) - int(x[PPV])
-        model["PV"]["COMMAND_CURT"] = int(model["WP"]["PG"]) - int(x[PWP])
+        if type(model["WP"]["PG"]) is list:
+            model["WP"]["COMMAND_CURT"] = int(model["WP"]["PG"][0]) - int(x[PWP])
+        else:
+            model["WP"]["COMMAND_CURT"] = int(model["WP"]["PG"]) - int(x[PWP])
 
-        model["Load_ac"]["COMMAND_SHED"] = int(model["Load_ac"]["PD"]) - int(x[PL_AC])
-        model["Load_uac"]["COMMAND_SHED"] = int(model["Load_uac"]["PD"]) - int(x[PL_UAC])
-        model["Load_dc"]["COMMAND_SHED"] = int(model["Load_dc"]["PD"]) - int(x[PL_DC])
-        model["Load_udc"]["COMMAND_SHED"] = int(model["Load_udc"]["PD"]) - int(x[PL_UDC])
+        if type(model["Load_ac"]["PD"]) is list:
+            model["Load_ac"]["COMMAND_SHED"] = int(model["Load_ac"]["PD"][0]) - int(x[PL_AC])
+        else:
+            model["Load_ac"]["COMMAND_SHED"] = int(model["Load_ac"]["PD"]) - int(x[PL_AC])
+
+        if type(model["Load_uac"]["PD"]) is list:
+            model["Load_uac"]["COMMAND_SHED"] = int(model["Load_uac"]["PD"][0]) - int(x[PL_UAC])
+        else:
+            model["Load_uac"]["COMMAND_SHED"] = int(model["Load_uac"]["PD"]) - int(x[PL_UAC])
+
+        if type(model["Load_dc"]["PD"]) is list:
+            model["Load_dc"]["COMMAND_SHED"] = int(model["Load_dc"]["PD"][0]) - int(x[PL_DC])
+        else:
+            model["Load_dc"]["COMMAND_SHED"] = int(model["Load_dc"]["PD"]) - int(x[PL_DC])
+        
+        if type(model["Load_dc"]["PD"]) is list:
+            model["Load_udc"]["COMMAND_SHED"] = int(model["Load_udc"]["PD"][0]) - int(x[PL_UDC])
+        else:
+            model["Load_udc"]["COMMAND_SHED"] = int(model["Load_udc"]["PD"]) - int(x[PL_UDC])
 
     return model

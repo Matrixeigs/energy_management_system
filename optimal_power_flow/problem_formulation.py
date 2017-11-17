@@ -7,7 +7,7 @@
 # When linear models are used, piece-wise linear cost function is used to optimize multiple load curves.
 from numpy import array, vstack, zeros
 import numpy
-
+# The data structure is imported from numpy.
 
 class problem_formulation():
     ## Reformulte the information model to system level
@@ -66,7 +66,10 @@ class problem_formulation():
         Aeq[PUG] = 1
         Aeq[PBIC_AC2DC] = -1
         Aeq[PBIC_DC2AC] = model["BIC"]["EFF_DC2AC"]
-        beq.append(model["Load_ac"]["PD"] + model["Load_uac"]["PD"])
+        if type(model["Load_ac"]["PD"]) is list:
+            beq.append(model["Load_ac"]["PD"][0] + model["Load_uac"]["PD"][0])
+        else:
+            beq.append(model["Load_ac"]["PD"] + model["Load_uac"]["PD"])
         # 2) DC power balance equation
         Aeq_temp = zeros(NX)
         Aeq_temp[PBIC_AC2DC] = model["BIC"]["EFF_AC2DC"]
@@ -75,14 +78,24 @@ class problem_formulation():
         Aeq_temp[PESS_DC] = 1
         Aeq_temp[PMG] = -1
         Aeq = vstack([Aeq, Aeq_temp])
-        beq.append(model["Load_dc"]["PD"] + model["Load_udc"]["PD"] - model["PV"]["PG"] - model["WP"]["PG"])
+        try:
+            beq.append(model["Load_dc"]["PD"] + model["Load_udc"]["PD"] - model["PV"]["PG"] - model["WP"]["PG"])
+        except:
+            beq.append(
+                model["Load_dc"]["PD"][0] + model["Load_udc"]["PD"][0] - model["PV"]["PG"][0] - model["WP"]["PG"][0])
+        # beq.append(model["Load_dc"]["PD"] + model["Load_udc"]["PD"] - model["PV"]["PG"] - model["WP"]["PG"])
+        ## This erro is caused by the information collection, and the model formulated is list. This is easy for the use
         # 3) Reactive power balance equation
         Aeq_temp = zeros(NX)
         Aeq_temp[QG] = 1
         Aeq_temp[QUG] = 1
         Aeq_temp[QBIC] = 1
         Aeq = vstack([Aeq, Aeq_temp])
-        beq.append(model["Load_ac"]["QD"] + model["Load_uac"]["QD"])
+        # beq.append(0)
+        if type(model["Load_ac"]["QD"]) is list:
+            beq.append(model["Load_ac"]["QD"][0] + model["Load_uac"]["QD"][0])
+        else:
+            beq.append(model["Load_ac"]["QD"] + model["Load_uac"]["QD"])
         # 4) Energy storage system
         Aeq_temp = zeros(NX)
         Aeq_temp[EESS] = 1
@@ -223,12 +236,35 @@ class problem_formulation():
         ub[EESS] = model["ESS"]["SOC_MAX"] * model["ESS"]["CAP"]
 
         ub[PMG] = 0  # The line flow limitation, the predefined status is, the transmission line is off-line
-        ub[PPV] = model["PV"]["PG"]
-        ub[PWP] = model["WP"]["PG"]
-        ub[PL_AC] = model["Load_ac"]["PD"]
-        ub[PL_UAC] = model["Load_uac"]["PD"]
-        ub[PL_DC] = model["Load_dc"]["PD"]
-        ub[PL_UDC] = model["Load_udc"]["PD"]
+        if type(model["PV"]["PG"]) is list:
+            ub[PPV] = model["PV"]["PG"][0]
+        else:
+            ub[PPV] = model["PV"]["PG"]
+
+        if type(model["WP"]["PG"]) is list:
+            ub[PWP] = model["WP"]["PG"][0]
+        else:
+            ub[PWP] = model["WP"]["PG"]
+
+        if type(model["Load_ac"]["PD"]) is list:
+            ub[PL_AC] = model["Load_ac"]["PD"][0]
+        else:
+            ub[PL_AC] = model["Load_ac"]["PD"]
+
+        if type(model["Load_uac"]["PD"]) is list:
+            ub[PL_UAC] = model["Load_uac"]["PD"][0]
+        else:
+            ub[PL_UAC] = model["Load_uac"]["PD"]
+
+        if type(model["Load_dc"]["PD"]) is list:
+            ub[PL_DC] = model["Load_dc"]["PD"][0]
+        else:
+            ub[PL_DC] = model["Load_dc"]["PD"]
+
+        if type(model["Load_udc"]["PD"]) is list:
+            ub[PL_UDC] = model["Load_udc"]["PD"][0]
+        else:
+            ub[PL_UDC] = model["Load_udc"]["PD"]
 
         ## Constraints set
         # 1) Power balance equation
@@ -385,8 +421,8 @@ class problem_formulation():
 
         Aeq_compact[0:neq, 0:NX] = local_model_mathematical["Aeq"]
         Aeq_compact[neq:2 * neq, NX:2 * NX] = universal_model_mathematical["Aeq"]
-        beq_compact[0:neq] = local_model_mathematical["beq"]
-        beq_compact[neq:2 * neq] = universal_model_mathematical["beq"]
+        beq_compact[0: neq] = local_model_mathematical["beq"]
+        beq_compact[neq: 2 * neq] = universal_model_mathematical["beq"]
 
         Aineq_compact[0:nineq, 0:NX] = local_model_mathematical["A"]
         Aineq_compact[nineq:2 * nineq, NX:2 * NX] = universal_model_mathematical["A"]
