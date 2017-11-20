@@ -43,9 +43,9 @@ def run():
     ## Operation process for UEMS
     logger = Logger('Universal_ems_main') # The logger system has been started
     db_str = db_configuration.universal_database["db_str"] # Database format
-    engine = create_engine(db_str, echo=False) # Create engine for the databases
-    Session = sessionmaker(bind=engine)
-    session_short_term_operation = Session()
+    engine = create_engine(db_str, echo=False) # Create engine for universal energy management system databases
+    Session = sessionmaker(bind=engine) # Create engine for target database
+    session_uems = Session() # Create session for universal energy management system
     # IP = "10.25.196.56"
     IP = "*"
     # Start the information connection
@@ -75,8 +75,8 @@ def run():
     #                                session_short_term_operation), minute='0-59',
     #                          second='1')  # The operation is triggered minutely
 
-    optimal_power_flow.main.short_term_operation.short_term_operation_uems(universal_models, local_models, socket_upload, socket_download, info_opf,
-            session_short_term_operation)
+    short_term_operation.short_term_operation_uems(universal_models, local_models, socket_upload, socket_download, info_opf,
+            session_uems)
 
     # sched_short_term.start()
     # sched_middle_term = BlockingScheduler()  # The schedulor for the optimal power flow
