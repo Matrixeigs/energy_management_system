@@ -3,15 +3,20 @@
 # Authors: Tianyang Zhao
 # Mail: zhaoty@ntu.edu.sg
 from apscheduler.schedulers.blocking import BlockingScheduler  # Time scheduler
+
 import configuration.configuration_database as db_configuration  # The settings of databases
 from sqlalchemy import create_engine  # Import database
 from sqlalchemy.orm import sessionmaker
 import zmq  # The package for information and communication
+
 import modelling.information_exchange_pb2 as opf_model  # The information model of optimal power flow
 import modelling.dynamic_operation_pb2 as economic_dispatch_info  # The information model of economic dispatch
+
 from modelling import generators, loads, energy_storage_systems, convertors
 from data_management.information_management import information_receive_send
+
 from start_up import static_information
+
 from optimal_power_flow.main import short_term_operation
 from economic_dispatch.main import middle_term_operation
 from unit_commitment.main import long_term_operation
@@ -48,7 +53,7 @@ def run():
     db_str = db_configuration.local_database["db_str"]
     engine = create_engine(db_str, echo=False)
     Session = sessionmaker(bind=engine)
-    session_short_term_operation = Session()
+    session_lems = Session()
 
     # Start the information connection
     context = zmq.Context()
@@ -73,32 +78,38 @@ def run():
 
     information_receive_send.information_send(socket, static_info, 2)
 
-    # info_ed = economic_dispatch_info.local_sources()
-    # info_uc = economic_dispatch_info.local_sources() # The information model in the
+    info_ed = economic_dispatch_info.local_sources()
+    info_uc = economic_dispatch_info.local_sources() # The information model in the
     info_opf = opf_model.informaiton_exchange()  # The optimal power flow modelling
     # By short-term operation process
-    logger.info("The optimal power flow process in local ems starts!")
-    # sched = BlockingScheduler()  # The schedulor for the optimal power flow
-    # sched.add_job(
-    #     lambda: short_term_operation.short_term_operation_lems(local_models, socket_upload, socket_download, info_opf,
-    #                                                            session_short_term_operation),
-    #     'cron', minute='0-59', second='1')  # The operation is triggered minutely
-    # sched.start()
+    logger.info("The short-term process in local ems starts!")
+    sched_short_term = BlockingScheduler()  # The schedulor for the optimal power flow
+    sched_short_term.add_job(
+        lambda: short_term_operation.short_term_operation_lems(local_models, socket_upload, socket_download, info_opf,
+                                                               session_lems),
+        'cron', minute='0-59', second='1')  # The operation is triggered minutely
+    sched_short_term.start()
+
+
     short_term_operation.short_term_operation_lems(local_models, socket_upload, socket_download, info_opf,
-                                                   session_short_term_operation)
-    # logger.info("The economic dispatch process in local ems starts!")
-    # sched = BlockingScheduler()  # The schedulor for the optimal power flow
-    # sched.add_job(
-    #     lambda: middle_term_operation.middle_term_operation_lems(local_models, socket_upload, socket_download, info,
-    #                                                            session_short_term_operation),
-    #     'cron', minute='0-59', second='1')  # The operation is triggered minutely
-    # sched.start()
-    # middle_term_operation.middle_term_operation_lems(local_models, socket_upload, socket_download, info_ed,
-    #                                                  session_short_term_operation)
+                                                   session_lems)
+    logger.info("The middle-term process in local EMS starts!")
+    sched_middle_term = BlockingScheduler()  # The schedulor for the optimal power flow
+    sched_middle_term.add_job(
+        lambda: middle_term_operation.middle_term_operation_lems(local_models, socket_upload, socket_download, info_ed,
+                                                                 session_lems),
+        'cron', minute='*/5', second='1')  # The operation is triggered every five minute
+    sched_middle_term.start()
 
-    # long_term_operation.long_term_operation_lems(local_models, socket_upload, socket_download, info_uc,
-    #                                                  session_short_term_operation)
 
+    logger.info("The long term process in local EMS starts!")
+    sched_long_term = BlockingScheduler()  # The schedulor for the optimal power flow
+    sched_long_term.add_job(
+        lambda: long_term_operation.long_term_operation_lems(local_models, socket_upload, socket_download, info_uc,
+                                                                 session_lems),
+        'cron', minute='*/30', second='1')  # The operation is triggered every half an hour
+    sched_long_term.start()
 
 if __name__ == "__main__":
+    ## Start the main process of local energy management system
     run()
