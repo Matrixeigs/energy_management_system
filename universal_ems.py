@@ -62,34 +62,39 @@ def run():
     initialize = Main(socket)
     universal_models = initialize.universal_models
     local_models = initialize.local_models
-
     # Start the input information
-    # info_ed = economic_dispatch_info.local_sources()
-    info_uc = economic_dispatch_info.local_sources()
-    info_opf = opf_model.informaiton_exchange() # The optimal power flow modelling
+    info_ed = economic_dispatch_info.local_sources() # Dynamic information for economic dispatch
+    info_uc = economic_dispatch_info.local_sources() # Dynamic information for unit commitment
+    info_opf = opf_model.informaiton_exchange() # Optimal power flow modelling
+
     # Generate different processes
-    logger.info("The optimal power flow process in UEMS starts!")
-    # sched_short_term = BlockingScheduler()  # The schedulor for the optimal power flow
-    # sched_short_term.add_job(optimal_power_flow.main.short_term_operation.short_term_operation_uems, 'cron',
-    #                          args=(universal_models, local_models, socket_upload, socket_download, info_opf,
-    #                                session_short_term_operation), minute='0-59',
-    #                          second='1')  # The operation is triggered minutely
+    logger.info("The short term process in UEMS starts!")
+    sched_short_term = BlockingScheduler()  # The schedulor for the optimal power flow
+    sched_short_term.add_job(short_term_operation.short_term_operation_uems, 'cron',
+                             args=(universal_models, local_models, socket_upload, socket_download, info_opf,
+                                   session_uems), minute='0-59',
+                             second='1')  # The operation is triggered minutely, this process will start at **:01
+    sched_short_term.start()
+
+    logger.info("The middle term process in UEMS starts!")
+    sched_middle_term = BlockingScheduler()  # The schedulor for the optimal power flow
+    sched_middle_term.add_job(short_term_operation.short_term_operation_uems, 'cron',
+                             args=(universal_models, local_models, socket_upload, socket_download, info_ed,
+                                   session_uems), minute='*/5',
+                             second='1')  # The operation is triggered every 5 minute
+    sched_middle_term.start()
 
     short_term_operation.short_term_operation_uems(universal_models, local_models, socket_upload, socket_download, info_opf,
             session_uems)
 
-    # sched_short_term.start()
-    # sched_middle_term = BlockingScheduler()  # The schedulor for the optimal power flow
-    # sched_middle_term.add_job(economic_dispatch.main.middle_term_operation.middle_term_operation_uems, 'cron',
-    #                          args=(universal_models, local_models, socket_upload, socket_download, info,
-    #                                session_short_term_operation), minute='0-59',
-    #                           second='1')  # The operation is triggered minutely
-    # sched_middle_term.start()
-    # economic_dispatch.main.middle_term_operation.middle_term_operation_uems(universal_models, local_models, socket_upload, socket_download, info_ed,
-    #                                session_short_term_operation)
-    # long_term_operation.long_term_operation_uems(universal_models, local_models,socket_upload, socket_download, info_uc,
-    #                                                                         session_short_term_operation)
+    logger.info("The long term process in UEMS starts!")
+    sched_long_term = BlockingScheduler()  # The schedulor for the optimal power flow
+    sched_long_term.add_job(short_term_operation.short_term_operation_uems, 'cron',
+                              args=(universal_models, local_models, socket_upload, socket_download, info_uc,
+                                    session_uems), minute='*/30',
+                              second='1')  # The operation is triggered every half an hour
+    sched_long_term.start()
 
 if __name__ == "__main__":
-    ## universal ems database
+    ## Start the main process of universal energy management
     run()
