@@ -78,7 +78,7 @@ def run():
 
     logger.info("The middle term process in UEMS starts!")
     sched_middle_term = BlockingScheduler()  # The schedulor for the optimal power flow
-    sched_middle_term.add_job(short_term_operation.short_term_operation_uems, 'cron',
+    sched_middle_term.add_job(middle_term_operation.middle_term_operation_uems, 'cron',
                              args=(universal_models, local_models, socket_upload, socket_download, info_ed,
                                    session_uems), minute='*/5',
                              second='1')  # The operation is triggered every 5 minute
@@ -89,7 +89,7 @@ def run():
 
     logger.info("The long term process in UEMS starts!")
     sched_long_term = BlockingScheduler()  # The schedulor for the optimal power flow
-    sched_long_term.add_job(short_term_operation.short_term_operation_uems, 'cron',
+    sched_long_term.add_job(long_term_operation.long_term_operation_uems, 'cron',
                               args=(universal_models, local_models, socket_upload, socket_download, info_uc,
                                     session_uems), minute='*/30',
                               second='1')  # The operation is triggered every half an hour
