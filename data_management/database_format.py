@@ -225,3 +225,28 @@ class db_optimal_power_flow(Base):
     UAC_SHED = Column(INTEGER)
     DC_SHED = Column(INTEGER)
     UDC_SHED = Column(INTEGER)
+
+class db_load_profile(Base):
+    # Load profile format
+    __tablename__ = 'USA_FL_NASA'
+
+    # The data is obtained from NASA.
+    TIME_STAMP = Column(INTEGER, primary_key=True)
+
+    Electricity = Column(FLOAT)
+    Gas = Column(FLOAT)
+
+    Heating_electricity = Column(FLOAT)
+    Heating_gas = Column(FLOAT)
+    Cooling = Column(FLOAT)
+
+    HVACFan = Column(FLOAT)
+    HVAC_electricity = Column(FLOAT)
+    Fans = Column(FLOAT)
+
+    InteriorLights = Column(FLOAT)
+    ExteriorLights = Column(FLOAT)
+    InteriorEquipment = Column(FLOAT)
+
+    Misc = Column(FLOAT)
+    WaterSystems = Column(FLOAT)
