@@ -1,6 +1,7 @@
 ## Main entrance for the universal energy management (UEMS).
 # Documentation for the UMES.
-# \author: Tianyang Zhao.
+# \author: Tianyang Zhao
+# \mail: zhaoty@ntu.edu.sg
 # \date: 20 November 2017
 
 # The following packages are required to deploy UEMS
@@ -59,7 +60,8 @@ def run():
     socket_download = context.socket(zmq.REQ)  # Download information channel for local EMS
     socket_download.bind("tcp://" + IP + ":5557")
 
-    initialize = Main(socket)
+    initialize = Main(socket) # Initialized the connection between the lems and uems
+
     universal_models = initialize.universal_models
     local_models = initialize.local_models
     # Start the input information
