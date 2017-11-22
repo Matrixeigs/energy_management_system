@@ -250,3 +250,41 @@ class db_load_profile(Base):
 
     Misc = Column(FLOAT)
     WaterSystems = Column(FLOAT)
+
+class weather_station(Base):
+    # Weather station data format
+    __tablename__ = 'ISSData'
+
+    # The data is obtained from NASA.
+    ReceiverRecID = Column(INTEGER, primary_key=True)
+
+    ChannelIndex = Column(FLOAT)
+    RecDateTime = Column(DATETIME)
+
+    TempOut = Column(INTEGER)
+    HiTempOut = Column(INTEGER)
+    LowTempOut = Column(INTEGER)
+
+    HumOut = Column(INTEGER)
+    WindSpeed = Column(INTEGER)
+    ScalerAvgWindDir = Column(INTEGER)
+
+    HiWindSpeed = Column(INTEGER)
+    HiWindDir = Column(INTEGER)
+    DominantDir = Column(INTEGER)
+    DewPoint = Column(INTEGER)
+
+    LowWindChill = Column(INTEGER)
+    HeatIndex = Column(INTEGER)
+
+    THSWIndex = Column(INTEGER)
+    RainCollectorType = Column(INTEGER)
+    RainCollectorInc = Column(INTEGER)
+    TotalRainClicks = Column(INTEGER)
+    HiRainRate = Column(INTEGER)
+    ET = Column(INTEGER)
+    UV = Column(INTEGER)
+    HiUV = Column(INTEGER)
+    SolarRad = Column(INTEGER)
+    HiSolarRad = Column(INTEGER)
+    IntervalIndex = Column(INTEGER)
