@@ -47,35 +47,18 @@ def information_collection_updating(*args):
     models["WP"]["PG"] = [0]*T
 
     for i in range(T):
-        if type(dg_info.GEN_STATUS) is list:
-            models["DG"]["GEN_STATUS"][i] = dg_info.GEN_STATUS[i]
-        else:
-            models["DG"]["GEN_STATUS"][i] = dg_info.GEN_STATUS
-        if type(ug_info.GEN_STATUS) is list:
-            models["UG"]["GEN_STATUS"][i] = ug_info.GEN_STATUS[i]  # The microgrid is isolated.
-        else:
-            models["UG"]["GEN_STATUS"][i] = ug_info.GEN_STATUS
+        models["DG"]["GEN_STATUS"][i] = dg_info.GEN_STATUS._values[i]
+        models["UG"]["GEN_STATUS"][i] = ug_info.GEN_STATUS._values[i]  # The microgrid is isolated.
 
-        if type(load_ac_info.PD) is list:
-            models["Load_ac"]["PD"][i] = load_ac_info.PD[i]
-            models["Load_dc"]["PD"][i] = load_dc_info.PD[i]
-            models["Load_uac"]["PD"][i] = load_uac_info.PD[i]
-            models["Load_udc"]["PD"][i] = load_udc_info.PD[i]
+        models["Load_ac"]["PD"][i] = load_ac_info.PD._values[i]
+        models["Load_dc"]["PD"][i] = load_dc_info.PD._values[i]
+        models["Load_uac"]["PD"][i] = load_uac_info.PD._values[i]
+        models["Load_udc"]["PD"][i] = load_udc_info.PD._values[i]
 
-            models["PV"]["PG"][i] = pv_info.PG[i]
-            models["WP"]["PG"][i] = wp_info.PG[i]
-        else:
-            models["Load_ac"]["PD"][i] = load_ac_info.PD
-            models["Load_dc"]["PD"][i] = load_dc_info.PD
-            models["Load_uac"]["PD"][i] = load_uac_info.PD
-            models["Load_udc"]["PD"][i] = load_udc_info.PD
+        models["PV"]["PG"][i] = pv_info.PG._values[i]
+        models["WP"]["PG"][i] = wp_info.PG._values[i]
 
-            models["PV"]["PG"][i] = pv_info.PG
-            models["WP"]["PG"][i] = wp_info.PG
+    models["ESS"]["SOC"] = float(ess_info.SOC._values[0])  # The initial energy state in the storage systems.
 
-    if type(ess_info.SOC) is list:
-        models["ESS"]["SOC"] = float(ess_info.SOC[0])  # The initial energy state in the storage systems.
-    else:
-        models["ESS"]["SOC"] = float(ess_info.SOC)
 
     return models
