@@ -66,6 +66,8 @@ class start_up_ems():
                                 "V_DC": 0}
             universal_models["PV"]["NPV"] = universal_models["PV"]["PMAX"]
             universal_models["WP"]["NWP"] = universal_models["WP"]["PMAX"]
+            local_models["PV"]["NPV"] = local_models["PV"]["PMAX"]
+            local_models["WP"]["NWP"] = local_models["WP"]["PMAX"]
             # Update the techinical and economic parameters of local sources
             local_models = static_information_update.information_update(local_models, static_info)
 
@@ -179,5 +181,6 @@ class start_up_ems():
             local_model_long["Load_uac"]["STATUS"] = [local_model_long["Load_uac"]["STATUS"]] * T_long
             local_model_long["Load_dc"]["STATUS"] = [local_model_long["Load_dc"]["STATUS"]] * T_long
             local_model_long["Load_udc"]["STATUS"] = [local_model_long["Load_udc"]["STATUS"]] * T_long
+
             return local_model_short, local_model_middle, local_model_long, Operation_mode
 
