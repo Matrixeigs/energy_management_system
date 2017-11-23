@@ -45,20 +45,31 @@ def information_collection_updating(*args):
 
     models["PV"]["PG"] = [0]*T
     models["WP"]["PG"] = [0]*T
+    if T==1: # The single time step operation
+        models["DG"]["GEN_STATUS"] = dg_info.GEN_STATUS
+        models["UG"]["GEN_STATUS"] = ug_info.GEN_STATUS  # The microgrid is isolated.
 
-    for i in range(T):
-        models["DG"]["GEN_STATUS"][i] = dg_info.GEN_STATUS._values[i]
-        models["UG"]["GEN_STATUS"][i] = ug_info.GEN_STATUS._values[i]  # The microgrid is isolated.
+        models["Load_ac"]["PD"] = load_ac_info.PD
+        models["Load_dc"]["PD"] = load_dc_info.PD
+        models["Load_uac"]["PD"] = load_uac_info.PD
+        models["Load_udc"]["PD"] = load_udc_info.PD
 
-        models["Load_ac"]["PD"][i] = load_ac_info.PD._values[i]
-        models["Load_dc"]["PD"][i] = load_dc_info.PD._values[i]
-        models["Load_uac"]["PD"][i] = load_uac_info.PD._values[i]
-        models["Load_udc"]["PD"][i] = load_udc_info.PD._values[i]
+        models["PV"]["PG"] = pv_info.PG
+        models["WP"]["PG"] = wp_info.PG
+    else:
+        for i in range(T):
+            models["DG"]["GEN_STATUS"][i] = dg_info.GEN_STATUS._values[i]
+            models["UG"]["GEN_STATUS"][i] = ug_info.GEN_STATUS._values[i]  # The microgrid is isolated.
 
-        models["PV"]["PG"][i] = pv_info.PG._values[i]
-        models["WP"]["PG"][i] = wp_info.PG._values[i]
+            models["Load_ac"]["PD"][i] = load_ac_info.PD._values[i]
+            models["Load_dc"]["PD"][i] = load_dc_info.PD._values[i]
+            models["Load_uac"]["PD"][i] = load_uac_info.PD._values[i]
+            models["Load_udc"]["PD"][i] = load_udc_info.PD._values[i]
 
-    models["ESS"]["SOC"] = float(ess_info.SOC._values[0])  # The initial energy state in the storage systems.
+            models["PV"]["PG"][i] = pv_info.PG._values[i]
+            models["WP"]["PG"][i] = wp_info.PG._values[i]
+
+        models["ESS"]["SOC"] = float(ess_info.SOC._values[0])  # The initial energy state in the storage systems.
 
 
     return models

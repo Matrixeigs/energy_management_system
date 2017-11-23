@@ -28,7 +28,6 @@ class information_formulation_extraction():
     ## Dynamic model formulation and extraction
     def info_formulation(*args):
         import modelling.information_exchange_pb2 as dynamic_model  # The information model
-
         model = args[0]
         Target_time = args[1]
         # 1) Initial dynamic model
@@ -153,7 +152,8 @@ class information_formulation_extraction():
         return dynamic_info
 
     def info_extraction(*args):
-        model = args[0]
+        from copy import  deepcopy
+        model = deepcopy(args[0])
         info = args[1]
         # The utility grid part
         model["UG"]["GEN_STATUS"] = info.dg[0].GEN_STATUS
@@ -196,7 +196,6 @@ class information_formulation_extraction_dynamic():
     def info_formulation(*args):
         import modelling.dynamic_operation_pb2 as dynamic_model  # The information model
         from configuration.configuration_time_line import default_look_ahead_time_step
-        from numpy import ones
         model = args[0]
         Target_time = args[1]
         Type = args[2]
@@ -363,36 +362,36 @@ class information_formulation_extraction_dynamic():
         model = args[0]
         info = args[1]
         # The utility grid part
-        model["UG"]["COMMAND_START_UP"] = info.dg[0].GEN_STATUS
-        model["UG"]["COMMAND_PG"] = info.dg[0].PG
+        model["UG"]["COMMAND_START_UP"] = info.dg[0].GEN_STATUS._values
+        model["UG"]["COMMAND_PG"] = info.dg[0].PG._values
         # model["UG"]["COMMAND_SET_POINT_QG"] = info.dg[0].QG
-        model["UG"]["COMMAND_RG"] = info.dg[0].RG
+        model["UG"]["COMMAND_RG"] = info.dg[0].RG._values
         # Update dg part information
-        model["DG"]["COMMAND_START_UP"] = info.dg[1].GEN_STATUS
-        model["DG"]["COMMAND_PG"] = info.dg[1].PG
+        model["DG"]["COMMAND_START_UP"] = info.dg[1].GEN_STATUS._values
+        model["DG"]["COMMAND_PG"] = info.dg[1].PG._values
         # model["DG"]["COMMAND_SET_POINT_QG"] = info.dg[1].QG
-        model["DG"]["COMMAND_RG"] = info.dg[1].RG
+        model["DG"]["COMMAND_RG"] = info.dg[1].RG._values
 
         # Update ess part information
-        model["ESS"]["COMMAND_PG"] = info.ess[0].PG
-        model["ESS"]["SOC"] = info.ess[0].SOC
+        model["ESS"]["COMMAND_PG"] = info.ess[0].PG._values
+        model["ESS"]["SOC"] = info.ess[0].SOC._values
         # Update BIC part
-        model["BIC"]["COMMAND_AC2DC"] = info.bic[0].PAC2DC
-        model["BIC"]["COMMAND_DC2AC"] = info.bic[0].PDC2AC
+        model["BIC"]["COMMAND_AC2DC"] = info.bic[0].PAC2DC._values
+        model["BIC"]["COMMAND_DC2AC"] = info.bic[0].PDC2AC._values
 
         # Update pv part information
-        model["PV"]["COMMAND_CURT"] = info.pv[0].COMMAND_CURT
+        model["PV"]["COMMAND_CURT"] = info.pv[0].COMMAND_CURT._values
 
         # Update wp part information
-        model["WP"]["COMMAND_CURT"] = info.wp[0].COMMAND_CURT
+        model["WP"]["COMMAND_CURT"] = info.wp[0].COMMAND_CURT._values
         # Update load_ac part information
-        model["Load_ac"]["COMMAND_SHED"] = info.load_ac[0].COMMAND_SHED
-        model["Load_uac"]["COMMAND_SHED"] = info.load_ac[1].COMMAND_SHED
+        model["Load_ac"]["COMMAND_SHED"] = info.load_ac[0].COMMAND_SHED._values
+        model["Load_uac"]["COMMAND_SHED"] = info.load_ac[1].COMMAND_SHED._values
 
-        model["Load_dc"]["COMMAND_SHED"] = info.load_dc[0].COMMAND_SHED
-        model["Load_udc"]["COMMAND_SHED"] = info.load_dc[1].COMMAND_SHED
+        model["Load_dc"]["COMMAND_SHED"] = info.load_dc[0].COMMAND_SHED._values
+        model["Load_udc"]["COMMAND_SHED"] = info.load_dc[1].COMMAND_SHED._values
 
-        model["PMG"] = info.PMG
+        model["PMG"] = info.PMG._values
         # model["V_DC"] = info.V_DC
 
         return model
