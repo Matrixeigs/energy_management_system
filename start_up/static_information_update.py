@@ -63,7 +63,7 @@ def information_update(*args):
 
     # Update the photovoltaic generator grid group
     local_models["PV"]["AREA"] = info.area
-    local_models["PV"]["GEN_STATUS"] = info.pv[0].GEN_STATUS
+    local_models["PV"]["NPV"] = info.pv[0].NPV
     local_models["PV"]["PMAX"] = info.pv[0].PMAX
     local_models["PV"]["PMIN"] = info.pv[0].PMIN
     local_models["PV"]["QMAX"] = info.pv[0].QMAX
@@ -76,7 +76,7 @@ def information_update(*args):
 
     # Update the wind power group
     local_models["WP"]["AREA"] = info.area
-    local_models["WP"]["GEN_STATUS"] = info.wp[0].GEN_STATUS
+    local_models["WP"]["NWP"] = info.wp[0].NWP
     local_models["WP"]["PMAX"] = info.wp[0].PMAX
     local_models["WP"]["PMIN"] = info.wp[0].PMIN
     local_models["WP"]["QMAX"] = info.wp[0].QMAX
