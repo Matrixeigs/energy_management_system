@@ -12,7 +12,7 @@ from configuration.configuration_time_line import default_look_ahead_time_step
 
 import threading
 from utils import Logger
-
+from copy import deepcopy
 logger = Logger("Long_term_forecasting")
 
 
@@ -31,7 +31,7 @@ class ForecastingThread(threading.Thread):
 def long_term_forecasting(*args):
     session = args[0]
     Target_time = args[1]
-    models = args[2]
+    models = deepcopy(args[2])
     T = default_look_ahead_time_step["Look_ahead_time_uc_time_step"] # The look ahead horizon of unit commitment
     models["PV"]["PG"] = []
     models["WP"]["PG"] = []

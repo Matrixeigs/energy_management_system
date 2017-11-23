@@ -6,16 +6,15 @@ from numpy import array, vstack, zeros
 import numpy
 from utils import Logger
 from configuration import configuration_time_line
-
+from copy import deepcopy
 logger = Logger("Problem formulation for UEMS")
-
 
 class problem_formulation():
     ## Reformulte the information model to system level
     def problem_formulation_local(*args):
         from modelling.power_flow.idx_uc_format import IG, PG, RG, IUG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, PESS_C, \
             PESS_DC, RESS, EESS, PMG, NX
-        model = args[0]  # If multiple models are inputed, more local ems models will be formulated
+        model = deepcopy(args[0])  # If multiple models are inputed, more local ems models will be formulated
         ## The feasible optimal problem formulation
         T = configuration_time_line.default_look_ahead_time_step["Look_ahead_time_uc_time_step"]
         nx = NX * T
@@ -206,7 +205,7 @@ class problem_formulation():
         from configuration import configuration_time_line
         from modelling.power_flow.idx_uc_recovery_format import IG, PG, RG, IUG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, \
             PESS_C, PESS_DC, RESS, EESS, PMG, IPV, IWP, IL_AC, IL_UAC, IL_DC, IL_UDC, NX
-        model = args[0]  # If multiple models are inputed, more local ems models will be formulated
+        model = deepcopy(args[0])  # If multiple models are inputed, more local ems models will be formulated
         ## The infeasible optimal problem formulation
         T = configuration_time_line.default_look_ahead_time_step["Look_ahead_time_uc_time_step"]
         nx = T * NX
@@ -409,9 +408,10 @@ class problem_formulation():
 
     def problem_formulation_universal(*args):
         # Formulate mathematical models for different operations
-        local_model = args[0]
-        universal_model = args[1]
+        local_model = deepcopy(args[0])
+        universal_model = deepcopy(args[1])
         type = args[len(args) - 1]  # The last one is the type
+
         T = configuration_time_line.default_look_ahead_time_step["Look_ahead_time_uc_time_step"]
 
         ## Formulating the universal energy models
