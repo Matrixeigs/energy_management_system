@@ -2,7 +2,6 @@
 import modelling.local_ems_pb2 as static_model
 import time
 
-
 def static_information_generation(*args):
     # Static informaiton generation for local ems
     local_models = args[0]
@@ -108,6 +107,7 @@ def static_information_generation(*args):
     load_ac_info.COST_MODEL = local_models["Load_ac"]["COST_MODEL"]
     load_ac_info.NCOST = local_models["Load_ac"]["NCOST"]
     load_ac_info.COST.extend(local_models["Load_ac"]["COST"])
+
     # AC non-critical load
     load_uac_info.STATUS = local_models["Load_uac"]["STATUS"]
     load_uac_info.PDMAX = local_models["Load_uac"]["PDMAX"]
