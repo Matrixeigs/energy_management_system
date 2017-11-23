@@ -5,6 +5,7 @@
 from numpy import array, vstack, zeros
 import numpy
 from utils import Logger
+from copy import deepcopy
 
 logger = Logger("Problem formulation for UEMS")
 
@@ -15,13 +16,13 @@ class problem_formulation():
         from configuration import configuration_time_line
         from modelling.power_flow.idx_ed_foramt import PG, RG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, PESS_C, \
             PESS_DC, RESS, EESS, PMG, NX
-        model = args[0]  # If multiple models are inputed, more local ems models will be formulated
+        model = deepcopy(args[0])  # If multiple models are inputed, more local ems models will be formulated
         ## The feasible optimal problem formulation
         T = configuration_time_line.default_look_ahead_time_step["Look_ahead_time_ed_time_step"]
         nx = NX * T
 
-        lb = [0]* NX
-        ub = [0]* NX
+        lb = [0] * NX
+        ub = [0] * NX
         ## Update lower boundary
         lb[PG] = model["DG"]["PMIN"]
         lb[RG] = model["DG"]["PMIN"]
@@ -78,7 +79,8 @@ class problem_formulation():
             Aeq_temp[i][i * NX + PESS_C] = -1
             Aeq_temp[i][i * NX + PESS_DC] = 1
             Aeq_temp[i][i * NX + PMG] = -1
-            beq.append(model["Load_dc"]["PD"][i] + model["Load_udc"]["PD"][i] - model["PV"]["PG"][i] - model["WP"]["PG"][i])
+            beq.append(
+                model["Load_dc"]["PD"][i] + model["Load_udc"]["PD"][i] - model["PV"]["PG"][i] - model["WP"]["PG"][i])
 
         Aeq = vstack([Aeq, Aeq_temp])
 
@@ -91,10 +93,7 @@ class problem_formulation():
                     "Time_step_ed"] / 3600
                 Aeq_temp[i][i * NX + PESS_DC] = 1 / model["ESS"]["EFF_DIS"] * configuration_time_line.default_time[
                     "Time_step_ed"] / 3600
-                try:
-                    beq.append(model["ESS"]["SOC"][0] * model["ESS"]["CAP"])
-                except:
-                    beq.append(model["ESS"]["SOC"] * model["ESS"]["CAP"])
+                beq.append(model["ESS"]["SOC"] * model["ESS"]["CAP"])
 
             else:
                 Aeq_temp[i][(i - 1) * NX + EESS] = -1
@@ -166,7 +165,7 @@ class problem_formulation():
         Aineq = vstack([Aineq, Aineq_temp])
         # 9) RG + RUG + RESS >= sum(Load)*beta + sum(PV)*beta_pv + sum(WP)*beta_wp
         # No reserve requirement
-        c = [0]* NX
+        c = [0] * NX
         if model["DG"]["COST_MODEL"] == 2:
             c[PG] = model["DG"]["COST"][1]
         else:
@@ -197,7 +196,7 @@ class problem_formulation():
         from modelling.power_flow.idx_ed_recovery_format import PG, RG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, \
             PESS_C, PESS_DC, RESS, EESS, PMG, PPV, PWP, PL_AC, PL_UAC, PL_DC, PL_UDC, NX
 
-        model = args[0]  # If multiple models are inputed, more local ems models will be formulated
+        model = deepcopy(args[0])  # If multiple models are inputed, more local ems models will be formulated
         ## The infeasible optimal problem formulation
         T = configuration_time_line.default_look_ahead_time_step["Look_ahead_time_ed_time_step"]
         nx = T * NX
@@ -216,7 +215,8 @@ class problem_formulation():
             lb[i * NX + PESS_DC] = 0
             lb[i * NX + RESS] = 0
             lb[i * NX + EESS] = model["ESS"]["SOC_MIN"] * model["ESS"]["CAP"]
-            lb[i * NX + PMG] = 0  # The line flow limitation, the predefined status is, the transmission line is off-line
+            lb[
+                i * NX + PMG] = 0  # The line flow limitation, the predefined status is, the transmission line is off-line
             lb[i * NX + PPV] = 0
             lb[i * NX + PWP] = 0
             lb[i * NX + PL_AC] = 0
@@ -234,7 +234,8 @@ class problem_formulation():
             ub[i * NX + PESS_DC] = model["ESS"]["PMAX_DIS"]
             ub[i * NX + RESS] = model["ESS"]["PMAX_DIS"] + model["ESS"]["PMAX_CH"]
             ub[i * NX + EESS] = model["ESS"]["SOC_MAX"] * model["ESS"]["CAP"]
-            ub[i * NX + PMG] = 0  # The line flow limitation, the predefined status is, the transmission line is off-line
+            ub[
+                i * NX + PMG] = 0  # The line flow limitation, the predefined status is, the transmission line is off-line
             ub[i * NX + PPV] = model["PV"]["PG"][i]
             ub[i * NX + PWP] = model["WP"]["PG"][i]
             ub[i * NX + PL_AC] = model["Load_ac"]["PD"][i]
@@ -279,10 +280,8 @@ class problem_formulation():
                     "Time_step_ed"] / 3600
                 Aeq_temp[i][i * NX + PESS_DC] = 1 / model["ESS"]["EFF_DIS"] * configuration_time_line.default_time[
                     "Time_step_ed"] / 3600
-                try:
-                    beq.append(model["ESS"]["SOC"][0] * model["ESS"]["CAP"]) # When the type is repeated
-                except:
-                    beq.append(model["ESS"]["SOC"] * model["ESS"]["CAP"])
+                beq.append(model["ESS"]["SOC"] * model["ESS"]["CAP"])
+
             else:
                 Aeq_temp[i][(i - 1) * NX + EESS] = -1
                 Aeq_temp[i][i * NX + EESS] = 1
@@ -409,13 +408,13 @@ class problem_formulation():
         # Modify the boundary information
 
         for i in range(T):
-            local_model_mathematical["lb"][i * NX + PMG] = -universal_model["LINE"]["STATUS"] * universal_model["LINE"][
-                "RATE_A"]
-            local_model_mathematical["ub"][i * NX + PMG] = universal_model["LINE"]["STATUS"] * universal_model["LINE"][
-                "RATE_A"]
-            universal_model_mathematical["lb"][i * NX + PMG] = -universal_model["LINE"]["STATUS"] * \
+            local_model_mathematical["lb"][i * NX + PMG] = -universal_model["LINE"]["STATUS"][i] * \
+                                                           universal_model["LINE"]["RATE_A"]
+            local_model_mathematical["ub"][i * NX + PMG] = universal_model["LINE"]["STATUS"][i] * \
+                                                           universal_model["LINE"]["RATE_A"]
+            universal_model_mathematical["lb"][i * NX + PMG] = -universal_model["LINE"]["STATUS"][i] * \
                                                                universal_model["LINE"]["RATE_A"]
-            universal_model_mathematical["ub"][i * NX + PMG] = universal_model["LINE"]["STATUS"] * \
+            universal_model_mathematical["ub"][i * NX + PMG] = universal_model["LINE"]["STATUS"][i] * \
                                                                universal_model["LINE"]["RATE_A"]
         ## Modify the matrix
         nx = T * NX

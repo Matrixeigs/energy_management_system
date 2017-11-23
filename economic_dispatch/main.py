@@ -14,6 +14,7 @@ from data_management.information_management import information_formulation_extra
 from data_management.information_management import information_receive_send
 from economic_dispatch.mid_term_forecasting import ForecastingThread
 from utils import Logger
+from copy import deepcopy
 
 logger_uems = Logger("Middle_term_dispatch_UEMS")
 logger_lems = Logger("Middle_term_dispatch_LEMS")
@@ -33,8 +34,8 @@ class middle_term_operation():
         # 1)Information collection
         # 1.1)local EMS forecasting
         # 1.2)Information exchange
-        universal_models = args[0]
-        local_models = args[1]
+        universal_models = deepcopy(args[0])
+        local_models = deepcopy(args[1])
         socket_upload = args[2]
         socket_download = args[3]
         info = args[4]
@@ -84,7 +85,6 @@ class middle_term_operation():
         # Return command to the local ems
         dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time,"ED")
         dynamic_model.TIME_STAMP_COMMAND = round(time.time())
-
         information_send_thread = threading.Thread(target=information_receive_send.information_send,
                                                    args=(socket_upload, dynamic_model, 2))
 
@@ -105,7 +105,7 @@ class middle_term_operation():
         # 2) Short-term forecasting
         # 3) Information upload and database store
         # 4) Download command and database operation
-        local_models = args[0]  # Local energy management system models
+        local_models = deepcopy(args[0])  # Local energy management system models
         socket_upload = args[1]  # Upload information channel
         socket_download = args[2]  # Download information channel
         info = args[3]  # Information structure
