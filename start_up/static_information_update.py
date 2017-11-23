@@ -22,7 +22,7 @@ def information_update(*args):
     try:
         local_models["UG"]["COST"] = info.dg[0].COST._values
     except:
-        logger.warning("The protocal buffer model has been changed! Please double chech the user manual!")
+        logger.warning("The protocal buffer model has been changed! 1!")
 
     # Update the diesel generator group
     local_models["DG"]["AREA"] = info.area
@@ -41,7 +41,7 @@ def information_update(*args):
     try:
         local_models["DG"]["COST"] = info.dg[1].COST._values
     except:
-        logger.warning("The protocal buffer model has been changed! Please double chech the user manual!")
+        logger.warning("The protocal buffer model has been changed! 2!")
 
     # Update the energy storage system group
     local_models["ESS"]["AREA"] = info.area
@@ -59,7 +59,7 @@ def information_update(*args):
     try:
         local_models["ESS"]["COST_CH"] = info.ess[0].COST_CH._values
     except:
-        logger.warning("The protocal buffer model has been changed! Please double chech the user manual!")
+        logger.warning("The protocal buffer model has been changed! 3!")
 
     # Update the photovoltaic generator grid group
     local_models["PV"]["AREA"] = info.area
@@ -72,7 +72,10 @@ def information_update(*args):
     try:
         local_models["PV"]["COST"] = info.pv[0].COST._values
     except:
-        logger.warning("The protocal buffer model has been changed! Please double chech the user manual!")
+        if type(info.pv[0].COST) is float or type(info.pv[0].COST) is int or type(info.pv[0].COST) is list:
+            local_models["PV"]["COST"] = info.pv[0].COST
+        else:
+            logger.warning("The protocal buffer model has been changed! 4!")
 
     # Update the wind power group
     local_models["WP"]["AREA"] = info.area
@@ -85,7 +88,10 @@ def information_update(*args):
     try:
         local_models["WP"]["COST"] = info.wp[0].COST._values
     except:
-        logger.warning("The protocal buffer model has been changed! Please double chech the user manual!")
+        if type(info.wp[0].COST) is float or type(info.wp[0].COST) is int or type(info.wp[0].COST) is list:
+            local_models["WP"]["COST"] = info.wp[0].COST
+        else:
+            logger.warning("The protocal buffer model has been changed! 5!")
 
     # Update the critical AC load group
     local_models["Load_ac"]["AREA"] = info.area
@@ -99,7 +105,7 @@ def information_update(*args):
     try:
         local_models["Load_ac"]["COST"] = info.load_ac[0].COST._values
     except:
-        logger.warning("The protocal buffer model has been changed! Please double chech the user manual!")
+        logger.warning("The protocal buffer model has been changed! 6!")
 
     # Update the non-critical AC laod group
     local_models["Load_uac"]["AREA"] = info.area
@@ -113,7 +119,7 @@ def information_update(*args):
     try:
         local_models["Load_uac"]["COST"] = info.load_ac[1].COST._values
     except:
-        logger.warning("The protocal buffer model has been changed! Please double chech the user manual!")
+        logger.warning("The protocal buffer model has been changed! 7!")
 
     # Update the critical DC load group
     local_models["Load_dc"]["AREA"] = info.area
@@ -127,7 +133,7 @@ def information_update(*args):
     try:
         local_models["Load_dc"]["COST"] = info.load_dc[0].COST._values
     except:
-        logger.warning("The protocal buffer model has been changed! Please double chech the user manual!")
+        logger.warning("The protocal buffer model has been changed! 8!")
 
     # Update the non-critical DC load group
     local_models["Load_udc"]["AREA"] = info.area
@@ -141,7 +147,7 @@ def information_update(*args):
     try:
         local_models["Load_udc"]["COST"] = info.load_dc[1].COST._values
     except:
-        logger.warning("The protocal buffer model has been changed! Please double chech the user manual!")
+        logger.warning("The protocal buffer model has been changed! 9!")
 
     # Update the bi-directional convertor group
     local_models["BIC"]["AREA"] = info.area
