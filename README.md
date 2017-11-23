@@ -4,14 +4,15 @@ One MG is the aggregrated representation of the local sources, i.e. generators, 
 
 The universal ems is the platform for multiple MGs, and the management of networks in the MG park.
 
-This work is supported by NRF in Singapore, and is under developing.
+This work is supported by national research foundation in Singapore, and is under developing.
 
-This is the second version of energy management system. We intend to develop a smart, distributed and decentralized energy management system for the Internet of things (IoT) embeded system.
+This is the second version of energy management system. We intend to develop a smart, distributed and robust energy management system for the Internet of things (IoT) embeded system.
 
 Related publications can be found on the following page.
+
 https://scholar.google.com.sg/citations?user=r-F063gAAAAJ&hl=en
 
-If you have any question and want to cooperate with us, please send email to:
+If you have any question or want to cooperate with us, please send email to:
 zhaoty@ntu.edu.sg
 or: matrixeigs@gmail.com
 
