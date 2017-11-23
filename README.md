@@ -1,3 +1,5 @@
+# Energy management systems for hybrid AC/DC microgrids
+
 The universal energy management system for a microgrid park.
 The microgrid park is a cluster of microgrids (MGs).
 One MG is the aggregrated representation of the local sources, i.e. generators, loads, energy storage systems(ESSs) and convertors. The MG can be AC/DC/hybrid AC-DC. The connection between the AC side and DC side of the MG is realized via the convertors. The MGs are connected through DC transmission lines.
@@ -16,4 +18,4 @@ If you have any question or want to cooperate with us, please send email to:
 zhaoty@ntu.edu.sg
 or: matrixeigs@gmail.com
 
-# Energy management systems for hybrid AC/DC microgrids
+
