@@ -100,10 +100,7 @@ class problem_formulation():
                     "Time_step_uc"] / 3600
                 Aeq_temp[i][i * NX + PESS_DC] = 1 / model["ESS"]["EFF_DIS"] * configuration_time_line.default_time[
                     "Time_step_uc"] / 3600
-                try:
-                    beq.append(model["ESS"]["SOC"] * model["ESS"]["CAP"])
-                except:
-                    beq.append(model["ESS"]["SOC"][0] * model["ESS"]["CAP"])
+                beq.append(model["ESS"]["SOC"] * model["ESS"]["CAP"])
             else:
                 Aeq_temp[i][(i - 1) * NX + EESS] = -1
                 Aeq_temp[i][i * NX + EESS] = 1
@@ -429,11 +426,11 @@ class problem_formulation():
         # Modify the boundary information
 
         for i in range(T):
-            local_model_mathematical["lb"][i * NX + PMG] = -universal_model["LINE"]["STATUS"] * universal_model["LINE"]["RATE_A"]
-            local_model_mathematical["ub"][i * NX + PMG] = universal_model["LINE"]["STATUS"] * universal_model["LINE"]["RATE_A"]
-            universal_model_mathematical["lb"][i * NX + PMG] = -universal_model["LINE"]["STATUS"] * \
+            local_model_mathematical["lb"][i * NX + PMG] = -universal_model["LINE"]["STATUS"][i] * universal_model["LINE"]["RATE_A"]
+            local_model_mathematical["ub"][i * NX + PMG] = universal_model["LINE"]["STATUS"][i] * universal_model["LINE"]["RATE_A"]
+            universal_model_mathematical["lb"][i * NX + PMG] = -universal_model["LINE"]["STATUS"][i] * \
                                                                universal_model["LINE"]["RATE_A"]
-            universal_model_mathematical["ub"][i * NX + PMG] = universal_model["LINE"]["STATUS"] * \
+            universal_model_mathematical["ub"][i * NX + PMG] = universal_model["LINE"]["STATUS"][i] * \
                                                                universal_model["LINE"]["RATE_A"]
         ## Modify the matrix
         nx = T * NX

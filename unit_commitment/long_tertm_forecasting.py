@@ -33,72 +33,49 @@ def long_term_forecasting(*args):
     Target_time = args[1]
     models = args[2]
     T = default_look_ahead_time_step["Look_ahead_time_uc_time_step"] # The look ahead horizon of unit commitment
+    models["PV"]["PG"] = []
+    models["WP"]["PG"] = []
+    models["Load_ac"]["PD"] = []
+    models["Load_uac"]["PD"] = []
+    models["Load_dc"]["PD"] = []
+    models["Load_udc"]["PD"] = []
+    pv_profile = long_term_forecasting_pv(session, Target_time)
+    wp_profile = long_term_forecasting_wp(session, Target_time)
+    load_ac = long_term_forecasting_load_ac(session, Target_time)
+    load_uac = long_term_forecasting_load_uac(session, Target_time)
+    load_dc = long_term_forecasting_load_dc(session, Target_time)
+    load_udc = long_term_forecasting_load_udc(session, Target_time)
 
-    if models["PV"]["GEN_STATUS"] > 0:
-        pv_profile = long_term_forecasting_pv(session, Target_time)
-        models["PV"]["PG"] = []
-        for i in range(T):
-            models["PV"]["PG"].append(round(models["PV"]["PMAX"] * pv_profile[i]))
-    else:
-        logger.warning("No PV is connected, set to default value 0!")
-        models["PV"]["PG"] = []
-        for i in range(T):
-            models["PV"]["PG"].append(round(models["PV"]["PMAX"] * 0))
-
-    if models["WP"]["GEN_STATUS"] > 0:
-        wp_profile = long_term_forecasting_wp(session, Target_time)
-        models["WP"]["PG"] = []
-        for i in range(T):
-            models["WP"]["PG"].append(round(models["WP"]["PMAX"] * wp_profile[i]))
-    else:
-        logger.warning("No WP is connected, set to default value 0!")
-        models["WP"]["PG"] = []
-        for i in range(T):
-            models["WP"]["PG"].append(round(models["WP"]["PMAX"] * 0))
-
-    if models["Load_ac"]["STATUS"] > 0:
-        load_ac = long_term_forecasting_load_ac(session, Target_time)
-        models["Load_ac"]["PD"] = []
-        for i in range(T):
-            models["Load_ac"]["PD"].append(round(load_ac[i] * models["Load_ac"]["PDMAX"]))
-    else:
-        logger.warning("No critical AC load is connected, set to default value 0!")
-        models["Load_ac"]["PD"] = []
-        for i in range(T):
-            models["Load_ac"]["PD"].append(round(0 * models["Load_ac"]["PDMAX"]))
-
-    if models["Load_uac"]["STATUS"] > 0:
-        if models["Load_uac"]["STATUS"] > 0:
-            load_uac = long_term_forecasting_load_uac(session, Target_time)
-            models["Load_uac"]["PD"] = []
-            for i in range(T):
-                models["Load_uac"]["PD"].append(round(load_uac[i] * models["Load_uac"]["PDMAX"]))
+    for i in range(T):
+        # Update the forecasting result of PV
+        if models["PV"]["NPV"][i] > 0:
+            models["PV"]["PG"].append(round(models["PV"]["PMAX"][i] * pv_profile[i]))
         else:
-            logger.warning("No non-critical AC load is connected, set to default value 0!")
-            models["Load_uac"]["PD"] = []
-            for i in range(T):
-                models["Load_uac"]["PD"].append(round(0 * models["Load_uac"]["PDMAX"]))
+            models["PV"]["PG"].append(0)
 
-    if models["Load_dc"]["STATUS"] > 0:
-        load_dc = long_term_forecasting_load_dc(session, Target_time)
-        models["Load_dc"]["PD"] = []
-        for i in range(T):
+        if models["WP"]["NWP"][i] > 0:
+            models["WP"]["PG"].append(round(models["WP"]["PMAX"][i] * wp_profile[i]))
+        else:
+            models["WP"]["PG"].append(0)
+
+        if models["Load_ac"]["STATUS"][i] > 0:
+            models["Load_ac"]["PD"].append(round(load_ac[i] * models["Load_ac"]["PDMAX"]))
+        else:
+            models["Load_ac"]["PD"].append(0)
+
+        if models["Load_uac"]["STATUS"][i] > 0:
+            models["Load_uac"]["PD"].append(round(load_uac[i] * models["Load_uac"]["PDMAX"]))
+        else:
+            models["Load_uac"]["PD"].append(0)
+
+        if models["Load_dc"]["STATUS"][i] > 0:
             models["Load_dc"]["PD"].append(round(load_dc[i] * models["Load_dc"]["PDMAX"]))
-    else:
-        logger.warning("No critical DC load is connected, set to default value 0!")
-        models["Load_dc"]["PD"] = []
-        for i in range(T):
-            models["Load_dc"]["PD"].append(round(0 * models["Load_dc"]["PDMAX"]))
+        else:
+            models["Load_dc"]["PD"].append(0)
 
-    if models["Load_udc"]["STATUS"] > 0:
-        load_udc = long_term_forecasting_load_udc(session, Target_time)
-        models["Load_udc"]["PD"] = []
-        for i in range(T):
+        if models["Load_udc"]["STATUS"][i] > 0:
             models["Load_udc"]["PD"].append(round(load_udc[i] * models["Load_udc"]["PDMAX"]))
-    else:
-        logger.warning("No non-critical DC load is connected, set to default value 0!")
-        models["Load_udc"]["PD"] = []
-        for i in range(T):
-            models["Load_udc"]["PD"].append(round(0 * models["Load_udc"]["PDMAX"]))
+        else:
+            models["Load_udc"]["PD"].append(0)
 
     return models

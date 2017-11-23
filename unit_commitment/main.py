@@ -12,7 +12,7 @@ from data_management.information_management import information_formulation_extra
 from data_management.information_management import information_receive_send
 from unit_commitment.long_tertm_forecasting import ForecastingThread
 from utils import Logger
-
+from copy import deepcopy
 logger_uems = Logger("Long_term_dispatch_UEMS")
 logger_lems = Logger("Long_term_dispatch_LEMS")
 
@@ -30,8 +30,8 @@ class long_term_operation():
         # 1)Information collection
         # 1.1)local EMS forecasting
         # 1.2)Information exchange
-        universal_models = args[0]
-        local_models = args[1]
+        universal_models = deepcopy(args[0])
+        local_models = deepcopy(args[1])
         socket_upload = args[2]
         socket_download = args[3]
         info = args[4]
@@ -55,6 +55,8 @@ class long_term_operation():
         local_models = thread_info_ex.local_models
         # Solve the optimal power flow problem
         # Two threads will be created, one for feasible problem, the other for infeasible problem
+        # universal_models["ESS"]["SOC"]=universal_models["ESS"]["SOC_MIN"], the test shows that, the input check is necessary.
+
         mathematical_model = problem_formulation.problem_formulation_universal(local_models, universal_models,
                                                                                "Feasible")
         mathematical_model_recovery = problem_formulation.problem_formulation_universal(local_models, universal_models,
@@ -102,7 +104,7 @@ class long_term_operation():
         # 2) Short-term forecasting
         # 3) Information upload and database store
         # 4) Download command and database operation
-        local_models = args[0]  # Local energy management system models
+        local_models = deepcopy(args[0])  # Local energy management system models
         socket_upload = args[1]  # Upload information channel
         socket_download = args[2]  # Download information channel
         info = args[3]  # Information structure
@@ -234,6 +236,7 @@ def update(*args):
         model["Load_udc"]["COMMAND_SHED"] = [0] * T
 
         for i in range(T):
+            # Update the solutions
             model["DG"]["COMMAND_START_UP"][i] = int(x[i * NX + IG])
             model["DG"]["COMMAND_PG"][i] = int(x[i * NX + PG])
             model["DG"]["COMMAND_RG"][i] = int(x[i * NX + RG])
