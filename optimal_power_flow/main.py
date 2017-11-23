@@ -9,6 +9,7 @@ from optimal_power_flow.short_term_forecasting import ForecastingThread
 from configuration.configuration_time_line import default_dead_line_time
 from utils import Logger
 from configuration.configuration_time_line import default_look_ahead_time_step
+from copy import deepcopy
 logger_uems = Logger("Short_term_dispatch_UEMS")
 logger_lems = Logger("Short_term_dispatch_LEMS")
 
@@ -16,7 +17,6 @@ class short_term_operation():
     ##short term operation for ems
     # Two modes are proposed for the local ems and
     def short_term_operation_uems(*args):
-
         from data_management.database_management import database_operation
         from optimal_power_flow.problem_formulation import problem_formulation
         from optimal_power_flow.problem_solving import Solving_Thread
@@ -25,8 +25,8 @@ class short_term_operation():
         # 1)Information collection
         # 1.1)local EMS forecasting
         # 1.2)Information exchange
-        universal_models = args[0]
-        local_models = args[1]
+        universal_models = deepcopy(args[0])
+        local_models = deepcopy(args[1])
         socket_upload = args[2]
         socket_download = args[3]
         info = args[4]
@@ -97,7 +97,7 @@ class short_term_operation():
         # 2) Short-term forecasting
         # 3) Information upload and database store
         # 4) Download command and database operation
-        local_models = args[0]  # Local energy management system models
+        local_models = deepcopy(args[0])  # Local energy management system models
         socket_upload = args[1]  # Upload information channel
         socket_download = args[2]  # Download information channel
         info = args[3]  # Information structure
@@ -199,35 +199,12 @@ def update(*args):
         model["ESS"]["COMMAND_RG"] = int(x[RESS])
 
         model["PMG"] = int(x[PMG])
-        
-        if type(model["PV"]["PG"]) is list:
-            model["PV"]["COMMAND_CURT"] = int(model["PV"]["PG"][0]) - int(x[PPV])
-        else:
-            model["PV"]["COMMAND_CURT"] = int(model["PV"]["PG"]) - int(x[PPV])
 
-        if type(model["WP"]["PG"]) is list:
-            model["WP"]["COMMAND_CURT"] = int(model["WP"]["PG"][0]) - int(x[PWP])
-        else:
-            model["WP"]["COMMAND_CURT"] = int(model["WP"]["PG"]) - int(x[PWP])
-
-        if type(model["Load_ac"]["PD"]) is list:
-            model["Load_ac"]["COMMAND_SHED"] = int(model["Load_ac"]["PD"][0]) - int(x[PL_AC])
-        else:
-            model["Load_ac"]["COMMAND_SHED"] = int(model["Load_ac"]["PD"]) - int(x[PL_AC])
-
-        if type(model["Load_uac"]["PD"]) is list:
-            model["Load_uac"]["COMMAND_SHED"] = int(model["Load_uac"]["PD"][0]) - int(x[PL_UAC])
-        else:
-            model["Load_uac"]["COMMAND_SHED"] = int(model["Load_uac"]["PD"]) - int(x[PL_UAC])
-
-        if type(model["Load_dc"]["PD"]) is list:
-            model["Load_dc"]["COMMAND_SHED"] = int(model["Load_dc"]["PD"][0]) - int(x[PL_DC])
-        else:
-            model["Load_dc"]["COMMAND_SHED"] = int(model["Load_dc"]["PD"]) - int(x[PL_DC])
-        
-        if type(model["Load_dc"]["PD"]) is list:
-            model["Load_udc"]["COMMAND_SHED"] = int(model["Load_udc"]["PD"][0]) - int(x[PL_UDC])
-        else:
-            model["Load_udc"]["COMMAND_SHED"] = int(model["Load_udc"]["PD"]) - int(x[PL_UDC])
+        model["PV"]["COMMAND_CURT"] = int(model["PV"]["PG"]) - int(x[PPV])
+        model["WP"]["COMMAND_CURT"] = int(model["WP"]["PG"]) - int(x[PWP])
+        model["Load_ac"]["COMMAND_SHED"] = int(model["Load_ac"]["PD"]) - int(x[PL_AC])
+        model["Load_uac"]["COMMAND_SHED"] = int(model["Load_uac"]["PD"]) - int(x[PL_UAC])
+        model["Load_dc"]["COMMAND_SHED"] = int(model["Load_dc"]["PD"]) - int(x[PL_DC])
+        model["Load_udc"]["COMMAND_SHED"] = int(model["Load_udc"]["PD"]) - int(x[PL_UDC])
 
     return model

@@ -5,6 +5,7 @@ from forecasting.short_term_forecasting import short_term_forecasting_pv, short_
 
 import threading
 from utils import Logger
+from copy import deepcopy
 logger = Logger("Short_term_forecasting")
 class ForecastingThread(threading.Thread):
     # Thread operation with time control and return value
@@ -21,7 +22,7 @@ class ForecastingThread(threading.Thread):
 def short_term_forecasting(*args):
     session = args[0]
     Target_time = args[1]
-    models = args[2]
+    models = deepcopy(args[2])
 
     if models["PV"]["GEN_STATUS"] > 0:
         pv_profile = short_term_forecasting_pv(session, Target_time)
@@ -60,7 +61,7 @@ def short_term_forecasting(*args):
         models["Load_dc"]["PD"] = 0
 
     if models["Load_udc"]["STATUS"] > 0:
-        load_udc = short_term_forecasting_load_ac(session, Target_time)
+        load_udc = short_term_forecasting_load_udc(session, Target_time)
         models["Load_udc"]["PD"] = round(load_udc * models["Load_udc"]["PDMAX"])
     else:
         logger.warning("No non-critical DC load is connected, set to default value 0!")
