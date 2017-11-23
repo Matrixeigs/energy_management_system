@@ -16,19 +16,19 @@ from apscheduler.schedulers.blocking import BlockingScheduler  # Scheduler is ba
 
 import configuration.configuration_database as db_configuration  # The settings of databases
 
-
 from sqlalchemy import create_engine  # Import the database toolbox
 from sqlalchemy.orm import sessionmaker
 
-from utils import Logger
+from utils import Logger  # The utility function import from LongQi' work
 
-import modelling.information_exchange_pb2 as opf_model # The information model of optimal power flow
-import modelling.dynamic_operation_pb2 as economic_dispatch_info # The information model of economic dispatch
-import zmq # The information channel
+import modelling.information_exchange_pb2 as opf_model  # The information model of optimal power flow
+import modelling.dynamic_operation_pb2 as economic_dispatch_info  # The information model of economic dispatch
+import zmq  # The information channel
 
-from unit_commitment.main import long_term_operation # long term operation
-from economic_dispatch.main import middle_term_operation # middle term operation
-from optimal_power_flow.main import short_term_operation # short term operation
+from unit_commitment.main import long_term_operation  # long term operation
+from economic_dispatch.main import middle_term_operation  # middle term operation
+from optimal_power_flow.main import short_term_operation  # short term operation
+
 
 class Main():
     ## The main process of UEMS
@@ -37,16 +37,31 @@ class Main():
         # Implement the start-up test for universal energy management system
         import start_up.start_up_uems
         self.socket = socket
-        (self.local_models, self.universal_models, self.operation_mode) = start_up.start_up_uems.start_up_ems.start_up(self.socket)
+        try:
+            (self.local_model_short, self.local_model_middle, self.local_model_long, self.universal_model_short,
+             self.universal_model_middle, self.universal_model_long,
+             self.operation_mode) = start_up.start_up_uems.start_up_ems.start_up(self.socket)
+        except:
+            (self.local_model_short, self.local_model_middle, self.local_model_long,
+             self.operation_mode) = start_up.start_up_uems.start_up_ems.start_up(self.socket)
 
 
 def run():
     ## Operation process for UEMS
-    logger = Logger('Universal_ems_main') # The logger system has been started
-    db_str = db_configuration.universal_database["db_str"] # Database format
-    engine = create_engine(db_str, echo=False) # Create engine for universal energy management system databases
-    Session = sessionmaker(bind=engine) # Create engine for target database
-    session_uems = Session() # Create session for universal energy management system
+    logger = Logger('Universal_ems_main')  # The logger system has been started
+    db_str = db_configuration.universal_database["db_str"]  # Database format
+    engine = create_engine(db_str, echo=False)  # Create engine for universal energy management system databases
+    Session = sessionmaker(bind=engine)  # Create engine for target database
+
+    engine_middle = create_engine(db_str, echo=False)
+    Session_middle = sessionmaker(bind=engine_middle)
+    session_uems_short = Session()  # Create session for universal energy management system
+
+    session_uems_middle = Session_middle()  # Create session for universal energy management system
+
+    engine_long = create_engine(db_str, echo=False)
+    Session_long = sessionmaker(bind=engine_long)
+    session_uems_long = Session_long()  # Create session for universal energy management system
     # IP = "10.25.196.56"
     IP = "*"
     # Start the information connection
@@ -57,45 +72,65 @@ def run():
     socket_upload = context.socket(zmq.REP)  # Upload information channel for local EMS
     socket_upload.bind("tcp://" + IP + ":5556")
 
+    socket_upload_ed = context.socket(zmq.REP)  # Upload information channel for local EMS
+    socket_upload_ed.bind("tcp://" + IP + ":5557")
+
+    socket_upload_uc = context.socket(zmq.REP)  # Upload information channel for local EMS
+    socket_upload_uc.bind("tcp://" + IP + ":5558")
+
     socket_download = context.socket(zmq.REQ)  # Download information channel for local EMS
-    socket_download.bind("tcp://" + IP + ":5557")
+    socket_download.bind("tcp://" + IP + ":5559")
 
-    initialize = Main(socket) # Initialized the connection between the lems and uems
+    initialize = Main(socket)  # Initialized the connection between the lems and uems
 
-    universal_models = initialize.universal_models
-    local_models = initialize.local_models
+    local_model_short = initialize.local_model_short
+    local_model_middle = initialize.local_model_middle
+    local_model_long = initialize.local_model_long
+
+    universal_model_short = initialize.universal_model_short
+    universal_model_middle = initialize.universal_model_middle
+    universal_model_long = initialize.universal_model_long
     # Start the input information
-    info_ed = economic_dispatch_info.local_sources() # Dynamic information for economic dispatch
-    info_uc = economic_dispatch_info.local_sources() # Dynamic information for unit commitment
-    info_opf = opf_model.informaiton_exchange() # Optimal power flow modelling
+    info_ed = economic_dispatch_info.local_sources()  # Dynamic information for economic dispatch
+    info_uc = economic_dispatch_info.local_sources()  # Dynamic information for unit commitment
+    info_opf = opf_model.informaiton_exchange()  # Optimal power flow modelling
 
     # Generate different processes
     logger.info("The short term process in UEMS starts!")
     sched_short_term = BlockingScheduler()  # The schedulor for the optimal power flow
-    sched_short_term.add_job(short_term_operation.short_term_operation_uems, 'cron',
-                             args=(universal_models, local_models, socket_upload, socket_download, info_opf,
-                                   session_uems), minute='0-59',
-                             second='1')  # The operation is triggered minutely, this process will start at **:01
-    sched_short_term.start()
-
+    # sched_short_term.add_job(short_term_operation.short_term_operation_uems, 'cron',
+    #                          args=(universal_models, local_models, socket_upload, socket_download, info_opf,
+    #                                session_uems_short), minute='0-59',
+    #                          second='1')  # The operation is triggered minutely, this process will start at **:01
+    # sched_short_term.start()
+    # short_term_operation.short_term_operation_uems(universal_models, local_models, socket_upload, socket_download, info_opf,
+    #         session_uems_short)
     logger.info("The middle term process in UEMS starts!")
-    sched_middle_term = BlockingScheduler()  # The schedulor for the optimal power flow
-    sched_middle_term.add_job(middle_term_operation.middle_term_operation_uems, 'cron',
-                             args=(universal_models, local_models, socket_upload, socket_download, info_ed,
-                                   session_uems), minute='*/5',
-                             second='1')  # The operation is triggered every 5 minute
-    sched_middle_term.start()
+    # sched_middle_term = BlockingScheduler()  # The schedulor for the optimal power flow
+    # sched_short_term.add_job(middle_term_operation.middle_term_operation_uems, 'cron',
+    #                          args=(universal_models, local_models, socket_upload_ed, socket_download, info_ed,
+    #                                session_uems_middle), minute='*/2',
+    #                          second='5')  # The operation is triggered every 5 minute
+    # sched_middle_term.start()
+    # middle_term_operation.middle_term_operation_uems(universal_models_ed, local_models_ed, socket_upload_ed, socket_download, info_ed,
+    #         session_uems_middle)
 
-    short_term_operation.short_term_operation_uems(universal_models, local_models, socket_upload, socket_download, info_opf,
-            session_uems)
+    # logger.info("The long term process in UEMS starts!")
+    # # sched_long_term = BlockingScheduler()  # The schedulor for the optimal power flow
+    # sched_short_term.add_job(long_term_operation.long_term_operation_uems, 'cron',
+    #                           args=(universal_models, local_models, socket_upload_uc, socket_download, info_uc,
+    #                                 session_uems_long), minute='*/1',
+    #                           second='30')  # The operation is triggered every half an hour
+    # sched_short_term.start()
+    for i in range(100):
+        short_term_operation.short_term_operation_uems(universal_model_short, local_model_short, socket_upload, socket_download, info_opf,
+                session_uems_short)
+        middle_term_operation.middle_term_operation_uems(universal_model_middle, local_model_middle, socket_upload_ed,
+                                                        socket_download, info_ed,session_uems_middle)
+        long_term_operation.long_term_operation_uems(universal_model_long, local_model_long, socket_upload_uc,
+                                                     socket_download, info_uc,
+                                                     session_uems_long)
 
-    logger.info("The long term process in UEMS starts!")
-    sched_long_term = BlockingScheduler()  # The schedulor for the optimal power flow
-    sched_long_term.add_job(long_term_operation.long_term_operation_uems, 'cron',
-                              args=(universal_models, local_models, socket_upload, socket_download, info_uc,
-                                    session_uems), minute='*/30',
-                              second='1')  # The operation is triggered every half an hour
-    sched_long_term.start()
 
 if __name__ == "__main__":
     ## Start the main process of universal energy management
