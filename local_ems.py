@@ -85,14 +85,14 @@ def run():
         lambda: middle_term_operation.middle_term_operation_lems(local_model_middle, socket_upload_ed, socket_download,
                                                                  info_ed,
                                                                  session_lems_middle),
-        'cron', minute='*/2', second='5')  # The operation is triggered every five minute
+        'cron', minute='*/5', second='5')  # The operation is triggered every five minute
 
     logger.info("The long term process in local EMS starts!")
     sched_lems.add_job(
         lambda: long_term_operation.long_term_operation_lems(local_model_long, socket_upload_uc, socket_download,
                                                              info_uc,
                                                              session_lems_long),
-        'cron', minute='*/1', second='30')  # The operation is triggered every half an hour
+        'cron', minute='*/30', second='30')  # The operation is triggered every half an hour
     sched_lems.start()
     # for i in range(100):
     #     short_term_operation.short_term_operation_lems(local_model_short, socket_upload, socket_download, info_opf,
