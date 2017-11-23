@@ -1,7 +1,11 @@
 # Update the techinical and economic parameters of local sources
+from utils import Logger
+logger = Logger("Start_up_universal_energy_management_system")
+
 def information_update(*args):
     local_models = args[0]
     info = args[1]
+    # Update the utility grid group
     local_models["UG"]["AREA"] = info.area
     local_models["UG"]["GEN_STATUS"] = info.dg[0].GEN_STATUS
     local_models["UG"]["PMIN"] = info.dg[0].PMIN
@@ -15,8 +19,12 @@ def information_update(*args):
     local_models["UG"]["COST_SHUT_DOWN"] = info.dg[0].COST_SHUT_DOWN
     local_models["UG"]["COST_MODEL"] = info.dg[0].COST_MODEL
     local_models["UG"]["NCOST"] = info.dg[0].NCOST
-    local_models["UG"]["COST"] = info.dg[0].COST
+    try:
+        local_models["UG"]["COST"] = info.dg[0].COST._values
+    except:
+        logger.warning("The protocal buffer model has been changed! Please double chech the user manual!")
 
+    # Update the diesel generator group
     local_models["DG"]["AREA"] = info.area
     local_models["DG"]["GEN_STATUS"] = info.dg[1].GEN_STATUS
     local_models["DG"]["PMIN"] = info.dg[1].PMIN
@@ -30,8 +38,12 @@ def information_update(*args):
     local_models["DG"]["COST_SHUT_DOWN"] = info.dg[1].COST_SHUT_DOWN
     local_models["DG"]["COST_MODEL"] = info.dg[1].COST_MODEL
     local_models["DG"]["NCOST"] = info.dg[1].NCOST
-    local_models["DG"]["COST"] = info.dg[1].COST
+    try:
+        local_models["DG"]["COST"] = info.dg[1].COST._values
+    except:
+        logger.warning("The protocal buffer model has been changed! Please double chech the user manual!")
 
+    # Update the energy storage system group
     local_models["ESS"]["AREA"] = info.area
     local_models["ESS"]["CAP"] = info.ess[0].CAP
     local_models["ESS"]["PMAX_DIS"] = info.ess[0].PMAX_DIS
@@ -44,8 +56,12 @@ def information_update(*args):
     local_models["ESS"]["NCOST_DIS"] = info.ess[0].NCOST_DIS
     local_models["ESS"]["COST_DIS"] = info.ess[0].COST_DIS
     local_models["ESS"]["NCOST_CH"] = info.ess[0].NCOST_CH
-    local_models["ESS"]["COST_CH"] = info.ess[0].COST_CH
+    try:
+        local_models["ESS"]["COST_CH"] = info.ess[0].COST_CH._values
+    except:
+        logger.warning("The protocal buffer model has been changed! Please double chech the user manual!")
 
+    # Update the photovoltaic generator grid group
     local_models["PV"]["AREA"] = info.area
     local_models["PV"]["GEN_STATUS"] = info.pv[0].GEN_STATUS
     local_models["PV"]["PMAX"] = info.pv[0].PMAX
@@ -53,8 +69,12 @@ def information_update(*args):
     local_models["PV"]["QMAX"] = info.pv[0].QMAX
     local_models["PV"]["QMIN"] = info.pv[0].QMIN
     local_models["PV"]["SMAX"] = info.pv[0].SMAX
-    local_models["PV"]["COST"] = info.pv[0].COST
+    try:
+        local_models["PV"]["COST"] = info.pv[0].COST._values
+    except:
+        logger.warning("The protocal buffer model has been changed! Please double chech the user manual!")
 
+    # Update the wind power group
     local_models["WP"]["AREA"] = info.area
     local_models["WP"]["GEN_STATUS"] = info.wp[0].GEN_STATUS
     local_models["WP"]["PMAX"] = info.wp[0].PMAX
@@ -62,8 +82,12 @@ def information_update(*args):
     local_models["WP"]["QMAX"] = info.wp[0].QMAX
     local_models["WP"]["QMIN"] = info.wp[0].QMIN
     local_models["WP"]["SMAX"] = info.wp[0].SMAX
-    local_models["WP"]["COST"] = info.wp[0].COST
+    try:
+        local_models["WP"]["COST"] = info.wp[0].COST._values
+    except:
+        logger.warning("The protocal buffer model has been changed! Please double chech the user manual!")
 
+    # Update the critical AC load group
     local_models["Load_ac"]["AREA"] = info.area
     local_models["Load_ac"]["STATUS"] = info.load_ac[0].STATUS
     local_models["Load_ac"]["PDMAX"] = info.load_ac[0].PDMAX
@@ -72,8 +96,12 @@ def information_update(*args):
     local_models["Load_ac"]["MODEL"] = info.load_ac[0].MODEL
     local_models["Load_ac"]["COST_MODEL"] = info.load_ac[0].COST_MODEL
     local_models["Load_ac"]["NCOST"] = info.load_ac[0].NCOST
-    local_models["Load_ac"]["COST"] = info.load_ac[0].COST
+    try:
+        local_models["Load_ac"]["COST"] = info.load_ac[0].COST._values
+    except:
+        logger.warning("The protocal buffer model has been changed! Please double chech the user manual!")
 
+    # Update the non-critical AC laod group
     local_models["Load_uac"]["AREA"] = info.area
     local_models["Load_uac"]["STATUS"] = info.load_ac[1].STATUS
     local_models["Load_uac"]["PDMAX"] = info.load_ac[1].PDMAX
@@ -82,8 +110,12 @@ def information_update(*args):
     local_models["Load_uac"]["MODEL"] = info.load_ac[1].MODEL
     local_models["Load_uac"]["COST_MODEL"] = info.load_ac[1].COST_MODEL
     local_models["Load_uac"]["NCOST"] = info.load_ac[1].NCOST
-    local_models["Load_uac"]["COST"] = info.load_ac[1].COST
+    try:
+        local_models["Load_uac"]["COST"] = info.load_ac[1].COST._values
+    except:
+        logger.warning("The protocal buffer model has been changed! Please double chech the user manual!")
 
+    # Update the critical DC load group
     local_models["Load_dc"]["AREA"] = info.area
     local_models["Load_dc"]["STATUS"] = info.load_dc[0].STATUS
     local_models["Load_dc"]["PDMAX"] = info.load_dc[0].PDMAX
@@ -92,8 +124,12 @@ def information_update(*args):
     local_models["Load_dc"]["MODEL"] = info.load_dc[0].MODEL
     local_models["Load_dc"]["COST_MODEL"] = info.load_dc[0].COST_MODEL
     local_models["Load_dc"]["NCOST"] = info.load_dc[0].NCOST
-    local_models["Load_dc"]["COST"] = info.load_dc[0].COST
+    try:
+        local_models["Load_dc"]["COST"] = info.load_dc[0].COST._values
+    except:
+        logger.warning("The protocal buffer model has been changed! Please double chech the user manual!")
 
+    # Update the non-critical DC load group
     local_models["Load_udc"]["AREA"] = info.area
     local_models["Load_udc"]["STATUS"] = info.load_dc[1].STATUS
     local_models["Load_udc"]["PDMAX"] = info.load_dc[1].PDMAX
@@ -102,11 +138,15 @@ def information_update(*args):
     local_models["Load_udc"]["MODEL"] = info.load_dc[1].MODEL
     local_models["Load_udc"]["COST_MODEL"] = info.load_dc[1].COST_MODEL
     local_models["Load_udc"]["NCOST"] = info.load_dc[1].NCOST
-    local_models["Load_udc"]["COST"] = info.load_dc[1].COST
+    try:
+        local_models["Load_udc"]["COST"] = info.load_dc[1].COST._values
+    except:
+        logger.warning("The protocal buffer model has been changed! Please double chech the user manual!")
 
+    # Update the bi-directional convertor group
     local_models["BIC"]["AREA"] = info.area
     local_models["BIC"]["CAP"] = info.bic[0].CAP
     local_models["BIC"]["EFF_AC2DC"] = info.bic[0].EFF_AC2DC
     local_models["BIC"]["EFF_DC2AC"] = info.bic[0].EFF_DC2AC
-
+    # Return result
     return local_models
