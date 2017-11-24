@@ -11,6 +11,7 @@
 # 4) APScheduler
 # 5) Gurobi*(commercial use only)
 # 6) Mosek*(Commercial use only)
+# 7）Protocol buffer > 3.4.0
 
 from apscheduler.schedulers.blocking import BlockingScheduler  # Scheduler is based on APS
 
@@ -62,7 +63,6 @@ def run():
     engine_long = create_engine(db_str, echo=False)
     Session_long = sessionmaker(bind=engine_long)
     session_uems_long = Session_long()  # Create session for universal energy management system
-    # IP = "10.25.196.56"
     IP = "*"
     # Start the information connection
     context = zmq.Context()
