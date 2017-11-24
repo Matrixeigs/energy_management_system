@@ -30,6 +30,16 @@ class input_check_short_term():
             except:
                 logger.info("The correction of utility grid capacity failed! Restore it to default value in configuration file!")
                 model["UG"]["PMAX"] = configuration_default_generators.default_AC_generator_parameters["PMAX"]
-
         if type(model["UG"]["PMIN"]) is not float or int:
             logger.error("The data format of utility grid capacity is incorrect!")
+            try:
+                logger.warning("Try to fix the capacity of utility grid")
+                model["UG"]["PMIN"] = model["UG"]["PMIN"][0]
+            except:
+                logger.info("The correction of utility grid capacity failed! Restore it to default value in configuration file!")
+                model["UG"]["PMIN"] = configuration_default_generators.default_AC_generator_parameters["PMIN"]
+        if model["UG"]["PMIN"]>model["UG"]["PMAX"]:
+            logger.error("The maximal capacity of UG is smaller than the minimal capacity!")
+            model["UG"]["PMIN"] = model["UG"]["PMAX"]
+
+
