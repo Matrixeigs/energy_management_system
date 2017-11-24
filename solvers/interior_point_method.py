@@ -6,7 +6,6 @@
 
 from numpy import array, Inf, any, isnan, ones, r_, finfo, \
     zeros, dot, absolute, log, flatnonzero as find
-
 from numpy.linalg import norm
 from scipy.sparse import vstack, hstack, eye, csr_matrix as sparse
 from scipy.sparse.linalg import spsolve

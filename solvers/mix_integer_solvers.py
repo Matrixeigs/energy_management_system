@@ -390,10 +390,14 @@ def miqp_gurobi(c, Q, Aeq=None, beq=None, A=None, b=None, xmin=None, xmax=None, 
     except GurobiError as e:
         print('Error code ' + str(e.errno) + ": " + str(e))
         success = 0
+        xx = 0
+        obj = 0
 
     except AttributeError:
         print('Encountered an attribute error')
         success = 0
+        xx = 0
+        obj = 0
 
     return xx, obj, success
 
