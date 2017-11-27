@@ -5,6 +5,7 @@
 # https://pypi.python.org/pypi/PYPOWER
 # The modelling in UEMS has been extended according to similar methods.
 # When linear models are used, piece-wise linear cost function is used to optimize multiple load curves.
+
 from numpy import array, vstack, zeros
 import numpy
 # The data structure is imported from numpy.
