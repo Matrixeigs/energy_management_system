@@ -1098,3 +1098,11 @@ Traceback (most recent call last):
   File "/Users/tianyangzhao/PycharmProjects/universal_ems/unit_commitment/problem_formulation.py", line 451, in problem_formulation_universal
     beq_compact[neq:2 * neq] = universal_model_mathematical["beq"]
 ValueError: setting an array element with a sequence.
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='*/1', second='30'], next run at: 2017-11-23 22:33:30 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='*/2', second='5'], next run at: 2017-11-23 22:34:05 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='*/1', second='30'], next run at: 2017-11-23 22:34:30 +08)" skipped: maximum number of running instances reached (1)
+Execution of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='1'], next run at: 2017-11-23 22:41:01 +08)" skipped: maximum number of running instances reached (1)
+Run time of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='1'], next run at: 2017-11-24 09:46:01 +08)" was missed by 0:00:02.900239
+Run time of job "short_term_operation.short_term_operation_uems (trigger: cron[minute='0-59', second='1'], next run at: 2017-11-24 09:46:01 +08)" was missed by 0:00:02.900265
+Run time of job "short_term_operation.short_term_operation_uems (trigger: cron[minute='0-59', second='1'], next run at: 2017-11-24 11:00:01 +08)" was missed by 0:00:36.884298
+Run time of job "run.<locals>.<lambda> (trigger: cron[minute='0-59', second='1'], next run at: 2017-11-24 11:00:01 +08)" was missed by 0:00:36.884296

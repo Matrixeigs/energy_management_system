@@ -9,9 +9,9 @@
 # 2) MySQL
 # 3) Zeromq
 # 4) APScheduler
-# 5) Gurobi*(commercial use only)
-# 6) Mosek*(Commercial use only)
-# 7）Protocol buffer > 3.4.0
+# 5) Gurobi*(academic use only)
+# 6) Mosek*(academic use only)
+# 7）Protocol buffer > 3.4.0. The early version does not have the value attribute
 
 from apscheduler.schedulers.blocking import BlockingScheduler  # Scheduler is based on APS
 

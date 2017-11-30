@@ -8,7 +8,8 @@
 # 2) Capacity
 
 # Important notice:
-# The input check is the oriented from the start-up of the local ems and universal ems
+# The input check is the oriented from 1） the start-up of the local ems and universal ems
+# 2） modelling of each equipment
 
 from copy import deepcopy
 from configuration.configuration_time_line import default_look_ahead_time_step
@@ -46,6 +47,10 @@ class input_check_short_term():
             logger.error("The maximal capacity of UG is smaller than the minimal capacity!")
             logger.info("Correct the capacity to its lower boundary!")
             model["UG"]["PMIN"] = model["UG"]["PMAX"]
+        if model["UG"]["QMIN"]>model["UG"]["QMAX"]:
+            logger.error("The maximal reactive power capacity of UG is smaller than the minimal capacity!")
+            logger.info("Correct the reactive power capacity to its lower boundary!")
+            model["UG"]["QMIN"] = model["UG"]["QMAX"]
 
         # 2) The input check of diesel generator
         if len(model["DG"]["GEN_STATUS"]) != T_short:
@@ -71,32 +76,63 @@ class input_check_short_term():
         if model["DG"]["PMIN"]>model["DG"]["PMAX"]:
             logger.error("The maximal capacity of UG is smaller than the minimal capacity!")
             model["DG"]["PMIN"] = model["DG"]["PMAX"]
+        if model["DG"]["QMIN"]>model["DG"]["QMAX"]:
+            logger.error("The maximal reactive power capacity of UG is smaller than the minimal capacity!")
+            model["DG"]["QMIN"] = model["DG"]["QMAX"]
 
         # 3) The input check of photovoltaic generators
         if len(model["PV"]["NPV"]) != T_short:
             logger.error("The size of photovoltaic generator status is incorrect!")
             logger.info("The status of photovoltaic generator has been reset to online!")
-            model["PV"]["NPV"] = [configuration_default_generators.default_RES_generator_parameters["NPV"]] * T_short
+            model["PV"]["NPV"] = [configuration_default_generators.default_RES_generator_parameters["PMAX"]] * T_short
         if type(model["PV"]["PMAX"]) is not float or int:
             logger.error("The data format of photovoltaic generator capacity is incorrect!")
             try:
                 logger.warning("Try to fix the capacity of photovoltaic generator")
                 model["PV"]["PMAX"] = model["PV"]["PMAX"][0]
             except:
-                logger.info("The correction of diesel generator capacity failed! Restore it to default value in configuration file!")
+                logger.info("The correction of photovoltaic generator capacity failed! Restore it to default value in configuration file!")
                 model["PV"]["PMAX"] = configuration_default_generators.default_RES_generator_parameters["PMAX"]
-        if type(model["DG"]["PMIN"]) is not float or int:
-            logger.error("The data format of diesel generator capacity is incorrect!")
+        if type(model["PV"]["PMIN"]) is not float or int:
+            logger.error("The data format of photovoltaic generator capacity is incorrect!")
             try:
-                logger.warning("Try to fix the capacity of diesel generator")
-                model["DG"]["PMIN"] = model["DG"]["PMIN"][0]
+                logger.warning("Try to fix the capacity of photovoltaic generator")
+                model["PV"]["PMIN"] = model["PV"]["PMIN"][0]
             except:
-                logger.info("The correction of diesel generator capacity failed! Restore it to default value in configuration file!")
-                model["DG"]["PMIN"] = configuration_default_generators.default_AC_generator_parameters["PMIN"]
-        if model["DG"]["PMIN"] > model["DG"]["PMAX"]:
-            logger.error("The maximal capacity of UG is smaller than the minimal capacity!")
-            model["DG"]["PMIN"] = model["DG"]["PMAX"]
+                logger.info("The correction of photovoltaic generator capacity failed! Restore it to default value in configuration file!")
+                model["PV"]["PMIN"] = configuration_default_generators.default_RES_generator_parameters["PMIN"]
+        if model["PV"]["PMIN"] > model["PV"]["PMAX"]:
+            logger.error("The maximal capacity of PV is smaller than the minimal capacity!")
+            model["PV"]["PMIN"] = model["PV"]["PMAX"]
+        if model["PV"]["QMIN"] > model["PV"]["QMAX"]:
+            logger.error("The maximal reactive power capacity of PV is smaller than the minimal capacity!")
+            model["PV"]["QMIN"] = model["PV"]["QMAX"]
 
-
-
+        # 4) The input check of wind turbine generators
+        if len(model["WP"]["NPV"]) != T_short:
+            logger.error("The size of WP status is incorrect!")
+            logger.info("The status of WP has been reset to online!")
+            model["WP"]["NPV"] = [configuration_default_generators.default_RES_generator_parameters["PMAX"]] * T_short
+        if type(model["WP"]["PMAX"]) is not float or int:
+            logger.error("The data format of WP capacity is incorrect!")
+            try:
+                logger.warning("Try to fix the capacity of WP")
+                model["WP"]["PMAX"] = model["WP"]["PMAX"][0]
+            except:
+                logger.info("The correction of WP capacity failed! Restore it to default value in configuration file!")
+                model["WP"]["PMAX"] = configuration_default_generators.default_RES_generator_parameters["PMAX"]
+        if type(model["WP"]["PMIN"]) is not float or int:
+            logger.error("The data format of WP is incorrect!")
+            try:
+                logger.warning("Try to fix the capacity of WP.")
+                model["WP"]["PMIN"] = model["WP"]["PMIN"][0]
+            except:
+                logger.info("The correction of WP capacity failed! Restore it to default value in configuration file!")
+                model["WP"]["PMIN"] = configuration_default_generators.default_RES_generator_parameters["PMIN"]
+        if model["WP"]["PMIN"] > model["WP"]["PMAX"]:
+            logger.error("The maximal capacity of WP is smaller than the minimal capacity!")
+            model["WP"]["PMIN"] = model["WP"]["PMAX"]
+        if model["WP"]["QMIN"] > model["WP"]["QMAX"]:
+            logger.error("The maximal reactive power capacity of WP is smaller than the minimal capacity!")
+            model["WP"]["QMIN"] = model["WP"]["QMAX"]
 
