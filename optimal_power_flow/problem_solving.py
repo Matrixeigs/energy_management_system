@@ -1,7 +1,7 @@
 # The main entrance of the optimal power flow in unviersal energy management system
 import threading  # Thread management (timeout and return value)
 from scipy import optimize  # linear programming solver
-
+from solvers.mix_integer_solvers import milp_gurobi
 
 class Solving_Thread(threading.Thread):
     # Thread operation with time control and return value
@@ -27,10 +27,15 @@ def solving_procedure(*args):
     option = {"disp": False}
 
     # Convert list into tuple
-    boundary = tuple()
-    for i in range(len(lb)):
-        boundary += ((lb[i], ub[i]),)
+    # boundary = tuple()
+    # for i in range(len(lb)):
+    #     boundary += ((lb[i], ub[i]),)
+    vtypes = ["c"] * len(lb)
+    (solution, obj, success) = milp_gurobi(c, Aeq=Aeq, beq=beq, A=A, b=b, xmin=lb, xmax=ub, vtypes=vtypes)
+    # res = optimize.linprog(c, A_ub=A, b_ub=b, A_eq=Aeq, b_eq=beq, bounds=boundary, options=option)
 
-    res = optimize.linprog(c, A_ub=A, b_ub=b, A_eq=Aeq, b_eq=beq, bounds=boundary, options=option)
+    res = {"x": solution,
+           "obj": obj,
+           "success": success > 0}
 
     return res

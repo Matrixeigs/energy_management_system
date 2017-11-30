@@ -72,7 +72,7 @@ class short_term_operation():
         res.join(default_dead_line_time["Gate_closure_opf"])
         res_recovery.join(default_dead_line_time["Gate_closure_opf"])
 
-        if res.value["success"] == True:
+        if res.value["success"] is True:
             (local_models, universal_models) = result_update(res.value, local_models, universal_models, "Feasible")
         else:
             (local_models, universal_models) = result_update(res_recovery.value, local_models, universal_models,
@@ -148,7 +148,7 @@ class short_term_operation():
 def result_update(*args):
     ## Result update for local ems and universal ems models
     res = args[0]
-    local_model = args[1]
+    local_model = deepcopy(args[1])
     universal_model = args[2]
     type = args[3]
 
@@ -168,7 +168,7 @@ def result_update(*args):
 
 def update(*args):
     x = args[0]
-    model = args[1]
+    model = deepcopy(args[1])
     model_type = args[2]
 
     if model_type == "Feasible":
@@ -213,12 +213,19 @@ def update(*args):
 
         model["PMG"] = int(x[PMG])
 
-        model["PV"]["COMMAND_CURT"] = int(model["PV"]["PG"]) - int(x[PPV])
-        model["WP"]["COMMAND_CURT"] = int(model["WP"]["PG"]) - int(x[PWP])
-        model["Load_ac"]["COMMAND_SHED"] = int(model["Load_ac"]["PD"]) - int(x[PL_AC])
-        model["Load_uac"]["COMMAND_SHED"] = int(model["Load_uac"]["PD"]) - int(x[PL_UAC])
-        model["Load_dc"]["COMMAND_SHED"] = int(model["Load_dc"]["PD"]) - int(x[PL_DC])
-        model["Load_udc"]["COMMAND_SHED"] = int(model["Load_udc"]["PD"]) - int(x[PL_UDC])
+        model["PV"]["COMMAND_CURT"] = int(model["PV"]["PG"]- x[PPV])
+        # logger_uems.info("PV power curtailment amout {}".format(model["PV"]["PG"] - x[PPV]))
+        model["WP"]["COMMAND_CURT"] = int(model["WP"]["PG"] - x[PWP])
+        # logger_uems.info("Wind power curtailment amout {}".format(model["WP"]["PG"] - x[PWP]))
+        model["Load_ac"]["COMMAND_SHED"] = int(model["Load_ac"]["PD"] - x[PL_AC])
+        # logger_uems.info("Critical AC load shedding amout {}".format(model["Load_ac"]["PD"] - x[PL_AC]))
+        model["Load_uac"]["COMMAND_SHED"] = int(model["Load_uac"]["PD"] - x[PL_UAC])
+        # logger_uems.info("Non-critical AC load shedding amout {}".format(model["Load_uac"]["PD"] - x[PL_UAC]))
+        model["Load_dc"]["COMMAND_SHED"] = int(model["Load_dc"]["PD"] - x[PL_DC])
+        # logger_uems.info("Critical DC load shedding amout {}".format(model["Load_dc"]["PD"] - x[PL_DC]))
+        model["Load_udc"]["COMMAND_SHED"] = int(model["Load_udc"]["PD"] - x[PL_UDC])
+        # logger_uems.info("Non-critical DC load shedding amout {}".format(model["Load_udc"]["PD"] - x[PL_UDC]))
+
         model["success"] = False # The obtained solution is recovered
 
     return model
