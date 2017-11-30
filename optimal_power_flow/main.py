@@ -193,6 +193,7 @@ def update(*args):
 
         model["PMG"] = int(x[PMG])
         model["success"] = True # The obtained solution is feasible
+
     else:
         from modelling.power_flow.idx_format_recovery import PG, QG, RG, PUG, QUG, RUG, PBIC_AC2DC, PBIC_DC2AC, QBIC, \
             PESS_C, PESS_DC, RESS, PMG, PPV, PWP, PL_AC, PL_UAC, PL_DC, PL_UDC
