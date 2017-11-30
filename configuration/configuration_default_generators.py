@@ -65,7 +65,7 @@ default_RES_generator_parameters = \
         "GEN_STATUS": 1,  # The generation status, >0 means avalible, otherwise, unavaliable
         "PG": 0,
         "QG": 0,
-        "PMAX": 0000,
+        "PMAX": 1000,
         "PMIN": 0,
         "QMAX": 3000,
         "QMIN": -3000,
