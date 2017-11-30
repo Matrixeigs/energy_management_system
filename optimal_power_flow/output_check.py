@@ -16,26 +16,25 @@ from configuration.configuration_eps import default_eps
 def output_local_check(*args):
     model = args[0]  # local ems models
     T = default_look_ahead_time_step["Look_ahead_time_opf_time_step"]  # The look ahead time step of optimal power flow
-    if model["UG"]["COMMAND_PG"] + model["DG"]["COMMAND_PG"] - model["BIC"]["COMMAND_AC2DC"] + model["BIC"][
-        "COMMAND_DC2AC"] * model["BIC"]["EFF_DC2AC"] - model["Load_ac"]["PD"] - model["Load_uac"]["PD"] >= default_eps[
-        "OPF"] or model["UG"]["COMMAND_PG"] + model["DG"]["COMMAND_PG"] - model["BIC"]["COMMAND_AC2DC"] + model["BIC"][
-        "COMMAND_DC2AC"] * model["BIC"]["EFF_DC2AC"] - model["Load_ac"]["PD"] - model["Load_uac"]["PD"] <= -default_eps[
-        "OPF"]:
-        logger.error("The obtained solution can not meet AC bus power requirement!")
+    if model["success"]==0:
+        if model["UG"]["COMMAND_PG"] + model["DG"]["COMMAND_PG"] - model["BIC"]["COMMAND_AC2DC"] + model["BIC"][
+            "COMMAND_DC2AC"] * model["BIC"]["EFF_DC2AC"] - model["Load_ac"]["PD"] - model["Load_uac"]["PD"] >= default_eps[
+            "OPF"] or model["UG"]["COMMAND_PG"] + model["DG"]["COMMAND_PG"] - model["BIC"]["COMMAND_AC2DC"] + model["BIC"][
+            "COMMAND_DC2AC"] * model["BIC"]["EFF_DC2AC"] - model["Load_ac"]["PD"] - model["Load_uac"]["PD"] <= -default_eps[
+            "OPF"]:
+            logger.error("The obtained solution can not meet AC bus power requirement!")
 
-    if model["PMG"] + model["ESS"]["COMMAND_PG"] + model["BIC"]["COMMAND_AC2DC"] * model["BIC"]["EFF_DC2AC"] - \
-            model["BIC"]["COMMAND_DC2AC"] - model["Load_dc"]["PD"] - model["Load_udc"]["PD"] + model["PV"]["PG"] + \
-            model["WP"]["PG"] >= default_eps["OPF"] or model["PMG"] + model["ESS"]["COMMAND_PG"] + model["BIC"][
-        "COMMAND_AC2DC"] * model["BIC"]["EFF_DC2AC"] - model["BIC"]["COMMAND_DC2AC"] - model["Load_dc"]["PD"] - \
-            model["Load_udc"]["PD"] + model["PV"]["PG"] + model["WP"]["PG"] <= -default_eps["OPF"]:
+        if model["PMG"] + model["ESS"]["COMMAND_PG"] + model["BIC"]["COMMAND_AC2DC"] * model["BIC"]["EFF_DC2AC"] - \
+                model["BIC"]["COMMAND_DC2AC"] - model["Load_dc"]["PD"] - model["Load_udc"]["PD"] + model["PV"]["PG"] + \
+                model["WP"]["PG"] >= default_eps["OPF"] or model["PMG"] + model["ESS"]["COMMAND_PG"] + model["BIC"][
+            "COMMAND_AC2DC"] * model["BIC"]["EFF_DC2AC"] - model["BIC"]["COMMAND_DC2AC"] - model["Load_dc"]["PD"] - \
+                model["Load_udc"]["PD"] + model["PV"]["PG"] + model["WP"]["PG"] <= -default_eps["OPF"]:
 
-        logger.error("The obtained solution can not meet DC bus power requirement!")
+            logger.error("The obtained solution can not meet DC bus power requirement!")
 
-    if model["BIC"]["COMMAND_AC2DC"]*model["BIC"]["COMMAND_DC2AC"] is not 0:
-        logger.error("There exits bi-directional power flow on BIC!")
+        if model["BIC"]["COMMAND_AC2DC"]*model["BIC"]["COMMAND_DC2AC"] is not 0:
+            logger.error("There exits bi-directional power flow on BIC!")
+    else:
+        logger.error("The obtained solution results in load shedding or renewable energy resource shedding!")
 
     return model
-
-
-def output_universal_check(*args):
-    model = args[0]
