@@ -8,6 +8,7 @@ BESS = \
     {
         "AREA": 1,
         "CAP": 10000,
+        "STATUS":1,
         "PMAX_DIS": 1000,
         "PMAX_CH": 1000,
         "EFF_DIS": 0.95,

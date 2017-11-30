@@ -201,3 +201,9 @@ class input_check_short_term():
             logger.error("The size of BIC status is incorrect!")
             logger.info("The status of BIC has been reset to default value!")
             model["BIC"]["STATUS"] = [configuration_convertors.BIC["STATUS"]] * T_short
+
+        # 10) The input check for ESSs
+        if len(model["BIC"]["STATUS"]) != T_short:
+            logger.error("The size of BIC status is incorrect!")
+            logger.info("The status of BIC has been reset to default value!")
+            model["BIC"]["STATUS"] = [configuration_convertors.BIC["STATUS"]] * T_short

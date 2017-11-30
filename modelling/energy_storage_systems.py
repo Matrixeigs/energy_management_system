@@ -8,6 +8,7 @@ BESS =\
     {
         "AREA": default_parameters.BESS["AREA"],
         "CAP": default_parameters.BESS["CAP"],
+        "STATUS": default_parameters.BESS["STATUS"],
         "PMAX_DIS": default_parameters.BESS["PMAX_DIS"],
         "PMAX_CH": default_parameters.BESS["PMAX_CH"],
         "EFF_DIS":default_parameters.BESS["EFF_DIS"],
