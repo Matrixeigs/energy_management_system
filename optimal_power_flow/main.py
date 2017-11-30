@@ -148,7 +148,7 @@ class short_term_operation():
 def result_update(*args):
     ## Result update for local ems and universal ems models
     res = args[0]
-    local_model = deepcopy(args[1])
+    local_model = args[1]
     universal_model = args[2]
     type = args[3]
 
@@ -168,7 +168,7 @@ def result_update(*args):
 
 def update(*args):
     x = args[0]
-    model = deepcopy(args[1])
+    model = args[1]
     model_type = args[2]
 
     if model_type == "Feasible":

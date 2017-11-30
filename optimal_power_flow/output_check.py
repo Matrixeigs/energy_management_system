@@ -50,7 +50,7 @@ def output_local_check(*args):
                     model["BIC"]["COMMAND_DC2AC"] - model["Load_dc"]["PD"] - model["Load_udc"]["PD"] + model["PV"][
                         "PG"] + \
                     model["WP"]["PG"] - model["PMG"] - model["PV"]["COMMAND_CURT"] - model["WP"]["COMMAND_CURT"] +
-                    model["Load_ac"]["COMMAND_SHED"] + model["Load_uac"]["COMMAND_SHED"])
+                    model["Load_dc"]["COMMAND_SHED"] + model["Load_udc"]["COMMAND_SHED"])
 
         logger.info(model["BIC"]["COMMAND_AC2DC"] * model["BIC"]["COMMAND_DC2AC"])
 
