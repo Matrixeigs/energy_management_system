@@ -4,6 +4,7 @@ import configuration.configuration_time_line as timeline
 BIC = \
     {
         "AREA": 1,
+        "STATUS": 1,
         "CAP": 5000,
         "EFF_AC2DC": 0.95,
         "EFF_DC2AC": 0.95,

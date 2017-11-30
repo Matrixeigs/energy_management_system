@@ -15,7 +15,7 @@ from copy import deepcopy
 from configuration.configuration_time_line import default_look_ahead_time_step
 from utils import Logger
 logger = Logger("Short_term_dispatch_input_check")
-from configuration import configuration_default_generators,configuration_default_load
+from configuration import configuration_default_generators,configuration_default_load,configuration_convertors
 
 class input_check_short_term():
     def model_local_check(*args):
@@ -197,3 +197,7 @@ class input_check_short_term():
                 model["Load_udc"]["PD"][i] = model["Load_udc"]["STATUS"][i]*model["Load_udc"]["PDMAX"]
 
         # 9) The input check for BIC convertors
+        if len(model["BIC"]["STATUS"]) != T_short:
+            logger.error("The size of BIC status is incorrect!")
+            logger.info("The status of BIC has been reset to default value!")
+            model["BIC"]["STATUS"] = [configuration_convertors.BIC["STATUS"]] * T_short

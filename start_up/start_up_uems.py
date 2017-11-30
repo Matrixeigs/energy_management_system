@@ -8,6 +8,7 @@ from start_up import static_information_update
 from utils import Logger
 from configuration.configuration_time_line import default_look_ahead_time_step# The look ahead time is adopted to
 from copy import deepcopy
+
 class start_up_ems():
     ## The start up class of UEMS
     def start_up(*args):
@@ -90,6 +91,7 @@ class start_up_ems():
             local_model_middle["Load_uac"]["STATUS"] = [local_model_middle["Load_uac"]["STATUS"]] * T_middle
             local_model_middle["Load_dc"]["STATUS"] = [local_model_middle["Load_dc"]["STATUS"]] * T_middle
             local_model_middle["Load_udc"]["STATUS"] = [local_model_middle["Load_udc"]["STATUS"]] * T_middle
+            local_model_middle["BIC"]["STATUS"] = [local_model_middle["BIC"]["STATUS"]] * T_middle
             # Generate long term operation model for local ems
             local_model_long["UG"]["GEN_STATUS"] = [local_model_long["UG"]["GEN_STATUS"]] * T_long
             local_model_long["DG"]["GEN_STATUS"] = [local_model_long["DG"]["GEN_STATUS"]] * T_long
@@ -101,6 +103,7 @@ class start_up_ems():
             local_model_long["Load_uac"]["STATUS"] = [local_model_long["Load_uac"]["STATUS"]] * T_long
             local_model_long["Load_dc"]["STATUS"] = [local_model_long["Load_dc"]["STATUS"]] * T_long
             local_model_long["Load_udc"]["STATUS"] = [local_model_long["Load_udc"]["STATUS"]] * T_long
+            local_model_long["BIC"]["STATUS"] = [local_model_long["BIC"]["STATUS"]] * T_long
 
             universal_model_short = deepcopy(universal_models)
             universal_model_middle = deepcopy(universal_models)
@@ -118,6 +121,7 @@ class start_up_ems():
             universal_model_middle["Load_dc"]["STATUS"] = [universal_model_middle["Load_dc"]["STATUS"]] * T_middle
             universal_model_middle["Load_udc"]["STATUS"] = [universal_model_middle["Load_udc"]["STATUS"]] * T_middle
             universal_model_middle["LINE"]["STATUS"] = [universal_model_middle["LINE"]["STATUS"]] * T_middle
+            universal_model_middle["BIC"]["STATUS"] = [universal_model_middle["BIC"]["STATUS"]] * T_middle
 
             # Generate long term operation model for universal ems
             universal_model_long["UG"]["GEN_STATUS"] = [universal_model_long["UG"]["GEN_STATUS"]] * T_long
@@ -131,6 +135,7 @@ class start_up_ems():
             universal_model_long["Load_dc"]["STATUS"] = [universal_model_long["Load_dc"]["STATUS"]] * T_long
             universal_model_long["Load_udc"]["STATUS"] = [universal_model_long["Load_udc"]["STATUS"]] * T_long
             universal_model_long["LINE"]["STATUS"] = [universal_model_long["LINE"]["STATUS"]] * T_long
+            universal_model_long["BIC"]["STATUS"] = [universal_model_long["BIC"]["STATUS"]] * T_long
 
             return local_model_short, local_model_middle, local_model_long, universal_model_short,universal_model_middle,universal_model_long, Operation_mode
 
@@ -170,6 +175,7 @@ class start_up_ems():
             local_model_middle["Load_uac"]["STATUS"] = [local_model_middle["Load_uac"]["STATUS"]] * T_middle
             local_model_middle["Load_dc"]["STATUS"] = [local_model_middle["Load_dc"]["STATUS"]] * T_middle
             local_model_middle["Load_udc"]["STATUS"] = [local_model_middle["Load_udc"]["STATUS"]] * T_middle
+            local_model_middle["BIC"]["STATUS"] = [local_model_middle["BIC"]["STATUS"]] * T_middle
             # Generate long term operation model for local ems
             local_model_long["UG"]["GEN_STATUS"] = [local_model_long["UG"]["GEN_STATUS"]] * T_long
             local_model_long["DG"]["GEN_STATUS"] = [local_model_long["DG"]["GEN_STATUS"]] * T_long
@@ -181,6 +187,7 @@ class start_up_ems():
             local_model_long["Load_uac"]["STATUS"] = [local_model_long["Load_uac"]["STATUS"]] * T_long
             local_model_long["Load_dc"]["STATUS"] = [local_model_long["Load_dc"]["STATUS"]] * T_long
             local_model_long["Load_udc"]["STATUS"] = [local_model_long["Load_udc"]["STATUS"]] * T_long
+            local_model_long["BIC"]["STATUS"] = [local_model_long["BIC"]["STATUS"]] * T_long
 
             return local_model_short, local_model_middle, local_model_long, Operation_mode
 

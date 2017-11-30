@@ -7,6 +7,7 @@ import configuration.configuration_convertors as default_parameters
 BIC = \
     {
         "AREA": default_parameters.BIC["AREA"],
+        "STATUS": default_parameters.BIC["STATUS"],
         "CAP": default_parameters.BIC["CAP"],
         "EFF_AC2DC": default_parameters.BIC["EFF_AC2DC"],
         "EFF_DC2AC": default_parameters.BIC["EFF_DC2AC"],
