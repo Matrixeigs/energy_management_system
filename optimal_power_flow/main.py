@@ -140,7 +140,7 @@ class short_term_operation():
 
         local_models = information_formulation_extraction.info_extraction(local_models, dynamic_model)
         #Check the output of optimal power flow
-        local_models = output_local_check(local_models)
+        # local_models = output_local_check(local_models)
 
         database_operation.database_record(session, local_models, Target_time, "OPF")
 
@@ -192,7 +192,7 @@ def update(*args):
         model["ESS"]["COMMAND_RG"] = int(x[RESS])
 
         model["PMG"] = int(x[PMG])
-        model["success"] = 0 # The obtained solution is feasible
+        model["success"] = True # The obtained solution is feasible
     else:
         from modelling.power_flow.idx_format_recovery import PG, QG, RG, PUG, QUG, RUG, PBIC_AC2DC, PBIC_DC2AC, QBIC, \
             PESS_C, PESS_DC, RESS, PMG, PPV, PWP, PL_AC, PL_UAC, PL_DC, PL_UDC
@@ -219,6 +219,6 @@ def update(*args):
         model["Load_uac"]["COMMAND_SHED"] = int(model["Load_uac"]["PD"]) - int(x[PL_UAC])
         model["Load_dc"]["COMMAND_SHED"] = int(model["Load_dc"]["PD"]) - int(x[PL_DC])
         model["Load_udc"]["COMMAND_SHED"] = int(model["Load_udc"]["PD"]) - int(x[PL_UDC])
-        model["success"] = 1 # The obtained solution is recovered
+        model["success"] = False # The obtained solution is recovered
 
     return model

@@ -23,11 +23,12 @@ class input_check_short_term():
 
         T_short = default_look_ahead_time_step["Look_ahead_time_opf_time_step"] # The look ahead time step for short term operation
         # 1) The input check of utility grid
-        if len(model["UG"]["GEN_STATUS"]) != T_short:
-            logger.error("The size of utility grid status is incorrect!")
+        if type(model["UG"]["GEN_STATUS"]) is not int and type(model["UG"]["GEN_STATUS"]) is not float and type(model["UG"]["GEN_STATUS"]) is not bool:
+            logger.error("The type of utility grid status is incorrect!")
             logger.info("The status of utility grid has been reset to online!")
-            model["UG"]["GEN_STATUS"] = [1]*T_short
-        if type(model["UG"]["PMAX"]) is not float or int:
+            model["UG"]["GEN_STATUS"] = 1
+
+        if type(model["UG"]["PMAX"]) is not float and type(model["UG"]["PMAX"]) is not int:
             logger.error("The data format of utility grid capacity is incorrect!")
             try:
                 logger.warning("Try to fix the capacity of utility grid")
@@ -35,7 +36,7 @@ class input_check_short_term():
             except:
                 logger.info("The correction of utility grid capacity failed! Restore it to default value in configuration file!")
                 model["UG"]["PMAX"] = configuration_default_generators.default_AC_generator_parameters["PMAX"]
-        if type(model["UG"]["PMIN"]) is not float or int:
+        if type(model["UG"]["PMIN"]) is not float and type(model["UG"]["PMIN"]) is not int:
             logger.error("The data format of utility grid capacity is incorrect!")
             try:
                 logger.warning("Try to fix the capacity of utility grid")
@@ -53,11 +54,12 @@ class input_check_short_term():
             model["UG"]["QMIN"] = model["UG"]["QMAX"]
 
         # 2) The input check of diesel generator
-        if len(model["DG"]["GEN_STATUS"]) != T_short:
+        if type(model["DG"]["GEN_STATUS"]) is not int and type(model["DG"]["GEN_STATUS"]) is not float and type(model["DG"]["GEN_STATUS"]) is not bool:
             logger.error("The size of diesel generator status is incorrect!")
             logger.info("The status of diesel generator has been reset to online!")
-            model["DG"]["GEN_STATUS"] = [1]*T_short
-        if type(model["DG"]["PMAX"]) is not float or int:
+            model["DG"]["GEN_STATUS"] = 1
+
+        if type(model["DG"]["PMAX"]) is not float and type(model["DG"]["PMAX"]) is not int:
             logger.error("The data format of diesel generator capacity is incorrect!")
             try:
                 logger.warning("Try to fix the capacity of diesel generator")
@@ -65,7 +67,7 @@ class input_check_short_term():
             except:
                 logger.info("The correction of diesel generator capacity failed! Restore it to default value in configuration file!")
                 model["DG"]["PMAX"] = configuration_default_generators.default_AC_generator_parameters["PMAX"]
-        if type(model["DG"]["PMIN"]) is not float or int:
+        if type(model["DG"]["PMIN"]) is not float and type(model["DG"]["PMIN"]) is not int:
             logger.error("The data format of diesel generator capacity is incorrect!")
             try:
                 logger.warning("Try to fix the capacity of diesel generator")
@@ -81,11 +83,11 @@ class input_check_short_term():
             model["DG"]["QMIN"] = model["DG"]["QMAX"]
 
         # 3) The input check of photovoltaic generators
-        if len(model["PV"]["NPV"]) != T_short:
+        if type(model["PV"]["NPV"]) is not float and type(model["PV"]["NPV"]) is not int:
             logger.error("The size of photovoltaic generator status is incorrect!")
             logger.info("The status of photovoltaic generator has been reset to online!")
             model["PV"]["NPV"] = [configuration_default_generators.default_RES_generator_parameters["PMAX"]] * T_short
-        if type(model["PV"]["PMAX"]) is not float or int:
+        if type(model["PV"]["PMAX"]) is not float and type(model["PV"]["PMAX"]) is not int:
             logger.error("The data format of photovoltaic generator capacity is incorrect!")
             try:
                 logger.warning("Try to fix the capacity of photovoltaic generator")
@@ -93,7 +95,7 @@ class input_check_short_term():
             except:
                 logger.info("The correction of photovoltaic generator capacity failed! Restore it to default value in configuration file!")
                 model["PV"]["PMAX"] = configuration_default_generators.default_RES_generator_parameters["PMAX"]
-        if type(model["PV"]["PMIN"]) is not float or int:
+        if type(model["PV"]["PMIN"]) is not float and type(model["PV"]["PMIN"]) is not int:
             logger.error("The data format of photovoltaic generator capacity is incorrect!")
             try:
                 logger.warning("Try to fix the capacity of photovoltaic generator")
@@ -109,11 +111,11 @@ class input_check_short_term():
             model["PV"]["QMIN"] = model["PV"]["QMAX"]
 
         # 4) The input check of wind turbine generators
-        if len(model["WP"]["NPV"]) != T_short:
+        if type(model["WP"]["NWP"]) is not int and type(model["WP"]["NWP"]) is not float:
             logger.error("The size of WP status is incorrect!")
             logger.info("The status of WP has been reset to online!")
             model["WP"]["NPV"] = [configuration_default_generators.default_RES_generator_parameters["PMAX"]] * T_short
-        if type(model["WP"]["PMAX"]) is not float or int:
+        if type(model["WP"]["PMAX"]) is not float and type(model["WP"]["PMAX"]) is not int:
             logger.error("The data format of WP capacity is incorrect!")
             try:
                 logger.warning("Try to fix the capacity of WP")
@@ -121,7 +123,7 @@ class input_check_short_term():
             except:
                 logger.info("The correction of WP capacity failed! Restore it to default value in configuration file!")
                 model["WP"]["PMAX"] = configuration_default_generators.default_RES_generator_parameters["PMAX"]
-        if type(model["WP"]["PMIN"]) is not float or int:
+        if type(model["WP"]["PMIN"]) is not float and type(model["WP"]["PMIN"]) is not int:
             logger.error("The data format of WP is incorrect!")
             try:
                 logger.warning("Try to fix the capacity of WP.")
@@ -137,88 +139,70 @@ class input_check_short_term():
             model["WP"]["QMIN"] = model["WP"]["QMAX"]
 
         # 5) The input check of critical AC load
-        if len(model["Load_ac"]["STATUS"]) != T_short:
+        if type(model["Load_ac"]["STATUS"]) is not float and type(model["Load_ac"]["STATUS"]) is not int and type(model["Load_ac"]["STATUS"]) is not bool:
             logger.error("The size of critical AC load status is incorrect!")
             logger.info("The status of critical AC load has been reset to default value!")
-            model["Load_ac"]["STATUS"] = [configuration_default_load.default_Load_AC["STATUS"]] * T_short
-        if len(model["Load_ac"]["PD"]) != T_short:
+            model["Load_ac"]["STATUS"] = configuration_default_load.default_Load_AC["STATUS"]
+        if type(model["Load_ac"]["PD"]) is not float and type(model["Load_ac"]["PD"]) is not int:
             logger.error("The size of critical AC load profile is incorrect!")
             logger.info("The profile of critical AC load has been reset to default value!")
-            model["Load_ac"]["PD"] = [configuration_default_load.default_Load_AC["PD"]] * T_short
-        for i in range(T_short):
-            if model["Load_ac"]["PD"][i] > model["Load_ac"]["STATUS"][i]*model["Load_ac"]["PDMAX"] :
-                logger.error("The critical AC load is over current!")
-                logger.info("The critical AC load is set to its default value!")
-                model["Load_ac"]["PD"][i] = model["Load_ac"]["STATUS"][i]*model["Load_ac"]["PDMAX"]
+            model["Load_ac"]["PD"] = configuration_default_load.default_Load_AC["PD"]
 
         # 6) The input check of non-critical AC load
-        if len(model["Load_uac"]["STATUS"]) != T_short:
+        if type(model["Load_uac"]["STATUS"]) is not int and type(model["Load_uac"]["STATUS"]) is not float and type(model["Load_uac"]["STATUS"]) is not bool:
             logger.error("The size of non-critical AC load status is incorrect!")
             logger.info("The status of non-critical AC load has been reset to default value!")
-            model["Load_uac"]["STATUS"] = [configuration_default_load.default_Load_AC["STATUS"]] * T_short
-        if len(model["Load_uac"]["PD"]) != T_short:
+            model["Load_uac"]["STATUS"] = configuration_default_load.default_Load_AC["STATUS"]
+        if type(model["Load_uac"]["PD"]) is not float and type(model["Load_uac"]["PD"]) is not int:
             logger.error("The size of non-critical AC load profile is incorrect!")
             logger.info("The profile of non-critical AC load has been reset to online!")
-            model["Load_uac"]["PD"] = [configuration_default_load.default_Load_AC["PD"]] * T_short
-        for i in range(T_short):
-            if model["Load_uac"]["PD"][i] > model["Load_uac"]["STATUS"][i]*model["Load_uac"]["PDMAX"] :
-                logger.error("The non-critical AC load is over current!")
-                logger.info("The non-critical AC load is set to its default value!")
-                model["Load_uac"]["PD"][i] = model["Load_uac"]["STATUS"][i]*model["Load_uac"]["PDMAX"]
+            model["Load_uac"]["PD"] = configuration_default_load.default_Load_AC["PD"]
 
         # 7) The input check of critical AC load
-        if len(model["Load_dc"]["STATUS"]) != T_short:
+        if type(model["Load_dc"]["STATUS"]) is not int and type(model["Load_dc"]["STATUS"]) is not float and type(model["Load_dc"]["STATUS"]) is not bool:
             logger.error("The size of critical DC load status is incorrect!")
             logger.info("The status of critical DC load has been reset to default value!")
-            model["Load_dc"]["STATUS"] = [configuration_default_load.default_Load_DC["STATUS"]] * T_short
-        if len(model["Load_dc"]["PD"]) != T_short:
+            model["Load_dc"]["STATUS"] = configuration_default_load.default_Load_DC["STATUS"]
+        if type(model["Load_dc"]["PD"]) is not int and type(model["Load_dc"]["PD"]) is not float:
             logger.error("The size of critical DC load profile is incorrect!")
             logger.info("The profile of critical DC load has been reset to default value!")
-            model["Load_dc"]["PD"] = [configuration_default_load.default_Load_DC["PD"]] * T_short
-        for i in range(T_short):
-            if model["Load_dc"]["PD"][i] > model["Load_dc"]["STATUS"][i]*model["Load_dc"]["PDMAX"] :
-                logger.error("The critical DC load is over current!")
-                logger.info("The critical DC load is set to its default value!")
-                model["Load_dc"]["PD"][i] = model["Load_dc"]["STATUS"][i]*model["Load_dc"]["PDMAX"]
+            model["Load_dc"]["PD"] = configuration_default_load.default_Load_DC["PD"]
 
         # 8) The input check of non-critical AC load
-        if len(model["Load_udc"]["STATUS"]) != T_short:
+        if type(model["Load_udc"]["STATUS"]) is not int and type(model["Load_udc"]["STATUS"]) is not float and type(model["Load_udc"]["STATUS"]) is not bool:
             logger.error("The size of non-critical DC load status is incorrect!")
             logger.info("The status of non-critical DC load has been reset to default value!")
-            model["Load_udc"]["STATUS"] = [configuration_default_load.default_Load_DC["STATUS"]] * T_short
-        if len(model["Load_udc"]["PD"]) != T_short:
+            model["Load_udc"]["STATUS"] = configuration_default_load.default_Load_DC["STATUS"]
+        if type(model["Load_udc"]["PD"]) is not float and type(model["Load_udc"]["PD"]) is not int:
             logger.error("The size of non-critical DC load profile is incorrect!")
             logger.info("The profile of non-critical DC load has been reset to online!")
-            model["Load_udc"]["PD"] = [configuration_default_load.default_Load_DC["PD"]] * T_short
-        for i in range(T_short):
-            if model["Load_udc"]["PD"][i] > model["Load_udc"]["STATUS"][i]*model["Load_udc"]["PDMAX"] :
-                logger.error("The non-critical DC load is over current!")
-                logger.info("The non-critical DC load is set to its default value!")
-                model["Load_udc"]["PD"][i] = model["Load_udc"]["STATUS"][i]*model["Load_udc"]["PDMAX"]
+            model["Load_udc"]["PD"] = configuration_default_load.default_Load_DC["PD"]
 
         # 9) The input check for BIC convertors
-        if len(model["BIC"]["STATUS"]) != T_short:
+        if type(model["BIC"]["STATUS"]) is not float and type(model["BIC"]["STATUS"]) is not int:
             logger.error("The size of BIC status is incorrect!")
             logger.info("The status of BIC has been reset to default value!")
-            model["BIC"]["STATUS"] = [configuration_convertors.BIC["STATUS"]] * T_short
+            model["BIC"]["STATUS"] = configuration_convertors.BIC["STATUS"]
 
         # 10) The input check for ESSs
-        if len(model["BIC"]["STATUS"]) != T_short:
+        if type(model["BIC"]["STATUS"]) is not float and type(model["BIC"]["STATUS"]) is not int:
             logger.error("The size of BIC status is incorrect!")
             logger.info("The status of BIC has been reset to default value!")
-            model["BIC"]["STATUS"] = [configuration_convertors.BIC["STATUS"]] * T_short
-            return model
+            model["BIC"]["STATUS"] = configuration_convertors.BIC["STATUS"]
+        return model
 
     def model_universal_check(*args):
         model = deepcopy(args[0]) # The input model
 
         T_short = default_look_ahead_time_step["Look_ahead_time_opf_time_step"] # The look ahead time step for short term operation
+
         # 1) The input check of utility grid
-        if len(model["UG"]["GEN_STATUS"]) != T_short:
-            logger.error("The size of utility grid status is incorrect!")
+        if type(model["UG"]["GEN_STATUS"]) is not int and type(model["UG"]["GEN_STATUS"]) is not float and type(model["UG"]["GEN_STATUS"]) is not bool:
+            logger.error("The type of utility grid status is incorrect!")
             logger.info("The status of utility grid has been reset to online!")
-            model["UG"]["GEN_STATUS"] = [1]*T_short
-        if type(model["UG"]["PMAX"]) is not float or int:
+            model["UG"]["GEN_STATUS"] = 1
+
+        if type(model["UG"]["PMAX"]) is not float and type(model["UG"]["PMAX"]) is not int:
             logger.error("The data format of utility grid capacity is incorrect!")
             try:
                 logger.warning("Try to fix the capacity of utility grid")
@@ -226,7 +210,7 @@ class input_check_short_term():
             except:
                 logger.info("The correction of utility grid capacity failed! Restore it to default value in configuration file!")
                 model["UG"]["PMAX"] = configuration_default_generators.default_AC_generator_parameters["PMAX"]
-        if type(model["UG"]["PMIN"]) is not float or int:
+        if type(model["UG"]["PMIN"]) is not float and type(model["UG"]["PMIN"]) is not int:
             logger.error("The data format of utility grid capacity is incorrect!")
             try:
                 logger.warning("Try to fix the capacity of utility grid")
@@ -244,11 +228,12 @@ class input_check_short_term():
             model["UG"]["QMIN"] = model["UG"]["QMAX"]
 
         # 2) The input check of diesel generator
-        if len(model["DG"]["GEN_STATUS"]) != T_short:
+        if type(model["DG"]["GEN_STATUS"]) is not int and type(model["DG"]["GEN_STATUS"]) is not float and type(model["DG"]["GEN_STATUS"]) is not bool:
             logger.error("The size of diesel generator status is incorrect!")
             logger.info("The status of diesel generator has been reset to online!")
-            model["DG"]["GEN_STATUS"] = [1]*T_short
-        if type(model["DG"]["PMAX"]) is not float or int:
+            model["DG"]["GEN_STATUS"] = 1
+
+        if type(model["DG"]["PMAX"]) is not float and type(model["DG"]["PMAX"]) is not int:
             logger.error("The data format of diesel generator capacity is incorrect!")
             try:
                 logger.warning("Try to fix the capacity of diesel generator")
@@ -256,7 +241,7 @@ class input_check_short_term():
             except:
                 logger.info("The correction of diesel generator capacity failed! Restore it to default value in configuration file!")
                 model["DG"]["PMAX"] = configuration_default_generators.default_AC_generator_parameters["PMAX"]
-        if type(model["DG"]["PMIN"]) is not float or int:
+        if type(model["DG"]["PMIN"]) is not float and type(model["DG"]["PMIN"]) is not int:
             logger.error("The data format of diesel generator capacity is incorrect!")
             try:
                 logger.warning("Try to fix the capacity of diesel generator")
@@ -272,11 +257,11 @@ class input_check_short_term():
             model["DG"]["QMIN"] = model["DG"]["QMAX"]
 
         # 3) The input check of photovoltaic generators
-        if len(model["PV"]["NPV"]) != T_short:
+        if type(model["PV"]["NPV"]) is not float and type(model["PV"]["NPV"]) is not int:
             logger.error("The size of photovoltaic generator status is incorrect!")
             logger.info("The status of photovoltaic generator has been reset to online!")
             model["PV"]["NPV"] = [configuration_default_generators.default_RES_generator_parameters["PMAX"]] * T_short
-        if type(model["PV"]["PMAX"]) is not float or int:
+        if type(model["PV"]["PMAX"]) is not float and type(model["PV"]["PMAX"]) is not int:
             logger.error("The data format of photovoltaic generator capacity is incorrect!")
             try:
                 logger.warning("Try to fix the capacity of photovoltaic generator")
@@ -284,7 +269,7 @@ class input_check_short_term():
             except:
                 logger.info("The correction of photovoltaic generator capacity failed! Restore it to default value in configuration file!")
                 model["PV"]["PMAX"] = configuration_default_generators.default_RES_generator_parameters["PMAX"]
-        if type(model["PV"]["PMIN"]) is not float or int:
+        if type(model["PV"]["PMIN"]) is not float and type(model["PV"]["PMIN"]) is not int:
             logger.error("The data format of photovoltaic generator capacity is incorrect!")
             try:
                 logger.warning("Try to fix the capacity of photovoltaic generator")
@@ -300,11 +285,11 @@ class input_check_short_term():
             model["PV"]["QMIN"] = model["PV"]["QMAX"]
 
         # 4) The input check of wind turbine generators
-        if len(model["WP"]["NPV"]) != T_short:
+        if type(model["WP"]["NWP"]) is not int and type(model["WP"]["NWP"]) is not float:
             logger.error("The size of WP status is incorrect!")
             logger.info("The status of WP has been reset to online!")
             model["WP"]["NPV"] = [configuration_default_generators.default_RES_generator_parameters["PMAX"]] * T_short
-        if type(model["WP"]["PMAX"]) is not float or int:
+        if type(model["WP"]["PMAX"]) is not float and type(model["WP"]["PMAX"]) is not int:
             logger.error("The data format of WP capacity is incorrect!")
             try:
                 logger.warning("Try to fix the capacity of WP")
@@ -312,7 +297,7 @@ class input_check_short_term():
             except:
                 logger.info("The correction of WP capacity failed! Restore it to default value in configuration file!")
                 model["WP"]["PMAX"] = configuration_default_generators.default_RES_generator_parameters["PMAX"]
-        if type(model["WP"]["PMIN"]) is not float or int:
+        if type(model["WP"]["PMIN"]) is not float and type(model["WP"]["PMIN"]) is not int:
             logger.error("The data format of WP is incorrect!")
             try:
                 logger.warning("Try to fix the capacity of WP.")
@@ -328,81 +313,61 @@ class input_check_short_term():
             model["WP"]["QMIN"] = model["WP"]["QMAX"]
 
         # 5) The input check of critical AC load
-        if len(model["Load_ac"]["STATUS"]) != T_short:
+        if type(model["Load_ac"]["STATUS"]) is not float and type(model["Load_ac"]["STATUS"]) is not int and type(model["Load_ac"]["STATUS"]) is not bool:
             logger.error("The size of critical AC load status is incorrect!")
             logger.info("The status of critical AC load has been reset to default value!")
-            model["Load_ac"]["STATUS"] = [configuration_default_load.default_Load_AC["STATUS"]] * T_short
-        if len(model["Load_ac"]["PD"]) != T_short:
+            model["Load_ac"]["STATUS"] = configuration_default_load.default_Load_AC["STATUS"]
+        if type(model["Load_ac"]["PD"]) is not float and type(model["Load_ac"]["PD"]) is not int:
             logger.error("The size of critical AC load profile is incorrect!")
             logger.info("The profile of critical AC load has been reset to default value!")
-            model["Load_ac"]["PD"] = [configuration_default_load.default_Load_AC["PD"]] * T_short
-        for i in range(T_short):
-            if model["Load_ac"]["PD"][i] > model["Load_ac"]["STATUS"][i]*model["Load_ac"]["PDMAX"] :
-                logger.error("The critical AC load is over current!")
-                logger.info("The critical AC load is set to its default value!")
-                model["Load_ac"]["PD"][i] = model["Load_ac"]["STATUS"][i]*model["Load_ac"]["PDMAX"]
+            model["Load_ac"]["PD"] = configuration_default_load.default_Load_AC["PD"]
 
         # 6) The input check of non-critical AC load
-        if len(model["Load_uac"]["STATUS"]) != T_short:
+        if type(model["Load_uac"]["STATUS"]) is not int and type(model["Load_uac"]["STATUS"]) is not float and type(model["Load_uac"]["STATUS"]) is not bool:
             logger.error("The size of non-critical AC load status is incorrect!")
             logger.info("The status of non-critical AC load has been reset to default value!")
-            model["Load_uac"]["STATUS"] = [configuration_default_load.default_Load_AC["STATUS"]] * T_short
-        if len(model["Load_uac"]["PD"]) != T_short:
+            model["Load_uac"]["STATUS"] = configuration_default_load.default_Load_AC["STATUS"]
+        if type(model["Load_uac"]["PD"]) is not float and type(model["Load_uac"]["PD"]) is not int:
             logger.error("The size of non-critical AC load profile is incorrect!")
             logger.info("The profile of non-critical AC load has been reset to online!")
-            model["Load_uac"]["PD"] = [configuration_default_load.default_Load_AC["PD"]] * T_short
-        for i in range(T_short):
-            if model["Load_uac"]["PD"][i] > model["Load_uac"]["STATUS"][i]*model["Load_uac"]["PDMAX"] :
-                logger.error("The non-critical AC load is over current!")
-                logger.info("The non-critical AC load is set to its default value!")
-                model["Load_uac"]["PD"][i] = model["Load_uac"]["STATUS"][i]*model["Load_uac"]["PDMAX"]
+            model["Load_uac"]["PD"] = configuration_default_load.default_Load_AC["PD"]
 
         # 7) The input check of critical AC load
-        if len(model["Load_dc"]["STATUS"]) != T_short:
+        if type(model["Load_dc"]["STATUS"]) is not int and type(model["Load_dc"]["STATUS"]) is not float and type(model["Load_dc"]["STATUS"]) is not bool:
             logger.error("The size of critical DC load status is incorrect!")
             logger.info("The status of critical DC load has been reset to default value!")
-            model["Load_dc"]["STATUS"] = [configuration_default_load.default_Load_DC["STATUS"]] * T_short
-        if len(model["Load_dc"]["PD"]) != T_short:
+            model["Load_dc"]["STATUS"] = configuration_default_load.default_Load_DC["STATUS"]
+        if type(model["Load_dc"]["PD"]) is not int and type(model["Load_dc"]["PD"]) is not float:
             logger.error("The size of critical DC load profile is incorrect!")
             logger.info("The profile of critical DC load has been reset to default value!")
-            model["Load_dc"]["PD"] = [configuration_default_load.default_Load_DC["PD"]] * T_short
-        for i in range(T_short):
-            if model["Load_dc"]["PD"][i] > model["Load_dc"]["STATUS"][i]*model["Load_dc"]["PDMAX"] :
-                logger.error("The critical DC load is over current!")
-                logger.info("The critical DC load is set to its default value!")
-                model["Load_dc"]["PD"][i] = model["Load_dc"]["STATUS"][i]*model["Load_dc"]["PDMAX"]
+            model["Load_dc"]["PD"] = configuration_default_load.default_Load_DC["PD"]
 
         # 8) The input check of non-critical AC load
-        if len(model["Load_udc"]["STATUS"]) != T_short:
+        if type(model["Load_udc"]["STATUS"]) is not int and type(model["Load_udc"]["STATUS"]) is not float and type(model["Load_udc"]["STATUS"]) is not bool:
             logger.error("The size of non-critical DC load status is incorrect!")
             logger.info("The status of non-critical DC load has been reset to default value!")
-            model["Load_udc"]["STATUS"] = [configuration_default_load.default_Load_DC["STATUS"]] * T_short
-        if len(model["Load_udc"]["PD"]) != T_short:
+            model["Load_udc"]["STATUS"] = configuration_default_load.default_Load_DC["STATUS"]
+        if type(model["Load_udc"]["PD"]) is not float and type(model["Load_udc"]["PD"]) is not int:
             logger.error("The size of non-critical DC load profile is incorrect!")
             logger.info("The profile of non-critical DC load has been reset to online!")
-            model["Load_udc"]["PD"] = [configuration_default_load.default_Load_DC["PD"]] * T_short
-        for i in range(T_short):
-            if model["Load_udc"]["PD"][i] > model["Load_udc"]["STATUS"][i]*model["Load_udc"]["PDMAX"] :
-                logger.error("The non-critical DC load is over current!")
-                logger.info("The non-critical DC load is set to its default value!")
-                model["Load_udc"]["PD"][i] = model["Load_udc"]["STATUS"][i]*model["Load_udc"]["PDMAX"]
+            model["Load_udc"]["PD"] = configuration_default_load.default_Load_DC["PD"]
 
         # 9) The input check for BIC convertors
-        if len(model["BIC"]["STATUS"]) != T_short:
+        if type(model["BIC"]["STATUS"]) is not float and type(model["BIC"]["STATUS"]) is not int:
             logger.error("The size of BIC status is incorrect!")
             logger.info("The status of BIC has been reset to default value!")
-            model["BIC"]["STATUS"] = [configuration_convertors.BIC["STATUS"]] * T_short
+            model["BIC"]["STATUS"] = configuration_convertors.BIC["STATUS"]
 
         # 10) The input check for ESSs
-        if len(model["BIC"]["STATUS"]) != T_short:
+        if type(model["BIC"]["STATUS"]) is not float and type(model["BIC"]["STATUS"]) is not int:
             logger.error("The size of BIC status is incorrect!")
             logger.info("The status of BIC has been reset to default value!")
-            model["BIC"]["STATUS"] = [configuration_convertors.BIC["STATUS"]] * T_short
+            model["BIC"]["STATUS"] = configuration_convertors.BIC["STATUS"]
 
         # 11) The input check for transmission lines
-        if len(model["LINE"]["STATUS"]) != T_short:
+        if type(model["LINE"]["STATUS"]) is not float and type(model["LINE"]["STATUS"]) is not int:
             logger.error("The size of  transmission line status is incorrect!")
             logger.info("The status of transmission line has been reset to default value!")
-            model["LINE"]["STATUS"] = [configuration_default_lines.default_Line["STATUS"]] * T_short
+            model["LINE"]["STATUS"] = configuration_default_lines.default_Line["STATUS"]
 
         return model
