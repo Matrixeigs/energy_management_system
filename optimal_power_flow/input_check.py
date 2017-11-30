@@ -7,6 +7,9 @@
 # 1) Online status of generators
 # 2) Capacity
 
+# Important notice:
+# The input check is the oriented from the start-up of the local ems and universal ems
+
 from copy import deepcopy
 from configuration.configuration_time_line import default_look_ahead_time_step
 from utils import Logger
@@ -68,6 +71,30 @@ class input_check_short_term():
             logger.error("The maximal capacity of UG is smaller than the minimal capacity!")
             model["DG"]["PMIN"] = model["DG"]["PMAX"]
 
+        # 3) The input check of photovoltaic generators
+        if len(model["PV"]["GEN_STATUS"]) != T_short:
+            logger.error("The size of photovoltaic generator status is incorrect!")
+            logger.info("The status of photovoltaic generator has been reset to online!")
+            model["PV"]["GEN_STATUS"] = [1] * T_short
+        if type(model["PV"]["PMAX"]) is not float or int:
+            logger.error("The data format of photovoltaic generator capacity is incorrect!")
+            try:
+                logger.warning("Try to fix the capacity of photovoltaic generator")
+                model["PV"]["PMAX"] = model["PV"]["PMAX"][0]
+            except:
+                logger.info("The correction of diesel generator capacity failed! Restore it to default value in configuration file!")
+                model["DG"]["PMAX"] = configuration_default_generators.default_AC_generator_parameters["PMAX"]
+        if type(model["DG"]["PMIN"]) is not float or int:
+            logger.error("The data format of diesel generator capacity is incorrect!")
+            try:
+                logger.warning("Try to fix the capacity of diesel generator")
+                model["DG"]["PMIN"] = model["DG"]["PMIN"][0]
+            except:
+                logger.info("The correction of diesel generator capacity failed! Restore it to default value in configuration file!")
+                model["DG"]["PMIN"] = configuration_default_generators.default_AC_generator_parameters["PMIN"]
+        if model["DG"]["PMIN"] > model["DG"]["PMAX"]:
+            logger.error("The maximal capacity of UG is smaller than the minimal capacity!")
+            model["DG"]["PMIN"] = model["DG"]["PMAX"]
 
 
 
