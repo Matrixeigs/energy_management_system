@@ -15,6 +15,7 @@ from configuration.configuration_time_line import default_look_ahead_time_step
 from utils import Logger
 logger = Logger("Short_term_dispatch_input_check")
 from configuration import configuration_default_generators
+
 class input_check_short_term():
     def model_local_check(*args):
         model = deepcopy(args[0]) # The input model
@@ -72,10 +73,10 @@ class input_check_short_term():
             model["DG"]["PMIN"] = model["DG"]["PMAX"]
 
         # 3) The input check of photovoltaic generators
-        if len(model["PV"]["GEN_STATUS"]) != T_short:
+        if len(model["PV"]["NPV"]) != T_short:
             logger.error("The size of photovoltaic generator status is incorrect!")
             logger.info("The status of photovoltaic generator has been reset to online!")
-            model["PV"]["GEN_STATUS"] = [1] * T_short
+            model["PV"]["NPV"] = [configuration_default_generators.default_RES_generator_parameters["NPV"]] * T_short
         if type(model["PV"]["PMAX"]) is not float or int:
             logger.error("The data format of photovoltaic generator capacity is incorrect!")
             try:
@@ -83,7 +84,7 @@ class input_check_short_term():
                 model["PV"]["PMAX"] = model["PV"]["PMAX"][0]
             except:
                 logger.info("The correction of diesel generator capacity failed! Restore it to default value in configuration file!")
-                model["DG"]["PMAX"] = configuration_default_generators.default_AC_generator_parameters["PMAX"]
+                model["PV"]["PMAX"] = configuration_default_generators.default_RES_generator_parameters["PMAX"]
         if type(model["DG"]["PMIN"]) is not float or int:
             logger.error("The data format of diesel generator capacity is incorrect!")
             try:
