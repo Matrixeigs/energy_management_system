@@ -10,6 +10,9 @@ from configuration.configuration_time_line import default_dead_line_time
 from utils import Logger
 from configuration.configuration_time_line import default_look_ahead_time_step
 from copy import deepcopy
+from optimal_power_flow.input_check import input_check_short_term
+from optimal_power_flow.output_check import output_local_check
+
 logger_uems = Logger("Short_term_dispatch_UEMS")
 logger_lems = Logger("Short_term_dispatch_LEMS")
 
@@ -50,6 +53,8 @@ class short_term_operation():
         universal_models = thread_forecasting.models
         local_models = thread_info_ex.local_models
         # Solve the optimal power flow problem
+        local_models = input_check_short_term.model_local_check(local_models)
+        universal_models = input_check_short_term.model_universal_check(universal_models)
         # Two threads will be created, one for feasible problem, the other for infeasible problem
         mathematical_model = problem_formulation.problem_formulation_universal(local_models, universal_models,
                                                                               "Feasible")
@@ -72,6 +77,9 @@ class short_term_operation():
         else:
             (local_models, universal_models) = result_update(res_recovery.value, local_models, universal_models,
                                                              "Infeasible")
+        # The output check the result
+        local_models = output_local_check(local_models)
+        universal_models = output_local_check(universal_models)
 
         # Return command to the local ems
         dynamic_model = information_formulation_extraction.info_formulation(local_models, Target_time)
@@ -113,7 +121,9 @@ class short_term_operation():
         thread_forecasting.join()
 
         local_models = thread_forecasting.models
+
         # Update the dynamic model
+        local_models = input_check_short_term.model_local_check(local_models)
         dynamic_model = information_formulation_extraction.info_formulation(local_models, Target_time)
         # Information send
         logger_lems.info("Sending request from {}".format(dynamic_model.AREA) + " to the serve")
@@ -129,6 +139,8 @@ class short_term_operation():
         # Store the data into the database
 
         local_models = information_formulation_extraction.info_extraction(local_models, dynamic_model)
+        #Check the output of optimal power flow
+        local_models = output_local_check(local_models)
 
         database_operation.database_record(session, local_models, Target_time, "OPF")
 
