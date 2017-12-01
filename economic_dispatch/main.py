@@ -15,10 +15,10 @@ from data_management.information_management import information_receive_send
 from economic_dispatch.mid_term_forecasting import ForecastingThread
 from utils import Logger
 from copy import deepcopy
-
+from economic_dispatch.input_check import input_check_middle_term
+from economic_dispatch.output_check import output_local_check
 logger_uems = Logger("Middle_term_dispatch_UEMS")
 logger_lems = Logger("Middle_term_dispatch_LEMS")
-
 
 class middle_term_operation():
     ##short term operation for ems
@@ -58,6 +58,10 @@ class middle_term_operation():
 
         universal_models = thread_forecasting.models
         local_models = thread_info_ex.local_models
+
+        local_models = input_check_middle_term.model_local_check(local_models)
+        universal_models = input_check_middle_term.model_universal_check(universal_models)
+
         # Solve the optimal power flow problem
         # Two threads will be created, one for feasible problem, the other for infeasible problem
         mathematical_model = problem_formulation.problem_formulation_universal(local_models, universal_models,
@@ -76,11 +80,14 @@ class middle_term_operation():
         res.join(default_dead_line_time["Gate_closure_ed"])
         res_recovery.join(default_dead_line_time["Gate_closure_ed"])
 
-        if res.value["success"] == True:
+        if res.value["success"] is True:
             (local_models, universal_models) = result_update(res.value, local_models, universal_models, "Feasible")
         else:
             (local_models, universal_models) = result_update(res_recovery.value, local_models, universal_models,
                                                              "Infeasible")
+
+        local_models = output_local_check(local_models)
+        universal_models = output_local_check(universal_models)
 
         # Return command to the local ems
         dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time,"ED")
@@ -199,6 +206,8 @@ def update(*args):
             model["ESS"]["COMMAND_RG"][i] = int(x[i * NX + RESS])
             model["ESS"]["SOC"][i] = x[i*NX+EESS]/model["ESS"]["CAP"]
             model["PMG"][i] = int(x[i * NX + PMG])
+        model["success"] = True
+
     else:
         from modelling.power_flow.idx_ed_recovery_format import PG, RG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, PESS_C,EESS, \
             PESS_DC, RESS, PMG, PPV, PWP, PL_AC, PL_UAC, PL_DC, PL_UDC, NX
@@ -245,5 +254,6 @@ def update(*args):
             model["Load_uac"]["COMMAND_SHED"] = int(min(model["Load_uac"]["PD"], x[i * NX + PL_UAC]))
             model["Load_dc"]["COMMAND_SHED"] = int(min(model["Load_dc"]["PD"], x[i * NX + PL_DC]))
             model["Load_udc"]["COMMAND_SHED"] = int(min(model["Load_udc"]["PD"], x[i * NX + PL_UDC]))
+        model["success"] = False
 
     return model

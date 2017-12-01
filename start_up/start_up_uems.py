@@ -92,7 +92,8 @@ class start_up_ems():
             local_model_middle["Load_dc"]["STATUS"] = [local_model_middle["Load_dc"]["STATUS"]] * T_middle
             local_model_middle["Load_udc"]["STATUS"] = [local_model_middle["Load_udc"]["STATUS"]] * T_middle
             local_model_middle["BIC"]["STATUS"] = [local_model_middle["BIC"]["STATUS"]] * T_middle
-            local_model_middle["ESS"]["STATUS"] = [local_model_middle["ESS"]["STATUS"]] * T_middle
+            local_model_middle["ESS"]["STATUS"] = [local_model_middle["BIC"]["STATUS"]] * T_middle
+
             # Generate long term operation model for local ems
             local_model_long["UG"]["GEN_STATUS"] = [local_model_long["UG"]["GEN_STATUS"]] * T_long
             local_model_long["DG"]["GEN_STATUS"] = [local_model_long["DG"]["GEN_STATUS"]] * T_long
@@ -125,6 +126,7 @@ class start_up_ems():
             universal_model_middle["LINE"]["STATUS"] = [universal_model_middle["LINE"]["STATUS"]] * T_middle
             universal_model_middle["BIC"]["STATUS"] = [universal_model_middle["BIC"]["STATUS"]] * T_middle
             universal_model_middle["ESS"]["STATUS"] = [universal_model_middle["ESS"]["STATUS"]] * T_middle
+
             # Generate long term operation model for universal ems
             universal_model_long["UG"]["GEN_STATUS"] = [universal_model_long["UG"]["GEN_STATUS"]] * T_long
             universal_model_long["DG"]["GEN_STATUS"] = [universal_model_long["DG"]["GEN_STATUS"]] * T_long
@@ -179,8 +181,6 @@ class start_up_ems():
             local_model_middle["Load_dc"]["STATUS"] = [local_model_middle["Load_dc"]["STATUS"]] * T_middle
             local_model_middle["Load_udc"]["STATUS"] = [local_model_middle["Load_udc"]["STATUS"]] * T_middle
             local_model_middle["BIC"]["STATUS"] = [local_model_middle["BIC"]["STATUS"]] * T_middle
-            local_model_middle["ESS"]["STATUS"] = [local_model_middle["ESS"]["STATUS"]] * T_middle
-
             # Generate long term operation model for local ems
             local_model_long["UG"]["GEN_STATUS"] = [local_model_long["UG"]["GEN_STATUS"]] * T_long
             local_model_long["DG"]["GEN_STATUS"] = [local_model_long["DG"]["GEN_STATUS"]] * T_long
