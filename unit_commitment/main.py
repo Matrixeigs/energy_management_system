@@ -13,6 +13,8 @@ from data_management.information_management import information_receive_send
 from unit_commitment.long_tertm_forecasting import ForecastingThread
 from utils import Logger
 from copy import deepcopy
+from unit_commitment.input_check import input_check_long_term
+from unit_commitment.output_check import output_local_check
 logger_uems = Logger("Long_term_dispatch_UEMS")
 logger_lems = Logger("Long_term_dispatch_LEMS")
 
@@ -53,6 +55,9 @@ class long_term_operation():
 
         universal_models = thread_forecasting.models
         local_models = thread_info_ex.local_models
+
+        local_models = input_check_long_term.model_local_check(local_models)
+        universal_models = input_check_long_term.model_universal_check(universal_models)
         # Solve the optimal power flow problem
         # Two threads will be created, one for feasible problem, the other for infeasible problem
         # universal_models["ESS"]["SOC"]=universal_models["ESS"]["SOC_MIN"], the test shows that, the input check is necessary.
@@ -79,6 +84,8 @@ class long_term_operation():
             (local_models, universal_models) = result_update(res_recovery.value, local_models, universal_models,
                                                              "Infeasible")
 
+        local_models = output_local_check(local_models)
+        universal_models = output_local_check(universal_models)
         # Return command to the local ems
         dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time,"UC")
         dynamic_model.TIME_STAMP_COMMAND = round(time.time())
