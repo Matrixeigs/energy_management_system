@@ -213,6 +213,7 @@ def update(*args):
             model["ESS"]["COMMAND_RG"][i] = int(x[i * NX + RESS])
             model["ESS"]["SOC"][i] = x[i*NX+EESS]/model["ESS"]["CAP"]
             model["PMG"][i] = int(x[i * NX + PMG])
+        model["success"] = True
     else:
         from modelling.power_flow.idx_uc_recovery_format import IG, PG, RG, IUG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, PESS_C,EESS, \
             PESS_DC, RESS, PMG, PPV, PWP, PL_AC, PL_UAC, PL_DC, PL_UDC, NX
@@ -269,4 +270,5 @@ def update(*args):
             model["Load_dc"]["COMMAND_SHED"] = int(x[i * NX + PL_DC])
             model["Load_udc"]["COMMAND_SHED"] = int(x[i * NX + PL_UDC])
 
+        model["success"] = False
     return model

@@ -191,7 +191,7 @@ class input_check_long_term():
         model = deepcopy(args[0])  # The input model
 
         T = default_look_ahead_time_step[
-            "Look_ahead_time_ed_time_step"]  # The look ahead time step for short term operation
+            "Look_ahead_time_uc_time_step"]  # The look ahead time step for short term operation
         # 1) The input check of utility grid
         if len(model["UG"]["GEN_STATUS"]) != T:
             logger.error("The size of utility grid status is incorrect!")
