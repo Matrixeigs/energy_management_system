@@ -18,19 +18,14 @@ def ips(f_fcn, x0=None, Aeq=None, beq=None, A=None, b=None, xmin=None, xmax=None
     """Primal-dual interior point method for NLP (nonlinear programming).
     Minimize a function F(X) beginning from a starting point M{x0}, subject to
     optional linear and nonlinear constraints and variable bounds::
-
             min f(x)
              x
-
     subject to::
-
             g(x) = 0            (nonlinear equalities)
             h(x) <= 0           (nonlinear inequalities)
             A*x == beq          (linear constraints, equality)
             A*x <= b            (linear constraints, inequality)
             xmin <= x <= xmax   (variable bounds)
-
-
     Ported by Richard Lincoln from the MATLAB Interior Point Solver (MIPS)
     (v1.9) by Ray Zimmerman.  MIPS is distributed as part of the MATPOWER
     project, developed at the Power System Engineering Research Center (PSERC) (PSERC),
@@ -40,13 +35,11 @@ def ips(f_fcn, x0=None, Aeq=None, beq=None, A=None, b=None, xmin=None, xmax=None
       - "On the Computation and Application of Multi-period
         Security-Constrained Optimal Power Flow for Real-time
         Electricity Market Operations", Cornell University, May 2007.
-
     See also:
       - H. Wang, C. E. Murillo-Sanchez, R. D. Zimmerman, R. J. Thomas,
         "On Computational Issues of Market-Based Optimal Power Flow",
         IEEE Transactions on Power Systems, Vol. 22, No. 3, Aug. 2007,
         pp. 1185-1193.
-
     All parameters are optional except C{f_fcn} and C{x0}.
     @param f_fcn: Function that evaluates the objective function, its gradients
                   and Hessian for a given value of M{x}. If there are
@@ -101,7 +94,6 @@ def ips(f_fcn, x0=None, Aeq=None, beq=None, A=None, b=None, xmin=None, xmax=None
                     evaluation function so that it can appropriately scale the
                     objective function term in the Hessian of the Lagrangian.
     @type opt: dict
-
     @rtype: dict
     @return: The solution dictionary has the following keys:
                - C{x} - solution vector
@@ -542,7 +534,7 @@ def ips(f_fcn, x0=None, Aeq=None, beq=None, A=None, b=None, xmin=None, xmax=None
     elif eflag == -1:
         message = 'Numerically failed'
     else:
-        raise
+        raise("Type error")
 
     output = {"iterations": i, "hist": hist, "message": message}
 
