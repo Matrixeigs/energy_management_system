@@ -20,6 +20,12 @@ local_history_database = \
     {
         "db_str" : 'mysql+pymysql://' + 'lems' + ':' + '3' + '@' + 'localhost' + '/' + 'history_data'
     }
+
+weather_station_database = \
+    {
+        "db_str" : 'mysql+pymysql://' + 'lems' + ':' + '3' + '@' + 'localhost' + '/' + 'weather_station'
+    }
+
 #IP address of local EMSs,
 local_ems_ip_address = \
     {
