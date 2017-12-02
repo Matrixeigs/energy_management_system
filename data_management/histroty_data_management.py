@@ -133,7 +133,8 @@ def run():
     #         session_target.commit()
     #
     #     print(i)
-
+# 1490025600
+# 179999
 def pv_history_data():
     import time,datetime
 
@@ -227,8 +228,114 @@ def pv_history_data():
     #
     # T = len(pv_data)
 
+def one_minute_pv():
+    import time,datetime
+    start_time = "2017-03-21 00:00:00"
+    end_time = "2017-07-23 23:59:59"
+    start_time_int = time.mktime(time.strptime(start_time,'%Y-%m-%d %H:%M:%S'))
+
+    db_str_target = local_history_database["db_str"]
+    engine_target = create_engine(db_str_target, echo=False)
+    Session_target = sessionmaker(bind=engine_target)
+    session_target = Session_target()
+
+    db_str = weather_station_database["db_str"]
+    engine = create_engine(db_str, echo=False)
+    Session = sessionmaker(bind=engine)
+    session_source = Session()
+
+    pv_source = session_source.query(weather_station.SolarRad).filter(and_(weather_station.RecDateTime >= start_time, weather_station.RecDateTime <= end_time)).all()
+    pv_max = 1313
+    pv_len = len(pv_source)
+
+    for i in range(8760*60):
+
+        if i < pv_len:
+            Time_temp = datetime.datetime.fromtimestamp(start_time_int + i*60)
+        else:
+            Time_temp = datetime.datetime.fromtimestamp(start_time_int + (i%pv_len)*60)
+
+        row_source = session_source.query(weather_station.SolarRad).filter(weather_station.RecDateTime == Time_temp).first()
+
+        row = session_target.query(one_minute_history_data).filter(one_minute_history_data.TIME_STAMP == i).first()
+        if row_source.SolarRad>pv_max:
+            row.PV_PG = 1
+        else:
+            row.PV_PG = row_source.SolarRad/pv_max
+        session_target.commit()
+        print(i)
+
+def five_minute_pv():
+    db_str_target = local_history_database["db_str"]
+    engine_target = create_engine(db_str_target, echo=False)
+    Session_target = sessionmaker(bind=engine_target)
+    session_target = Session_target()
+
+    session_source = Session_target()
+
+    for i in range(8760*12):
+
+        row_source = session_source.query(one_minute_history_data.PV_PG).filter(and_(one_minute_history_data.TIME_STAMP>=i*5,one_minute_history_data.TIME_STAMP<(i+1)*5)).all()
+
+        row = session_target.query(five_minutes_history_data).filter(five_minutes_history_data.TIME_STAMP == i).first()
+        temp = 0
+        for j in range(5):
+            temp += row_source[j][0]
+
+        row.PV_PG = temp/5
+
+        session_target.commit()
+        print(i)
+
+def half_hour_pv():
+    db_str_target = local_history_database["db_str"]
+    engine_target = create_engine(db_str_target, echo=False)
+    Session_target = sessionmaker(bind=engine_target)
+    session_target = Session_target()
+
+    session_source = Session_target()
+
+    for i in range(8760*2):
+
+        row_source = session_source.query(five_minutes_history_data.PV_PG).filter(and_(five_minutes_history_data.TIME_STAMP>=i*6,five_minutes_history_data.TIME_STAMP<(i+1)*6)).all()
+
+        row = session_target.query(half_hourly_history_data).filter(half_hourly_history_data.TIME_STAMP == i).first()
+        temp = 0
+        for j in range(6):
+            temp += row_source[j][0]
+
+        row.PV_PG = temp/6
+
+        session_target.commit()
+        print(i)
+
+def hourly_pv():
+    db_str_target = local_history_database["db_str"]
+    engine_target = create_engine(db_str_target, echo=False)
+    Session_target = sessionmaker(bind=engine_target)
+    session_target = Session_target()
+
+    session_source = Session_target()
+
+    for i in range(8760):
+
+        row_source = session_source.query(half_hourly_history_data.PV_PG).filter(and_(half_hourly_history_data.TIME_STAMP>=i*2,half_hourly_history_data.TIME_STAMP<(i+1)*2)).all()
+
+        row = session_target.query(hourly_history_data).filter(hourly_history_data.TIME_STAMP == i).first()
+        temp = 0
+        for j in range(2):
+            temp += row_source[j][0]
+
+        row.PV_PG = temp/2
+
+        session_target.commit()
+        print(i)
 
 if __name__ == "__main__":
     ## Start the main process of local energy management system
     # run()
-    pv_history_data()
+    # pv_history_data()
+    # one_minute_pv()
+    # five_minute_pv()
+    # half_hour_pv()
+    hourly_pv()
