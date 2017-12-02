@@ -288,3 +288,55 @@ class weather_station(Base):
     SolarRad = Column(INTEGER)
     HiSolarRad = Column(INTEGER)
     IntervalIndex = Column(INTEGER)
+
+class hourly_history_data(Base):
+    # hourly data
+    __tablename__ = 'hourly_data'
+    TIME_STAMP = Column(INTEGER, primary_key=True)
+    AC_PD = Column(INTEGER)
+    AC_QD = Column(INTEGER)
+    NAC_PD = Column(INTEGER)
+    NAC_QD = Column(INTEGER)
+    DC_PD = Column(INTEGER)
+    NDC_PD = Column(INTEGER)
+    PV_PG = Column(INTEGER)
+    WP_PG = Column(INTEGER)
+
+class half_hourly_history_data(Base):
+    # half hourly data
+    __tablename__ = 'half_hour_data'
+    TIME_STAMP = Column(INTEGER, primary_key=True)
+    AC_PD = Column(INTEGER)
+    AC_QD = Column(INTEGER)
+    NAC_PD = Column(INTEGER)
+    NAC_QD = Column(INTEGER)
+    DC_PD = Column(INTEGER)
+    NDC_PD = Column(INTEGER)
+    PV_PG = Column(INTEGER)
+    WP_PG = Column(INTEGER)
+
+class five_minutes_history_data(Base):
+    # five minutes data
+    __tablename__ = 'five_minutes_data'
+    TIME_STAMP = Column(INTEGER, primary_key=True)
+    AC_PD = Column(INTEGER)
+    AC_QD = Column(INTEGER)
+    NAC_PD = Column(INTEGER)
+    NAC_QD = Column(INTEGER)
+    DC_PD = Column(INTEGER)
+    NDC_PD = Column(INTEGER)
+    PV_PG = Column(INTEGER)
+    WP_PG = Column(INTEGER)
+
+class one_minute_history_data(Base):
+    # one minute data
+    __tablename__ = 'one_minute_data'
+    TIME_STAMP = Column(INTEGER, primary_key=True)
+    AC_PD = Column(INTEGER)
+    AC_QD = Column(INTEGER)
+    NAC_PD = Column(INTEGER)
+    NAC_QD = Column(INTEGER)
+    DC_PD = Column(INTEGER)
+    NDC_PD = Column(INTEGER)
+    PV_PG = Column(INTEGER)
+    WP_PG = Column(INTEGER)
