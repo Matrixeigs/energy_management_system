@@ -15,6 +15,7 @@ from utils import Logger
 from copy import deepcopy
 from unit_commitment.input_check import input_check_long_term
 from unit_commitment.output_check import output_local_check
+from unit_commitment.long2middle import long2middle_opeartion
 logger_uems = Logger("Long_term_dispatch_UEMS")
 logger_lems = Logger("Long_term_dispatch_LEMS")
 
@@ -86,6 +87,7 @@ class long_term_operation():
 
         local_models = output_local_check(local_models)
         universal_models = output_local_check(universal_models)
+
         # Return command to the local ems
         dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time,"UC")
         dynamic_model.TIME_STAMP_COMMAND = round(time.time())
@@ -93,15 +95,16 @@ class long_term_operation():
         information_send_thread = threading.Thread(target=information_receive_send.information_send,
                                                    args=(socket_upload, dynamic_model, 2))
 
-        database_operation__uems = threading.Thread(target=database_operation.database_record,
+        database_operation_uems = threading.Thread(target=database_operation.database_record,
                                                     args=(session, universal_models, Target_time, "UC"))
 
+        long2middle_opeartion(Target_time, session, universal_models)
         logger_uems.info("The command for UEMS is {}".format(universal_models["PMG"]))
         information_send_thread.start()
-        database_operation__uems.start()
+        database_operation_uems.start()
 
         information_send_thread.join()
-        database_operation__uems.join()
+        database_operation_uems.join()
 
     def long_term_operation_lems(*args):
         from data_management.database_management import database_operation
@@ -144,7 +147,13 @@ class long_term_operation():
 
         local_models = information_formulation_extraction_dynamic.info_extraction(local_models, dynamic_model)
 
-        database_operation.database_record(session, local_models, Target_time, "UC")
+        long2middle_opeartion(Target_time, session, local_models)
+
+        database_operation_lems = threading.Thread(target=database_operation.database_record,
+                                                    args=(session, local_models, Target_time, "UC"))
+
+        database_operation_lems.start()
+        database_operation_lems.join()
 
 
 def result_update(*args):
@@ -195,7 +204,15 @@ def update(*args):
         model["ESS"]["COMMAND_RG"] = [0] * T
         model["ESS"]["SOC"] = [0]*T
 
-        model["PMG"] = [0]*T
+        model["PV"]["COMMAND_CURT"] = [0] * T
+        model["WP"]["COMMAND_CURT"] = [0] * T
+
+        model["PMG"] = [0] * T
+
+        model["Load_ac"]["COMMAND_SHED"] = [0] * T
+        model["Load_uac"]["COMMAND_SHED"] = [0] * T
+        model["Load_dc"]["COMMAND_SHED"] = [0] * T
+        model["Load_udc"]["COMMAND_SHED"] = [0] * T
 
         for i in range(T):
             model["DG"]["COMMAND_START_UP"][i] = int(x[i * NX + IG])
@@ -212,7 +229,9 @@ def update(*args):
             model["ESS"]["COMMAND_PG"][i] = int(x[i * NX + PESS_DC] - x[i * NX + PESS_C])
             model["ESS"]["COMMAND_RG"][i] = int(x[i * NX + RESS])
             model["ESS"]["SOC"][i] = x[i*NX+EESS]/model["ESS"]["CAP"]
+
             model["PMG"][i] = int(x[i * NX + PMG])
+
         model["success"] = True
     else:
         from modelling.power_flow.idx_uc_recovery_format import IG, PG, RG, IUG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, PESS_C,EESS, \

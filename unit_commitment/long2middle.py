@@ -5,8 +5,8 @@ from configuration.configuration_time_line import default_time
 
 def long2middle_opeartion(*args):
     Target_time = args[0] # Target time is the start time of scheduling in long-term operation
-    model = args[1] # Solution of the long-term operation
-    session = args[2] # Database session
+    model = args[2] # Solution of the long-term operation
+    session = args[1] # Database session
     delta_T = default_time["Time_step_ed"]
     compress_rate = int(default_time["Time_step_uc"]/default_time["Time_step_ed"])
     add_len = int(default_time["Look_ahead_time_uc"]/delta_T) # Amount of data should be added
@@ -37,25 +37,25 @@ def long2middle_opeartion(*args):
         else:
             row = session.query(long2middle).filter(long2middle.TIME_STAMP == Target_time + i * delta_T).first()
             # Update the founded rows
-            row.TIME_STAMP = Target_time + i * delta_T,
-            row.DG_STATUS = model["DG"]["COMMAND_START_UP"][int(i / compress_rate)],
-            row.DG_PG = model["DG"]["COMMAND_PG"][int(i / compress_rate)],
-            row.DG_QG = 0,
-            row.UG_STATUS = model["UG"]["COMMAND_START_UP"][int(i / compress_rate)],
-            row.UG_PG = model["DG"]["COMMAND_PG"][int(i / compress_rate)],
-            row.UG_QG = 0,
+            row.TIME_STAMP = Target_time + i * delta_T
+            row.DG_STATUS = model["DG"]["COMMAND_START_UP"][int(i / compress_rate)]
+            row.DG_PG = model["DG"]["COMMAND_PG"][int(i / compress_rate)]
+            row.DG_QG = 0
+            row.UG_STATUS = model["UG"]["COMMAND_START_UP"][int(i / compress_rate)]
+            row.UG_PG = model["DG"]["COMMAND_PG"][int(i / compress_rate)]
+            row.UG_QG = 0
             row.BIC_PG = model["BIC"]["COMMAND_DC2AC"][int(i / compress_rate)]*model["BIC"]["EFF_DC2AC"] - model["BIC"]["COMMAND_AC2DC"][
-                int(i / compress_rate)],
-            row.BIC_QG = 0,
-            row.BAT_PG = model["ESS"]["COMMAND_PG"][int(i / compress_rate)],
-            row.BAT_SOC = model["ESS"]["SOC"][int(i / compress_rate)],
-            row.PMG = model["PMG"][int(i / compress_rate)],
-            row.V_DC = 0,
-            row.PV_CURT = model["PV"]["COMMAND_CURT"][int(i / compress_rate)],
-            row.WP_CURT = model["WP"]["COMMAND_CURT"][int(i / compress_rate)],
-            row.AC_SHED = model["Load_ac"]["COMMAND_SHED"][int(i / compress_rate)],
-            row.UAC_SHED = model["Load_uac"]["COMMAND_SHED"][int(i / compress_rate)],
-            row.DC_SHED = model["Load_dc"]["COMMAND_SHED"][int(i / compress_rate)],
+                int(i / compress_rate)]
+            row.BIC_QG = 0
+            row.BAT_PG = model["ESS"]["COMMAND_PG"][int(i / compress_rate)]
+            row.BAT_SOC = model["ESS"]["SOC"][int(i / compress_rate)]
+            row.PMG = model["PMG"][int(i / compress_rate)]
+            row.V_DC = 0
+            row.PV_CURT = model["PV"]["COMMAND_CURT"][int(i / compress_rate)]
+            row.WP_CURT = model["WP"]["COMMAND_CURT"][int(i / compress_rate)]
+            row.AC_SHED = model["Load_ac"]["COMMAND_SHED"][int(i / compress_rate)]
+            row.UAC_SHED = model["Load_uac"]["COMMAND_SHED"][int(i / compress_rate)]
+            row.DC_SHED = model["Load_dc"]["COMMAND_SHED"][int(i / compress_rate)]
             row.UDC_SHED = model["Load_udc"]["COMMAND_SHED"][int(i / compress_rate)]
 
             session.commit()
