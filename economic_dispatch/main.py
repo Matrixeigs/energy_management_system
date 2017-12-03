@@ -17,6 +17,7 @@ from utils import Logger
 from copy import deepcopy
 from economic_dispatch.input_check import input_check_middle_term
 from economic_dispatch.output_check import output_local_check
+from economic_dispatch.middle2short import middle2short_operation
 logger_uems = Logger("Middle_term_dispatch_UEMS")
 logger_lems = Logger("Middle_term_dispatch_LEMS")
 
@@ -88,7 +89,7 @@ class middle_term_operation():
 
         local_models = output_local_check(local_models)
         universal_models = output_local_check(universal_models)
-
+        middle2short_operation(Target_time, session, universal_models)
         # Return command to the local ems
         dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time,"ED")
         dynamic_model.TIME_STAMP_COMMAND = round(time.time())
@@ -145,6 +146,7 @@ class middle_term_operation():
 
         local_models = information_formulation_extraction_dynamic.info_extraction(local_models, dynamic_model)
 
+        # middle2short_operation(Target_time, session, local_models)
         database_operation.database_record(session, local_models, Target_time, "ED")
 
 
@@ -190,7 +192,15 @@ def update(*args):
         model["ESS"]["COMMAND_PG"] = [0] * T
         model["ESS"]["COMMAND_RG"] = [0] * T
         model["ESS"]["SOC"] = [0]*T
-        model["PMG"] = [0]*T
+
+        model["PV"]["COMMAND_CURT"] = [0] * T
+        model["WP"]["COMMAND_CURT"] = [0] * T
+        model["PMG"] = [0] * T
+
+        model["Load_ac"]["COMMAND_SHED"] = [0] * T
+        model["Load_uac"]["COMMAND_SHED"] = [0] * T
+        model["Load_dc"]["COMMAND_SHED"] = [0] * T
+        model["Load_udc"]["COMMAND_SHED"] = [0] * T
 
         for i in range(T):
             model["DG"]["COMMAND_PG"][i] = int(x[i * NX + PG])
@@ -206,6 +216,7 @@ def update(*args):
             model["ESS"]["COMMAND_RG"][i] = int(x[i * NX + RESS])
             model["ESS"]["SOC"][i] = x[i*NX+EESS]/model["ESS"]["CAP"]
             model["PMG"][i] = int(x[i * NX + PMG])
+
         model["success"] = True
 
     else:
@@ -248,12 +259,12 @@ def update(*args):
             model["PMG"][i] = int(x[i * NX + PMG])
 
             model["PV"]["COMMAND_CURT"][i] = int(min(model["PV"]["PG"], x[i * NX + PPV]))
-            model["WP"]["COMMAND_CURT"] = int(min(model["WP"]["PG"], x[i * NX + PWP]))
+            model["WP"]["COMMAND_CURT"][i] = int(min(model["WP"]["PG"], x[i * NX + PWP]))
 
-            model["Load_ac"]["COMMAND_SHED"] = int(min(model["Load_ac"]["PD"], x[i * NX + PL_AC]))
-            model["Load_uac"]["COMMAND_SHED"] = int(min(model["Load_uac"]["PD"], x[i * NX + PL_UAC]))
-            model["Load_dc"]["COMMAND_SHED"] = int(min(model["Load_dc"]["PD"], x[i * NX + PL_DC]))
-            model["Load_udc"]["COMMAND_SHED"] = int(min(model["Load_udc"]["PD"], x[i * NX + PL_UDC]))
+            model["Load_ac"]["COMMAND_SHED"][i] = int(min(model["Load_ac"]["PD"], x[i * NX + PL_AC]))
+            model["Load_uac"]["COMMAND_SHED"][i] = int(min(model["Load_uac"]["PD"], x[i * NX + PL_UAC]))
+            model["Load_dc"]["COMMAND_SHED"][i] = int(min(model["Load_dc"]["PD"], x[i * NX + PL_DC]))
+            model["Load_udc"]["COMMAND_SHED"][i] = int(min(model["Load_udc"]["PD"], x[i * NX + PL_UDC]))
         model["success"] = False
 
     return model
