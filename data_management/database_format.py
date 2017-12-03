@@ -340,3 +340,45 @@ class one_minute_history_data(Base):
     NDC_PD = Column(FLOAT)
     PV_PG = Column(FLOAT)
     WP_PG = Column(FLOAT)
+
+class long2middle(Base):
+    # convert long-term operation schedule to middle-term schedule
+    __tablename__ = 'long2middle'
+    TIME_STAMP = Column(INTEGER, primary_key=True)
+    DG_STATUS = Column(INTEGER)
+    DG_PG = Column(INTEGER)
+    UG_STATUS = Column(INTEGER)
+    UG_PG = Column(INTEGER)
+    BIC_PG = Column(INTEGER)
+    BIC_QG = Column(INTEGER)
+    BAT_PG = Column(INTEGER)
+    BAT_SOC = Column(FLOAT)
+    PMG = Column(INTEGER)
+    V_DC = Column(FLOAT)
+    PV_CURT = Column(INTEGER)
+    WP_CURT = Column(INTEGER)
+    AC_SHED = Column(INTEGER)
+    UAC_SHED = Column(INTEGER)
+    DC_SHED = Column(INTEGER)
+    UDC_SHED = Column(INTEGER)
+
+class middle2short(Base):
+    # convert middle-term operation schedule to short-term operation schedule
+    __tablename__ = 'middle2short'
+    TIME_STAMP = Column(INTEGER, primary_key=True)
+    DG_STATUS = Column(INTEGER)
+    DG_PG = Column(INTEGER)
+    UG_STATUS = Column(INTEGER)
+    UG_PG = Column(INTEGER)
+    BIC_PG = Column(INTEGER)
+    BIC_QG = Column(INTEGER)
+    BAT_PG = Column(INTEGER)
+    BAT_SOC = Column(FLOAT)
+    PMG = Column(INTEGER)
+    V_DC = Column(FLOAT)
+    PV_CURT = Column(INTEGER)
+    WP_CURT = Column(INTEGER)
+    AC_SHED = Column(INTEGER)
+    UAC_SHED = Column(INTEGER)
+    DC_SHED = Column(INTEGER)
+    UDC_SHED = Column(INTEGER)
