@@ -5,9 +5,9 @@
 This part of work follows LiSong's work.
 
 """
-from forecasting.long_term_forecasting import long_term_forecasting_pv, long_term_forecasting_wp, \
-    long_term_forecasting_load_ac, long_term_forecasting_load_dc, long_term_forecasting_load_uac, \
-    long_term_forecasting_load_udc
+from forecasting.long_term_forecasting import long_term_forecasting_pv_history, long_term_forecasting_wp_history, \
+    long_term_forecasting_load_ac_history, long_term_forecasting_load_dc_history, long_term_forecasting_load_uac_history, \
+    long_term_forecasting_load_udc_history
 from configuration.configuration_time_line import default_look_ahead_time_step
 
 import threading
@@ -39,12 +39,12 @@ def long_term_forecasting(*args):
     models["Load_uac"]["PD"] = []
     models["Load_dc"]["PD"] = []
     models["Load_udc"]["PD"] = []
-    pv_profile = long_term_forecasting_pv(session, Target_time)
-    wp_profile = long_term_forecasting_wp(session, Target_time)
-    load_ac = long_term_forecasting_load_ac(session, Target_time)
-    load_uac = long_term_forecasting_load_uac(session, Target_time)
-    load_dc = long_term_forecasting_load_dc(session, Target_time)
-    load_udc = long_term_forecasting_load_udc(session, Target_time)
+    pv_profile = long_term_forecasting_pv_history(session, Target_time)
+    wp_profile = long_term_forecasting_wp_history(session, Target_time)
+    load_ac = long_term_forecasting_load_ac_history(session, Target_time)
+    load_uac = long_term_forecasting_load_uac_history(session, Target_time)
+    load_dc = long_term_forecasting_load_dc_history(session, Target_time)
+    load_udc = long_term_forecasting_load_udc_history(session, Target_time)
 
     for i in range(T):
         # Update the forecasting result of PV
