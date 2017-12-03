@@ -263,12 +263,12 @@ def update(*args):
             model["PMG"][i] = int(x[i * NX + PMG])
 
             model["PV"]["COMMAND_CURT"][i] = int(x[i * NX + PPV])
-            model["WP"]["COMMAND_CURT"] = int(x[i * NX + PWP])
+            model["WP"]["COMMAND_CURT"][i] = int(x[i * NX + PWP])
 
-            model["Load_ac"]["COMMAND_SHED"] = int(x[i * NX + PL_AC])
-            model["Load_uac"]["COMMAND_SHED"] = int(x[i * NX + PL_UAC])
-            model["Load_dc"]["COMMAND_SHED"] = int(x[i * NX + PL_DC])
-            model["Load_udc"]["COMMAND_SHED"] = int(x[i * NX + PL_UDC])
+            model["Load_ac"]["COMMAND_SHED"][i] = int(x[i * NX + PL_AC])
+            model["Load_uac"]["COMMAND_SHED"][i] = int(x[i * NX + PL_UAC])
+            model["Load_dc"]["COMMAND_SHED"][i] = int(x[i * NX + PL_DC])
+            model["Load_udc"]["COMMAND_SHED"][i] = int(x[i * NX + PL_UDC])
 
         model["success"] = False
     return model
