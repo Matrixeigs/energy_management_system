@@ -18,7 +18,7 @@ def long2middle_opeartion(*args):
                                     DG_PG = model["DG"]["COMMAND_PG"][int(i/compress_rate)],
                                     DG_QG = 0,
                                     UG_STATUS = model["UG"]["COMMAND_START_UP"][int(i/compress_rate)],
-                                    UG_PG = model["DG"]["COMMAND_PG"][int(i/compress_rate)],
+                                    UG_PG = model["UG"]["COMMAND_PG"][int(i/compress_rate)],
                                     UG_QG = 0,
                                     BIC_PG = model["BIC"]["COMMAND_DC2AC"][int(i/compress_rate)]-model["BIC"]["COMMAND_AC2DC"][int(i/compress_rate)],
                                     BIC_QG = 0,
@@ -42,7 +42,7 @@ def long2middle_opeartion(*args):
             row.DG_PG = model["DG"]["COMMAND_PG"][int(i / compress_rate)]
             row.DG_QG = 0
             row.UG_STATUS = model["UG"]["COMMAND_START_UP"][int(i / compress_rate)]
-            row.UG_PG = model["DG"]["COMMAND_PG"][int(i / compress_rate)]
+            row.UG_PG = model["UG"]["COMMAND_PG"][int(i / compress_rate)]
             row.UG_QG = 0
             row.BIC_PG = model["BIC"]["COMMAND_DC2AC"][int(i / compress_rate)]*model["BIC"]["EFF_DC2AC"] - model["BIC"]["COMMAND_AC2DC"][
                 int(i / compress_rate)]
