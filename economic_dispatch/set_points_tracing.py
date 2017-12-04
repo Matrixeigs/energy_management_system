@@ -10,7 +10,6 @@ def set_points_tracing_ed(*args):
     model = args[2] # Solution of the long-term operation
     session = args[1] # Database session
 
-    Look_ahead_time = default_time["Look_ahead_time_ed"]
     delta_T = default_time["Time_step_ed"]
     T = default_look_ahead_time_step["Look_ahead_time_ed_time_step"] #Amount of data should be addedsss
 
