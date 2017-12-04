@@ -141,7 +141,7 @@ class database_operation():
             row.DG_QG = model["DG"]["COMMAND_QG"]
             row.UG_STATUS = model["UG"]["GEN_STATUS"]
             row.UG_PG = model["UG"]["COMMAND_PG"]
-            # row.UG_QG = model["UG"]["COMMAND_SET_Q"]
+            row.UG_QG = model["UG"]["COMMAND_QG"]
             row.BIC_PG = model["BIC"]["COMMAND_AC2DC"] - model["BIC"]["COMMAND_DC2AC"]
             row.BIC_QG = model["BIC"]["COMMAND_Q"]
             row.BAT_PG = model["ESS"]["COMMAND_PG"]
@@ -291,15 +291,12 @@ class database_operation():
                     blank_row.WP_PG = model["WP"]["PG"][i]
 
                     blank_row.DG_STATUS = model["DG"]["COMMAND_START_UP"][i]
-
-
                     blank_row.DG_PG = model["DG"]["COMMAND_PG"][i]
 
 
                     blank_row.UG_STATUS = model["UG"]["COMMAND_START_UP"][i]
-
-
                     blank_row.UG_PG = model["UG"]["COMMAND_PG"][i]
+
                     blank_row.BIC_PG = model["BIC"]["COMMAND_AC2DC"][i] - model["BIC"]["COMMAND_DC2AC"][i]
                     blank_row.BAT_PG = model["ESS"]["COMMAND_PG"][i]
                     blank_row.BAT_SOC = model["ESS"]["SOC"][i]
