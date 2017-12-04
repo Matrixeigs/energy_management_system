@@ -57,13 +57,15 @@ def milp_gurobi(c, Aeq=None, beq=None, A=None, b=None, xmin=None, xmax=None, vty
                        - C{message} - exit message
         """
     nx = c.shape[0]  # number of decision variables
-    if A.shape[0]!= None:
-        nineq = A.shape[0]  # number of equality constraints
+    if A is not None:
+        if A.shape[0]!= None:
+            nineq = A.shape[0]  # number of equality constraints
     else:
         nineq = 0
 
-    if Aeq.shape[0]!= None:
-        neq = Aeq.shape[0]  # number of inequality constraints
+    if Aeq is not None:
+        if Aeq.shape[0]!= None:
+            neq = Aeq.shape[0]  # number of inequality constraints
     else:
         neq = 0
     # Fulfilling the missing informations
@@ -135,13 +137,15 @@ def milp_mosek(c, Aeq=None, beq=None, A=None, b=None, xmin=None, xmax=None, vtyp
     import mosek
     from numpy import vstack, array
     nx = c.shape[0]  # number of decision variables
-    if A.shape[0] != None:
-        nineq = A.shape[0]  # number of equality constraints
-    else:
-        nineq = 0
+    if A is not None:
+        if A.shape[0] != None:
+            nineq = A.shape[0]  # number of equality constraints
+        else:
+            nineq = 0
 
-    if Aeq.shape[0] != None:
-        neq = Aeq.shape[0]  # number of inequality constraints
+    if Aeq is not None:
+        if Aeq.shape[0] != None:
+            neq = Aeq.shape[0]  # number of inequality constraints
     else:
         neq = 0
     # Fulfilling the missing informations
@@ -174,10 +178,11 @@ def milp_mosek(c, Aeq=None, beq=None, A=None, b=None, xmin=None, xmax=None, vtyp
                 bkx.append(mosek.boundkey.ra)
                 blx.append(xmin[i])
                 bux.append(xmax[i])
-            if Aeq.shape[0]!= None and A.shape[0] != None:
-                A = vstack([Aeq, A])
-            elif Aeq.shape[0] != None and A.shape[0] == None:
-                A = Aeq
+            if Aeq is not None:
+                if Aeq.shape[0]!= None and A.shape[0] != None:
+                    A = vstack([Aeq, A])
+                elif Aeq.shape[0] != None and A.shape[0] == None:
+                    A = Aeq
             # Generate the sparse matrix
             numcon = neq + nineq
             asub = []
