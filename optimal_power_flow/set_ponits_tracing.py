@@ -41,11 +41,7 @@ def set_points_tracing_opf(*args):
 
     for i in range(T):
         row = session.query(middle2short).filter(middle2short.TIME_STAMP == Target_time + i * delta_T).count()
-        model["DG"]["COMMAND_START_UP"][i] = row.DG_STATUS
         model["DG"]["COMMAND_PG"][i] = row.DG_PG
-
-
-        model["UG"]["COMMAND_START_UP"][i] = row.UG_STATUS
         model["UG"]["COMMAND_PG"][i] = row.UG_PG
 
         if row.BIC_PG>0:
@@ -56,7 +52,6 @@ def set_points_tracing_opf(*args):
             model["BIC"]["COMMAND_DC2AC"][i] = 0
 
         model["ESS"]["COMMAND_PG"][i] = row.BAT_PG
-
         model["ESS"]["SOC"][i] = row.BAT_SOC
 
         model["PMG"][i] = row.PMG
