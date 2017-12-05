@@ -67,10 +67,8 @@ class problem_formulation():
         Aeq[PUG] = 1
         Aeq[PBIC_AC2DC] = -1
         Aeq[PBIC_DC2AC] = model["BIC"]["EFF_DC2AC"]
-        if type(model["Load_ac"]["PD"]) is list:
-            beq.append(model["Load_ac"]["PD"][0] + model["Load_uac"]["PD"][0])
-        else:
-            beq.append(model["Load_ac"]["PD"] + model["Load_uac"]["PD"])
+
+        beq.append(model["Load_ac"]["PD"] + model["Load_uac"]["PD"])
         # 2) DC power balance equation
         Aeq_temp = zeros(NX)
         Aeq_temp[PBIC_AC2DC] = model["BIC"]["EFF_AC2DC"]
