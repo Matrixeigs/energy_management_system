@@ -96,28 +96,30 @@ def run():
     info_opf = opf_model.informaiton_exchange()  # Optimal power flow modelling
 
     # Generate different processes
-    logger.info("The short term process in UEMS starts!")
-    sched_uems = BlockingScheduler()  # The schedulor for the optimal power flow
-    sched_uems.add_job(short_term_operation.short_term_operation_uems, 'cron',
-                       args=(universal_model_short, local_model_short, socket_upload, socket_download, info_opf,
-                             session_uems_short), minute='0-59',
-                       second='1')  # The operation is triggered minutely, this process will start at **:01
-
-    logger.info("The middle term process in UEMS starts!")
-    sched_uems.add_job(middle_term_operation.middle_term_operation_uems, 'cron',
-                       args=(universal_model_middle, local_model_middle, socket_upload_ed, socket_download, info_ed,
-                             session_uems_middle), minute='*/5',
-                       second='5')  # The operation is triggered every 5 minute
-
-    logger.info("The long term process in UEMS starts!")
-    sched_uems.add_job(long_term_operation.long_term_operation_uems, 'cron',
-                       args=(universal_model_long, local_model_long, socket_upload_uc, socket_download, info_uc,
-                             session_uems_long), minute='*/30',
-                       second='30')  # The operation is triggered every half an hour
-    sched_uems.start()
-    # for i in range(100):
-        # short_term_operation.short_term_operation_uems(universal_model_short, local_model_short, socket_upload, socket_download, info_opf,
-        #     session_uems_short)
+    # logger.info("The short term process in UEMS starts!")
+    # sched_uems = BlockingScheduler()  # The schedulor for the optimal power flow
+    # sched_uems.add_job(short_term_operation.short_term_operation_uems, 'cron',
+    #                    args=(universal_model_short, local_model_short, socket_upload, socket_download, info_opf,
+    #                          session_uems_short), minute='0-59',
+    #                    second='1')  # The operation is triggered minutely, this process will start at **:01
+    #
+    # logger.info("The middle term process in UEMS starts!"command_type)
+    # sched_uems.add_job(middle_term_operation.middle_term_operation_uems, 'cron',
+    #                    args=(universal_model_middle, local_model_middle, socket_upload_ed, socket_download, info_ed,
+    #                          session_uems_middle), minute='*/5',
+    #                    second='5')  # The operation is triggered every 5 minute
+    #
+    # logger.info("The long term process in UEMS starts!")
+    # sched_uems.add_job(long_term_operation.long_term_operation_uems, 'cron',
+    #                    args=(universal_model_long, local_model_long, socket_upload_uc, socket_download, info_uc,
+    #                          session_uems_long), minute='*/30',
+    #                    second='30')  # The operation is triggered every half an hour
+    # sched_uems.start()
+    for i in range(100):
+        middle_term_operation.middle_term_operation_uems(universal_model_middle, local_model_middle, socket_upload_ed,
+                                                    socket_download, info_ed,session_uems_middle)
+        short_term_operation.short_term_operation_uems(universal_model_short, local_model_short, socket_upload, socket_download, info_opf,
+            session_uems_short)
         # middle_term_operation.middle_term_operation_uems(universal_model_middle, local_model_middle, socket_upload_ed,
         #                                             socket_download, info_ed,session_uems_middle)
         # long_term_operation.long_term_operation_uems(universal_model_long, local_model_long, socket_upload_uc,

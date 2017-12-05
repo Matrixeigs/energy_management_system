@@ -95,12 +95,14 @@ def run():
     #     'cron', minute='*/30', second='30')  # The operation is triggered every half an hour
     # sched_lems.start()
     for i in range(100):
-        # short_term_operation.short_term_operation_lems(local_model_short, socket_upload, socket_download, info_opf,
-        #                                        session_lems_short)
+        middle_term_operation.middle_term_operation_lems(local_model_middle, socket_upload_ed, socket_download, info_ed,
+                                                         session_lems_middle)
+        short_term_operation.short_term_operation_lems(local_model_short, socket_upload, socket_download, info_opf,
+                                               session_lems_short)
         # middle_term_operation.middle_term_operation_lems(local_model_middle, socket_upload_ed, socket_download, info_ed,
         #                                                  session_lems_middle)
-        long_term_operation.long_term_operation_lems(local_model_long, socket_upload_uc, socket_download, info_uc,
-                                                                  session_lems_long)
+        # long_term_operation.long_term_operation_lems(local_model_long, socket_upload_uc, socket_download, info_uc,
+        #                                                           session_lems_long)
 
 
 if __name__ == "__main__":
