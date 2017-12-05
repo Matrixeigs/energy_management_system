@@ -76,8 +76,8 @@ def information_collection_updating(*args):
 
         models["ESS"]["SOC"] = float(ess_info.SOC._values[0])  # The initial energy state in the storage systems.
 
-    if command_type is 1: # The set-point tracing method
-        if T is 1:
+    if command_type == 1: # The set-point tracing method
+        if T == 1:
             models["UG"]["COMMAND_PG"] = ug_info.PG
             models["UG"]["COMMANDD_QG"] = ug_info.QG
             models["UG"]["COMMAND_RG"] = ug_info.RG
@@ -87,8 +87,13 @@ def information_collection_updating(*args):
             models["DG"]["COMMAND_RG"] = ug_info.RG
 
             models["ESS"]["SOC"] = ess_info.SOC
-            models["ESS"]["COMMAND_PG"] = ess_info.COMMAND_PG
-            models["ESS"]["COMMAND_RG"] = ess_info.COMMAND_RG
+            models["ESS"]["COMMAND_PG"] = ess_info.PG
+            models["ESS"]["COMMAND_RG"] = ess_info.RG
+
+            models["PMG"] = info.PMG
+
+            models["BIC"]["COMMAND_AC2DC"] = bic_info.PAC2DC
+            models["BIC"]["COMMAND_DC2AC"] = bic_info.PDC2AC
 
             models["PV"]["COMMAND_CURT"] = pv_info.COMMAND_CURT
             models["WP"]["COMMAND_CURT"] = wp_info.COMMAND_CURT
