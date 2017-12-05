@@ -19,9 +19,8 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='information_exchange.proto',
   package='',
   syntax='proto3',
-  serialized_pb=_b('\n\x1ainformation_exchange.proto\"\xff\x06\n\x14informaiton_exchange\x12\x0c\n\x04\x41REA\x18\x01 \x01(\x05\x12\x12\n\nTIME_STAMP\x18\x02 \x01(\x05\x12(\n\x02\x64g\x18\x03 \x03(\x0b\x32\x1c.informaiton_exchange.DgType\x12*\n\x03\x65ss\x18\x04 \x03(\x0b\x32\x1d.informaiton_exchange.EssType\x12(\n\x02pv\x18\x05 \x03(\x0b\x32\x1c.informaiton_exchange.PvType\x12(\n\x02wp\x18\x06 \x03(\x0b\x32\x1c.informaiton_exchange.WpType\x12\x33\n\x07load_ac\x18\x07 \x03(\x0b\x32\".informaiton_exchange.Load_AC_Type\x12\x33\n\x07load_dc\x18\x08 \x03(\x0b\x32\".informaiton_exchange.Load_DC_Type\x12\x31\n\x03\x62ic\x18\t \x03(\x0b\x32$.informaiton_exchange.Convertor_Type\x12\x0b\n\x03PMG\x18\n \x01(\x05\x12\x0c\n\x04V_DC\x18\x0b \x01(\x02\x12\x1a\n\x12TIME_STAMP_COMMAND\x18\x0c \x01(\x05\x1aO\n\x06\x44gType\x12\r\n\x05\x44G_ID\x18\x01 \x01(\x05\x12\x12\n\nGEN_STATUS\x18\x02 \x01(\x08\x12\n\n\x02PG\x18\x03 \x01(\x05\x12\n\n\x02QG\x18\x04 \x01(\x05\x12\n\n\x02RG\x18\x05 \x01(\x05\x1aR\n\x07\x45ssType\x12\x0e\n\x06\x45SS_ID\x18\x01 \x01(\x05\x12\x12\n\nESS_STATUS\x18\x02 \x01(\x08\x12\x0b\n\x03SOC\x18\x03 \x01(\x02\x12\n\n\x02PG\x18\x04 \x01(\x05\x12\n\n\x02RG\x18\x05 \x01(\x05\x1a\x37\n\x06PvType\x12\x0b\n\x03NPV\x18\x01 \x01(\x05\x12\n\n\x02PG\x18\x02 \x01(\x02\x12\x14\n\x0c\x43OMMAND_CURT\x18\x03 \x01(\x05\x1a\x37\n\x06WpType\x12\x0b\n\x03NWP\x18\x01 \x01(\x05\x12\n\n\x02PG\x18\x02 \x01(\x02\x12\x14\n\x0c\x43OMMAND_CURT\x18\x03 \x01(\x05\x1a<\n\x0cLoad_AC_Type\x12\n\n\x02PD\x18\x01 \x01(\x02\x12\n\n\x02QD\x18\x02 \x01(\x02\x12\x14\n\x0c\x43OMMAND_SHED\x18\x03 \x01(\x02\x1a\x30\n\x0cLoad_DC_Type\x12\n\n\x02PD\x18\x01 \x01(\x02\x12\x14\n\x0c\x43OMMAND_SHED\x18\x02 \x01(\x02\x1a@\n\x0e\x43onvertor_Type\x12\x0e\n\x06STATUS\x18\x01 \x01(\x08\x12\x0e\n\x06PAC2DC\x18\x02 \x01(\x02\x12\x0e\n\x06PDC2AC\x18\x03 \x01(\x02\x62\x06proto3')
+  serialized_pb=_b('\n\x1ainformation_exchange.proto\"\x95\x07\n\x14informaiton_exchange\x12\x0c\n\x04\x41REA\x18\x01 \x01(\x05\x12\x12\n\nTIME_STAMP\x18\x02 \x01(\x05\x12(\n\x02\x64g\x18\x03 \x03(\x0b\x32\x1c.informaiton_exchange.DgType\x12*\n\x03\x65ss\x18\x04 \x03(\x0b\x32\x1d.informaiton_exchange.EssType\x12(\n\x02pv\x18\x05 \x03(\x0b\x32\x1c.informaiton_exchange.PvType\x12(\n\x02wp\x18\x06 \x03(\x0b\x32\x1c.informaiton_exchange.WpType\x12\x33\n\x07load_ac\x18\x07 \x03(\x0b\x32\".informaiton_exchange.Load_AC_Type\x12\x33\n\x07load_dc\x18\x08 \x03(\x0b\x32\".informaiton_exchange.Load_DC_Type\x12\x31\n\x03\x62ic\x18\t \x03(\x0b\x32$.informaiton_exchange.Convertor_Type\x12\x0b\n\x03PMG\x18\n \x01(\x05\x12\x0c\n\x04V_DC\x18\x0b \x01(\x02\x12\x14\n\x0c\x43OMMAND_TYPE\x18\x0c \x01(\x05\x12\x1a\n\x12TIME_STAMP_COMMAND\x18\r \x01(\x05\x1aO\n\x06\x44gType\x12\r\n\x05\x44G_ID\x18\x01 \x01(\x05\x12\x12\n\nGEN_STATUS\x18\x02 \x01(\x08\x12\n\n\x02PG\x18\x03 \x01(\x05\x12\n\n\x02QG\x18\x04 \x01(\x05\x12\n\n\x02RG\x18\x05 \x01(\x05\x1aR\n\x07\x45ssType\x12\x0e\n\x06\x45SS_ID\x18\x01 \x01(\x05\x12\x12\n\nESS_STATUS\x18\x02 \x01(\x08\x12\x0b\n\x03SOC\x18\x03 \x01(\x02\x12\n\n\x02PG\x18\x04 \x01(\x05\x12\n\n\x02RG\x18\x05 \x01(\x05\x1a\x37\n\x06PvType\x12\x0b\n\x03NPV\x18\x01 \x01(\x05\x12\n\n\x02PG\x18\x02 \x01(\x02\x12\x14\n\x0c\x43OMMAND_CURT\x18\x03 \x01(\x05\x1a\x37\n\x06WpType\x12\x0b\n\x03NWP\x18\x01 \x01(\x05\x12\n\n\x02PG\x18\x02 \x01(\x02\x12\x14\n\x0c\x43OMMAND_CURT\x18\x03 \x01(\x05\x1a<\n\x0cLoad_AC_Type\x12\n\n\x02PD\x18\x01 \x01(\x02\x12\n\n\x02QD\x18\x02 \x01(\x02\x12\x14\n\x0c\x43OMMAND_SHED\x18\x03 \x01(\x02\x1a\x30\n\x0cLoad_DC_Type\x12\n\n\x02PD\x18\x01 \x01(\x02\x12\x14\n\x0c\x43OMMAND_SHED\x18\x02 \x01(\x02\x1a@\n\x0e\x43onvertor_Type\x12\x0e\n\x06STATUS\x18\x01 \x01(\x08\x12\x0e\n\x06PAC2DC\x18\x02 \x01(\x02\x12\x0e\n\x06PDC2AC\x18\x03 \x01(\x02\x62\x06proto3')
 )
-_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
 
@@ -80,8 +79,8 @@ _INFORMAITON_EXCHANGE_DGTYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=471,
-  serialized_end=550,
+  serialized_start=493,
+  serialized_end=572,
 )
 
 _INFORMAITON_EXCHANGE_ESSTYPE = _descriptor.Descriptor(
@@ -138,8 +137,8 @@ _INFORMAITON_EXCHANGE_ESSTYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=552,
-  serialized_end=634,
+  serialized_start=574,
+  serialized_end=656,
 )
 
 _INFORMAITON_EXCHANGE_PVTYPE = _descriptor.Descriptor(
@@ -182,8 +181,8 @@ _INFORMAITON_EXCHANGE_PVTYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=636,
-  serialized_end=691,
+  serialized_start=658,
+  serialized_end=713,
 )
 
 _INFORMAITON_EXCHANGE_WPTYPE = _descriptor.Descriptor(
@@ -226,8 +225,8 @@ _INFORMAITON_EXCHANGE_WPTYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=693,
-  serialized_end=748,
+  serialized_start=715,
+  serialized_end=770,
 )
 
 _INFORMAITON_EXCHANGE_LOAD_AC_TYPE = _descriptor.Descriptor(
@@ -270,8 +269,8 @@ _INFORMAITON_EXCHANGE_LOAD_AC_TYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=750,
-  serialized_end=810,
+  serialized_start=772,
+  serialized_end=832,
 )
 
 _INFORMAITON_EXCHANGE_LOAD_DC_TYPE = _descriptor.Descriptor(
@@ -307,8 +306,8 @@ _INFORMAITON_EXCHANGE_LOAD_DC_TYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=812,
-  serialized_end=860,
+  serialized_start=834,
+  serialized_end=882,
 )
 
 _INFORMAITON_EXCHANGE_CONVERTOR_TYPE = _descriptor.Descriptor(
@@ -351,8 +350,8 @@ _INFORMAITON_EXCHANGE_CONVERTOR_TYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=862,
-  serialized_end=926,
+  serialized_start=884,
+  serialized_end=948,
 )
 
 _INFORMAITON_EXCHANGE = _descriptor.Descriptor(
@@ -440,8 +439,15 @@ _INFORMAITON_EXCHANGE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='TIME_STAMP_COMMAND', full_name='informaiton_exchange.TIME_STAMP_COMMAND', index=11,
+      name='COMMAND_TYPE', full_name='informaiton_exchange.COMMAND_TYPE', index=11,
       number=12, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='TIME_STAMP_COMMAND', full_name='informaiton_exchange.TIME_STAMP_COMMAND', index=12,
+      number=13, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -459,7 +465,7 @@ _INFORMAITON_EXCHANGE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=31,
-  serialized_end=926,
+  serialized_end=948,
 )
 
 _INFORMAITON_EXCHANGE_DGTYPE.containing_type = _INFORMAITON_EXCHANGE
@@ -477,6 +483,7 @@ _INFORMAITON_EXCHANGE.fields_by_name['load_ac'].message_type = _INFORMAITON_EXCH
 _INFORMAITON_EXCHANGE.fields_by_name['load_dc'].message_type = _INFORMAITON_EXCHANGE_LOAD_DC_TYPE
 _INFORMAITON_EXCHANGE.fields_by_name['bic'].message_type = _INFORMAITON_EXCHANGE_CONVERTOR_TYPE
 DESCRIPTOR.message_types_by_name['informaiton_exchange'] = _INFORMAITON_EXCHANGE
+_sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 informaiton_exchange = _reflection.GeneratedProtocolMessageType('informaiton_exchange', (_message.Message,), dict(
 

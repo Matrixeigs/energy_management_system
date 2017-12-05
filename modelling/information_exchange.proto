@@ -1,5 +1,7 @@
 syntax = "proto3";
 // A nested information structure is developed for this
+// The COMMAND_TYPE is added to allow MGs working in different mode
+
 message informaiton_exchange {
     int32 AREA = 1;
     int32 TIME_STAMP = 2;
@@ -66,5 +68,6 @@ message informaiton_exchange {
 
     int32 PMG = 10;
     float V_DC = 11;
-    int32 TIME_STAMP_COMMAND = 12;
+    int32 COMMAND_TYPE = 12;
+    int32 TIME_STAMP_COMMAND = 13;
 }
