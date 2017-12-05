@@ -146,7 +146,7 @@ class middle_term_operation():
 
         local_models = information_formulation_extraction_dynamic.info_extraction(local_models, dynamic_model)
 
-        # middle2short_operation(Target_time, session, local_models)
+        middle2short_operation(Target_time, session, local_models)
         database_operation.database_record(session, local_models, Target_time, "ED")
 
 
@@ -185,8 +185,12 @@ def update(*args):
             PMG, NX
         model["DG"]["COMMAND_PG"] = [0] * T
         model["DG"]["COMMAND_RG"] = [0] * T
+        model["DG"]["COMMAND_START_UP"] = model["DG"]["GEN_STATUS"] # The staus of generators will be not modified
+
         model["UG"]["COMMAND_PG"] = [0] * T
+        model["UG"]["COMMAND_START_UP"] = model["UG"]["GEN_STATUS"] # The staus of generators will be not modified
         model["UG"]["COMMAND_RG"] = [0] * T
+
         model["BIC"]["COMMAND_AC2DC"] = [0] * T
         model["BIC"]["COMMAND_DC2AC"] = [0] * T
         model["ESS"]["COMMAND_PG"] = [0] * T

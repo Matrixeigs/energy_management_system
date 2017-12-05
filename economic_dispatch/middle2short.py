@@ -14,10 +14,10 @@ def middle2short_operation(*args):
     for i in range(add_len): # Add the set-pointed repeatly
         if session.query(middle2short).filter(middle2short.TIME_STAMP == Target_time + i * delta_T).count() == 0:
             blank_row = middle2short(TIME_STAMP = Target_time + i * delta_T,
-                                    DG_STATUS = model["DG"]["COMMAND_START_UP"],
+                                    DG_STATUS = model["DG"]["COMMAND_START_UP"][int(i/compress_rate)],
                                     DG_PG = model["DG"]["COMMAND_PG"][int(i/compress_rate)],
                                     DG_QG = 0,
-                                    UG_STATUS = model["UG"]["COMMAND_START_UP"],
+                                    UG_STATUS = model["UG"]["COMMAND_START_UP"][int(i/compress_rate)],
                                     UG_PG = model["UG"]["COMMAND_PG"][int(i/compress_rate)],
                                     UG_QG = 0,
                                     BIC_PG = model["BIC"]["COMMAND_DC2AC"][int(i/compress_rate)]-model["BIC"]["COMMAND_AC2DC"][int(i/compress_rate)],
@@ -38,10 +38,10 @@ def middle2short_operation(*args):
             row = session.query(middle2short).filter(middle2short.TIME_STAMP == Target_time + i * delta_T).first()
             # Update the founded rows
             row.TIME_STAMP = Target_time + i * delta_T
-            row.DG_STATUS = model["DG"]["COMMAND_START_UP"]
+            row.DG_STATUS = model["DG"]["COMMAND_START_UP"][int(i/compress_rate)]
             row.DG_PG = model["DG"]["COMMAND_PG"][int(i / compress_rate)]
             row.DG_QG = 0,
-            row.UG_STATUS = model["UG"]["COMMAND_START_UP"]
+            row.UG_STATUS = model["UG"]["COMMAND_START_UP"][int(i/compress_rate)]
             row.UG_PG = model["UG"]["COMMAND_PG"][int(i / compress_rate)]
             row.UG_QG = 0
             row.BIC_PG = model["BIC"]["COMMAND_DC2AC"][int(i / compress_rate)]*model["BIC"]["EFF_DC2AC"] - model["BIC"]["COMMAND_AC2DC"][
