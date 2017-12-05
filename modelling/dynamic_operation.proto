@@ -67,5 +67,7 @@ message local_sources {
     repeated Load_DC_Type load_dc = 8;
     repeated Convertor_Type bic = 9;
     repeated float PMG = 10;
-    int32 TIME_STAMP_COMMAND = 11;
+    int32 COMMAND_TYPE = 11;
+    int32 TIME_STAMP_COMMAND = 12;
+
 }

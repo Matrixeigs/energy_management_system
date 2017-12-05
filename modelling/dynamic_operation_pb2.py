@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='dynamic_operation.proto',
   package='',
   syntax='proto3',
-  serialized_pb=_b('\n\x17\x64ynamic_operation.proto\"\xf6\x06\n\rlocal_sources\x12\x0c\n\x04\x41REA\x18\x01 \x01(\x05\x12\x12\n\nTIME_STAMP\x18\x02 \x01(\x05\x12!\n\x02\x64g\x18\x03 \x03(\x0b\x32\x15.local_sources.DgType\x12#\n\x03\x65ss\x18\x04 \x03(\x0b\x32\x16.local_sources.EssType\x12!\n\x02pv\x18\x05 \x03(\x0b\x32\x15.local_sources.PvType\x12!\n\x02wp\x18\x06 \x03(\x0b\x32\x15.local_sources.WpType\x12,\n\x07load_ac\x18\x07 \x03(\x0b\x32\x1b.local_sources.Load_AC_Type\x12,\n\x07load_dc\x18\x08 \x03(\x0b\x32\x1b.local_sources.Load_DC_Type\x12*\n\x03\x62ic\x18\t \x03(\x0b\x32\x1d.local_sources.Convertor_Type\x12\x0b\n\x03PMG\x18\n \x03(\x02\x12\x1a\n\x12TIME_STAMP_COMMAND\x18\x0b \x01(\x05\x1aX\n\x06\x44gType\x12\n\n\x02ID\x18\x01 \x01(\x05\x12\x12\n\nGEN_STATUS\x18\x02 \x03(\x05\x12\n\n\x02PG\x18\x03 \x03(\x05\x12\n\n\x02RG\x18\x04 \x03(\x05\x12\x16\n\x0e\x43OMMAND_STATUS\x18\x05 \x03(\x05\x1aN\n\x07\x45ssType\x12\n\n\x02ID\x18\x01 \x01(\x05\x12\x12\n\nESS_STATUS\x18\x02 \x03(\x05\x12\x0b\n\x03SOC\x18\x03 \x03(\x02\x12\n\n\x02PG\x18\x04 \x03(\x05\x12\n\n\x02RG\x18\x05 \x03(\x05\x1a\x37\n\x06PvType\x12\x0b\n\x03NPV\x18\x01 \x03(\x05\x12\n\n\x02PG\x18\x02 \x03(\x02\x12\x14\n\x0c\x43OMMAND_CURT\x18\x03 \x03(\x05\x1a\x37\n\x06WpType\x12\x0b\n\x03NWP\x18\x01 \x03(\x05\x12\n\n\x02PG\x18\x02 \x03(\x02\x12\x14\n\x0c\x43OMMAND_CURT\x18\x03 \x03(\x05\x1aL\n\x0cLoad_AC_Type\x12\n\n\x02ID\x18\x01 \x01(\x05\x12\x0e\n\x06STATUS\x18\x02 \x03(\x05\x12\n\n\x02PD\x18\x03 \x03(\x05\x12\x14\n\x0c\x43OMMAND_SHED\x18\x04 \x03(\x02\x1aL\n\x0cLoad_DC_Type\x12\n\n\x02ID\x18\x01 \x01(\x05\x12\x0e\n\x06STATUS\x18\x02 \x03(\x05\x12\n\n\x02PD\x18\x03 \x03(\x05\x12\x14\n\x0c\x43OMMAND_SHED\x18\x04 \x03(\x02\x1aL\n\x0e\x43onvertor_Type\x12\n\n\x02ID\x18\x01 \x01(\x05\x12\x0e\n\x06STATUS\x18\x02 \x03(\x05\x12\x0e\n\x06PAC2DC\x18\x03 \x03(\x02\x12\x0e\n\x06PDC2AC\x18\x04 \x03(\x02\x62\x06proto3')
+  serialized_pb=_b('\n\x17\x64ynamic_operation.proto\"\x8c\x07\n\rlocal_sources\x12\x0c\n\x04\x41REA\x18\x01 \x01(\x05\x12\x12\n\nTIME_STAMP\x18\x02 \x01(\x05\x12!\n\x02\x64g\x18\x03 \x03(\x0b\x32\x15.local_sources.DgType\x12#\n\x03\x65ss\x18\x04 \x03(\x0b\x32\x16.local_sources.EssType\x12!\n\x02pv\x18\x05 \x03(\x0b\x32\x15.local_sources.PvType\x12!\n\x02wp\x18\x06 \x03(\x0b\x32\x15.local_sources.WpType\x12,\n\x07load_ac\x18\x07 \x03(\x0b\x32\x1b.local_sources.Load_AC_Type\x12,\n\x07load_dc\x18\x08 \x03(\x0b\x32\x1b.local_sources.Load_DC_Type\x12*\n\x03\x62ic\x18\t \x03(\x0b\x32\x1d.local_sources.Convertor_Type\x12\x0b\n\x03PMG\x18\n \x03(\x02\x12\x14\n\x0c\x43OMMAND_TYPE\x18\x0b \x01(\x05\x12\x1a\n\x12TIME_STAMP_COMMAND\x18\x0c \x01(\x05\x1aX\n\x06\x44gType\x12\n\n\x02ID\x18\x01 \x01(\x05\x12\x12\n\nGEN_STATUS\x18\x02 \x03(\x05\x12\n\n\x02PG\x18\x03 \x03(\x05\x12\n\n\x02RG\x18\x04 \x03(\x05\x12\x16\n\x0e\x43OMMAND_STATUS\x18\x05 \x03(\x05\x1aN\n\x07\x45ssType\x12\n\n\x02ID\x18\x01 \x01(\x05\x12\x12\n\nESS_STATUS\x18\x02 \x03(\x05\x12\x0b\n\x03SOC\x18\x03 \x03(\x02\x12\n\n\x02PG\x18\x04 \x03(\x05\x12\n\n\x02RG\x18\x05 \x03(\x05\x1a\x37\n\x06PvType\x12\x0b\n\x03NPV\x18\x01 \x03(\x05\x12\n\n\x02PG\x18\x02 \x03(\x02\x12\x14\n\x0c\x43OMMAND_CURT\x18\x03 \x03(\x05\x1a\x37\n\x06WpType\x12\x0b\n\x03NWP\x18\x01 \x03(\x05\x12\n\n\x02PG\x18\x02 \x03(\x02\x12\x14\n\x0c\x43OMMAND_CURT\x18\x03 \x03(\x05\x1aL\n\x0cLoad_AC_Type\x12\n\n\x02ID\x18\x01 \x01(\x05\x12\x0e\n\x06STATUS\x18\x02 \x03(\x05\x12\n\n\x02PD\x18\x03 \x03(\x05\x12\x14\n\x0c\x43OMMAND_SHED\x18\x04 \x03(\x02\x1aL\n\x0cLoad_DC_Type\x12\n\n\x02ID\x18\x01 \x01(\x05\x12\x0e\n\x06STATUS\x18\x02 \x03(\x05\x12\n\n\x02PD\x18\x03 \x03(\x05\x12\x14\n\x0c\x43OMMAND_SHED\x18\x04 \x03(\x02\x1aL\n\x0e\x43onvertor_Type\x12\n\n\x02ID\x18\x01 \x01(\x05\x12\x0e\n\x06STATUS\x18\x02 \x03(\x05\x12\x0e\n\x06PAC2DC\x18\x03 \x03(\x02\x12\x0e\n\x06PDC2AC\x18\x04 \x03(\x02\x62\x06proto3')
 )
 
 
@@ -79,8 +79,8 @@ _LOCAL_SOURCES_DGTYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=398,
-  serialized_end=486,
+  serialized_start=420,
+  serialized_end=508,
 )
 
 _LOCAL_SOURCES_ESSTYPE = _descriptor.Descriptor(
@@ -137,8 +137,8 @@ _LOCAL_SOURCES_ESSTYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=488,
-  serialized_end=566,
+  serialized_start=510,
+  serialized_end=588,
 )
 
 _LOCAL_SOURCES_PVTYPE = _descriptor.Descriptor(
@@ -181,8 +181,8 @@ _LOCAL_SOURCES_PVTYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=568,
-  serialized_end=623,
+  serialized_start=590,
+  serialized_end=645,
 )
 
 _LOCAL_SOURCES_WPTYPE = _descriptor.Descriptor(
@@ -225,8 +225,8 @@ _LOCAL_SOURCES_WPTYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=625,
-  serialized_end=680,
+  serialized_start=647,
+  serialized_end=702,
 )
 
 _LOCAL_SOURCES_LOAD_AC_TYPE = _descriptor.Descriptor(
@@ -276,8 +276,8 @@ _LOCAL_SOURCES_LOAD_AC_TYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=682,
-  serialized_end=758,
+  serialized_start=704,
+  serialized_end=780,
 )
 
 _LOCAL_SOURCES_LOAD_DC_TYPE = _descriptor.Descriptor(
@@ -327,8 +327,8 @@ _LOCAL_SOURCES_LOAD_DC_TYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=760,
-  serialized_end=836,
+  serialized_start=782,
+  serialized_end=858,
 )
 
 _LOCAL_SOURCES_CONVERTOR_TYPE = _descriptor.Descriptor(
@@ -378,8 +378,8 @@ _LOCAL_SOURCES_CONVERTOR_TYPE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=838,
-  serialized_end=914,
+  serialized_start=860,
+  serialized_end=936,
 )
 
 _LOCAL_SOURCES = _descriptor.Descriptor(
@@ -460,8 +460,15 @@ _LOCAL_SOURCES = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='TIME_STAMP_COMMAND', full_name='local_sources.TIME_STAMP_COMMAND', index=10,
+      name='COMMAND_TYPE', full_name='local_sources.COMMAND_TYPE', index=10,
       number=11, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='TIME_STAMP_COMMAND', full_name='local_sources.TIME_STAMP_COMMAND', index=11,
+      number=12, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -479,7 +486,7 @@ _LOCAL_SOURCES = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=28,
-  serialized_end=914,
+  serialized_end=936,
 )
 
 _LOCAL_SOURCES_DGTYPE.containing_type = _LOCAL_SOURCES
