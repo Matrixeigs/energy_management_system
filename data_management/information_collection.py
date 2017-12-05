@@ -33,6 +33,8 @@ def information_collection_updating(*args):
     load_dc_info = info.load_dc[0]
     load_udc_info = info.load_dc[1]
     bic_info = info.bic[0]
+    command_type = info.COMMAND_TYPE
+
     ### Update the availability information
 
     models["DG"]["GEN_STATUS"] = [0]*T
@@ -45,6 +47,8 @@ def information_collection_updating(*args):
 
     models["PV"]["PG"] = [0]*T
     models["WP"]["PG"] = [0]*T
+    models["COMMAND_TYPE"] = command_type
+
     if T==1: # The single time step operation
         models["DG"]["GEN_STATUS"] = dg_info.GEN_STATUS
         models["UG"]["GEN_STATUS"] = ug_info.GEN_STATUS  # The microgrid is isolated.
@@ -56,6 +60,7 @@ def information_collection_updating(*args):
 
         models["PV"]["PG"] = pv_info.PG
         models["WP"]["PG"] = wp_info.PG
+
     else:
         for i in range(T):
             models["DG"]["GEN_STATUS"][i] = dg_info.GEN_STATUS._values[i]
@@ -70,6 +75,29 @@ def information_collection_updating(*args):
             models["WP"]["PG"][i] = wp_info.PG._values[i]
 
         models["ESS"]["SOC"] = float(ess_info.SOC._values[0])  # The initial energy state in the storage systems.
+
+    if command_type is 1: # The set-point tracing method
+        if T is 1:
+            models["UG"]["COMMAND_PG"] = ug_info.PG
+            models["UG"]["COMMANDD_QG"] = ug_info.QG
+            models["UG"]["COMMAND_RG"] = ug_info.RG
+
+            models["DG"]["COMMAND_PG"] = dg_info.PG
+            models["DG"]["COMMANDD_QG"] = ug_info.QG
+            models["DG"]["COMMAND_RG"] = ug_info.RG
+
+            models["ESS"]["SOC"] = ess_info.SOC
+            models["ESS"]["COMMAND_PG"] = ess_info.COMMAND_PG
+            models["ESS"]["COMMAND_RG"] = ess_info.COMMAND_RG
+
+            models["PV"]["COMMAND_CURT"] = pv_info.COMMAND_CURT
+            models["WP"]["COMMAND_CURT"] = wp_info.COMMAND_CURT
+
+            models["Load_ac"]["COMMAND_SHED"] = load_ac_info.COMMAND_SHED
+            models["Load_uac"]["COMMAND_SHED"] = load_uac_info.COMMAND_SHED
+            models["Load_dc"]["COMMAND_SHED"] = load_dc_info.COMMAND_SHED
+            models["Load_udc"]["COMMAND_SHED"] = load_udc_info.COMMAND_SHED
+
 
 
     return models

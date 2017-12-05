@@ -53,12 +53,20 @@ class information_formulation_extraction():
             ug_info.GEN_STATUS = model["UG"]["GEN_STATUS"]
         except:
             ug_info.GEN_STATUS = model["UG"]["GEN_STATUS"][0]
-        ug_info.PG = model["UG"]["COMMAND_PG"]
+
+        try:
+            ug_info.PG = model["UG"]["COMMAND_PG"]
+        except:
+            ug_info.PG = model["UG"]["COMMAND_PG"][0]
+
         try:
             ug_info.QG = model["UG"]["COMMANDD_QG"]
         except:
             ug_info.QG = 0
-        ug_info.RG = model["UG"]["COMMAND_RG"]
+        try:
+            ug_info.RG = model["UG"]["COMMAND_RG"]
+        except:
+            ug_info.RG = model["UG"]["COMMAND_RG"][0]
         # Update dg part information
         dg_info.DG_ID = 1
         try:
@@ -66,17 +74,39 @@ class information_formulation_extraction():
         except:
             dg_info.GEN_STATUS = model["DG"]["GEN_STATUS"][0]
 
-        dg_info.PG = model["DG"]["COMMAND_PG"]
-        dg_info.QG = model["DG"]["COMMAND_QG"]
-        dg_info.RG = model["DG"]["COMMAND_RG"]
+        try:
+            dg_info.PG = model["DG"]["COMMAND_PG"]
+        except:
+            dg_info.PG = model["DG"]["COMMAND_PG"][0]
+
+        try:
+            dg_info.QG = model["DG"]["COMMAND_QG"]
+        except:
+            dg_info.QG = model["DG"]["COMMAND_QG"][0]
+        try:
+            dg_info.RG = model["DG"]["COMMAND_RG"]
+        except:
+            dg_info.RG = model["DG"]["COMMAND_RG"][0]
 
         dynamic_info.dg.extend([ug_info, dg_info])
         # Update ess part information
         ess_info.ESS_ID = 1
         ess_info.ESS_STATUS = 1
-        ess_info.SOC = model["ESS"]["SOC"]
-        ess_info.PG = model["ESS"]["COMMAND_PG"]
-        ess_info.RG = model["ESS"]["COMMAND_RG"]
+        try:
+            ess_info.SOC = model["ESS"]["SOC"]
+        except:
+            ess_info.SOC = model["ESS"]["SOC"][0]
+
+        try:
+            ess_info.PG = model["ESS"]["COMMAND_PG"]
+        except:
+            ess_info.PG = model["ESS"]["COMMAND_PG"][0]
+
+        try:
+            ess_info.RG = model["ESS"]["COMMAND_RG"]
+        except:
+            ess_info.RG = model["ESS"]["COMMAND_RG"][0]
+
         dynamic_info.ess.extend([ess_info])
 
         # Update pv part information
@@ -85,8 +115,11 @@ class information_formulation_extraction():
             pv_info.PG = model["PV"]["PG"]
         except:
             pv_info.PG = model["PV"]["PG"][0]
+        try:
+            pv_info.COMMAND_CURT = model["PV"]["COMMAND_CURT"]
+        except:
+            pv_info.COMMAND_CURT = model["PV"]["COMMAND_CURT"][0]
 
-        pv_info.COMMAND_CURT = model["PV"]["COMMAND_CURT"]
         dynamic_info.pv.extend([pv_info])
 
         # Update wp part information
@@ -96,7 +129,10 @@ class information_formulation_extraction():
         except:
             wp_info.PG = model["WP"]["PG"][0]
 
-        wp_info.COMMAND_CURT = model["WP"]["COMMAND_CURT"]
+        try:
+            wp_info.COMMAND_CURT = model["WP"]["COMMAND_CURT"]
+        except:
+            wp_info.COMMAND_CURT = model["WP"]["COMMAND_CURT"][0]
         dynamic_info.wp.extend([wp_info])
         # Update load_ac part information
         try:
@@ -109,7 +145,10 @@ class information_formulation_extraction():
         except:
             load_ac_info.QD = model["Load_ac"]["QD"][0]
 
-        load_ac_info.COMMAND_SHED = model["Load_ac"]["COMMAND_SHED"]
+        try:
+            load_ac_info.COMMAND_SHED = model["Load_ac"]["COMMAND_SHED"]
+        except:
+            load_ac_info.COMMAND_SHED = model["Load_ac"]["COMMAND_SHED"][0]
 
         try:
             load_uac_info.PD = model["Load_uac"]["PD"]
@@ -121,7 +160,10 @@ class information_formulation_extraction():
         except:
             load_uac_info.QD = model["Load_uac"]["QD"][0]
 
-        load_uac_info.COMMAND_SHED = model["Load_uac"]["COMMAND_SHED"]
+        try:
+            load_uac_info.COMMAND_SHED = model["Load_uac"]["COMMAND_SHED"]
+        except:
+            load_uac_info.COMMAND_SHED = model["Load_uac"]["COMMAND_SHED"][0]
 
         dynamic_info.load_ac.extend([load_ac_info, load_uac_info])
         # Update load_dc part information
@@ -129,24 +171,41 @@ class information_formulation_extraction():
             load_dc_info.PD = model["Load_dc"]["PD"]
         except:
             load_dc_info.PD = model["Load_dc"]["PD"][0]
+        try:
+            load_dc_info.COMMAND_SHED = model["Load_dc"]["COMMAND_SHED"]
+        except:
+            load_dc_info.COMMAND_SHED = model["Load_dc"]["COMMAND_SHED"][0]
 
-        load_dc_info.COMMAND_SHED = model["Load_dc"]["COMMAND_SHED"]
         try:
             load_udc_info.PD = model["Load_udc"]["PD"]
         except:
             load_udc_info.PD = model["Load_udc"]["PD"][0]
 
-        load_udc_info.COMMAND_SHED = model["Load_udc"]["COMMAND_SHED"]
+        try:
+            load_udc_info.COMMAND_SHED = model["Load_udc"]["COMMAND_SHED"]
+        except:
+            load_udc_info.COMMAND_SHED = model["Load_udc"]["COMMAND_SHED"][0]
 
         dynamic_info.load_dc.extend([load_dc_info, load_udc_info])
         # Update convertor part information
         bic_info.STATUS = 1
-        bic_info.PAC2DC = model["BIC"]["COMMAND_AC2DC"]
-        bic_info.PDC2AC = model["BIC"]["COMMAND_DC2AC"]
+        try:
+            bic_info.PAC2DC = model["BIC"]["COMMAND_AC2DC"]
+        except:
+            bic_info.PAC2DC = model["BIC"]["COMMAND_AC2DC"][0]
+        try:
+            bic_info.PDC2AC = model["BIC"]["COMMAND_DC2AC"]
+        except:
+            bic_info.PDC2AC = model["BIC"]["COMMAND_DC2AC"][0]
 
         dynamic_info.bic.extend([bic_info])
+        try:
+            dynamic_info.PMG = model["PMG"]
+        except:
+            dynamic_info.PMG = model["PMG"][0]
 
-        dynamic_info.PMG = model["PMG"]
+        dynamic_info.COMMAND_TYPE = model["COMMAND_TYPE"]
+
         dynamic_info.TIME_STAMP_COMMAND = Target_time
 
         return dynamic_info
@@ -187,6 +246,7 @@ class information_formulation_extraction():
 
         model["PMG"] = info.PMG
         model["V_DC"] = info.V_DC
+        model["COMMAND_TYPE"] = info.COMMAND_TYPE # Return the command type to model
 
         return model
 
@@ -354,6 +414,8 @@ class information_formulation_extraction_dynamic():
             dynamic_info.PMG.extend(model["PMG"])
         else:
             dynamic_info.PMG.extend([model["PMG"]])
+
+        dynamic_info.COMMAND_TYPE = 0
         dynamic_info.TIME_STAMP_COMMAND = Target_time
 
         return dynamic_info
@@ -393,5 +455,6 @@ class information_formulation_extraction_dynamic():
 
         model["PMG"] = info.PMG._values
         # model["V_DC"] = info.V_DC
+        model["COMMAND_TYPE"] = info.COMMAND_TYPE
 
         return model
