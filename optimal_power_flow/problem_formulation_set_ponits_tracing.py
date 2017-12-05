@@ -8,6 +8,7 @@
 
 from numpy import array, vstack, zeros
 import numpy
+from configuration import configuration_eps
 # The data structure is imported from numpy.
 
 class problem_formulation_set_points_tracing():
@@ -66,30 +67,33 @@ class problem_formulation_set_points_tracing():
         ub[PMG] = 0  # The line flow limitation, the predefined status is, the transmission line is off-line
 
         ub[PMG_positive] = 0 # This boundary information will ne updated to the
-        ub[PMG_positive] = 0
+        ub[PMG_negative] = 0
         ub[PUG_positve] = model["UG"]["PMAX"]
         ub[PUG_negative] = model["UG"]["PMAX"]
-        ub[SOC_positive] = 1
-        ub[SOC_negative] = 1
+        ub[SOC_positive] = model["ESS"]["PMAX_DIS"] + model["ESS"]["PMAX_CH"] # The up relaxation of SOC, this is
+        ub[SOC_negative] = model["ESS"]["PMAX_DIS"] + model["ESS"]["PMAX_CH"] # The up relaxation of SOC
         ## Constraints set
         # 1) Power balance equation
         Aeq = zeros(NX)
-        beq = []
+        beq = [ ]
         Aeq[PG] = 1
         Aeq[PUG] = 1
         Aeq[PBIC_AC2DC] = -1
-        Aeq[PBIC_DC2AC] = model["BIC"]["EFF_DC2AC"]
-        if type(model["Load_ac"]["PD"]) is list:
-            beq.append(model["Load_ac"]["PD"][0] + model["Load_uac"]["PD"][0])
-        else:
-            beq.append(model["Load_ac"]["PD"] + model["Load_uac"]["PD"])
+        Aeq[PUG_negative] = -1
+        Aeq[PUG_positve] = 1
+        beq.append(model["Load_ac"]["PD"] + model["Load_uac"]["PD"])
         # 2) DC power balance equation
         Aeq_temp = zeros(NX)
         Aeq_temp[PBIC_AC2DC] = model["BIC"]["EFF_AC2DC"]
         Aeq_temp[PBIC_DC2AC] = -1
         Aeq_temp[PESS_C] = -1
         Aeq_temp[PESS_DC] = 1
+        Aeq_temp[SOC_negative] = 1
+        Aeq_temp[SOC_positive] = -1
         Aeq_temp[PMG] = -1
+        Aeq_temp[PMG_negative] = 1
+        Aeq_temp[PMG_positive] = -1
+
         Aeq = vstack([Aeq, Aeq_temp])
         beq.append(model["Load_dc"]["PD"] + model["Load_udc"]["PD"] - model["PV"]["PG"] - model["WP"]["PG"])
         ## This erro is caused by the information collection, and the model formulated is list. This is easy for the use
@@ -109,6 +113,8 @@ class problem_formulation_set_points_tracing():
             "Time_step_opf"] / 3600
         Aeq = vstack([Aeq, Aeq_temp])
         beq.append(model["ESS"]["SOC"] * model["ESS"]["CAP"])
+
+
         # Inequality constraints
         # 1) PG + RG <= PGMAX
         # 2) PG - RG >= PGMIN
@@ -174,6 +180,13 @@ class problem_formulation_set_points_tracing():
         c[PUG] = model["UG"]["COST"][0]
         c[PESS_C] = model["ESS"]["COST_CH"][0]
         c[PESS_DC] = model["ESS"]["COST_DIS"][0]
+        # Add the constraints to the local optimal power flow
+        c[PMG_negative] = configuration_eps.default_eps["Penalty_opf"]
+        c[PMG_positive] = configuration_eps.default_eps["Penalty_opf"]
+        c[PUG_positve] = configuration_eps.default_eps["Penalty_opf"]
+        c[PUG_negative] = configuration_eps.default_eps["Penalty_opf"]
+        c[SOC_positive] = configuration_eps.default_eps["Penalty_opf"]
+        c[SOC_negative] = configuration_eps.default_eps["Penalty_opf"]
 
         mathematical_model = {"c": c,
                               "Aeq": Aeq,

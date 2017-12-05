@@ -7,6 +7,8 @@ from data_management.information_management import information_formulation_extra
 from data_management.information_management import information_receive_send
 from optimal_power_flow.short_term_forecasting import ForecastingThread
 from configuration.configuration_time_line import default_dead_line_time
+from optimal_power_flow.set_ponits_tracing import set_points_tracing_opf
+
 from utils import Logger
 from configuration.configuration_time_line import default_look_ahead_time_step
 from copy import deepcopy
@@ -55,6 +57,8 @@ class short_term_operation():
         # Solve the optimal power flow problem
         local_models = input_check_short_term.model_local_check(local_models)
         universal_models = input_check_short_term.model_universal_check(universal_models)
+        universal_models = set_points_tracing_opf(Target_time, session, universal_models)  # Update the
+
         # Two threads will be created, one for feasible problem, the other for infeasible problem
         mathematical_model = problem_formulation.problem_formulation_universal(local_models, universal_models,
                                                                               "Feasible")
@@ -123,7 +127,11 @@ class short_term_operation():
         local_models = thread_forecasting.models
 
         # Update the dynamic model
-        local_models = input_check_short_term.model_local_check(local_models)
+        local_models = input_check_short_term.model_local_check(local_models) # Check the data format of local ems
+        local_models = set_points_tracing_opf(Target_time,session,local_models) # Update the
+
+
+
         dynamic_model = information_formulation_extraction.info_formulation(local_models, Target_time)
         # Information send
         logger_lems.info("Sending request from {}".format(dynamic_model.AREA) + " to the serve")
