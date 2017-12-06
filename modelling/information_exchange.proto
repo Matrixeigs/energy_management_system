@@ -10,52 +10,52 @@ message informaiton_exchange {
     message DgType {
         int32 DG_ID = 1;
         bool GEN_STATUS = 2;
-        int32 PG = 3;
-        int32 QG = 4;
-        int32 RG = 5;
+        int32 PG = 3;// Used to upload and download the setpoint
+        int32 QG = 4;// Used to upload and download the setpoint
+        int32 RG = 5;// Used to upload and download the setpoint
     }
 
     //The defination of energy storage systems
     message EssType {
         int32 ESS_ID = 1;
         bool ESS_STATUS = 2;
-        float SOC = 3;
-        int32 PG = 4;
-        int32 RG = 5;
+        float SOC = 3;// Used to upload and download the setpoint
+        int32 PG = 4;// Used to upload and download the setpoint
+        int32 RG = 5;// Used to upload and download the setpoint
     }
 
     //The defination of pv
     message PvType {
         int32 NPV = 1;
         float PG = 2;
-        int32 COMMAND_CURT = 3;
+        int32 COMMAND_CURT = 3;// Used to upload and download the setpoint
     }
 
     //The defination of wind turbine
     message WpType {
         int32 NWP = 1;
         float PG = 2;
-        int32 COMMAND_CURT = 3;
+        int32 COMMAND_CURT = 3;// Used to upload and download the setpoint
     }
 
     //The defination of ac critical load
     message Load_AC_Type {
         float PD = 1;
         float QD = 2;
-        float COMMAND_SHED = 3;
+        float COMMAND_SHED = 3;// Used to upload and download the setpoint
     }
 
     //The defination of dc load
     message Load_DC_Type {
         float PD = 1;
-        float COMMAND_SHED = 2;
+        float COMMAND_SHED = 2;// Used to upload and download the setpoint
     }
 
     //The defination of convertor
     message Convertor_Type {
         bool STATUS = 1;
-        float PAC2DC = 2;
-        float PDC2AC = 3;
+        float PAC2DC = 2;// Used to upload and download the setpoint
+        float PDC2AC = 3;// Used to upload and download the setpoint
     }
 
     repeated DgType dg = 3;
@@ -66,7 +66,7 @@ message informaiton_exchange {
     repeated Load_DC_Type load_dc = 8;
     repeated Convertor_Type bic = 9;
 
-    int32 PMG = 10;
+    int32 PMG = 10;// Used to upload and download the setpoint
     float V_DC = 11;
     int32 COMMAND_TYPE = 12;
     int32 TIME_STAMP_COMMAND = 13;
