@@ -10,7 +10,7 @@ from numpy import array, vstack, zeros
 import numpy
 from configuration import configuration_eps
 # The data structure is imported from numpy.
-
+# The relaxation is to relax the boundary variables
 class problem_formulation_set_points_tracing():
     ## Reformulte the information model to system level
     def problem_formulation_local(*args):
@@ -79,8 +79,6 @@ class problem_formulation_set_points_tracing():
         Aeq[PG] = 1
         Aeq[PUG] = 1
         Aeq[PBIC_AC2DC] = -1
-        Aeq[PUG_negative] = -1
-        Aeq[PUG_positve] = 1
         beq.append(model["Load_ac"]["PD"] + model["Load_uac"]["PD"])
         # 2) DC power balance equation
         Aeq_temp = zeros(NX)
@@ -88,12 +86,7 @@ class problem_formulation_set_points_tracing():
         Aeq_temp[PBIC_DC2AC] = -1
         Aeq_temp[PESS_C] = -1
         Aeq_temp[PESS_DC] = 1
-        Aeq_temp[SOC_negative] = 1
-        Aeq_temp[SOC_positive] = -1
         Aeq_temp[PMG] = -1
-        Aeq_temp[PMG_negative] = 1
-        Aeq_temp[PMG_positive] = -1
-
         Aeq = vstack([Aeq, Aeq_temp])
         beq.append(model["Load_dc"]["PD"] + model["Load_udc"]["PD"] - model["PV"]["PG"] - model["WP"]["PG"])
         ## This erro is caused by the information collection, and the model formulated is list. This is easy for the use
@@ -113,8 +106,6 @@ class problem_formulation_set_points_tracing():
             "Time_step_opf"] / 3600
         Aeq = vstack([Aeq, Aeq_temp])
         beq.append(model["ESS"]["SOC"] * model["ESS"]["CAP"])
-
-
         # Inequality constraints
         # 1) PG + RG <= PGMAX
         # 2) PG - RG >= PGMIN
@@ -125,6 +116,12 @@ class problem_formulation_set_points_tracing():
         # 7) EESS - RESS*delta >= EESSMIN
         # 8) EESS + RESS*delta <= EESSMAX
         # 9) RG + RUG + RESS >= sum(Load)*beta + sum(PV)*beta_pv + sum(WP)*beta_wp
+        # 10) PUG-PUG_positive<=PUG_SET_POINT
+        # 11) PUG+PUG_negative>=PUG_SET_POINT
+        # 12) PMG-PMG_positive<=PMG_SET_POINT
+        # 13) PMG+PMG_negative>=PMG_SET_POINT
+        # 14) PESS_DC-PESS_C-SOC_positve<=PESS_SET_POINT
+        # 14) PESS_DC-PESS_C+SOC_negative>=PESS_SET_POINT
         Aineq = zeros(NX)
         bineq = []
         Aineq[PG] = 1
