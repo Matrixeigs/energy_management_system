@@ -10,6 +10,9 @@ def middle2short_operation(*args):
     delta_T = default_time["Time_step_opf"]
     compress_rate = int(default_time["Time_step_ed"]/default_time["Time_step_opf"])
     add_len = int(default_time["Look_ahead_time_ed"]/delta_T) # Amount of data should be added
+    # Remove old data
+    session.query(middle2short).filter(middle2short.TIME_STAMP < Target_time - delta_T).delete()
+    session.commit()
 
     for i in range(add_len): # Add the set-pointed repeatly
         if session.query(middle2short).filter(middle2short.TIME_STAMP == Target_time + i * delta_T).count() == 0:
