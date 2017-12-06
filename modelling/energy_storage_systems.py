@@ -2,6 +2,7 @@
 #The following types of ESSs are included:
 #1) Battery energy storage system
 #2) Thermal energy storage system
+#3) The modelling includes static information, measre
 import configuration.configuration_default_ess as default_parameters
 ############################1) Battery energy storage system ###############
 BESS =\
@@ -16,6 +17,8 @@ BESS =\
         "SOC_MAX":default_parameters.BESS["SOC_MAX"],
         "SOC_MIN":default_parameters.BESS["SOC_MIN"],
         "SOC":default_parameters.BESS["SOC"],
+        "P_DIS": default_parameters.BESS["P_DIS"],
+        "P_CH": default_parameters.BESS["P_CH"],
         "COST_MODEL":default_parameters.BESS["COST_MODEL"],
         "NCOST_DIS":default_parameters.BESS["NCOST_DIS"],
         "COST_DIS":default_parameters.BESS["COST_DIS"],
