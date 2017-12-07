@@ -180,13 +180,13 @@ class problem_formulation_set_points_tracing():
         Aineq_temp[PUG] = 1
         Aineq_temp[PUG_positve] = -1
         Aineq = vstack([Aineq, Aineq_temp])
-        bineq.append(model["UG"]["PG"])
+        bineq.append(model["UG"]["COMMAND_PG"])
         # 11）
         Aineq_temp = zeros(NX)
         Aineq_temp[PUG] = -1
         Aineq_temp[PUG_negative] = -1
         Aineq = vstack([Aineq, Aineq_temp])
-        bineq.append(-model["UG"]["PG"])
+        bineq.append(-model["UG"]["COMMAND_PG"])
         # 12）
         Aineq_temp = zeros(NX)
         Aineq_temp[PMG] = 1
@@ -205,14 +205,14 @@ class problem_formulation_set_points_tracing():
         Aineq_temp[PESS_C] = -1
         Aineq_temp[SOC_positive] = -1
         Aineq = vstack([Aineq, Aineq_temp])
-        bineq.append(model["ESS"]["PG"])
+        bineq.append(model["ESS"]["COMMAND_PG"])
         # 15）
         Aineq_temp = zeros(NX)
         Aineq_temp[PESS_DC] = -1
         Aineq_temp[PESS_C] = 1
         Aineq_temp[SOC_negative] = -1
         Aineq = vstack([Aineq, Aineq_temp])
-        bineq.append(-model["ESS"]["PG"])
+        bineq.append(-model["ESS"]["COMMAND_PG"])
 
         c = zeros(NX)
         c[PG] = model["DG"]["COST"][0]

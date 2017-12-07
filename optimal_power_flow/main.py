@@ -86,7 +86,7 @@ class short_term_operation():
         universal_models = output_local_check(universal_models)
 
         # Return command to the local ems
-        dynamic_model = information_formulation_extraction.info_formulation(local_models, Target_time)
+        dynamic_model = information_formulation_extraction.info_formulation(local_models, Target_time, info)
         dynamic_model.TIME_STAMP_COMMAND = round(time.time())
 
         information_send_thread = threading.Thread(target=information_receive_send.information_send,
@@ -132,7 +132,7 @@ class short_term_operation():
 
 
 
-        dynamic_model = information_formulation_extraction.info_formulation(local_models, Target_time)
+        dynamic_model = information_formulation_extraction.info_formulation(local_models, Target_time, info)
         # Information send
         logger_lems.info("Sending request from {}".format(dynamic_model.AREA) + " to the serve")
         logger_lems.info("The local time is {}".format(dynamic_model.TIME_STAMP))
