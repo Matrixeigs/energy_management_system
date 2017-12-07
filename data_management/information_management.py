@@ -27,26 +27,28 @@ class information_receive_send():
 class information_formulation_extraction():
     ## Dynamic model formulation and extraction
     def info_formulation(*args):
-        import modelling.information_exchange_pb2 as dynamic_model  # The information model
         model = args[0]
         Target_time = args[1]
+        info = args[2]
         # 1) Initial dynamic model
-        dynamic_info = dynamic_model.informaiton_exchange()
+        dynamic_info = info
         #################################The information structure
-        ug_info = dynamic_model.informaiton_exchange.DgType()
-        dg_info = dynamic_model.informaiton_exchange.DgType()
-        ess_info = dynamic_model.informaiton_exchange.EssType()
-        pv_info = dynamic_model.informaiton_exchange.PvType()
-        wp_info = dynamic_model.informaiton_exchange.WpType()
-        load_ac_info = dynamic_model.informaiton_exchange.Load_AC_Type()
-        load_dc_info = dynamic_model.informaiton_exchange.Load_DC_Type()
-        load_uac_info = dynamic_model.informaiton_exchange.Load_AC_Type()
-        load_udc_info = dynamic_model.informaiton_exchange.Load_DC_Type()
-        bic_info = dynamic_model.informaiton_exchange.Convertor_Type()
+        ug_info = info.DgType()
+        dg_info = info.DgType()
+        ess_info = info.EssType()
+        pv_info = info.PvType()
+        wp_info = info.WpType()
+        load_ac_info = info.Load_AC_Type()
+        load_dc_info = info.Load_DC_Type()
+        load_uac_info = info.Load_AC_Type()
+        load_udc_info = info.Load_DC_Type()
+        bic_info = info.Convertor_Type()
 
         # Obtain information from the external systems
         dynamic_info.AREA = model["UG"]["AREA"]
         dynamic_info.TIME_STAMP = Target_time
+        # The control parameter is used to control the control path
+
         # Update utility grid information
         ug_info.DG_ID = 0
         try:
