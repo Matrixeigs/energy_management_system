@@ -18,6 +18,7 @@ BESS =\
         "SOC_MIN":default_parameters.BESS["SOC_MIN"],
         "SOC":default_parameters.BESS["SOC"],
         "PG": default_parameters.BESS["PG"],
+        "RG": default_parameters.BESS["RG"],
         "COST_MODEL":default_parameters.BESS["COST_MODEL"],
         "NCOST_DIS":default_parameters.BESS["NCOST_DIS"],
         "COST_DIS":default_parameters.BESS["COST_DIS"],

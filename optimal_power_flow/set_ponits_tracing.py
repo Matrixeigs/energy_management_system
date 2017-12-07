@@ -31,8 +31,8 @@ def set_points_tracing_opf(*args):
         model["BIC"]["P_AC2DC"] = 0
         model["BIC"]["P_DC2AC"] = 0
 
-        model["ESS"]["COMMAND_PG"] = 0
-        model["ESS"]["COMMAND_RG"] = 0
+        model["ESS"]["PG"] = 0
+        model["ESS"]["RG"] = 0
         # model["ESS"]["SOC"] = 0 The SOC should not be set to zero
 
         model["PV"]["COMMAND_CURT"] = 0
