@@ -73,10 +73,13 @@ def set_points_tracing_opf(*args):
     try:
         if T == 1:
             row = session.query(middle2short).filter(middle2short.TIME_STAMP == Target_time).first()
-            model["DG"]["PG"] = row.DG_PG
-            model["UG"]["PG"] = row.UG_PG
             model["DG"]["GEN_STATUS"] = row.DG_STATUS
+            model["DG"]["PG"] = row.DG_PG
+            model["DG"]["QG"] = row.DG_QG
+
             model["UG"]["GEN_STATUS"] = row.UG_STATUS
+            model["UG"]["PG"] = row.UG_PG
+            model["UG"]["QG"] = row.UG_QG
 
             if row.BIC_PG > 0:
                 model["BIC"]["P_AC2DC"] = 0
@@ -99,9 +102,14 @@ def set_points_tracing_opf(*args):
             model["Load_udc"]["COMMAND_SHED"] = row.UDC_SHED
         else:
             for i in range(T):
-                row = session.query(middle2short).filter(middle2short.TIME_STAMP == Target_time + i * delta_T).count()
+                row = session.query(middle2short).filter(middle2short.TIME_STAMP == Target_time + i * delta_T).first()
+                model["DG"]["GEN_STATUS"][i] = row.DG_STATUS
                 model["DG"]["PG"][i] = row.DG_PG
+                model["DG"]["QG"][i] = row.DG_QG
+
+                model["UG"]["GEN_STATUS"][i] = row.UG_STATUS
                 model["UG"]["PG"][i] = row.UG_PG
+                model["UG"]["QG"][i] = row.UG_QG
 
                 if row.BIC_PG>0:
                     model["BIC"]["P_AC2DC"][i] = 0
