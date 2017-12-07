@@ -19,21 +19,21 @@ def set_points_tracing_opf(*args):
 
     if T == 1:
         model["DG"]["GEN_STATUS"] = 0 # This should be updated according to the unit commitment resul
-        model["DG"]["PG"] = 0
-        model["DG"]["RG"] = 0
-        model["DG"]["QG"] = 0
+        model["DG"]["COMMAND_PG"] = 0
+        model["DG"]["COMMAND_RG"] = 0
+        model["DG"]["COMMAND_QG"] = 0
 
         model["UG"]["GEN_STATUS"] = 0
-        model["UG"]["PG"] = 0
-        model["UG"]["RG"] = 0
-        model["UG"]["QG"] = 0
+        model["UG"]["COMMAND_PG"] = 0
+        model["UG"]["COMMAND_RG"] = 0
+        model["UG"]["COMMAND_QG"] = 0
 
-        model["BIC"]["P_AC2DC"] = 0
-        model["BIC"]["P_DC2AC"] = 0
+        model["BIC"]["COMMAND_AC2DC"] = 0
+        model["BIC"]["COMMAND_DC2AC"] = 0
 
-        model["ESS"]["PG"] = 0
-        model["ESS"]["RG"] = 0
-        # model["ESS"]["SOC"] = 0 The SOC should not be set to zero
+        model["ESS"]["COMMAND_PG"] = 0
+        model["ESS"]["COMMAND_RG"] = 0
+        model["ESS"]["COMMAND_SOC"] = 0 #The SOC should not be set to zero
 
         model["PV"]["COMMAND_CURT"] = 0
         model["WP"]["COMMAND_CURT"] = 0
@@ -46,19 +46,18 @@ def set_points_tracing_opf(*args):
         model["Load_udc"]["COMMAND_SHED"] = 0
     else:
         model["DG"]["GEN_STATUS"] = [0] * T
-        model["DG"]["PG"] = [0] * T
-        model["DG"]["RG"] = [0] * T
+        model["DG"]["COMMAND_PG"] = [0] * T
+        model["DG"]["COMMAND_RG"] = [0] * T
 
         model["UG"]["GEN_STATUS"] = [0] * T
-        model["UG"]["PG"] = [0] * T
-        model["UG"]["RG"] = [0] * T
+        model["UG"]["COMMAND_PG"] = [0] * T
+        model["UG"]["COMMAND_RG"] = [0] * T
 
-        model["BIC"]["P_AC2DC"] = [0] * T
-        model["BIC"]["P_DC2AC"] = [0] * T
+        model["BIC"]["COMMAND_AC2DC"] = [0] * T
+        model["BIC"]["COMMAND_DC2AC"] = [0] * T
 
-        model["ESS"]["PG"] = [0] * T
-        model["ESS"]["RG"] = [0] * T
-        model["ESS"]["SOC"] = [0] * T
+        model["ESS"]["COMMAND_PG"] = [0] * T
+        model["ESS"]["COMMAND_RG"] = [0] * T
 
         model["PV"]["COMMAND_CURT"] = [0] * T
         model["WP"]["COMMAND_CURT"] = [0] * T
@@ -74,22 +73,21 @@ def set_points_tracing_opf(*args):
         if T == 1:
             row = session.query(middle2short).filter(middle2short.TIME_STAMP == Target_time).first()
             model["DG"]["GEN_STATUS"] = row.DG_STATUS
-            model["DG"]["PG"] = row.DG_PG
-            model["DG"]["QG"] = row.DG_QG
+            model["DG"]["COMMAND_PG"] = row.DG_PG
+            model["DG"]["COMMAND_QG"] = row.DG_QG
 
             model["UG"]["GEN_STATUS"] = row.UG_STATUS
-            model["UG"]["PG"] = row.UG_PG
-            model["UG"]["QG"] = row.UG_QG
+            model["UG"]["COMMAND_PG"] = row.UG_PG
+            model["UG"]["COMMAND_QG"] = row.UG_QG
 
             if row.BIC_PG > 0:
-                model["BIC"]["P_AC2DC"] = 0
-                model["BIC"]["P_DC2AC"] = row.BIC_PG
+                model["BIC"]["COMMAND_AC2DC"] = 0
+                model["BIC"]["COMMAND_DC2AC"] = row.BIC_PG
             else:
-                model["BIC"]["P_AC2DC"] = -row.BIC_PG
-                model["BIC"]["P_DC2AC"] = 0
+                model["BIC"]["COMMAND_AC2DC"] = -row.BIC_PG
+                model["BIC"]["COMMAND_DC2AC"] = 0
 
-            model["ESS"]["PG"] = row.BAT_PG
-            model["ESS"]["SOC"] = row.BAT_SOC
+            model["ESS"]["COMMAND_PG"] = row.BAT_PG
 
             model["PMG"] = row.PMG
 
@@ -104,22 +102,21 @@ def set_points_tracing_opf(*args):
             for i in range(T):
                 row = session.query(middle2short).filter(middle2short.TIME_STAMP == Target_time + i * delta_T).first()
                 model["DG"]["GEN_STATUS"][i] = row.DG_STATUS
-                model["DG"]["PG"][i] = row.DG_PG
-                model["DG"]["QG"][i] = row.DG_QG
+                model["DG"]["COMMAND_PG"][i] = row.DG_PG
+                model["DG"]["COMMAND_QG"][i] = row.DG_QG
 
                 model["UG"]["GEN_STATUS"][i] = row.UG_STATUS
-                model["UG"]["PG"][i] = row.UG_PG
-                model["UG"]["QG"][i] = row.UG_QG
+                model["UG"]["COMMAND_PG"][i] = row.UG_PG
+                model["UG"]["COMMAND_QG"][i] = row.UG_QG
 
                 if row.BIC_PG>0:
-                    model["BIC"]["P_AC2DC"][i] = 0
-                    model["BIC"]["P_DC2AC"][i] = row.BIC_PG
+                    model["BIC"]["COMMAND_AC2DC"][i] = 0
+                    model["BIC"]["COMMAND_DC2AC"][i] = row.BIC_PG
                 else:
-                    model["BIC"]["P_AC2DC"][i] = -row.BIC_PG
-                    model["BIC"]["P_DC2AC"][i] = 0
+                    model["BIC"]["COMMAND_AC2DC"][i] = -row.BIC_PG
+                    model["BIC"]["COMMAND_DC2AC"][i] = 0
 
-                model["ESS"]["PG"][i] = row.BAT_PG
-                model["ESS"]["SOC"][i] = row.BAT_SOC
+                model["ESS"]["COMMAND_PG"][i] = row.BAT_PG
 
                 model["PMG"][i] = row.PMG
 
@@ -132,6 +129,7 @@ def set_points_tracing_opf(*args):
                 model["Load_udc"]["COMMAND_SHED"][i] = row.UDC_SHED
 
         model["COMMAND_TYPE"] = 1 # This is the set-point tracing
+
     except:
         model["COMMAND_TYPE"] = 0  # This is not the set-point tracing
 
