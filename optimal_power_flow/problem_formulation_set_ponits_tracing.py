@@ -38,7 +38,7 @@ class problem_formulation_set_points_tracing():
         lb[PESS_DC] = 0
         lb[RESS] = 0
         lb[EESS] = model["ESS"]["SOC_MIN"] * model["ESS"]["CAP"]
-
+        # Update the relaxations
         lb[PMG] = 0  # The line flow limitation, the predefined status is, the transmission line is off-line
         lb[PMG_negative] = 0
         lb[PMG_positive] = 0
@@ -121,57 +121,99 @@ class problem_formulation_set_points_tracing():
         # 12) PMG-PMG_positive<=PMG_SET_POINT
         # 13) PMG+PMG_negative>=PMG_SET_POINT
         # 14) PESS_DC-PESS_C-SOC_positve<=PESS_SET_POINT
-        # 14) PESS_DC-PESS_C+SOC_negative>=PESS_SET_POINT
+        # 15) PESS_DC-PESS_C+SOC_negative>=PESS_SET_POINT
+        # 1）
         Aineq = zeros(NX)
-        bineq = []
+        bineq = [ ]
         Aineq[PG] = 1
         Aineq[RG] = 1
         bineq.append(model["DG"]["PMAX"])
-
+        # 2）
         Aineq_temp = zeros(NX)
         Aineq_temp[PG] = -1
         Aineq_temp[RG] = 1
         Aineq = vstack([Aineq, Aineq_temp])
         bineq.append(-model["DG"]["PMIN"])
-
+        # 3）
         Aineq_temp = zeros(NX)
         Aineq_temp[PUG] = 1
         Aineq_temp[RUG] = 1
         Aineq = vstack([Aineq, Aineq_temp])
         bineq.append(model["UG"]["PMAX"])
-
+        # 4）
         Aineq_temp = zeros(NX)
         Aineq_temp[PUG] = -1
         Aineq_temp[RUG] = 1
         Aineq = vstack([Aineq, Aineq_temp])
         bineq.append(-model["UG"]["PMIN"])
-
+        # 5）
         Aineq_temp = zeros(NX)
         Aineq_temp[PESS_DC] = 1
         Aineq_temp[PESS_C] = -1
         Aineq_temp[RESS] = 1
         Aineq = vstack([Aineq, Aineq_temp])
         bineq.append(model["ESS"]["PMAX_DIS"])
-
+        # 6）
         Aineq_temp = zeros(NX)
         Aineq_temp[PESS_DC] = -1
         Aineq_temp[PESS_C] = 1
         Aineq_temp[RESS] = 1
         Aineq = vstack([Aineq, Aineq_temp])
         bineq.append(model["ESS"]["PMAX_CH"])
-
+        # 7）
         Aineq_temp = zeros(NX)
         Aineq_temp[EESS] = -1
         Aineq_temp[RESS] = configuration_time_line.default_time["Time_step_opf"] / 3600
         Aineq = vstack([Aineq, Aineq_temp])
         bineq.append(-model["ESS"]["SOC_MIN"] * model["ESS"]["CAP"])
-
+        # 8）
         Aineq_temp = zeros(NX)
         Aineq_temp[EESS] = 1
         Aineq_temp[RESS] = configuration_time_line.default_time["Time_step_opf"] / 3600
         Aineq = vstack([Aineq, Aineq_temp])
         bineq.append(model["ESS"]["SOC_MAX"] * model["ESS"]["CAP"])
+        # 9）
         # No reserve requirement
+
+        # 10）
+        Aineq_temp = zeros(NX)
+        Aineq_temp[PUG] = 1
+        Aineq_temp[PUG_positve] = -1
+        Aineq = vstack([Aineq, Aineq_temp])
+        bineq.append(model["UG"]["PG"])
+        # 11）
+        Aineq_temp = zeros(NX)
+        Aineq_temp[PUG] = -1
+        Aineq_temp[PUG_negative] = -1
+        Aineq = vstack([Aineq, Aineq_temp])
+        bineq.append(-model["UG"]["PG"])
+        # 12）
+        Aineq_temp = zeros(NX)
+        Aineq_temp[PMG] = 1
+        Aineq_temp[PMG_positive] = -1
+        Aineq = vstack([Aineq, Aineq_temp])
+        bineq.append(model["PMG"])
+        # 13）
+        Aineq_temp = zeros(NX)
+        Aineq_temp[PMG] = -1
+        Aineq_temp[PMG_negative] = -1
+        Aineq = vstack([Aineq, Aineq_temp])
+        bineq.append(-model["PMG"])
+        # 14）
+        Aineq_temp = zeros(NX)
+        Aineq_temp[PESS_DC] = 1
+        Aineq_temp[PESS_C] = -1
+        Aineq_temp[SOC_positive] = -1
+        Aineq = vstack([Aineq, Aineq_temp])
+        bineq.append(model["ESS"]["PG"])
+        # 15）
+        Aineq_temp = zeros(NX)
+        Aineq_temp[PESS_DC] = -1
+        Aineq_temp[PESS_C] = 1
+        Aineq_temp[SOC_negative] = -1
+        Aineq = vstack([Aineq, Aineq_temp])
+        bineq.append(-model["ESS"]["PG"])
+
         c = zeros(NX)
         c[PG] = model["DG"]["COST"][0]
         c[PUG] = model["UG"]["COST"][0]
