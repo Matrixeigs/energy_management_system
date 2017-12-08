@@ -180,24 +180,28 @@ class problem_formulation_tracing():
             Aineq_temp[i][i * NX + PUG] = 1
             Aineq_temp[i][i * NX + PUG_positive] = -1
             bineq.append(model["UG"]["COMMAND_PG"][i])
+        Aineq = vstack([Aineq, Aineq_temp])
         # 11) PUG+PUG_negative>=PUG_SET_POINT
         Aineq_temp = zeros((T, nx))
         for i in range(T):
             Aineq_temp[i][i * NX + PUG] = -1
             Aineq_temp[i][i * NX + PUG_negative] = -1
             bineq.append(-model["UG"]["COMMAND_PG"][i])
+        Aineq = vstack([Aineq, Aineq_temp])
         # 12) PMG-PMG_positive<=PMG_SET_POINT
         Aineq_temp = zeros((T, nx))
         for i in range(T):
             Aineq_temp[i][i * NX + PMG] = 1
             Aineq_temp[i][i * NX + PMG_positive] = -1
             bineq.append(model["PMG"][i])
+        Aineq = vstack([Aineq, Aineq_temp])
         # 13) PMG+PMG_negative>=PMG_SET_POINT
         Aineq_temp = zeros((T, nx))
         for i in range(T):
             Aineq_temp[i][i * NX + PMG] = -1
             Aineq_temp[i][i * NX + PMG_negative] = -1
             bineq.append(-model["PMG"][i])
+        Aineq = vstack([Aineq, Aineq_temp])
         # 14) PESS_DC-PESS_C-SOC_positve<=PESS_SET_POINT
         Aineq_temp = zeros((T, nx))
         for i in range(T):
@@ -205,6 +209,7 @@ class problem_formulation_tracing():
             Aineq_temp[i][i * NX + PESS_C] = -1
             Aineq_temp[i][i * NX + SOC_positive] = -1
             bineq.append(model["ESS"]["COMMAND_PG"][i])
+        Aineq = vstack([Aineq, Aineq_temp])
         # 15) PESS_DC-PESS_C+SOC_negative>=PESS_SET_POINT
         Aineq_temp = zeros((T, nx))
         for i in range(T):
@@ -212,6 +217,7 @@ class problem_formulation_tracing():
             Aineq_temp[i][i * NX + PESS_C] = 1
             Aineq_temp[i][i * NX + SOC_positive] = -1
             bineq.append(-model["ESS"]["COMMAND_PG"][i])
+        Aineq = vstack([Aineq, Aineq_temp])
 
         c = [0] * NX
         if model["DG"]["COST_MODEL"] == 2:
@@ -428,24 +434,28 @@ class problem_formulation_tracing():
             Aineq_temp[i][i * NX + PUG] = 1
             Aineq_temp[i][i * NX + PUG_positive] = -1
             bineq.append(model["UG"]["COMMAND_PG"][i])
+        Aineq = vstack([Aineq, Aineq_temp])
         # 11) PUG+PUG_negative>=PUG_SET_POINT
         Aineq_temp = zeros((T, nx))
         for i in range(T):
             Aineq_temp[i][i * NX + PUG] = -1
             Aineq_temp[i][i * NX + PUG_negative] = -1
             bineq.append(-model["UG"]["COMMAND_PG"][i])
+        Aineq = vstack([Aineq, Aineq_temp])
         # 12) PMG-PMG_positive<=PMG_SET_POINT
         Aineq_temp = zeros((T, nx))
         for i in range(T):
             Aineq_temp[i][i * NX + PMG] = 1
             Aineq_temp[i][i * NX + PMG_positive] = -1
             bineq.append(model["PMG"][i])
+        Aineq = vstack([Aineq, Aineq_temp])
         # 13) PMG+PMG_negative>=PMG_SET_POINT
         Aineq_temp = zeros((T, nx))
         for i in range(T):
             Aineq_temp[i][i * NX + PMG] = -1
             Aineq_temp[i][i * NX + PMG_negative] = -1
             bineq.append(-model["PMG"][i])
+        Aineq = vstack([Aineq, Aineq_temp])
         # 14) PESS_DC-PESS_C-SOC_positve<=PESS_SET_POINT
         Aineq_temp = zeros((T, nx))
         for i in range(T):
@@ -453,6 +463,7 @@ class problem_formulation_tracing():
             Aineq_temp[i][i * NX + PESS_C] = -1
             Aineq_temp[i][i * NX + SOC_positive] = -1
             bineq.append(model["ESS"]["COMMAND_PG"][i])
+        Aineq = vstack([Aineq, Aineq_temp])
         # 15) PESS_DC-PESS_C+SOC_negative>=PESS_SET_POINT
         Aineq_temp = zeros((T, nx))
         for i in range(T):
@@ -460,6 +471,7 @@ class problem_formulation_tracing():
             Aineq_temp[i][i * NX + PESS_C] = 1
             Aineq_temp[i][i * NX + SOC_positive] = -1
             bineq.append(-model["ESS"]["COMMAND_PG"][i])
+        Aineq = vstack([Aineq, Aineq_temp])
 
         c = [0] * NX
         if model["DG"]["COST_MODEL"] == 2:
@@ -512,11 +524,11 @@ class problem_formulation_tracing():
 
         ## Formulating the universal energy models
         if type == "Feasible":
-            from modelling.power_flow.idx_ed_foramt import PMG, NX
+            from modelling.power_flow.idx_ed_set_points_tracing import PMG, NX
             local_model_mathematical = problem_formulation_tracing.problem_formulation_local(local_model)
             universal_model_mathematical = problem_formulation_tracing.problem_formulation_local(universal_model)
         else:
-            from modelling.power_flow.idx_ed_recovery_format import PMG, NX
+            from modelling.power_flow.idx_ed_set_points_tracing_recovery import PMG, NX
             local_model_mathematical = problem_formulation_tracing.problem_formulation_local_recovery(local_model)
             universal_model_mathematical = problem_formulation_tracing.problem_formulation_local_recovery(universal_model)
         # Modify the boundary information

@@ -18,6 +18,8 @@ from copy import deepcopy
 from economic_dispatch.input_check import input_check_middle_term
 from economic_dispatch.output_check import output_local_check
 from economic_dispatch.middle2short import middle2short_operation
+from economic_dispatch.set_points_tracing import set_points_tracing_ed
+from economic_dispatch.problem_formulation_set_points_tracing import problem_formulation_tracing
 logger_uems = Logger("Middle_term_dispatch_UEMS")
 logger_lems = Logger("Middle_term_dispatch_LEMS")
 
@@ -60,14 +62,20 @@ class middle_term_operation():
         universal_models = thread_forecasting.models
         local_models = thread_info_ex.local_models
 
+        universal_models = set_points_tracing_ed(Target_time, session, universal_models)
+
         local_models = input_check_middle_term.model_local_check(local_models)
         universal_models = input_check_middle_term.model_universal_check(universal_models)
 
         # Solve the optimal power flow problem
         # Two threads will be created, one for feasible problem, the other for infeasible problem
-        mathematical_model = problem_formulation.problem_formulation_universal(local_models, universal_models,
+        # mathematical_model = problem_formulation.problem_formulation_universal(local_models, universal_models,
+        #                                                                        "Feasible")
+        # mathematical_model_recovery = problem_formulation.problem_formulation_universal(local_models, universal_models,
+        #                                                                                 "Infeasible")
+        mathematical_model = problem_formulation_tracing.problem_formulation_universal(local_models, universal_models,
                                                                                "Feasible")
-        mathematical_model_recovery = problem_formulation.problem_formulation_universal(local_models, universal_models,
+        mathematical_model_recovery = problem_formulation_tracing.problem_formulation_universal(local_models, universal_models,
                                                                                         "Infeasible")
         # Solve the problem
         res = Solving_Thread(mathematical_model)
@@ -80,6 +88,9 @@ class middle_term_operation():
 
         res.join(default_dead_line_time["Gate_closure_ed"])
         res_recovery.join(default_dead_line_time["Gate_closure_ed"])
+
+        # local_models["COMMAND_TYPE"]=0
+        # universal_models["COMMAND_TYPE"]=0
 
         if res.value["success"] is True:
             (local_models, universal_models) = result_update(res.value, local_models, universal_models, "Feasible")
@@ -130,6 +141,7 @@ class middle_term_operation():
 
         local_models = thread_forecasting.models
         # Update the dynamic model
+        local_models = set_points_tracing_ed(Target_time, session, local_models)
         dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time, "ED")
         # Information send
         logger_lems.info("Sending request from {}".format(dynamic_model.AREA) + " to the serve")
@@ -159,9 +171,15 @@ def result_update(*args):
     T = default_look_ahead_time_step["Look_ahead_time_ed_time_step"]
 
     if type == "Feasible":
-        from modelling.power_flow.idx_ed_foramt import NX
+        if local_model["COMMAND_TYPE"] is 0:
+            from modelling.power_flow.idx_ed_foramt import NX
+        else:
+            from modelling.power_flow.idx_ed_set_points_tracing import NX
     else:
-        from modelling.power_flow.idx_ed_recovery_format import NX
+        if local_model["COMMAND_TYPE"] is 0:
+            from modelling.power_flow.idx_ed_recovery_format import NX
+        else:
+            from modelling.power_flow.idx_ed_set_points_tracing_recovery import NX
 
     nx = T * NX
     x_local = res["x"][0:nx]  # Decouple of the solutions
@@ -172,7 +190,6 @@ def result_update(*args):
 
     return local_model, universal_model
 
-
 def update(*args):
     x = args[0]
     model = args[1]
@@ -181,8 +198,12 @@ def update(*args):
     T = default_look_ahead_time_step["Look_ahead_time_ed_time_step"]
 
     if type == "Feasible":
-        from modelling.power_flow.idx_ed_foramt import PG, RG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, PESS_C, PESS_DC, RESS,EESS,\
-            PMG, NX
+        if model["COMMAND_TYPE"] is 0:
+            from modelling.power_flow.idx_ed_foramt import PG, RG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, PESS_C, PESS_DC, RESS,EESS,\
+                PMG, NX
+        else:
+            from modelling.power_flow.idx_ed_set_points_tracing import PG, RG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, PESS_C, PESS_DC, \
+                RESS, EESS, PMG, NX
         model["DG"]["COMMAND_PG"] = [0] * T
         model["DG"]["COMMAND_RG"] = [0] * T
         model["DG"]["COMMAND_START_UP"] = model["DG"]["GEN_STATUS"] # The staus of generators will be not modified
@@ -224,8 +245,12 @@ def update(*args):
         model["success"] = True
 
     else:
-        from modelling.power_flow.idx_ed_recovery_format import PG, RG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, PESS_C,EESS, \
-            PESS_DC, RESS, PMG, PPV, PWP, PL_AC, PL_UAC, PL_DC, PL_UDC, NX
+        if model["COMMAND_TYPE"] is 0:
+            from modelling.power_flow.idx_ed_recovery_format import PG, RG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, PESS_C,EESS, \
+                PESS_DC, RESS, PMG, PPV, PWP, PL_AC, PL_UAC, PL_DC, PL_UDC, NX
+        else:
+            from modelling.power_flow.idx_ed_set_points_tracing_recovery import PG, RG, PUG, RUG, PBIC_AC2DC, PBIC_DC2AC, PESS_C, \
+                EESS, PESS_DC, RESS, PMG, PPV, PWP, PL_AC, PL_UAC, PL_DC, PL_UDC, NX
 
         model["DG"]["COMMAND_PG"] = [0] * T
         model["DG"]["COMMAND_RG"] = [0] * T
@@ -269,6 +294,7 @@ def update(*args):
             model["Load_uac"]["COMMAND_SHED"][i] = int(min(model["Load_uac"]["PD"], x[i * NX + PL_UAC]))
             model["Load_dc"]["COMMAND_SHED"][i] = int(min(model["Load_dc"]["PD"], x[i * NX + PL_DC]))
             model["Load_udc"]["COMMAND_SHED"][i] = int(min(model["Load_udc"]["PD"], x[i * NX + PL_UDC]))
+
         model["success"] = False
 
     return model

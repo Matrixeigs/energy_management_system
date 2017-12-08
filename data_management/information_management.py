@@ -243,27 +243,29 @@ class information_formulation_extraction_dynamic():
     ## Dynamic model formulation for unit commitment and economic dispatch
     def info_formulation(*args):
         from configuration.configuration_time_line import default_look_ahead_time_step
+        from modelling import dynamic_operation_pb2
         model = args[0]
         Target_time = args[1]
         Type = args[2]
-        dynamic_model = args[3]
+        dynamic_model = dynamic_operation_pb2.local_sources()
+
         if Type == "UC":
             T = default_look_ahead_time_step["Look_ahead_time_uc_time_step"]
         else:
             T = default_look_ahead_time_step["Look_ahead_time_ed_time_step"]
         # 1) Initial dynamic model
-        dynamic_info = dynamic_model.local_sources()
+        dynamic_info = dynamic_model
         #################################The information structure
-        ug_info = dynamic_model.local_sources.DgType()
-        dg_info = dynamic_model.local_sources.DgType()
-        ess_info = dynamic_model.local_sources.EssType()
-        pv_info = dynamic_model.local_sources.PvType()
-        wp_info = dynamic_model.local_sources.WpType()
-        load_ac_info = dynamic_model.local_sources.Load_AC_Type()
-        load_dc_info = dynamic_model.local_sources.Load_DC_Type()
-        load_uac_info = dynamic_model.local_sources.Load_AC_Type()
-        load_udc_info = dynamic_model.local_sources.Load_DC_Type()
-        bic_info = dynamic_model.local_sources.Convertor_Type()
+        ug_info = dynamic_model.DgType()
+        dg_info = dynamic_model.DgType()
+        ess_info = dynamic_model.EssType()
+        pv_info = dynamic_model.PvType()
+        wp_info = dynamic_model.WpType()
+        load_ac_info = dynamic_model.Load_AC_Type()
+        load_dc_info = dynamic_model.Load_DC_Type()
+        load_uac_info = dynamic_model.Load_AC_Type()
+        load_udc_info = dynamic_model.Load_DC_Type()
+        bic_info = dynamic_model.Convertor_Type()
 
         # Obtain information from the external systems
         dynamic_info.AREA = model["UG"]["AREA"]
