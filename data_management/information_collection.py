@@ -79,11 +79,11 @@ def information_collection_updating(*args):
     if command_type == 1: # The set-point tracing method
         if T == 1:
             models["UG"]["COMMAND_PG"] = ug_info.PG
-            models["UG"]["COMMANDD_QG"] = ug_info.QG
+            models["UG"]["COMMAND_QG"] = ug_info.QG
             models["UG"]["COMMAND_RG"] = ug_info.RG
 
             models["DG"]["COMMAND_PG"] = dg_info.PG
-            models["DG"]["COMMANDD_QG"] = ug_info.QG
+            models["DG"]["COMMAND_QG"] = ug_info.QG
             models["DG"]["COMMAND_RG"] = ug_info.RG
 
             models["ESS"]["SOC"] = ess_info.SOC
