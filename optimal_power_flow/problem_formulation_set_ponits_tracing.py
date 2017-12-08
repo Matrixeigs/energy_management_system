@@ -9,14 +9,18 @@
 from numpy import array, vstack, zeros
 import numpy
 from configuration import configuration_eps
+
+
 # The data structure is imported from numpy.
 # The relaxation is to relax the boundary variables
 class problem_formulation_set_points_tracing():
     ## Reformulte the information model to system level
     def problem_formulation_local(*args):
         from configuration import configuration_time_line
-        from modelling.power_flow.idx_opf_set_points_tracing import PG, QG, RG, PUG, QUG, RUG, PBIC_AC2DC, PBIC_DC2AC, QBIC, PESS_C, \
-            PESS_DC, RESS, EESS, PMG, PMG_negative, PMG_positive, PUG_negative, PUG_positve, SOC_negative, SOC_positive, NX
+        from modelling.power_flow.idx_opf_set_points_tracing import PG, QG, RG, PUG, QUG, RUG, PBIC_AC2DC, PBIC_DC2AC, \
+            QBIC, PESS_C, \
+            PESS_DC, RESS, EESS, PMG, PMG_negative, PMG_positive, PUG_negative, PUG_positive, SOC_negative, \
+            SOC_positive, NX
         model = args[0]  # If multiple models are inputed, more local ems models will be formulated
         ## The feasible optimal problem formulation
         lb = zeros(NX)
@@ -42,7 +46,7 @@ class problem_formulation_set_points_tracing():
         lb[PMG] = 0  # The line flow limitation, the predefined status is, the transmission line is off-line
         lb[PMG_negative] = 0
         lb[PMG_positive] = 0
-        lb[PUG_positve] = 0
+        lb[PUG_positive] = 0
         lb[PUG_negative] = 0
         lb[SOC_positive] = 0
         lb[SOC_negative] = 0
@@ -66,16 +70,16 @@ class problem_formulation_set_points_tracing():
 
         ub[PMG] = 0  # The line flow limitation, the predefined status is, the transmission line is off-line
 
-        ub[PMG_positive] = 0 # This boundary information will ne updated to the
+        ub[PMG_positive] = 0  # This boundary information will ne updated to the
         ub[PMG_negative] = 0
-        ub[PUG_positve] = model["UG"]["PMAX"]
+        ub[PUG_positive] = model["UG"]["PMAX"]
         ub[PUG_negative] = model["UG"]["PMAX"]
-        ub[SOC_positive] = model["ESS"]["PMAX_DIS"] + model["ESS"]["PMAX_CH"] # The up relaxation of SOC, this is
-        ub[SOC_negative] = model["ESS"]["PMAX_DIS"] + model["ESS"]["PMAX_CH"] # The up relaxation of SOC
+        ub[SOC_positive] = model["ESS"]["PMAX_DIS"] + model["ESS"]["PMAX_CH"]  # The up relaxation of SOC, this is
+        ub[SOC_negative] = model["ESS"]["PMAX_DIS"] + model["ESS"]["PMAX_CH"]  # The up relaxation of SOC
         ## Constraints set
         # 1) Power balance equation
         Aeq = zeros(NX)
-        beq = [ ]
+        beq = []
         Aeq[PG] = 1
         Aeq[PUG] = 1
         Aeq[PBIC_AC2DC] = -1
@@ -124,7 +128,7 @@ class problem_formulation_set_points_tracing():
         # 15) PESS_DC-PESS_C+SOC_negative>=PESS_SET_POINT
         # 1）
         Aineq = zeros(NX)
-        bineq = [ ]
+        bineq = []
         Aineq[PG] = 1
         Aineq[RG] = 1
         bineq.append(model["DG"]["PMAX"])
@@ -178,7 +182,7 @@ class problem_formulation_set_points_tracing():
         # 10）
         Aineq_temp = zeros(NX)
         Aineq_temp[PUG] = 1
-        Aineq_temp[PUG_positve] = -1
+        Aineq_temp[PUG_positive] = -1
         Aineq = vstack([Aineq, Aineq_temp])
         bineq.append(model["UG"]["COMMAND_PG"])
         # 11）
@@ -222,11 +226,14 @@ class problem_formulation_set_points_tracing():
         # Add the constraints to the local optimal power flow
         c[PMG_negative] = configuration_eps.default_eps["Penalty_opf"]
         c[PMG_positive] = configuration_eps.default_eps["Penalty_opf"]
-        c[PUG_positve] = configuration_eps.default_eps["Penalty_opf"]
+        c[PUG_positive] = configuration_eps.default_eps["Penalty_opf"]
         c[PUG_negative] = configuration_eps.default_eps["Penalty_opf"]
         c[SOC_positive] = configuration_eps.default_eps["Penalty_opf"]
         c[SOC_negative] = configuration_eps.default_eps["Penalty_opf"]
-
+        c[PBIC_AC2DC] = configuration_eps.default_eps[
+                            "Penalty_opf"] / 10  # These two items are added to remove the bilinear constraints :1)
+        c[PBIC_DC2AC] = configuration_eps.default_eps["Penalty_opf"] / 10  # 2)
+        # Return the mathematical models
         mathematical_model = {"c": c,
                               "Aeq": Aeq,
                               "beq": beq,
@@ -239,9 +246,10 @@ class problem_formulation_set_points_tracing():
 
     def problem_formulation_local_recovery(*args):
         from configuration import configuration_time_line
-        from modelling.power_flow.idx_format_recovery import PG, QG, RG, PUG, QUG, RUG, PBIC_AC2DC, PBIC_DC2AC, QBIC, \
-            PESS_C, \
-            PESS_DC, RESS, EESS, PMG, PPV, PWP, PL_AC, PL_UAC, PL_DC, PL_UDC, NX
+        from modelling.power_flow.idx_opf_set_points_tracing_recovery import PG, QG, RG, PUG, QUG, RUG, PBIC_AC2DC, \
+            PBIC_DC2AC, QBIC, \
+            PESS_C, PESS_DC, RESS, EESS, PMG, PPV, PWP, PL_AC, PL_UAC, PL_DC, PL_UDC, PMG_negative, PMG_positive, \
+            PUG_negative, PUG_positive, SOC_negative, SOC_positive, NX
 
         model = args[0]  # If multiple models are inputed, more local ems models will be formulated
         ## The infeasible optimal problem formulation
@@ -273,6 +281,13 @@ class problem_formulation_set_points_tracing():
         lb[PL_DC] = 0
         lb[PL_UDC] = 0
 
+        lb[PMG_negative] = 0
+        lb[PMG_positive] = 0
+        lb[PUG_positive] = 0
+        lb[PUG_negative] = 0
+        lb[SOC_positive] = 0
+        lb[SOC_negative] = 0
+
         ## Update lower boundary
         ub[PG] = model["DG"]["PMAX"]
         ub[QG] = model["DG"]["QMAX"]
@@ -300,6 +315,12 @@ class problem_formulation_set_points_tracing():
         ub[PL_DC] = model["Load_dc"]["PD"]
         ub[PL_UDC] = model["Load_udc"]["PD"]
 
+        ub[PMG_positive] = 0  # This boundary information will ne updated to the
+        ub[PMG_negative] = 0
+        ub[PUG_positive] = model["UG"]["PMAX"]
+        ub[PUG_negative] = model["UG"]["PMAX"]
+        ub[SOC_positive] = model["ESS"]["PMAX_DIS"] + model["ESS"]["PMAX_CH"]  # The up relaxation of SOC, this is
+        ub[SOC_negative] = model["ESS"]["PMAX_DIS"] + model["ESS"]["PMAX_CH"]  # The up relaxation of SOC
         ## Constraints set
         # 1) Power balance equation
         Aeq = zeros(NX)
@@ -400,6 +421,46 @@ class problem_formulation_set_points_tracing():
         Aineq_temp[RESS] = configuration_time_line.default_time["Time_step_opf"] / 3600
         Aineq = vstack([Aineq, Aineq_temp])
         bineq.append(model["ESS"]["SOC_MAX"] * model["ESS"]["CAP"])
+
+        # 10）
+        Aineq_temp = zeros(NX)
+        Aineq_temp[PUG] = 1
+        Aineq_temp[PUG_positive] = -1
+        Aineq = vstack([Aineq, Aineq_temp])
+        bineq.append(model["UG"]["COMMAND_PG"])
+        # 11）
+        Aineq_temp = zeros(NX)
+        Aineq_temp[PUG] = -1
+        Aineq_temp[PUG_negative] = -1
+        Aineq = vstack([Aineq, Aineq_temp])
+        bineq.append(-model["UG"]["COMMAND_PG"])
+        # 12）
+        Aineq_temp = zeros(NX)
+        Aineq_temp[PMG] = 1
+        Aineq_temp[PMG_positive] = -1
+        Aineq = vstack([Aineq, Aineq_temp])
+        bineq.append(model["PMG"])
+        # 13）
+        Aineq_temp = zeros(NX)
+        Aineq_temp[PMG] = -1
+        Aineq_temp[PMG_negative] = -1
+        Aineq = vstack([Aineq, Aineq_temp])
+        bineq.append(-model["PMG"])
+        # 14）
+        Aineq_temp = zeros(NX)
+        Aineq_temp[PESS_DC] = 1
+        Aineq_temp[PESS_C] = -1
+        Aineq_temp[SOC_positive] = -1
+        Aineq = vstack([Aineq, Aineq_temp])
+        bineq.append(model["ESS"]["COMMAND_PG"])
+        # 15）
+        Aineq_temp = zeros(NX)
+        Aineq_temp[PESS_DC] = -1
+        Aineq_temp[PESS_C] = 1
+        Aineq_temp[SOC_negative] = -1
+        Aineq = vstack([Aineq, Aineq_temp])
+        bineq.append(-model["ESS"]["COMMAND_PG"])
+
         # No reserve requirement
         c = zeros(NX)
         c[PG] = model["DG"]["COST"][0]
@@ -413,6 +474,17 @@ class problem_formulation_set_points_tracing():
         c[PL_UAC] = -model["Load_uac"]["COST"][0]
         c[PL_DC] = -model["Load_dc"]["COST"][0]
         c[PL_UDC] = -model["Load_udc"]["COST"][0]
+
+        # Add the constraints to the local optimal power flow
+        c[PMG_negative] = configuration_eps.default_eps["Penalty_opf"]
+        c[PMG_positive] = configuration_eps.default_eps["Penalty_opf"]
+        c[PUG_positive] = configuration_eps.default_eps["Penalty_opf"]
+        c[PUG_negative] = configuration_eps.default_eps["Penalty_opf"]
+        c[SOC_positive] = configuration_eps.default_eps["Penalty_opf"]
+        c[SOC_negative] = configuration_eps.default_eps["Penalty_opf"]
+        c[PBIC_AC2DC] = configuration_eps.default_eps[
+                            "Penalty_opf"] / 10  # These two items are added to remove the bilinear constraints :1)
+        c[PBIC_DC2AC] = configuration_eps.default_eps["Penalty_opf"] / 10  # 2)
 
         mathematical_model = {"c": c,
                               "Aeq": Aeq,
@@ -434,11 +506,14 @@ class problem_formulation_set_points_tracing():
         if type == "Feasible":
             from modelling.power_flow.idx_format import PMG, NX
             local_model_mathematical = problem_formulation_set_points_tracing.problem_formulation_local(local_model)
-            universal_model_mathematical = problem_formulation_set_points_tracing.problem_formulation_local(universal_model)
+            universal_model_mathematical = problem_formulation_set_points_tracing.problem_formulation_local(
+                universal_model)
         else:
             from modelling.power_flow.idx_format_recovery import PMG, NX
-            local_model_mathematical = problem_formulation_set_points_tracing.problem_formulation_local_recovery(local_model)
-            universal_model_mathematical = problem_formulation_set_points_tracing.problem_formulation_local_recovery(universal_model)
+            local_model_mathematical = problem_formulation_set_points_tracing.problem_formulation_local_recovery(
+                local_model)
+            universal_model_mathematical = problem_formulation_set_points_tracing.problem_formulation_local_recovery(
+                universal_model)
         # Modify the boundary information
         local_model_mathematical["lb"][PMG] = -universal_model["LINE"]["STATUS"] * universal_model["LINE"]["RATE_A"]
         local_model_mathematical["ub"][PMG] = universal_model["LINE"]["STATUS"] * universal_model["LINE"]["RATE_A"]
@@ -484,3 +559,4 @@ class problem_formulation_set_points_tracing():
                  "lb": lb,
                  "ub": ub}
         return model
+    # There is no need to update the universal energy management system
