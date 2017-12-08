@@ -13,11 +13,11 @@ def set_points_tracing_ed(*args):
     delta_T = default_time["Time_step_ed"]
     T = default_look_ahead_time_step["Look_ahead_time_ed_time_step"] #Amount of data should be addedsss
 
-    model["DG"]["COMMAND_START_UP"] = [0] * T
+    model["DG"]["GEN_STATUS"] = [0] * T
     model["DG"]["COMMAND_PG"] = [0] * T
     model["DG"]["COMMAND_RG"] = [0] * T
 
-    model["UG"]["COMMAND_START_UP"] = [0] * T
+    model["UG"]["GEN_STATUS"] = [0] * T
     model["UG"]["COMMAND_PG"] = [0] * T
     model["UG"]["COMMAND_RG"] = [0] * T
 
@@ -43,11 +43,10 @@ def set_points_tracing_ed(*args):
         model["DG"]["COMMAND_START_UP"][i] = row.DG_STATUS
         model["DG"]["COMMAND_PG"][i] = row.DG_PG
 
-
         model["UG"]["COMMAND_START_UP"][i] = row.UG_STATUS
         model["UG"]["COMMAND_PG"][i] = row.UG_PG
 
-        if row.BIC_PG>0:
+        if row.BIC_PG > 0 :
             model["BIC"]["COMMAND_AC2DC"][i] = 0
             model["BIC"]["COMMAND_DC2AC"][i] = row.BIC_PG
         else:
@@ -55,7 +54,6 @@ def set_points_tracing_ed(*args):
             model["BIC"]["COMMAND_DC2AC"][i] = 0
 
         model["ESS"]["COMMAND_PG"][i] = row.BAT_PG
-
         model["ESS"]["SOC"][i] = row.BAT_SOC
 
         model["PMG"][i] = row.PMG
