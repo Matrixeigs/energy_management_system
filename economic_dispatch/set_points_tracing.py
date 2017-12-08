@@ -37,34 +37,39 @@ def set_points_tracing_ed(*args):
     model["Load_uac"]["COMMAND_SHED"] = [0] * T
     model["Load_dc"]["COMMAND_SHED"] = [0] * T
     model["Load_udc"]["COMMAND_SHED"] = [0] * T
+    try:
+        for i in range(T):
+            row = session.query(long2middle).filter(long2middle.TIME_STAMP == Target_time + i * delta_T).count()
+            model["DG"]["COMMAND_START_UP"][i] = row.DG_STATUS
+            model["DG"]["COMMAND_PG"][i] = row.DG_PG
 
-    for i in range(T):
-        row = session.query(long2middle).filter(long2middle.TIME_STAMP == Target_time + i * delta_T).count()
-        model["DG"]["COMMAND_START_UP"][i] = row.DG_STATUS
-        model["DG"]["COMMAND_PG"][i] = row.DG_PG
+            model["UG"]["COMMAND_START_UP"][i] = row.UG_STATUS
+            model["UG"]["COMMAND_PG"][i] = row.UG_PG
 
-        model["UG"]["COMMAND_START_UP"][i] = row.UG_STATUS
-        model["UG"]["COMMAND_PG"][i] = row.UG_PG
+            if row.BIC_PG > 0 :
+                model["BIC"]["COMMAND_AC2DC"][i] = 0
+                model["BIC"]["COMMAND_DC2AC"][i] = row.BIC_PG
+            else:
+                model["BIC"]["COMMAND_AC2DC"][i] = -row.BIC_PG
+                model["BIC"]["COMMAND_DC2AC"][i] = 0
 
-        if row.BIC_PG > 0 :
-            model["BIC"]["COMMAND_AC2DC"][i] = 0
-            model["BIC"]["COMMAND_DC2AC"][i] = row.BIC_PG
-        else:
-            model["BIC"]["COMMAND_AC2DC"][i] = -row.BIC_PG
-            model["BIC"]["COMMAND_DC2AC"][i] = 0
+            model["ESS"]["COMMAND_PG"][i] = row.BAT_PG
+            model["ESS"]["SOC"][i] = row.BAT_SOC
 
-        model["ESS"]["COMMAND_PG"][i] = row.BAT_PG
-        model["ESS"]["SOC"][i] = row.BAT_SOC
+            model["PMG"][i] = row.PMG
 
-        model["PMG"][i] = row.PMG
+            model["PV"]["COMMAND_CURT"][i] = row.PV_CURT
+            model["WP"]["COMMAND_CURT"][i] = row.WP_CURT
 
-        model["PV"]["COMMAND_CURT"][i] = row.PV_CURT
-        model["WP"]["COMMAND_CURT"][i] = row.WP_CURT
+            model["Load_ac"]["COMMAND_SHED"][i] = row.AC_SHED
+            model["Load_uac"]["COMMAND_SHED"][i] = row.UAC_SHED
+            model["Load_dc"]["COMMAND_SHED"][i] = row.DC_SHED
+            model["Load_udc"]["COMMAND_SHED"][i] = row.UDC_SHED
 
-        model["Load_ac"]["COMMAND_SHED"][i] = row.AC_SHED
-        model["Load_uac"]["COMMAND_SHED"][i] = row.UAC_SHED
-        model["Load_dc"]["COMMAND_SHED"][i] = row.DC_SHED
-        model["Load_udc"]["COMMAND_SHED"][i] = row.UDC_SHED
+        model["COMMAND_TYPE"] = 1 # This is the set-point tracing
+    except:
+
+        model["COMMAND_TYPE"] = 0  # This is not the set-point tracing
 
 # For the local energy management
 # 1) The information should be embedded into the information model of local ems, and should be sent back to the universal ems
