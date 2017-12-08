@@ -1,5 +1,5 @@
 ## Local ems optimal power flow computing format
-# The local optimal power is used to trace the
+# Local optimal power set-point tracing
 PG = 0
 QG = 1
 RG = 2
