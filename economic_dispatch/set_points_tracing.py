@@ -67,7 +67,8 @@ def set_points_tracing_ed(*args):
             model["Load_udc"]["COMMAND_SHED"][i] = row.UDC_SHED
 
         model["COMMAND_TYPE"] = 1 # This is the set-point tracing
-    except:
+
+    except: # If any exception happens, it is not operated in set-point tracing method
 
         model["COMMAND_TYPE"] = 0  # This is not the set-point tracing
 
