@@ -55,10 +55,10 @@ class short_term_operation():
 
         universal_models = thread_forecasting.models
         local_models = thread_info_ex.local_models
+        universal_models = set_points_tracing_opf(Target_time, session, universal_models)  # There are some bugs in this function
         # Solve the optimal power flow problem
         local_models = input_check_short_term.model_local_check(local_models)
         universal_models = input_check_short_term.model_universal_check(universal_models)
-        universal_models = set_points_tracing_opf(Target_time, session, universal_models)  # There are some bugs in this function
 
         # Two threads will be created, one for feasible problem, the other for infeasible problem
         # mathematical_model = problem_formulation.problem_formulation_universal(local_models, universal_models,
@@ -134,8 +134,6 @@ class short_term_operation():
         # Update the dynamic model
         local_models = input_check_short_term.model_local_check(local_models) # Check the data format of local ems
         local_models = set_points_tracing_opf(Target_time,session,local_models) # Update the
-
-
 
         dynamic_model = information_formulation_extraction.info_formulation(local_models, Target_time, info)
         # Information send
