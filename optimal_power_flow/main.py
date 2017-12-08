@@ -171,7 +171,10 @@ def result_update(*args):
         else:
             from modelling.power_flow.idx_opf_set_points_tracing import NX
     else:
-        from modelling.power_flow.idx_format_recovery import NX
+        if local_model["COMMAND_TYPE"] is 0:
+            from modelling.power_flow.idx_format_recovery import NX
+        else:
+            from modelling.power_flow.idx_opf_set_points_tracing_recovery import NX
 
     x_local = res["x"][0:NX]
     x_universal = res["x"][NX:2 * NX]
