@@ -504,12 +504,12 @@ class problem_formulation_set_points_tracing():
 
         ## Formulating the universal energy models
         if type == "Feasible":
-            from modelling.power_flow.idx_format import PMG, NX
+            from modelling.power_flow.idx_opf_set_points_tracing import PMG, NX
             local_model_mathematical = problem_formulation_set_points_tracing.problem_formulation_local(local_model)
             universal_model_mathematical = problem_formulation_set_points_tracing.problem_formulation_local(
                 universal_model)
         else:
-            from modelling.power_flow.idx_format_recovery import PMG, NX
+            from modelling.power_flow.idx_opf_set_points_tracing_recovery import PMG, NX
             local_model_mathematical = problem_formulation_set_points_tracing.problem_formulation_local_recovery(
                 local_model)
             universal_model_mathematical = problem_formulation_set_points_tracing.problem_formulation_local_recovery(

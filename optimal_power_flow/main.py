@@ -23,7 +23,8 @@ class short_term_operation():
     # Two modes are proposed for the local ems and
     def short_term_operation_uems(*args):
         from data_management.database_management import database_operation
-        from optimal_power_flow.problem_formulation import problem_formulation
+        # from optimal_power_flow.problem_formulation import problem_formulation
+        from optimal_power_flow.problem_formulation_set_ponits_tracing import problem_formulation_set_points_tracing
         from optimal_power_flow.problem_solving import Solving_Thread
         # Short term operation
         # General procedure for short-term operation
@@ -60,9 +61,13 @@ class short_term_operation():
         universal_models = set_points_tracing_opf(Target_time, session, universal_models)  # There are some bugs in this function
 
         # Two threads will be created, one for feasible problem, the other for infeasible problem
-        mathematical_model = problem_formulation.problem_formulation_universal(local_models, universal_models,
+        # mathematical_model = problem_formulation.problem_formulation_universal(local_models, universal_models,
+        #                                                                       "Feasible")
+        # mathematical_model_recovery = problem_formulation.problem_formulation_universal(local_models, universal_models,
+        #                                                                                "Infeasible")
+        mathematical_model = problem_formulation_set_points_tracing.problem_formulation_universal(local_models, universal_models,
                                                                               "Feasible")
-        mathematical_model_recovery = problem_formulation.problem_formulation_universal(local_models, universal_models,
+        mathematical_model_recovery = problem_formulation_set_points_tracing.problem_formulation_universal(local_models, universal_models,
                                                                                        "Infeasible")
         # Solve the problem
         res = Solving_Thread(mathematical_model)
@@ -161,7 +166,10 @@ def result_update(*args):
     type = args[3]
 
     if type == "Feasible":
-        from modelling.power_flow.idx_format import NX
+        if local_model["COMMAND_TYPE"] is 0:
+            from modelling.power_flow.idx_format import NX
+        else:
+            from modelling.power_flow.idx_opf_set_points_tracing import NX
     else:
         from modelling.power_flow.idx_format_recovery import NX
 
@@ -180,8 +188,12 @@ def update(*args):
     model_type = args[2]
 
     if model_type == "Feasible":
-        from modelling.power_flow.idx_format import PG, QG, RG, PUG, QUG, RUG, PBIC_AC2DC, PBIC_DC2AC, QBIC, PESS_C, \
-            PESS_DC, RESS, PMG
+        if model["COMMAND_TYPE"] is 0:
+            from modelling.power_flow.idx_format import PG, QG, RG, PUG, QUG, RUG, PBIC_AC2DC, PBIC_DC2AC, QBIC, PESS_C, \
+                PESS_DC, RESS, PMG
+        else:
+            from modelling.power_flow.idx_opf_set_points_tracing import PG, QG, RG, PUG, QUG, RUG, PBIC_AC2DC, PBIC_DC2AC, QBIC, PESS_C, \
+                PESS_DC, RESS, PMG
 
         model["DG"]["COMMAND_PG"] = int(x[PG])
         model["DG"]["COMMAND_QG"] = int(x[QG])
@@ -203,8 +215,12 @@ def update(*args):
         model["success"] = True # The obtained solution is feasible
 
     else:
-        from modelling.power_flow.idx_format_recovery import PG, QG, RG, PUG, QUG, RUG, PBIC_AC2DC, PBIC_DC2AC, QBIC, \
-            PESS_C, PESS_DC, RESS, PMG, PPV, PWP, PL_AC, PL_UAC, PL_DC, PL_UDC
+        if model["COMMAND_TYPE"] is 0:
+            from modelling.power_flow.idx_format_recovery import PG, QG, RG, PUG, QUG, RUG, PBIC_AC2DC, PBIC_DC2AC, QBIC, \
+                PESS_C, PESS_DC, RESS, PMG, PPV, PWP, PL_AC, PL_UAC, PL_DC, PL_UDC
+        else:
+            from modelling.power_flow.idx_opf_set_points_tracing_recovery import PG, QG, RG, PUG, QUG, RUG, PBIC_AC2DC, PBIC_DC2AC, \
+                QBIC,PESS_C, PESS_DC, RESS, PMG, PPV, PWP, PL_AC, PL_UAC, PL_DC, PL_UDC
         model["DG"]["COMMAND_PG"] = int(x[PG])
         model["DG"]["COMMAND_QG"] = int(x[QG])
         model["DG"]["COMMAND_RG"] = int(x[RG])
