@@ -10,7 +10,9 @@ def long2middle_opeartion(*args):
     delta_T = default_time["Time_step_ed"]
     compress_rate = int(default_time["Time_step_uc"]/default_time["Time_step_ed"])
     add_len = int(default_time["Look_ahead_time_uc"]/delta_T) # Amount of data should be added
-
+    # Remove old data
+    session.query(long2middle).filter_by(long2middle.TIME_STAMP < Target_time - default_time["Look_ahead_time_uc"]).delete()
+    session.commit()
     for i in range(add_len): # Add the set-pointed repeatly
         if session.query(long2middle).filter(long2middle.TIME_STAMP == Target_time + i * delta_T).count() == 0:
             blank_row = long2middle(TIME_STAMP = Target_time + i * delta_T,
