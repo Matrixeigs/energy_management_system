@@ -89,6 +89,7 @@ class long_term_operation():
         universal_models = output_local_check(universal_models)
 
         # Return command to the local ems
+        local_models["COMMAND_TYPE"] = 0
         dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time,"UC")
         dynamic_model.TIME_STAMP_COMMAND = round(time.time())
 
@@ -131,6 +132,7 @@ class long_term_operation():
 
         local_models = thread_forecasting.models
         # Update the dynamic model
+        local_models["COMMAND_TYPE"] = 0
         dynamic_model = information_formulation_extraction_dynamic.info_formulation(local_models, Target_time,"UC")
         # Information send
         logger_lems.info("Sending request from {}".format(dynamic_model.AREA) + " to the serve")
@@ -138,7 +140,6 @@ class long_term_operation():
         information_receive_send.information_send(socket_upload, dynamic_model, 2)
 
         # Step2: Backup operation, which indicates the universal ems is down
-
         # Receive information from uems
         dynamic_model = information_receive_send.information_receive(socket_upload, info, 2)
         # print("The universal time is", dynamic_model.TIME_STAMP_COMMAND)

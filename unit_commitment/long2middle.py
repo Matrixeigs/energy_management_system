@@ -11,7 +11,7 @@ def long2middle_opeartion(*args):
     compress_rate = int(default_time["Time_step_uc"]/default_time["Time_step_ed"])
     add_len = int(default_time["Look_ahead_time_uc"]/delta_T) # Amount of data should be added
     # Remove old data
-    session.query(long2middle).filter_by(long2middle.TIME_STAMP < Target_time - default_time["Look_ahead_time_uc"]).delete()
+    session.query(long2middle).filter(long2middle.TIME_STAMP < Target_time - default_time["Look_ahead_time_uc"]).delete() # Remain two-periods of data there
     session.commit()
     for i in range(add_len): # Add the set-pointed repeatly
         if session.query(long2middle).filter(long2middle.TIME_STAMP == Target_time + i * delta_T).count() == 0:
