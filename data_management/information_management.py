@@ -242,12 +242,11 @@ class information_formulation_extraction():
 class information_formulation_extraction_dynamic():
     ## Dynamic model formulation for unit commitment and economic dispatch
     def info_formulation(*args):
-        import modelling.dynamic_operation_pb2 as dynamic_model  # The information model
         from configuration.configuration_time_line import default_look_ahead_time_step
         model = args[0]
         Target_time = args[1]
         Type = args[2]
-
+        dynamic_model = args[3]
         if Type == "UC":
             T = default_look_ahead_time_step["Look_ahead_time_uc_time_step"]
         else:
@@ -403,7 +402,7 @@ class information_formulation_extraction_dynamic():
         else:
             dynamic_info.PMG.extend([model["PMG"]])
 
-        dynamic_info.COMMAND_TYPE = 0
+        dynamic_info.COMMAND_TYPE = model["COMMAND_TYPE"]
         dynamic_info.TIME_STAMP_COMMAND = Target_time
 
         return dynamic_info
@@ -414,12 +413,10 @@ class information_formulation_extraction_dynamic():
         # The utility grid part
         model["UG"]["COMMAND_START_UP"] = info.dg[0].GEN_STATUS._values
         model["UG"]["COMMAND_PG"] = info.dg[0].PG._values
-        # model["UG"]["COMMAND_SET_POINT_QG"] = info.dg[0].QG
         model["UG"]["COMMAND_RG"] = info.dg[0].RG._values
         # Update dg part information
         model["DG"]["COMMAND_START_UP"] = info.dg[1].GEN_STATUS._values
         model["DG"]["COMMAND_PG"] = info.dg[1].PG._values
-        # model["DG"]["COMMAND_SET_POINT_QG"] = info.dg[1].QG
         model["DG"]["COMMAND_RG"] = info.dg[1].RG._values
 
         # Update ess part information
