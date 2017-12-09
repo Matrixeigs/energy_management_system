@@ -18,4 +18,5 @@ If you have any question or want to cooperate with us, please send email to:
 zhaoty@ntu.edu.sg
 or: matrixeigs@gmail.com
 
-
+Known issues:
+1) status update of devices

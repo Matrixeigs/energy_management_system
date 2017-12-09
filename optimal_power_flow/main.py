@@ -62,9 +62,11 @@ class short_term_operation():
 
         # Two threads will be created, one for feasible problem, the other for infeasible problem
         if local_models["COMMAND_TYPE"] == 1 and universal_models["COMMAND_TYPE"] == 1:
+            logger_uems.info("OPF is under set-points tracing mode!")
             mathematical_model = problem_formulation_set_points_tracing.problem_formulation_universal(local_models,universal_models,"Feasible")
             mathematical_model_recovery = problem_formulation_set_points_tracing.problem_formulation_universal(local_models, universal_models,"Infeasible")
         else:
+            logger_uems.info("OPF is under idle mode!")
             mathematical_model = problem_formulation.problem_formulation_universal(local_models, universal_models,
                                                                               "Feasible")
             mathematical_model_recovery = problem_formulation.problem_formulation_universal(local_models, universal_models,
