@@ -72,11 +72,11 @@ def set_points_tracing_opf(*args):
     try:
         if T == 1:
             row = session.query(middle2short).filter(middle2short.TIME_STAMP == Target_time).first()
-            model["DG"]["GEN_STATUS"] = row.DG_STATUS
+            model["DG"]["GEN_STATUS"] = int(row.DG_STATUS)
             model["DG"]["COMMAND_PG"] = row.DG_PG
             model["DG"]["COMMAND_QG"] = row.DG_QG
 
-            model["UG"]["GEN_STATUS"] = row.UG_STATUS
+            model["UG"]["GEN_STATUS"] = int(row.UG_STATUS)
             model["UG"]["COMMAND_PG"] = row.UG_PG
             model["UG"]["COMMAND_QG"] = row.UG_QG
 
