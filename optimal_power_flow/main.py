@@ -23,7 +23,7 @@ class short_term_operation():
     # Two modes are proposed for the local ems and
     def short_term_operation_uems(*args):
         from data_management.database_management import database_operation
-        # from optimal_power_flow.problem_formulation import problem_formulation
+        from optimal_power_flow.problem_formulation import problem_formulation
         from optimal_power_flow.problem_formulation_set_ponits_tracing import problem_formulation_set_points_tracing
         from optimal_power_flow.problem_solving import Solving_Thread
         # Short term operation
@@ -61,15 +61,18 @@ class short_term_operation():
         universal_models = input_check_short_term.model_universal_check(universal_models)
 
         # Two threads will be created, one for feasible problem, the other for infeasible problem
-        # mathematical_model = problem_formulation.problem_formulation_universal(local_models, universal_models,
-        #                                                                       "Feasible")
-        # mathematical_model_recovery = problem_formulation.problem_formulation_universal(local_models, universal_models,
-        #                                                                                "Infeasible")
-        mathematical_model = problem_formulation_set_points_tracing.problem_formulation_universal(local_models, universal_models,
+        if local_models["COMMAND_TYPE"] == 1 and universal_models["COMMAND_TYPE"] == 1:
+            mathematical_model = problem_formulation_set_points_tracing.problem_formulation_universal(local_models,universal_models,"Feasible")
+            mathematical_model_recovery = problem_formulation_set_points_tracing.problem_formulation_universal(local_models, universal_models,"Infeasible")
+        else:
+            mathematical_model = problem_formulation.problem_formulation_universal(local_models, universal_models,
                                                                               "Feasible")
-        mathematical_model_recovery = problem_formulation_set_points_tracing.problem_formulation_universal(local_models, universal_models,
+            mathematical_model_recovery = problem_formulation.problem_formulation_universal(local_models, universal_models,
                                                                                        "Infeasible")
-        # Solve the problem
+            local_models["COMMAND_TYPE"] = 0
+            universal_models["COMMAND_TYPE"] = 0
+
+        # Solving procedure
         res = Solving_Thread(mathematical_model)
         res_recovery = Solving_Thread(mathematical_model_recovery)
         res.daemon = True

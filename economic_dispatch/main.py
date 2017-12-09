@@ -19,7 +19,6 @@ from economic_dispatch.input_check import input_check_middle_term
 from economic_dispatch.output_check import output_local_check
 from economic_dispatch.middle2short import middle2short_operation
 from economic_dispatch.set_points_tracing import set_points_tracing_ed
-from economic_dispatch.problem_formulation_set_points_tracing import problem_formulation_tracing
 logger_uems = Logger("Middle_term_dispatch_UEMS")
 logger_lems = Logger("Middle_term_dispatch_LEMS")
 
@@ -30,6 +29,7 @@ class middle_term_operation():
         # Short term forecasting for the middle term operation in universal energy management system.
         from data_management.database_management import database_operation
         from economic_dispatch.problem_formulation import problem_formulation
+        from economic_dispatch.problem_formulation_set_points_tracing import problem_formulation_tracing
         from economic_dispatch.problem_solving import Solving_Thread
         from configuration.configuration_time_line import default_dead_line_time
         # Short term operation
@@ -69,14 +69,17 @@ class middle_term_operation():
 
         # Solve the optimal power flow problem
         # Two threads will be created, one for feasible problem, the other for infeasible problem
-        # mathematical_model = problem_formulation.problem_formulation_universal(local_models, universal_models,
-        #                                                                        "Feasible")
-        # mathematical_model_recovery = problem_formulation.problem_formulation_universal(local_models, universal_models,
-        #                                                                                 "Infeasible")
-        mathematical_model = problem_formulation_tracing.problem_formulation_universal(local_models, universal_models,
-                                                                               "Feasible")
-        mathematical_model_recovery = problem_formulation_tracing.problem_formulation_universal(local_models, universal_models,
-                                                                                        "Infeasible")
+        if local_models["COMMAND_TYPE"] == 1 and universal_models["COMMAND_TYPE"] == 1:
+            mathematical_model = problem_formulation_tracing.problem_formulation_universal(local_models,universal_models,"Feasible")
+            mathematical_model_recovery = problem_formulation_tracing.problem_formulation_universal(local_models, universal_models,"Infeasible")
+        else:
+            mathematical_model = problem_formulation.problem_formulation_universal(local_models, universal_models,
+                                                                              "Feasible")
+            mathematical_model_recovery = problem_formulation.problem_formulation_universal(local_models, universal_models,
+                                                                                       "Infeasible")
+            local_models["COMMAND_TYPE"] = 0
+            universal_models["COMMAND_TYPE"] = 0
+
         # Solve the problem
         res = Solving_Thread(mathematical_model)
         res_recovery = Solving_Thread(mathematical_model_recovery)
@@ -89,8 +92,6 @@ class middle_term_operation():
         res.join(default_dead_line_time["Gate_closure_ed"])
         res_recovery.join(default_dead_line_time["Gate_closure_ed"])
 
-        # local_models["COMMAND_TYPE"]=0
-        # universal_models["COMMAND_TYPE"]=0
 
         if res.value["success"] is True:
             (local_models, universal_models) = result_update(res.value, local_models, universal_models, "Feasible")
