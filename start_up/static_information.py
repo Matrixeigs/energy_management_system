@@ -1,4 +1,8 @@
-# Static information generation for both local ems and universal ems
+"""
+Static information generation for energy management system
+
+"""
+
 import modelling.local_ems_pb2 as static_model
 import time
 

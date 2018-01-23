@@ -5,7 +5,7 @@ from utils import Logger
 from configuration.configuration_time_line import default_look_ahead_time_step# The look ahead time is adopted to
 from copy import deepcopy
 
-class start_up_lems():
+class StartUpLems():
     ## The start up class of UEMS
     def start_up(*args):
         logger = Logger("local_ems_start_up")

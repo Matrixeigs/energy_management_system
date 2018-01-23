@@ -64,6 +64,7 @@ def run():
     Session_long = sessionmaker(bind=engine_long)
     session_uems_long = Session_long()  # Create session for universal energy management system
     IP = "*"
+    # IP = "10.25.255.84"
     # Start the information connection
     context = zmq.Context()
     socket = context.socket(zmq.REP)

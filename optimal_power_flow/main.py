@@ -194,7 +194,7 @@ def update(*args):
     model_type = args[2]
 
     if model_type == "Feasible":
-        if model["COMMAND_TYPE"] is 0:
+        if model["COMMAND_TYPE"] == 0:
             from modelling.power_flow.idx_format import PG, QG, RG, PUG, QUG, RUG, PBIC_AC2DC, PBIC_DC2AC, QBIC, PESS_C, \
                 PESS_DC, RESS, PMG
         else:
@@ -221,7 +221,7 @@ def update(*args):
         model["success"] = True # The obtained solution is feasible
 
     else:
-        if model["COMMAND_TYPE"] is 0:
+        if model["COMMAND_TYPE"] == 0:
             from modelling.power_flow.idx_format_recovery import PG, QG, RG, PUG, QUG, RUG, PBIC_AC2DC, PBIC_DC2AC, QBIC, \
                 PESS_C, PESS_DC, RESS, PMG, PPV, PWP, PL_AC, PL_UAC, PL_DC, PL_UDC
         else:
