@@ -1,0 +1,1156 @@
+2017-12-05 19:35:37,223; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-05 19:42:11,700; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-05 19:42:12,700; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-05 19:42:13,723; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-05 19:42:14,725; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-05 19:42:15,718; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-05 19:42:16,736; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-05 19:42:17,774; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-05 19:42:18,814; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-05 19:42:19,816; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-05 19:42:20,843; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-05 19:42:21,865; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-05 19:42:22,880; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-05 19:42:23,884; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-05 19:42:24,890; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-05 19:56:21,641; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-05 19:56:22,982; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-05 19:56:24,329; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-05 19:56:25,675; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-05 19:56:27,025; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-05 19:56:28,405; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-05 19:56:29,751; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:04:47,311; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:04:47,311; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:04:48,655; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:04:48,655; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:04:50,018; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:04:50,018; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:04:51,358; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:04:51,358; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:04:52,718; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:04:52,718; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:04:54,091; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:04:54,091; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:04:55,404; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:04:55,404; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:04:56,730; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:04:56,730; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:04:58,068; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:04:58,069; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:04:59,409; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:04:59,409; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:00,731; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:00,731; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:02,041; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:02,041; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:02,041; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:03,374; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:03,375; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:03,375; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:04,731; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:04,731; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:04,731; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:06,055; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:06,055; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:06,055; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:07,372; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:07,372; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:07,372; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:08,693; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:08,693; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:08,693; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:10,028; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:10,028; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:10,028; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:11,426; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:11,426; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:11,427; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:12,757; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:12,757; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:12,758; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:14,082; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:14,082; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:14,082; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:15,444; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:15,444; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:15,444; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:16,757; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:16,758; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:16,758; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:18,077; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:18,077; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:18,078; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:19,396; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:19,396; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:19,396; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:20,748; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:20,748; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:20,748; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:22,139; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:22,140; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:22,140; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:23,538; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:23,538; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:23,538; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:24,897; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:24,897; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:24,897; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:26,248; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:26,248; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:26,249; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:27,596; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:27,597; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:27,597; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:28,951; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:28,951; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:28,951; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:30,366; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:30,366; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:30,366; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:31,698; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:31,698; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:31,698; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:33,024; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:33,025; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:33,025; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:34,398; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:34,399; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:34,399; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:35,721; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:35,721; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:35,721; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:37,054; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:37,054; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:37,055; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:38,404; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:38,404; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:38,404; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:39,746; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:39,746; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:39,746; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:41,074; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:41,075; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:41,075; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:42,427; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:42,427; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:42,428; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:43,760; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:43,760; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:43,761; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:45,078; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:45,078; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:45,078; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:46,449; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:46,449; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:46,450; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:47,782; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:47,782; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:47,782; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:49,128; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:49,128; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:49,128; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:50,502; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:50,502; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:50,502; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:51,903; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:51,903; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:51,903; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:53,308; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:53,308; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:53,309; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:54,717; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:54,717; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:54,717; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:56,092; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:56,092; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:56,092; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:57,477; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:57,477; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:57,477; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:05:58,849; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:05:58,850; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:05:58,850; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:00,216; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:00,216; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:00,216; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:01,578; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:01,578; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:01,578; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:02,935; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:02,935; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:02,935; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:04,327; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:04,328; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:04,328; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:05,681; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:05,681; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:05,682; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:07,042; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:07,042; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:07,043; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:08,433; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:08,433; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:08,434; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:09,797; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:09,797; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:09,797; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:11,193; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:11,193; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:11,193; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:12,561; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:12,562; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:12,562; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:13,982; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:13,983; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:13,983; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:15,360; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:15,360; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:15,360; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:16,764; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:16,765; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:16,765; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:18,127; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:18,127; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:18,128; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:19,538; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:19,538; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:19,538; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:20,903; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:20,903; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:20,903; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:22,307; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:22,307; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:22,307; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:23,674; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:23,674; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:23,674; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:25,046; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:25,046; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:25,047; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:26,453; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:26,453; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:26,453; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:27,811; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:27,811; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:27,812; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:29,228; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:29,228; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:29,228; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:30,604; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:30,605; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:30,605; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:32,010; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:32,010; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:32,010; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:33,380; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:33,380; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:33,380; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:06:34,817; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:06:34,818; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:06:34,818; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:18:29,179; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:18:29,180; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:18:29,180; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:18:30,490; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:18:30,490; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:18:30,490; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:18:31,800; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:18:31,800; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:18:31,800; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:18:33,173; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:18:33,173; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:18:33,173; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:18:34,544; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:18:34,544; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:18:34,544; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:18:35,880; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:18:35,880; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:18:35,880; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:22:29,854; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:22:29,854; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:22:29,854; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:22:31,201; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:22:31,201; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:22:31,202; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:22:32,538; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:22:32,539; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:22:32,539; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:22:33,877; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:22:33,877; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:22:33,877; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:22:35,202; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:22:35,203; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:22:35,203; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:22:36,586; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:22:36,586; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:22:36,587; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:22:37,920; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:22:37,920; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:22:37,920; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:22:39,283; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:22:39,283; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:22:39,283; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:18,155; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:18,155; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:18,155; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:19,458; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:19,458; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:19,458; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:20,769; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:20,769; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:20,769; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:22,122; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:22,122; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:22,122; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:23,452; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:23,452; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:23,452; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:24,799; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:24,800; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:24,800; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:26,116; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:26,116; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:26,116; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:27,448; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:27,449; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:27,449; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:28,800; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:28,800; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:28,800; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:30,114; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:30,114; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:30,114; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:31,503; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:31,503; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:31,503; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:32,937; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:32,937; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:32,937; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:34,345; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:34,345; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:34,346; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:35,706; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:35,706; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:35,706; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:37,138; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:37,139; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:37,139; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:38,564; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:38,564; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:38,564; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:39,950; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:39,950; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:39,950; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:41,373; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:41,373; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:41,373; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:42,832; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:42,832; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:42,832; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:44,233; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:44,233; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:44,233; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:45,645; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:45,645; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:45,645; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:47,059; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:47,060; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:47,060; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:48,536; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:48,537; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:48,537; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:49,924; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:49,924; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:49,924; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:51,340; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:51,340; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:51,340; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:52,776; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:52,776; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:52,776; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:54,200; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:54,201; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:54,201; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:55,696; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:55,696; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:55,696; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:57,125; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:57,125; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:57,125; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:25:58,675; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:25:58,676; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:25:58,676; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:00,061; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:00,061; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:00,061; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:01,519; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:01,519; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:01,519; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:02,981; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:02,981; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:02,982; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:04,378; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:04,378; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:04,378; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:05,925; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:05,926; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:05,926; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:07,409; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:07,410; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:07,410; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:26,279; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:26,280; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:26,280; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:27,615; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:27,615; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:27,615; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:28,949; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:28,949; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:28,949; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:30,321; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:30,321; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:30,321; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:31,707; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:31,707; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:31,707; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:33,158; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:33,159; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:33,159; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:34,575; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:34,575; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:34,575; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:36,033; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:36,033; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:36,033; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:37,440; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:37,440; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:37,441; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:38,800; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:38,800; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:38,800; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:40,143; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:40,143; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:40,143; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:41,463; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:41,463; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:41,463; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:42,784; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:42,784; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:42,784; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:44,155; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:44,155; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:44,155; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:45,501; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:45,501; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:45,502; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:46,831; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:46,831; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:46,831; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:48,167; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:48,167; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:48,167; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:49,520; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:49,521; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:49,521; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:50,878; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:50,879; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:50,879; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:52,251; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:52,251; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:52,251; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:53,606; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:53,607; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:53,607; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:54,956; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:54,957; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:54,957; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:56,304; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:56,304; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:56,305; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:57,635; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:57,635; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:57,635; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:26:59,014; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:26:59,015; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:26:59,015; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:00,370; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:00,370; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:00,370; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:01,688; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:01,688; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:01,688; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:03,012; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:03,013; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:03,013; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:04,393; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:04,393; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:04,393; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:05,725; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:05,725; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:05,725; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:07,064; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:07,064; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:07,065; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:08,443; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:08,443; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:08,443; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:09,789; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:09,789; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:09,789; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:11,149; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:11,149; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:11,149; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:12,519; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:12,520; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:12,520; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:13,872; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:13,872; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:13,872; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:15,215; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:15,215; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:15,215; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:16,633; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:16,634; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:16,634; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:18,063; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:18,064; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:18,064; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:19,494; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:19,494; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:19,494; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:20,963; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:20,963; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:20,963; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:22,403; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:22,403; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:22,403; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:23,810; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:23,810; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:23,810; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:25,369; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:25,369; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:25,369; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:26,806; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:26,807; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:26,807; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:28,230; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:28,230; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:28,230; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:29,660; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:29,660; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:29,660; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:31,077; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:31,077; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:31,077; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:32,563; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:32,563; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:32,563; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:34,002; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:34,003; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:34,003; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:35,525; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:35,525; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:35,525; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:36,893; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:36,894; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:36,894; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:38,365; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:38,365; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:38,365; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:39,861; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:39,861; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:39,862; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:41,302; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:41,302; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:41,303; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:42,776; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:42,776; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:42,777; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:44,185; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:44,185; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:44,186; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:45,577; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:45,578; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:45,578; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:46,978; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:46,979; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:46,979; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:48,459; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:48,459; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:48,459; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:49,875; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:49,876; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:49,876; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:51,374; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:51,374; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:51,374; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:52,850; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:52,850; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:52,850; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:54,315; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:54,316; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:54,316; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:55,764; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:55,764; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:55,764; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:57,436; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:57,437; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:57,438; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:27:58,930; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:27:58,930; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:27:58,930; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:29:46,485; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:29:46,485; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:29:46,485; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:29:47,789; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:29:47,789; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:29:47,789; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:29:49,116; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:29:49,116; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:29:49,116; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:29:50,443; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:29:50,443; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:29:50,443; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:29:51,807; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:29:51,807; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:29:51,807; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:29:53,117; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:29:53,117; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:29:53,117; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:29:54,448; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:29:54,449; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:29:54,449; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:29:55,811; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:29:55,811; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:29:55,811; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:29:57,222; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:29:57,222; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:29:57,222; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:29:58,586; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:29:58,586; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:29:58,586; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:29:59,968; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:29:59,968; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:29:59,968; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-08 10:30:01,356; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:01,356; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:02,702; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:02,703; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:04,084; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:04,084; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:05,519; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:05,519; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:06,867; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:06,867; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:08,207; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:08,207; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:09,557; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:09,557; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:10,920; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:10,920; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:12,239; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:12,239; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:13,548; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:13,548; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:14,861; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:14,861; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:16,152; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:16,152; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:17,465; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:17,465; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:18,792; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:18,792; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:20,136; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:20,136; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:21,462; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:21,462; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:22,774; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:22,774; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:24,128; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:24,128; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:25,442; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:25,442; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:26,756; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:26,756; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:28,096; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:28,096; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:29,445; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:29,445; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:30,786; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:30,787; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:32,222; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:32,223; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:33,610; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:33,610; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:34,945; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:34,946; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:36,298; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:36,298; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:37,645; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:37,645; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:38,997; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:38,997; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:40,417; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:40,417; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:41,729; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:41,729; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:43,114; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:43,114; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:44,493; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:44,494; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:45,865; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:45,865; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:47,257; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:47,257; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:48,590; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:48,591; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:49,949; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:49,950; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:51,284; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:51,284; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:52,616; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:52,616; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:53,951; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:53,951; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:55,295; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:55,295; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:56,625; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:56,626; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:57,975; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:57,976; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:30:59,320; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:30:59,320; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:00,737; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:00,737; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:02,103; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:02,104; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:03,472; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:03,473; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:04,822; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:04,822; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:06,178; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:06,178; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:07,553; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:07,553; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:08,927; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:08,927; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:10,312; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:10,312; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:11,682; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:11,682; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:13,073; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:13,074; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:14,471; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:14,471; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:15,845; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:15,845; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:17,198; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:17,199; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:18,544; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:18,544; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:19,891; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:19,891; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:21,287; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:21,287; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:22,659; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:22,659; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:24,031; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:24,031; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:25,403; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:25,404; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:26,812; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:26,812; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:28,197; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:28,198; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:29,570; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:29,570; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:30,982; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:30,983; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:32,393; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:32,393; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:33,787; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:33,787; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:35,142; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:35,142; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:36,549; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:36,550; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:37,956; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:37,957; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:39,371; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:39,371; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:40,732; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:40,732; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:42,093; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:42,093; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:43,439; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:43,440; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:44,821; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:44,822; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:46,203; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:46,203; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:47,572; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:47,572; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:48,957; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:48,957; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:50,349; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:50,349; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:51,757; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:51,758; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:53,150; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:53,150; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:54,526; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:54,526; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:55,930; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:55,930; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:57,328; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:57,329; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:31:58,750; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:31:58,750; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:32:00,153; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:32:00,154; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:32:01,544; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:32:01,544; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:47:39,215; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:39,215; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:39,215; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:47:40,566; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:40,567; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:40,567; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:47:41,900; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:41,900; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:41,900; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:47:43,266; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:43,267; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:43,267; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:47:44,616; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:44,616; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:44,616; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:47:45,953; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:45,954; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:45,954; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:47:47,322; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:47,322; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:47,322; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:47:48,659; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:48,659; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:48,659; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:47:50,016; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:50,017; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:50,017; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:47:51,374; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:51,386; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:51,386; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:47:52,738; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:52,738; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:52,739; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:47:54,095; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:54,096; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:54,096; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:47:55,470; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:55,471; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:55,471; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:47:56,871; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:56,872; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:56,872; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:47:58,233; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:58,234; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:58,235; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:47:59,566; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:59,566; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:47:59,566; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:48:00,934; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:48:00,934; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:48:00,934; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:48:02,339; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:48:02,339; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:48:02,339; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:48:03,695; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:48:03,695; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:48:03,695; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:48:05,095; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:48:05,095; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:48:05,096; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:48:06,467; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:48:06,468; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:48:06,468; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:51:07,709; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:51:07,710; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:51:09,068; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:51:09,068; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:51:10,412; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:51:10,412; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:51:11,776; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:51:11,776; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:51:13,129; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:51:13,129; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:51:14,479; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:51:14,479; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:51:15,821; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:51:15,821; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:51:17,156; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:51:17,156; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 10:51:18,570; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 10:51:18,571; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-08 12:12:47,500; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:12:48,817; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:12:50,155; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:12:51,496; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:12:52,838; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:12:54,181; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:12:55,527; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:12:56,869; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:12:58,240; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:12:59,588; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:00,937; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:02,321; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:03,649; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:05,056; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:06,405; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:07,750; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:09,111; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:10,462; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:11,798; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:13,136; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:14,520; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:16,132; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:17,666; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:19,088; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:20,532; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:21,957; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:23,353; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:24,852; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:26,401; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:27,882; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:29,300; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:30,712; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:32,122; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:33,512; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:34,925; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:36,331; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:37,808; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:39,534; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:41,230; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:42,715; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:44,167; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:45,612; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:47,031; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:48,549; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:49,990; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:51,456; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:52,871; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:54,332; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:55,708; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:57,102; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:58,516; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:13:59,915; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:01,288; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:02,711; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:04,112; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:05,516; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:06,926; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:08,317; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:09,710; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:11,160; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:12,588; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:14,020; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:15,462; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:16,874; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:18,279; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:19,723; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:21,143; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:22,548; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:23,930; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:25,392; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:26,826; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:28,307; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:29,811; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:31,321; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:32,745; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:34,268; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:35,777; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:37,225; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:38,646; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:40,274; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:41,731; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:43,190; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:44,590; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:45,973; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:47,361; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:48,786; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:50,208; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:51,602; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:53,038; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:54,517; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:55,934; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:57,370; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:14:58,776; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:15:00,200; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:15:01,669; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:15:03,086; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:15:04,522; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:15:05,974; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:15:07,440; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:15:08,903; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:29:55,065; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:29:56,411; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:29:57,724; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:29:59,066; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:00,402; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:01,699; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:03,007; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:04,329; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:05,677; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:07,040; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:08,438; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:09,890; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:11,447; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:12,932; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:14,321; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:15,707; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:17,096; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:18,481; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:19,846; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:21,211; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:22,621; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:23,981; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:25,406; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:26,754; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:28,153; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:29,513; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:30,932; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:32,329; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:33,781; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:35,258; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:36,652; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:38,026; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:39,374; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:40,708; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:42,073; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:43,570; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:45,117; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:46,613; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:48,096; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:49,566; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:51,008; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:52,467; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:53,899; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:55,346; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:56,785; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:58,234; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:30:59,674; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:01,110; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:02,531; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:03,964; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:05,409; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:06,836; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:08,268; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:09,719; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:11,141; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:12,568; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:14,005; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:15,433; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:16,837; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:18,294; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:19,717; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:21,164; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:22,614; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:24,071; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:25,525; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:26,982; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:28,397; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:29,810; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:31,245; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:32,664; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:34,129; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:35,546; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:37,008; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:38,435; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:39,868; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:41,269; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:42,719; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:44,145; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:45,618; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:47,039; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:48,479; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:49,902; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:51,354; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:52,771; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:54,210; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:55,638; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:57,089; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:58,521; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:31:59,992; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:32:01,427; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:32:02,882; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:32:04,307; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:32:05,767; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:32:07,194; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:32:08,643; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:32:10,091; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:32:11,537; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:32:12,981; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:32:14,434; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-08 12:32:15,886; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-09 02:35:01,097; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-09 02:35:01,097; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-09 02:35:01,097; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-09 04:35:01,097; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-09 04:35:01,097; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-09 04:35:01,097; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-09 07:21:01,095; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-09 07:21:01,095; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-09 07:21:01,095; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-09 07:22:01,084; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-09 07:22:01,085; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-09 07:22:01,085; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-09 07:23:01,090; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-09 07:23:01,090; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-09 07:23:01,090; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-09 07:24:01,087; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-09 07:24:01,088; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-09 07:24:01,088; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-09 07:25:01,087; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-09 07:25:01,087; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-09 07:25:01,087; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-09 07:26:01,093; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-09 07:26:01,094; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-09 07:26:01,094; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-09 07:27:01,086; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-09 07:27:01,086; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-09 07:27:01,086; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-09 07:28:01,092; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-09 07:28:01,092; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-09 07:28:01,092; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-09 08:39:01,112; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-09 08:39:01,112; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-09 08:39:01,112; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-09 08:40:01,090; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-09 08:40:01,090; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-09 08:40:01,090; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-09 08:41:01,101; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-09 08:41:01,101; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-09 08:41:01,101; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-09 08:42:01,096; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-09 08:42:01,096; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-09 08:42:01,096; EMS.Short_term_dispatch_output_check - [91mThere exits bi-directional power flow on BIC![0m
+2017-12-09 10:05:01,086; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-09 10:06:01,061; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-09 10:42:01,073; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-09 10:43:01,074; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-09 10:44:01,081; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-09 10:45:01,086; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-09 10:46:01,081; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-09 10:47:01,086; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet AC bus power requirement![0m
+2017-12-09 21:39:01,568; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-09 21:40:01,055; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-09 21:41:01,052; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-09 21:42:01,070; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-09 21:43:01,056; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-10 20:37:01,256; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-10 20:38:01,121; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-10 20:39:01,125; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-10 20:40:01,202; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-10 20:41:01,134; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-10 20:42:01,130; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
+2017-12-10 20:43:01,143; EMS.Short_term_dispatch_output_check - [91mThe obtained solution can not meet DC bus power requirement![0m
